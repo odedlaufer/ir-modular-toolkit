@@ -9,7 +9,7 @@ This repository contains a multi-module Information Retrieval project focused on
 Each module demonstrates different approaches to handling and understanding textual data using classical and machine learning-based techniques.
 
 ## Project Structure
-
+```text
 ir-modular-toolkit/
 ├── text_clustering/
 │   ├── main.py
