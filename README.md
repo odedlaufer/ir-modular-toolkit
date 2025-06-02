@@ -8,33 +8,34 @@ This repository contains a multi-module Information Retrieval project focused on
 
 Each module demonstrates different approaches to handling and understanding textual data using classical and machine learning-based techniques.
 
-## 📁 Project Structure
+## Project Structure
 
-information_retrieval_project/
+ir-modular-toolkit/
 ├── text_clustering/
-│ ├── main.py
-│ ├── clustering.py
-│ ├── preprocess.py
-│ ├── data_loader.py
-│ ├── visualization.py
-│ └── [3d_printing | filter_bubble | twitter_bias | etc.]
+│   ├── main.py
+│   ├── clustering.py
+│   ├── preprocess.py
+│   ├── data_loader.py
+│   ├── visualization.py
+│   └── [3d_printing | filter_bubble | twitter_bias | etc.]
 │
 ├── text_classification/
-│ ├── main.py
-│ ├── model_training.py
-│ ├── result_analysis.py
-│ ├── preprocessing.py
-│ ├── data_loader.py
-│ ├── config.py
-│ └── labeled_dataset.csv
+│   ├── main.py
+│   ├── model_training.py
+│   ├── result_analysis.py
+│   ├── preprocessing.py
+│   ├── data_loader.py
+│   ├── config.py
+│   └── labeled_dataset.csv
 │
 ├── language_modeling/
-│ ├── main.py
-│ ├── check_encoding.py
-│ ├── create_language_model.py
-│ ├── compare_text_and_models.py
-│ ├── stop_words.txt
-│ └── remove_numbers.py
+│   ├── main.py
+│   ├── check_encoding.py
+│   ├── create_language_model.py
+│   ├── compare_text_and_models.py
+│   ├── stop_words.txt
+│   └── remove_numbers.py
+
 
 ##  Getting Started
 
