@@ -1,0 +1,2010 @@
+ExpertSystemsWithApplications164(2021)114006
+ContentslistsavailableatScienceDirect
+ExpertSystemsWithApplications
+journalhomepage:www.elsevier.com/locate/eswa
+AsurveyofTwitterresearch:Datamodel,graphstructure,sentimentanalysis
+✩
+andattacks
+DespoinaAntonakakib,∗,ParaskeviFragopouloub,SotirisIoannidisa,b
+aTechnicalUniversityofCrete,UniversityCampus,Akrotiri,Chania73100,Crete,EL090034024,Greece
+bInstituteofComputerScience(ICS)oftheFoundationforResearchandTechnology-Hellas(FORTH),N.Plastira100VassilikaVouton,GR-70013
+Heraklion,Crete,EL090101655,Greece
+A R T I C L E I N F O A B S T R A C T
+Keywords: Twitter is the third most popular worldwide Online Social Network (OSN) after Facebook and Instagram.
+Socialnetworks Compared to other OSNs, it has a simple data model and a straightforward data access API. This makes it
+Twitter ideal for social network studies attempting to analyze the patterns of online behavior, the structure of the
+Survey social graph, the sentiment towards various entities and the nature of malicious attacks in a vivid network
+Socialgraph
+withhundredsofmillionsofusers.Indeed,Twitterhasbeenestablishedasamajorresearchplatform,utilized
+Sentimentanalysis
+inmorethantenthousandsresearcharticlesoverthelasttenyears.Althoughthereareexcellentreviewand
+Spam
+Bots comparisonstudiesformostoftheresearchthatutilizesTwitter,therearelimitedeffortstomapthisresearch
+Fakenews terrainasawhole.HerewepresentanefforttomapthecurrentresearchtopicsinTwitterfocusingonthree
+Hatespeech majorareas:thestructureandpropertiesofthesocialgraph,sentimentanalysisandthreatssuchasspam,bots,
+fakenewsandhatespeech.WealsopresentTwitter’sbasicdatamodelandbestpracticesforsamplingand
+dataaccess.ThissurveyalsolaysthegroundofcomputationaltechniquesusedintheseareassuchasGraph
+Sampling,NaturalLanguageProcessingandMachineLearning.Alongwithexistingreviewsandcomparison
+studies,wealsodiscussthekeyfindingsandthestateoftheartinthesemethods.Overall,wehopethatthis
+surveywillhelpresearcherscreateaclearconceptualmodelofTwitterandactasaguidetoexpandfurther
+thetopicspresented.
+1. Introduction Twitterhasasimpledatadeliverymodelwhichisimplementedin
+averyefficientandscalableinfrastructure(Hashemi,2018).Moreover,
+TwitterisoneofthemostvitalandvibrantOnlineSocialNetworks TwitterstandsoutfromotherOSNsfromthefactthat,althoughithas
+(OSN)today.ItiscommonlyrankedasoneofthemostpopularOSNsby atypicalOSNstructure(usersconnectedtousers),itismainlyusedfor
+having650millionregisteredusers,althoughpracticallyitisthethird
+newsdissemination(Kantrowitz,2018;Kwaketal.,2010).Thisisdue
+most popular after Instagram and Facebook. This is because the top
+tothefactthataccountsthatrepresentpublicandprivateinstitutions,
+ranked,Google+whichwasshutdownon8thofOctober2018(Abner,
+newsagencies,publicfigures,musicbands,politicalpartiesandother
+2018), used to consider as active all users having a Google account
+collectivesofvariousnature,flourishonTwitter.Theseentities,along
+(Wong & Solon, 2018). As reported by Alexa, Twitter is currently
+rankedasthe49thmostpopularwebsiteoftheworld(AlexaInternet, with accounts that represent individual users, make Twitter a very
+Inc.,2018).Twitterhas330millionmonthlyactiveusers,152million interesting research object in numerous areas like computer, social,
+daily active users and it accommodates 500 million tweets per day urbanandartsciences.
+(LiveStats,2018;Omnicore,2018).Allthisinformationhasestablished GoogleScholarlists27,000researcharticlesthatincludetheword
+Twitterasaveryimportantonlinesocialnetworkforuserinteraction ‘Twitter’ontheirtitle.InFig.1wepresentabreakdownofthesearticles
+and information dissemination. It is estimated that the average daily from 2006 (when Twitter was founded) until 2020, compared to the
+engagement of American users in social networks is more than 3 h relevant number of articles that contain the word ‘Facebook’. Yet, in
+(Marketingcharts, 2013). Also, 45% of Americans between the age of
+contrast to Facebook (Wilson et al., 2012), very little effort has been
+18and24yearsoldareTwitterusers(Smith&Anderson,2018).
+✩
+This document is the results of the research project funded by the European Commission, project CONCORDIA, with grant number 830927 (EUROPEAN
+COMMISSION)Directorate-GeneralCommunicationsNetworks,ContentandTechnology.
+∗ Correspondingauthor.
+E-mailaddresses: despoina@ics.forth.gr(D.Antonakaki),fragopou@ics.forth.gr(P.Fragopoulou),sotiris@ics.forth.gr(S.Ioannidis).
+https://doi.org/10.1016/j.eswa.2020.114006
+Received6February2020;Receivedinrevisedform9July2020;Accepted11September2020
+Availableonline12September2020
+0957-4174/©2020ElsevierLtd.Allrightsreserved.D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+1.1.1. Hashtags
+Ahashtagisawordthatisprecedentedwithahash(#)character,
+(i.e.‘#funny’).Thesewordsareindexedseparatelyanduserscanquery
+the platform in order to find tweets with specific hashtags. Hashtags
+haveevolvedtoasocialphenomenonandtheirusehasbeenadopted
+byseveralonlineandnon-onlinemediaasasimplemethodtosignify,
+idealizeandconceptualizeasingleword(orphrase)inashortmessage.
+The general action of assigning hashtags to events, places or people
+hasbeendescribedas‘socialtagging’,asshowninHuangetal.(2010)
+andisavitalpartofTwitterandofmicrobloggingingeneral.Metrics
+thatareappliedinhashtagsarefrequency,specificity,consistencyand
+stability(Patel-Schneideretal.,2010).Frequencymeasurestheamount
+ofusersandmessagesthatcontainit.Specificitymeasuresthesemantic
+relationshipbetweenthehashtagasawordandthecontextforwhichis
+usedfor.Consistencyisthelevelofthehashtag’sspreadoverdifferent
+communities,asareferrertoaspecificconcept.Finally,stabilityishow
+Fig.1. Numberofscientificpublicationscontainingtheword‘Twitter’and‘Facebook’ thehashtagmaintainsbothitsfrequencyanditsthematiccontentover
+ontheirtitlefrom2006until2020,asstatedinGoogleScholar.AlthoughFacebook
+time.
+contains six times more users, in research, Twitter is only slightly less popular. The
+smalldecreaseoverthelastyearsisnotasignofdecreasinginterest,butitisdueto
+abatcheffect:recentsubmittedstudieshavenotyetbeenpublished. 1.1.2. Trends
+Popularhashtagsandcommonsearchtermsarelistedseparately,as
+popular‘trends’.Intheliteraturethesearealsoreferredtoas‘topics’,
+made to map this new area, pinpoint the major methods, clarify the ‘populartrends’or‘trendingtopics’.Trendsaredifferentpergeographic
+objectivesandlistthemostimportantexistingwork.Hereweattempt regionandthetopicsthatusersviewaredeterminedbytheirlocation
+to present a survey of the major research themes and strategies for and the interests of the users that they follow. The study of Twitter’s
+data analysis on Twitter. This review does not cover the numerous trends gives valuable information of the importance, duration and
+data formats and programming libraries that are available for this impact of real world events. For example, an interesting question is,
+purpose. For a review of this area we recommend the comprehensive if Twitter is a fresh content generator, or if it simply reproduces
+work of Batrinca and Treleaven (2015). See also Freelon (2018), for content from external sources. Studies show that Twitter acts as a
+acomprehensivelistofavailableonlinetoolsandresourcesforsocial content aggregator, driving specific trends to popularity (Asur et al.,
+mediadatacollection. 2011).Moreover,thereisaqualitativedifferencebetweentrendsthat
+are emerging from user’s activity and traditional headlines that are
+1.1. TheTwitterdatamodelandbasicterminology
+postedbymainstreammedia.Specifically,theeventsthatappearfirst
+asTwittertrends,areusuallycapturedbyindividualusers(accidents,
+ApostinTwitter,isashortmessage,called‘tweet’,withnomore
+demonstrations, happenings, etc.), in contrast to political events that
+than280characterswhichusedtobe140untilNovember2018(Rosen
+arecoveredmainlybyprofessionalreporters.Finally,1outof5users
+& Ihara, 2018). A tweet may contain images, URLs and videos. All
+tweetaboutacertaintrendand15%participateinmorethan10topics,
+accounts are by default public, meaning that any user can read the
+withinaperiodoffourmonths(Kwaketal.,2010).
+tweets of this account. A user can select to ‘follow’ any other public
+A distinct area of research in Twitter is the semantic analysis of
+user. The ‘timeline’ of a user contains the temporal updates of the
+tweets of the users that she follows. Therefore, any user has a set trendsandhashtags.Thepurposeofthesestudiesistolocatesemantic
+of ‘followers’ (users receiving the tweets that this user sends) and relationshipsbetweentrendsandbuildatrendsimilaritygraph(Wang
+‘followings’(userswhosetweetsappearonthisuser’stimeline). et al., 2014). This graph can help pinpoint emerging topics (Naaman
+Ausercanconfiguretheprivacysettingsofherprofiletorenderher et al., 2011), categorize users into groups of interests (Abel et al.,
+tweetsaspublicorprotected.Protectedtweetsareonlyvisibletothe 2011a)anduncoverhiddenrelationshipsbetweenseeminglyunrelated
+usersthatarepre-approvedbytheoriginalsender.Additionally,users topics(Cataldietal.,2010a).
+onTwitter,cancreatelistswithotherusers’accounts,orsubscribeto
+alistcreatedbyanotheruser.Thiswillresultinamorefocusedview 1.1.3. Hashtagsandtopicrecommendationsystems
+ofthetimeline,sinceitwillcontainonlytweetsoriginatingfromusers In topic analysis studies, hashtags are good predictors of the the-
+belongingtothislist. matic subject of a tweet (Abel et al., 2011b), or event detectors
+Apart from text, images, videos and URLs, a tweet may contain (Adedoyin-Oloweetal.,2016).
+hashtags and user mentions. Tables 1 and 2 contains six of the most
+Thisinturn,makeshashtagsvaluableinrecommendationsystems,
+prominent features of this data model, along with the major research
+trying to assist users to assign appropriate hashtags to tweets (Efron,
+publications that explore them. These features are hashtags (HT),
+2010). Similarly, topic recommendation systems attempt to extract
+trends,retweets(RTs),mentions,repliesandURLs.Metricsreferstothe
+topicsthataresubjectivetousers’interestsandfriendships,whilebeing
+prevalenceandthebasicstatisticsofthefeature.Successreferstothe
+timelyandaccurate(Cataldietal.,2010b).
+studies that assess whether or not this feature is a ‘success’ indicator
+of real world entities (i.e. scholar articles, political campaigns etc.).
+1.1.4. Retweets,mentions,repliesandURLs
+Influence refers to the studies that measure the contribution of this
+featureonuser’sinfluence.Retweetscontainsthestudiesthatmeasureif Userscan‘retweet’orelsere-postatweetfromanotheruser.Users
+theuseofafeatureincreasesthechancesofbeingretweeted.HasGraph can also refer explicitly to a specific user by adding a ‘mention’ in a
+containsthestudiesthatconstructandanalyzegraphswiththisfeature tweet,whichisthecharacter‘@’followedbyausername(i.e.‘@jack’).
+asnodes.Spamcontainsthestudiesthatmeasuretheprevalenceofthis Onbothevents,thereferred(retweetedormentioned)usergetsnotified
+featureontweetscontainingspamURLs.Botscontainsthestudiesthat by the service. The number of retweets is commonly associated with
+assesswhetherthisfeaturehasbeenexploitedbybots. thecontent-valueofaspecifictweet,whereasthenumberofmentions
+Finally,userscan‘like’(or‘favorite’)atweet,althoughthisfeature isassociatedwiththename-value(orelsefame)oftheuser(Chaetal.,
+isgraduallyphasedoutbytheservice,asreportedinTelegraph(2018). 2010).
+2D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+Table1 for assessing the success of a paid advertising campaign on Twitter.
+SomeofthemajorstudiesthatexaminethebasicfeaturesofTwitter.HTs=Hastags, This is because mentions require active engagement, in contrast to
+RTs=Retweets.OnthelasttwocategoriesofSpamandBots,underlinedcellsindicate
+simple views. Twitter estimates that approximately 80% of its users
+thattherespectivestudiesreachednegativeconclusions(itisnotexploited).Blanks(–)
+indicatethatnostudywasfoundthatmeasuresthepropertyofthisfeature.Thistable havementionedabrandatleastonce(Midha,2014).
+iscontinuedonTable2. A user can reply to a tweet. Duncan (2010) estimated that 23%
+HTs Trends RTs of tweets got at least one reply. Replies generate a typical thread,
+Metrics Patel-Schneider Kwaketal. Lermanand commonlyseeninonlineforums.Thereply-networkisagraph,where
+etal.(2010) (2010) Ghosh(2010) nodesareusersandedgesrepresentreplyevents,inadefinedperiodof
+Success Asuretal. Abeletal. Asurand time.Thisnetworkisbelievedtorepresentusersimilaritiesinahigher
+(2011) (2011b) Huberman level than that of the typical users–followers network, as studied by
+(2010)
+Blissetal.(2012).Anothertypeofreply-networkisthereply-cascade
+Influence Suhetal.(2010) – Chaetal.(2010)
+Retweets Suhetal.(2010) Suhetal.(2010) – tree,whichsimplyrepresentsthediscussionthreadinitiatedbyasingle
+HasGraph Ferraraetal. Cataldietal. Bakshyetal. tweet,asshowninNishietal.(2016).Theshapeofthistreeishighly
+(2016) (2010a) (2011) dependentontheindegree(numberoffollowers)oftherootnode(Nishi
+Spam Benevenuto Martinez-Romo Grieretal.
+et al., 2016). The number of replies that a user receives is also a
+etal.(2010) andAraujo (2010)
+(2013) metricofinfluence(Ye&Wu,2010).Bothreply-networksandmention-
+Bots Ferraraetal. – Stellaetal. networkscanbeusedtomeasuretheinformationdiffusionpatternfor
+(2016) (2018) certainevents(orhashtags).Informationdiffusionmeasuresthetempo-
+ral variation of the network as information travels (diffuses) through
+its edges. For example we might be interested in separating ‘normal’
+Table2
+ContinuedfromTable1.ThispartpresentsMentions,RepliesandURLs. diffusionevents(i.e.auser’sreply)fromundesirable(i.e.spam,hate)
+Mentions Replies URLs (Foroozani&Ebrahimi,2019).
+Finally a common feature in tweets is the contained URLs. It is
+Wuetal.(2011)
+Metrics Midha(2014) Duncan(2010) Bakshyetal.(2011) estimated that a percentage between 10% (Bakshy et al., 2011) and
+20% (Suh et al., 2010) of tweets contain URLs. Given the hundreds
+Thelwalletal.
+Success (2013) – Dongetal.(2010) of millions of daily posted tweets, it is evident that an active area of
+Tumasjanetal. research is about the evaluation of Twitter as a general purpose web
+(2011) searchengine(Teevanetal.,2011).Indeed,inastudyofDongetal.
+Influence Chaetal.(2010) YeandWu(2010) Eysenbach(2011) (2010) it was found that URLs posted in Twitter were more relevant
+Retweets – – Suhetal.(2010)
+and more recent, compared to results returned from common search
+HasGraph Conoveretal. Blissetal.(2012)and Bakshyetal.(2011)
+engines. Also URLs have a big variety of life span, depending on the
+(2011) Nishietal.(2016)
+Spam Grieretal. – Ghoshetal.(2012) category of the poster. Wu et al. (2011) showed that URLs posted by
+(2010) mediaorganizationsareshort-lived,whereasURLsfrombloggershave
+Bots Stellaetal. Ferraraetal.(2016) Chu,Gianvecchio a longer life span, especially if they link to music or video content.
+(2018) etal.(2012)
+Thesamestudyalsoconcludedthat50%ofURLspostedinTwitterare
+‘generated’(orelseinitiallyposted)fromaverylownumberof‘elite’
+users.InSection4.1wesurveyanothercrucialareaofresearch,which
+AlthoughretweetingisoneofthemostknownfeaturesofTwitter, isthepresenceofspamandothermaliciousURLsinTwitter.
+in 2010 it was estimated that only 6% of tweets got at least one
+retweet (Duncan, 2010). Therefore, a common line of research is to 1.2. GettingdatafromTwitter
+locate the features that drive a tweet to be more retweeted (Boyd
+etal.,2010;Suhetal.,2010).Oneofthesestudiesshowedthattweets Sinceitsbeginning,TwitterhasmadeavailableanAPI(Application
+getting more retweeted, have similar textual and thematic content Programming Interface) for accessing not only data but also most of
+(Hongetal.,2011).Specifically,tweetswithgeneralthematiccontent the service’s functionality. Initially, Twitter used to have a very open
+(i.e.Christmas),orbadnewsaremorelikelytobere-tweeted(Naveed policy regarding data access (Mersch, 2018). Taking a look at early
+et al., 2011). Also, Suh et al. (2010) showed that URLs, hashtags, papersregardingTwitterfrom2010(Kwaketal.,2010),wenoticethat
+number of followers and followings affect positively the number of itwaspossibletocollecttheentiresocialgraphofTwitterinaperiod
+retweets,whereasthenumberofpasttweetsdoesnothaveanyeffect. of 2 months, by using only 20 workers. Also it used to ‘whitelist’ IPs
+Inanotherstudy(Kupavskiietal.,2012),itwasshownthattheposition withunlimitedaccessforresearchpurposes(Benevenutoetal.,2010;
+ofauserinthesocialgraph(assessedbythePageRankmetric)isalso Gabielkov & Legout, 2012). Fearing that third-party services could
+acrucialfactor. misusetheAPIandbuildapplicationsthatcouldessentiallymimicits
+IncaseswhereatweetcontainsaURLpromotingafutureevent,the main functionality, Twitter started in 2012 enforcing more strict rate
+ratiooftheretweetsbeforeandaftertheeventisagoodpredictorofits limitsasreportedbyTwitterofficialblog(2018).APIrequests,should
+‘success’. For example Asur and Huberman (2010) used these metrics beauthenticatedthroughOAuth2andaremonitoredonaper15min
+topredictthesuccessofmoviesrightaftertheirrelease.inEysenbach window (Twitter official API documentation, 2018). In this window,
+(2011) the author derived accurate predictions of the citations of a APIrequestsarelimitedaccordingtotheirtype.Forexample,inorder
+scientificpaper,basedonthenumberoftweetscontainingURLstothe torequestthetimelineofauser,aclientcanperform900requestsper
+onlineversionsofthispaper. allowedwindow.Eachrequestcanfetchupto200tweetsandclients
+Thetotalnumberofmentionsthatusersreceiveisassociatedwith canonlyfetchupto3200ofauser’smostrecenttweets.
+the influence of their profile as a whole, and not with the impact of Twitter has made available paid data access plans that have more
+their individual tweets. For this reason, user mentions are commonly relaxed limits. This is in concordance with Twitter’s almost constant
+usedtomeasurethe‘success’ofauser,asopposedtoevents.Examples efforttomonetizeitsservice(Titcomb,2018).
+that are employing the number of mentions, in order to measure the AccordingtoTwitter(2020),sinceNovember2017theAPIprovides
+impact of a user profile, is on scholarly publications (Shuai et al., free search access to its data published in the past 7 days. ‘Premium’
+2012; Thelwall et al., 2013) and election campaigns (Hong & Nadler, and ‘Enterprise’ are paid API access models that provide access to
+2012; Tumasjan et al., 2011). The number of mentions is also useful tweetsfromthelast30daysorfromasearlyas2006respectively.The
+3D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+Table3
+AbrieftimelineofthemajorpolicychangesofaccessingTwitterdata.Theexamples
+columncontainsstudieswithsectionsdescribinghowtheauthorsemployedtherelative
+dataaccessmethod.Trombleetal.(2017)discussestheeffectsinscientificinference
+ofthefactthatfreeandpremiumAPIreturndifferentsetsofdata.
+Period Policy Examples
+2006–2010 Whitelisting,Relaxedlimits Kwaketal.(2010)and
+Benevenutoetal.(2010)
+2010–2012 OAuth2 McCreadieetal.(2012)and
+Wang(2010)
+2012–2017 StrictAPIlimits Antonakakietal.(2014)and
+BorraandRieder(2014)
+Premium/EnterpriseAPIs, Mazzaetal.(2019)andTromble
+2017–Today
+etal.(2017)
+Nopublicdata
+Enterprise API access requires an application and the pricing for the
+Premiumdependsonthequery.ThePremiumAPIaccessallowsfor500
+Fig.2. Timerequiredforestimatinggraphmetricsinasocialgraphcontaining13.2
+tweetsperrequestand60requestsperminute.Pricesrangefrom$149
+million nodes and 8.3 billion edges. SILW = similarity inverse log weighted, KNN =
+forupto500requestspermonthtillupto$2499for10,000requests K-NearestNeighbord,MotifsRAND-ESUisamethodforlocatingsmallmotifsofsize
+per month. In 2019 13.5% of Twitter’s revenue originated from data 3and4(Wernicke&Rasche,2006),hub_scoreistheKleinberg’shubscore(Kleinberg
+licensingandothersourcesmakingintotal$0.5billion(Investopedia, etal.,1999).
+2020).InTable3weshowabrieftimelineofthemajorchangesonthe
+dataaccesspoliciesinTwitter.
+Since the free access policy, the prices and the different access absence of ‘gold standards’ has stripped the community of the ability
+optionsarechangingovertime,itisdifficulttoestimatethepercent- to perform comparison studies. Today, there are two suboptimal ap-
+age of publications that have paid for data access. In a 2017 review proachestocircumventtheselimitations.Thefirstistoobtainreleases
+that examined 108 health related studies that used data from Twitter of anonymized and heavily processed data.2 The second approach is
+(Sinnenberg et al., 2017), only 44 (41%) used a free service. Besides to use releases that include only the unique IDs of tweets and let
+researchersobtaintherestofthedatawiththeirownmeans.Examples
+the price, another concern is that the free API does not return the
+of the latter are, the TREC 2011 Microblog Track (McCreadie et al.,
+sameresultsasthepaidoptions.Thishasalarmedresearcherssincethe
+2012), the SemEval Twitter datasets (Nakov et al., 2016) and the
+discrepanciesbetweenfreeandpaidoptionsishighenoughtoproduce
+StanfordTwitterSentimentData(Goetal.,2009).
+differentresultsincontentanalysis(Trombleetal.,2017).
+Twitter’sAPIreturnsdatainJSONformat,witharelativelycomplex
+Toovercometheselimitations,researchersusuallyutilizemultiple
+structure. Therefore, researchers show a preference towards NoSQL
+applications, created from multiple fake accounts, risking violating
+databases that natively support JSON structured data, like MongoDB,
+Twitter’s Terms of Service and getting their applications suspended.
+instead of performing complex conversions required for conventional
+Besides using Twitter’s API that has the limitations presented above,
+relationaldatabases.
+anotheroptionistobuildscriptsthatimitatetheactionsofabrowser
+when visiting the twitter.com page. This technique is called crawling
+1.3. Samplingthesocialgraph
+orscrapingwhichemploysadvancedwebaccessmethodsandisitself
+an area of research (Borra & Rieder, 2014). An example of a crawler
+Before conducting any study in social networks, researchers have
+(orscraper)isTwAwler(Pratikakis,2018)thatcancrawlthecomplete
+to make a crucial choice: the sampling technique. The size of the
+setoftweets,followingrelationshipsandothermeta-dataofanentire
+social graph of Twitter is in the range of hundreds of millions nodes
+community, as big as the Greek (about 330 thousands), by using a
+and hundreds of billion edges. This size makes sampling a neces-
+singleauthenticateduserandausualdesktopPC.Anothercrawlerthat
+sary prerequisite step, mainly due to (1) API access limitations and
+focuses on medium size communities is TwitterEcho (Bošnjak et al.,
+(2) extreme computational resources for storage and processing large
+2012).OthersimilarimplementationsthatdonotrelyonTwitter’sAPI
+networks. Apart from some basic graph measurements (for example
+andcanaccessunlimitedhistoricdataareGetOldTweets3(Mottl,2020)
+average node degree), some of the most informative measurements
+andtheonepublishedfromHernandez-Suarezetal.(2018).Itshould are in the computational order higher of O(N). This renders these
+benotedthatthesemethodsareforaccessingrawdatafromTwitter.A calculations practically impossible on the complete social graph of
+thirdoptionistouseoneofthemanyintegratedframeworksthatallow modernsocialnetworks.Todemonstratethiswedownloadedasubset
+bothdataaccess,dataexploration,filteringandanalysis.Anoverview ofTwitter’ssocialgraphcontaining13.2millionusersand8.3billion
+ofmorethan20toolsofthiskindisavailableatAhmed(2020).From edgeswiththeRandomWalktechnique(Leskovec&Faloutsos,2006).
+these tools, 7 are free and 3 are low cost (less than US$100) and are This technique is presented in detail later. The sampling took place
+systematicallyreviewedinYuandMuñoz-Justicia(2020). in January 2015. Subsequently we used the igraph library (Csardi &
+Researchers should be aware that releasing Twitter data violates Nepusz,2006)inordertomeasurethetimerequiredtoassessavariety
+the Terms of Services.1 As an effect, large and well-studied Twitter of graph properties in a single CPU computer with 8 GB of RAM. In
+datasets, like the Edinburgh Twitter Corpus (Petrović et al., 2010) Fig. 2 we show that there is a family of important graph properties
+and the SNAP dataset (Yang & Leskovec, 2011) are now not publicly like diameter and betweenness centrality whose time complexity is
+available. The unavailability of public Twitter data has severe effects exponentialtothenumberofgraphnodes.
+onthemeasurementofthereproducibilityofcurrentresearch.Alsothe Toovercomethesecomputationalconstraints,anefficientsampling
+technique has to be selected prior to any analysis. We can make two
+1 Currently it allows the public release of up to 50,000 tweets per day,
+peruser.SeetermI.F.2.aonDeveloperAgreementandPolicy:https://bit.ly/ 2 A list of Twitter datasets and related resources: https://github.com/
+3iHiZNg. shaypal5/awesome-twitter-data.
+4D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+largedistinctionsofsamplingmethods.Thefirstcategorydisregardsthe Gabielkovetal.(2014b)performedatemporalanalysisofTwitter’s
+user’sactivityandfocusessolelyonthenetworkattributes.Thesecond macrostructure,byusingonlytheusercreationtime.Also,Antonakaki
+categoryalsotakesintoaccounttheuser’sactivity. et al. (2018) used this exact heuristic to measure the evolution of
+LeskovecandFaloutsos(2006)applied10differentsamplingtech- Twitter’saveragenodedegreefrom2006until2015.
+niques to various social networks and measured how well each tech-
+nique captured the properties of the networks. From all sampling 1.5. TaxonomyofTwitterstudies
+techniquesRandomWalkandForestFireexhibitthebestperformance.
+Random Walk is the sampling method where a node is selected by In the following chapters we analyze three of the most important
+randomandisusedasastartingpointforarandomwalkinthegraph. researchareasonTwitter.ThesearetheSocialGraph,SentimentAnal-
+Forest Fire is the method where we randomly select a node and then ysis and Threat Detection. Before moving on, we believe that it is
+we simulate a fire by randomly burning adjacent edges and nodes. importanttoputthesethreeareasinaunifiedschema,alongwiththe
+Thenodesandedgesthatarenotburnedarefinallyselected.Leskovec alreadypresented‘Basic’theoryofTwitter.Thisschemaispresentedin
+andFaloutsos(2006)alsoestimatedthatagoodsamplingsizeshould Fig.3andplacesTwitterinacentralpositionwherefourmainbranches
+preserveatleast15%oftheoriginalsize,inordertomatchthemost depart.Underthesebranchesweplacethebasicconceptsforeacharea.
+significantgraphproperties,suchastheaverageinandoutdegree. Of course this schema is largely incomplete but it contains a rough
+Although this was an excellent analysis, it has several practical mentalmodelofaverycomplexanddynamicenvironment.Wehope
+problemswhenitcomestomodernsocialnetworks.Themostimpor- thatitwillhelpthecommunitytorefineitandtoexpanditwithfuture
+tant is that the authors performed their experiments on large social studies.
+graphs of their time (2006). At that time Twitter did not exist and
+Facebookhadapproximately50millionusers.Asamplingsizeof15%is 2. ThesocialgraphofTwitter
+stillprohibitiveformodernsocialnetworks,intermsofcomputational
+resources.Anotherlimitationisthattheydonottakeintoaccountother ThesocialgraphofanOSNisdefinedasthegraphonwhichvertices
+valuableinformationthatmightmakeanodeworthofsampling.This (or nodes) represent users and edges (or links) represent following
+istheuser’sactivityanduser’sinfluence. relationships. Or else, if user A follows B, this is represented on the
+In a later study of 2010 (Choudhury et al., 2010), researchers graph with a directed edge from node A to node B. Twitter’s social
+testedsamplingmethodsthatcombinedcommonsamplingtechniques, graphisdirected,whichisnotalwaysthecaseinOSNs.Forexample,
+withinformationregardinguser’sactivityandlocation.Theyalsoused in Facebook, a ‘friendship’ is established after a mutual agreement
+differentmeasurementmethodsthattookintoaccounttheabilityofthe betweentwousers,thereforetheformedsocialgraphisundirected.
+sampletocapture‘diffusionevents’.Adiffusioneventisthespreadof Thesocialgraphhasbeenthecenterofattentioninmanyresearch
+atrend,aURLoraretweet.Theyconcludedthatthesamplingmethod areas. Various properties of this graph are indicative of the nature of
+that exhibited the lowest distortion from the original graph is the the social network and portray how users perceive the platform and
+Forest Fire, combined with activity information. They also estimated interact with other users. It can also provide insight on the temporal
+thatanoptimalsamplingsizeisapproximately30%.Nevertheless,the dynamicoftheplatformandthewell-beingoftheservice.
+validationofthistechniqueonTwitterisanopenquestion.Perhapsthe Here, we separate studies on the social graph on Twitter in two
+largestsamplingexperimentthathasbeenperformedonTwitterisfrom majorcategories.Thefirstcategorystudiesthesocialgraphatthenode
+Gabielkovetal.(2014a),whichsampledthecompletesocialgraphas level, trying to infer methods that measure the influence, popularity
+of2012.Thisstudyconcludedthatcommonsamplingtechniqueslike andthesocialimpactofindividualusers.Thesecondcategorystudies
+Breadth-first search, Random Walk and an alleged unbiased sampling thesocialgraphasawhole,tryingtounderstandthestructureandthe
+technique,suggestedbyWangetal.(2011),areallbiasedtowardshigh high-leveldynamicsofthenetwork.
+degreenodes.Thereforetheoptimalsamplingtechniqueandsampling
+sizeistoacertainextent,anopenquestion.Sincetodayitispractically 2.1. Thesocialgraphatthenodelevel
+impossible to acquire an adequate subset of Twitter’s social graph,
+researchers choose to focus in special subgroups such as the verified There are two areas of studies that focus on the node level of
+users(Pauletal.,2019)orthetopcelebrities(Motamedietal.,2020). the social graph. The first contains metrics that try to assess various
+An orthogonal question for social networks is what is the best aspectsoftheuser’spresenceonthenetwork.Althoughthereexistsan
+method to generate artificial graphs, with properties similar to real ambiguityregardingwhatis‘presence’andhowtoassessit,areview
+socialgraphs.inLeskovec,Langetal.(2008),theauthorsexplored70 from 2016 (Riquelme & González-Cantergiani, 2016) suggested that
+sparserealnetworksandfoundthatagenerativemodelbuiltwiththe there are three distinct attributes that can be measured. These are
+‘forestfire’techniqueburningprocess,canproduceagraphwithsimilar activitywhichmeasureshowfrequentauserinteractswiththenetwork,
+communitystructuretotherealones. thesecondispopularitywhichmeasureshowwellauserisrecognized
+from other users and the third is influence which measures how a
+1.4. Generatingtimesnapshots user’s actions influence the actions of other users. The attribute that
+hasattractedthehigherinterestfromthecommunityistheinfluence,
+Twitterdoesnotrevealthecreationtimeoftheedges(followings) which we will present in detail below. The second area of studies
+andthereforeitispracticallyimpossibletogenerateaprecisesnapshot focusing on the node level of the social graph is the phenomenon of
+ofthesocialgraph,foragiventime.Thispolicy,alongwiththegeneral homophily.
+restrictions of Twitter’s API, has generated criticism, since valuable
+historic data are extremely difficult to obtain Batrinca and Treleaven 2.1.1. Userinfluence
+(2015). Nevertheless, Twitter provides the exact time a node was IntheearlystagesofTwitter,reachingahighnumberoffollowers
+created (user registration) and also the lists of followers and friends wasconsideredastrongindicationofauser’sinfluence.Inoneofthe
+of a user, ordered according to the following creation time. These most cited papers regarding Twitter, it was shown that the number
+twopiecesofinformationcanbecombinedtoproducealowerbound of followers (indegree) is not related to the number of retweets and
+estimation of the following creation time (Meeder et al., 2011). The mentions that a user receives (Cha et al., 2010). Indeed, events that
+accuracyofthisheuristicdependsonthenumberoffriendsorfollowers requireactiveuserengagement(likeretweetsandmentions)arebetter
+of a user. For users with more than 5000 followers, the link creation estimatorsofauser’sinfluencecomparedtopassivefollowings.More-
+timeisestimatedwithinanaccuracylevelofseveralminutes. over, a tweet from a user with low number of followers, can reach
+5D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+Fig.3. ThetaxonomyofthemostimportantconceptsinresearchinvolvedinTwitter.Thefourmainbranchesare‘Basic’containingdataaccessmethodsandTwitterFeatures
+(i.e.Hashtags),‘SentimentAnalysis’,‘SocialGraph’and‘Threats’.Althoughtheschemahasatreestructure(shownincircularlayout),somenodes(concepts)existinmorethan
+onearea.Thesearethe‘Sampling’nodewhichexistunderthe‘Basic’andthe‘SocialGraph’branch,the‘Classification’nodethatliesunderthe‘SentimentAnalysis’and‘Threats’
+branch,andthe‘TopicAnalysis’nodethatliesunderthe‘SentimentAnalysis’andthe‘SocialGraph’branch.HT=Hashtags,MT=Mentions,RT=Retweets,R=Replies,L=
+Likes.
+ordersofmagnitudehighernumberofusersthroughretweets(Lerman valuesconverge.Onceitconverges,anodewithhighPageRankvalue
+&Ghosh,2010)(thenumberofusersthatatweetfinallyreachesisalso means,ingeneral,thatithasothernodeswithhighPageRankvalues
+calledimpressions). linking to it. The application of the same algorithm in social graphs
+Thesefindingssparkedaninterestformetricsthatcangivemorein- indicates the influence of a user. Studies that have applied PageRank
+sightfulindicationsofauser’sinfluencebyalsotakingintoaccountthe on Twitter include: Kwak et al. (2010), Said et al. (2019) and Weng
+user’spositioninthesocialnetwork(orelseuser’stopology).Inavery etal.(2010).Additionally,inPriyantaetal.(2019)theauthorssuggest
+thoroughreview,RiquelmeandGonzález-Cantergiani(2016)presented that the PageRank of a node is directly proportional to the closeness
+the characteristics, kinds of metrics used and the time complexity of centralityandthein-degreeofthisnode.
+53differentinfluencemetrics.MostofthesebelongedtothePageRank Variations of PageRank exist that are more tailored to the context
+familyofmethods.Here,wediscusstwoofthemostknownmetricsfor ofTwitter,liketheInfluence-PassivityAlgorithm(Romeroetal.,2011).
+influence,whicharePageRankandBetweennessCentrality. AlsotheHirshindex(Hirsch,2005)resemblesPageRank,sinceitisan
+influencemeasurementalgorithmthatalsooriginatesfromadifferent
+PageRank Regarding topology, the most widely known algorithm that concept(measurementofscientificimpact)andcanbeadaptedtosocial
+measures a user’s influence in a social network, is PageRank (Brin & networks.
+Page, 1998). PageRank was initially designed by Google to measure Itisinterestingthatthesestudieshavedonelimitedworkincom-
+the relevance of a website on the Internet, regarding a search term. paring PageRank with other methods and they limit their analysis on
+ToassessthevalueofPageRankforallnodes,weinitiallyassignsmall presenting the top popular users on Twitter according to this metric.
+constant(orrandom)valuestoallnodesofthegraph.Then,foreach Thismightbepartofthewiderissue,thatthereisnotanygoldstandard
+node,were-assignthisvaluetotheweightedsumofthePageRankof or a widely accepted methodology for assessing the accuracy of user
+allnodesthatlinktothisnode.Weiteratethisstepuntiltheassigned influencemethods.PageRank(anditsvariations)isutilizingsolelythe
+6D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+networkstructure,inordertoassessauser’spopularity.Nevertheless, In general, there is a positive correlation between number of fol-
+wehaveseenthattopicmodelingisalsoimportantformeasuringthe lowers and number of tweets (the more the followers, the higher the
+influence of a user, in respect to a certain topic. Consequently, the activity). It is indicative that in Twitter, 10% of users have 10 or
+combinationofthesemethods(PageRankandTopicModeling)isafar lower followers and rarely tweet. At the other end, it is easy to spot
+morepowerfulapproachformeasuringuser’sinfluence(Haveliwala& ‘celebrities’ by measuring the ratio of tweets versus followers. This is
+H.,2002). because the positive correlation between the number of tweets and
+followers stops for users that have more than 10,000 followers. For
+Betweennesscentrality Betweennesscentralityistheratioofallpossible
+theseusers,thehighnumberoffollowersisduetotheirsocialstatus,
+shortestpathsthatpassfromacertainnode.Anodewithbetweenness
+ratherthanthequantityoftheirtweets(Kwaketal.,2010).
+centrality equal to 1.0 means that it exists in every shortest path,
+between any two random nodes of the graph, indicating a maximum
+2.1.2. Homophily
+influence. This metric, although computationally expensive, can be
+Homophilyisthelevelatwhichpeoplewithcommonintereststend
+fairlyapproximatedbysamplingasmallnumberofnodesinartificial
+to associate in public environments, like social networks (McPherson
+networks(Baderetal.,2007).Despitethis,itisverysensitivetonoise
+et al., 2001). In order to measure this property we need a dataset
+since an extra node can alter significantly its value. A variation of
+enrichedwithuser’sactivity(orinterests),sincethesocialgraphitself
+betweennesscentralitythatiscomputationallylighterandmorerobust
+does not convey this information. For this reason, researchers are
+to noise is the K-Betweenness Centrality, which takes into account
+using either the text from the messages, or they are utilizing meta-
+nodesthatlieatmostkedgesaway(Maddurietal.,2009).Aspecially
+informationofthesocialgraphprovidedbythesocialnetworkservice.
+designed system for measuring Betweenness centrality on Twitter is
+Inthefirstcase,acommonlineofworkistoperformaTopicModeling
+GraphCt (Ediger et al., 2010), which employees this metric in order
+analysis,inordertoextractthedifferenttopicspresentinasetofmes-
+tolocatekeyusersforagiventopic.
+sages.OneofthemostcommonmethodsforTopicModelinganalysis
+Betweennesscentralitybelongstoalargecollectionofmeasuresthat
+is the Latent Dirichlet Allocation (LDA) (Blei et al., 2003; Griffiths &
+trytoassesstheimportanceofanodeinthenetwork,withinformation
+Steyvers, 2004). After topic modeling, we can assess the degree on
+solely from the network topology. Other interesting measures in this
+which a user is interested in a specific topic. Incidentally, this also
+family are the closeness centrality which is the average shortest path
+measurestheinfluenceofthisuseronthistopic.Finally,thecorrelation
+length with all other nodes (Priyanta et al., 2019), the eigenvector
+between the proximity of users in the social graph and the degree of
+centrality which is a predecessor of PageRank (Howlader & Sudeep,
+shared interests gives an estimation of the homophily (Weng et al.,
+2016; Maharani et al., 2014; Said et al., 2019) and Katz centrality.
+2010).
+Katz centrality resembles PageRank with the fundamental difference
+Whenutilizingmeta-informationfromthesocialgraph,homophily
+that it takes into consideration all nodes of the graph (i.e. not only
+is measured according to the similarity of the time-zone, popularity
+adjacentnodes),withaweightthatisexponentiallyreducedaccording
+(number of followers) (Kwak et al., 2010), or the similarity of the
+to distance (Hanneman & Riddle, 2005). An interesting variation of
+subgraphinthevicinityofauser’snode,likeinthePageRankalgorithm
+Katz centrality has been used to assess user influence, by also taking
+(Brin&Page,1998).Anothersourceforinformationregardingauser’s
+into account the temporal flow of information in the network (Laflin
+interestsistheselfplacingofauser’sfollowersintocertainlists.The
+etal.,2013).
+name of the list can give information of the primal identity of other
+As it has been shown by Weitzel et al. (2012), there is a small
+users. By exploiting this information (Wu et al., 2011) revealed that
+correlation (𝑟2 = 0.5) between Betweenness Centrality and PageRank.
+thereisastronghomophily,asexpressedinretweetsamongcelebrities,
+The choicebetween these metricsdepends on whatwe wantto focus
+bloggersandmedia(indecliningorderofhomophily).
+on.PageRankfocusesonthequality(linkstoinfluentialusers)ofanode
+OnTable4webrieflypresentthemeaningofinfluence,centrality
+andasaneffectitissuitableforidentifyingnodeswithlocalinfluence.
+and homophily along with the major studies that investigate these
+Centralityfocusessolelyonthelocationofthenodeinthegraphandis
+features.
+suitableformeasuringglobalinfluence.PageRankhasfarmorevaria-
+tionsthanBetweennesscentralityandcanbeeasilyadaptedinorderto
+2.2. Thesocialgraphasawhole
+includeothertypesofnetworkinformation.BetweennessCentralityis
+sensitivetoinclusion(ordeletion)ofverypopularnodes(celebrities).
+Graphs representing social networks have been a major research
+Yet,BetweennessCentralityisrelativelystableovertime,incontrastto
+arealongtimebeforetheeraofOSNs.Freeman(2004)haspresented
+PageRankwhichissensitivetosmallnetworkalterationsanditshould
+a thorough historical analysis that starts from the beginning of the
+becomputedmuchmorefrequently(Riquelme&González-Cantergiani,
+20th century. In this section, we present the main efforts to measure
+2016).
+properties of the complete social graph of Twitter. A summary is
+Tweets,RetweetsandFollowersAnotherstraightforwardmetricformea- available in Table 5. Each measurement gives us intrinsic insights of
+suring user’s influence is the number of retweets and the numbers thecharacteristicsanddynamicsofthenetwork.
+of followers. Kwak et al. (2010) demonstrated that the number of
+followers is highly correlated to PageRank, whereas there is low cor- 2.2.1. Degreeofseparations
+relation between followers and retweets and between PageRank and Perhaps the most notorious property in social networks is the ‘de-
+retweets.Surprisingly,LermanandGhosh(2010)reachedacontrasting greeofseparations’.Thisistheaveragenumberof‘hops’thatweneed,
+conclusion that there is a strong linear correlation between number inordertotraversethesocialgraphfromanyrandomusertoanyother
+of followers and retweets. The same study also showed that a good random user. This property has become famous even from the early
+predictor for the number of followers is the number of followings, agesofsocialstudies,in1967,whenitwasdiscoveredthattworandom
+demonstratingthatdiversityofinformationintweetsisoftenrewarded individualsarenomorefarapartthan6hopsinthesocialgraphthat
+by more retweets. Nevertheless, studies have shown that there is a represents real life (no virtual acquaintances) (Milgram, 1967). This
+strong correlation between number of followers and the number of findingwaspublicizedas‘sixdegreesofseparation’orelsethe‘small-
+differentusersthattheyusuallyretweet(Chunetal.,2008),thuswhen world’phenomenon.Duetotheeasywayinwhichrelationshipscanbe
+retweeting,usersexhibitastrongfavoritismtowardscertainusers.The createdinsocialnetworks,thisnumberisexpectedtobesmaller.
+depthoftheretweetpatternofapostedURLcangiveinformationfor This property is usually assessed by measuring the average length
+the significance of the URL and the influence of the user who first of all shortest paths of the network. This was measured to 4.12 on
+postedit(Bakshyetal.,2011). Twitter(Kwaketal.,2010),2.74onTwitter’ssubsetofverifiedusers
+7D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+Table4
+Themostcommonuserpropertiesrelatedtothesocialgraph:influence,centralityandhomophily.
+Property Meaning Measurements
+Influence Howimportantare PageRank:Kwaketal.(2010),
+userswhofollowme? Saidetal.(2019),Wengetal.(2010),
+Priyantaetal.(2019)
+HirschIndex:HaveliwalaandH.(2002)
+Relation,Interactiongraph:RäbigerandSpiliopoulou(2015)
+Centrality HowcentrallyamI BetweennessCentrality:Edigeretal.(2010),
+placedonthe Priyantaetal.(2019)
+socialgraph? EigenvectorCentrality:Saidetal.(2019),
+HowladerandSudeep(2016)
+Closenesscentrality:Priyantaetal.(2019)
+Homophily HowcloseamItoother Similarprofile:Kwaketal.(2010)
+usershavingthesame TwitterRank:Wengetal.(2010)
+interestsasme? Lists:Wuetal.(2011)
+Table5
+ThemostcommonpropertiesofthesocialgraphofOSNsandtheirrespectivemeasurementsonTwitter.
+Name Measurement Study
+Degreeofseparation AverageNodeDistance(AVN)=4.8 Kwaketal.(2010)
+AVNforVerifiedusers=2.74 Pauletal.(2019)
+Distributionofnodedegree In-degreeispowerlaw𝜆=1.35 Myersetal.(2014)
+Out-degreeislog-normal𝜇=3.56,𝜎2=2.87
+Averagenodedegree Averagefollowers:557.1 Bakshyetal.(2011)
+Averagefollowings:294.1
+Assortativity ThenumberofmyXisthesame Myersetal.(2014)
+asthenumberofYoftheusers
+thatIfollow:
+X=Friends,Y=Friends:0.272
+X=Followers,Y=Friends:0.241
+X=Friends,Y=Followers:−0.118
+X=Followers,Y=Followers:−0.296
+Interestassortativity Music:0.737 Buccafurrietal.(2016)
+Sports:0.811
+Cinema:0.776
+Reciprocity Percentageofusersthatfollowmeback Kwaketal.(2010)
+78%
+Reciprocityfor10K-eliteTwitternetwork Motamedietal.(2020)
+Ranges31%–42%
+(Pauletal.,2019),and4onFacebook(Backstrometal.,2012).Another 2009), found that both the outgoing and incoming degrees follow a
+property,thediameter,isthelongestofallpossibleshortestpathsand powerlaw,withexponents1.95and2.13,respectively.Nevertheless,a
+portraysthelinearsizeofthenetwork.Since,thispropertyissensitive studyof2010,with41.7millionusers(Kwaketal.,2010),concluded
+todistantoutliersofthenetwork,the90thpercentileismorecommonly thatTwitterdeviatesfromothersocialnetworksandthattheoutgoing
+used,calledthe‘effectivediameter’(Leskovecetal.,2005),estimated degreedistributionisnotapowerlaw.Themostrecentstudy(Myers
+in2010tobe4.8(Kwaketal.,2010)forTwitter. etal.,2014)withthelargestsamplesize(175millionusers)estimated
+thattheindegreeisbestfittedbyapowerlaw,with𝜆=1.35,whereas
+2.2.2. Distributionofnodedegree theoutdegreeisbestfittedbyalog-normaldistribution,with𝜇 =3.56
+Another important property of social networks is the node degree and 𝜎2 = 2.87. Given the plethora of contradicting findings, we can
+distribution.Indirectedgraphs,likeTwitter’sOSN,thedegreeofanode conclude that the elucidation of Twitter’s degree distribution is an
+is the sum of the outdegree and the indegree property. The outdegree active research question. Nevertheless, all studies agree that Twitter
+is the number of edges with direction outward to the node, whereas follows a partial power law, if we restrict it to users with less than
+indegree is the number of inward directed edges. The average node ∼105 followers. This property also contributes to the ‘small-world’
+degreeisameasurementofthedensityofthegraphandcharacterizes phenomenondescribedbefore.
+the amount of user inter-connections in the network. The average Itisimportanttonotethatwhethertheaverageinandoutdegreeis
+degree has a significant meaning on the modeling of users’ behavior, apowerlawornot,hasanimportantpracticalconsequence.Themean
+sinceithasbeenassociatedwithDunbar’sNumbertheory,whichstates ofapower-lawdistributionwithexponent𝜆<2diverges,orelseitis
+that humans can have a finite number of stable social interactions in notstrictlydefined(Newman,2005).IfthisisthecaseforTwitter,there
+therangeof100to200(Blissetal.,2012;Gonçalvesetal.,2011). isnopointinassessingtheaveragenodedegree,despitebeingavery
+Mostimportantly,ifthelog-distributionofthenodedegreefollowsa simple and intuitive measurement. Nevertheless, as stated in a study
+powerlaw(Misloveetal.,2007),thenthegraphisascale-freenetwork of at 2011 (Bakshy et al., 2011), the average indegree (followers) of
+(Milgram, 1967; Travers & Milgram, 1969). Scale-free networks take Twitterwasmeasuredat557.1andtheaverageoutdegree(friends)was
+theirnamefromtheirgeneralpropertytohavesimilarstructuretoparts 294.1. For the same year, the average node degree of the undirected
+ofthemselves(alsocalledself-similarity).Theexponent𝜆ofthepower socialgraphofFacebookwasmeasuredat190(Uganderetal.,2011).
+lawformostreal-life,scale-freenetworksisavalueintherangefrom
+2to3.Kwaketal.(2010)measuredtheexponentofthepowerlawfor 2.2.3. Assortativity
+this distribution in Twitter to 2.276. A study of the same year which Assortativity measures the correlation between properties of adja-
+examined the topology of 54.3 million users (Sadikov & Martinez, centnodes.Wecanperceiveassortativityasamethodtomeasurethe
+8D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+averagehomophilyofthenetwork,ifwefocusonlyonnodeproperties (Barbieri et al., 2013; Said et al., 2019) and measurement of users’
+(and not on the contents of users’ posts). The most common type of influence (Bray, 2015; Morales et al., 2014) rely heavily on these
+this measurement is the degree assortativity. It has been suggested models.
+(Johnsonetal.,2010;Newman,2002)thatassortativitycandistinguish OneofthelatestandmostwidelyacceptedmodelsisfromLeskovec
+social networks from other ‘real life’ networks. The rational is, that etal.(2007).ThismodelchallengedtheexistingbeliefthatOSNsevolve
+when a new edge (i.e. friendship) is formed in a social network, it withaconstantaveragedegreeandaslowlygrowingdiameter.Incon-
+tends to reach a node with similar attributes. This is not the case trast,theauthorssuggestedthat,asnewnodesareaddedtothegraph,
+for other ‘real life’ networks, like biologic or distribution networks, theaveragedegreeofmodernOSNsisincreasing,whereasthediameter
+whichtendtoreachmaximumentropyandtheirassortativityindexis isdecreasing.ThismodelhasbeenextendedbyKleinebergandBoguñá
+negative(alsocalleddisassortativenetworks).Indeed,theassortativity (2014),toincorporatethelayeroftheexisting,yetunobserved,off-line
+of Facebook, at 2011, was 0.226 (Ugander et al., 2011). Kwak et al. social network. Although, this model has been validated in 70 small
+(2010) argues that since Twitter’s social graph is directed, measuring real-life social and information networks (Leskovec, Backstrom et al.,
+assortativityisnotfeasible.Nevertheless,Myersetal.(2014)measured 2008), efforts to validate it on larger social networks like Facebook
+allfourpossibledegreeassortativityindexes(in-andout-degreeofthe (Backstrom et al., 2012) and Twitter (Antonakaki et al., 2018) are
+sourcecombinedwiththein-andout-degreeofthetarget)andfound2 partial and inconclusive. The main reasons for this are the limits of
+assortativeand2disassortative.Asexpected,ifwelimitournetworkto Twitter’sdataaccessAPIandthelargecomputationalrequirementsof
+userswiththesameintereststheassortativitycanbetripled(Buccafurri thevalidationmethods.Toputthisinaperspective,thecomputational
+etal.,2016). complexity of measuring the diameter property is in the order of
+Another way to bypass this limitation of measuring assortativity 𝑂(|𝑉||𝐸|)(asseeninFig. 2),whichin thecase ofTwitter, canreach
+is to consider an undirected social graph, by taking only reciprocal theprohibitiveamountof1020calculationsforasufficientsamplesize.
+connections (i.e. two users are following each other). This approach Leskovec et al. (2007) also acknowledges the fact that modeling the
+has been used to measure the assortativity of reply-networks by Bliss diameterremainsanopenquestion.
+etal.(2012). The best effort to create a macrostructure of Twitter is from Ga-
+bielkov et al. (2014b). This study, identified the Largest Connected
+2.2.4. Reciprocity Component(LSS)ofthesocialgraphandgroupeditasasinglenode.
+Thesocial graphcanalso indicatethe primalpurposefor whicha Subsequently,throughbreadthfirstsearch,theyidentifiedsmallercom-
+userusesasocialnetwork.Thiscanbemeasuredwiththe‘reciprocity’ ponents,targetingorbeingtargetedbytheLSS.Overall,thistechnique
+value,whichisthedegreeofwhichauserisfollowedbytheusersthat allowednotonlytheelucidationofTwitter’smacrostructure,butalso
+she follows. A low reciprocity shows that the user is using the social theexplorationofthemainpatternsofinformationflowinthegraph.
+networkmainlyasasourceofinformation,whereasahighreciprocity A more recent study of Motamedi et al. (2020), examined the
+showsthatthesocialnetworkismainlyusedforcommunicationamong 10K-Elite network of Twitter. This study provides the connectivity of
+a users’ peers. Reciprocity has been measured for several social net- strongly connected components and the basic connectivity features
+works like 68% for Flickr (Cha et al., 2009), 84% for Yahoo! (Kumar suchasreciprocity,diameterandnodedegreedistribution.
+et al., 2006) and 78% for Twitter (Kwak et al., 2010). If we define
+as celebrities the users belonging to the top 10,000 positions ranked 3. Sentimentanalysis
+accordingtothenumberoffollowers,theirreciprocityrangesfrom31%
+to 42% (Motamedi et al., 2020). We will refer later to this group of One of the most promising methods for content analysis in social
+usersasthe10K-Elite. media is sentiment analysis (Giachanou & Crestani, 2016; Martínez-
+Cámara et al., 2014). ‘Sentiment’ usually is a variable that can take
+2.3. Modelingthesocialgraph valueslike:‘Positive’,‘Negative’and‘Neutral’,ormorespecificvalues
+like‘Happy’and‘Angry’.Eachvariablecantakealongrangeofvalues,
+Aswithanymodelthatdescribesnaturalentities,awellformulated allowingformultipleassignmentsofsentimentinasingleword.This
+model that generates artificial networks, with properties similar to means that a word can have both positive and negative sentiment.
+those of real OSNs, is of extreme importance (Leskovec, Lang et al., Moreover,wecangenerateadditionalmeta-featuresbasedonthesen-
+2008).Themaindesignprincipleofamathematicalmodelfortheevo- timentvalues.Theseare‘subjectivity’and‘polarity’.Subjectivityisthe
+lutionofmodernOSNsistobeabletoformallydescribethebehavior ratioof‘positive’and‘negative’tweetsto‘neutral’tweets.Polarityisthe
+ofusers,inawaythatthestructureandpropertiesofthenetworkcan ratioof‘Positive’to‘negative’tweets.Forexample,sentimentanalysis
+bepredictedovertime(Kumaretal.,2006). canmeasuretheattitudeofagrouptowardsaspecificissueorassess
+Some of the properties that have been observed in large OSNs the‘positiveness’asapersonalitytraitofasingleuser.
+are the ‘rich get richer’ property (Barabási, 1999), the ‘small world
+phenomenon’ (Kleinberg, 2000; Said et al., 2019) and the decreasing 3.1. Acommonsentimentanalysispipeline
+diameter(Leskovecetal.,2005).The‘richgetricher’propertysuggests
+that new nodes prefer to be connected with nodes with high degree. The usual methodology for sentiment analysis requires the pre-
+Thisisalsoknownasthe‘preferentialattachment’process.The‘small processing and extraction of lexical features from tweets (Kolchyna
+world phenomenon’ suggests that the average shortest path between et al., 2015; Pak & Paroubek, 2010). Preprocessing steps can have
+two random nodes in the network is proportional to the logarithm of significant effects on the performance of the model (Jianqiang & Xi-
+the network’s nodes. The ‘decreasing diameter’ suggests that as the aolin,2017)andincludestokenization,expansionofabbreviationsand
+networkgrows,thediameterdecreasesovertime,suggestingthatthe removal of stop words and other elements without lexical value, like
+network‘shrinks’orbecomesmoredense. URLsandmentions.
+Apart from the theoretical interest, these models can have signif- ThisisanactiveareaofresearchinNLPandisusuallyreferredto
+icant impact on the design of practical tools. Examples are sampling as ‘text normalization’. It is estimated that 15% of tweets have 50%
+techniques (Leskovec & Faloutsos, 2006) and following recommenda- or more Out Of Vocabulary (OOV) words (Han & Baldwin, 2011).
+tionsystems(Barbierietal.,2014;Blissetal.,2013;Seoetal.,2017). Techniques include importing information from lexicons for abbrevi-
+Aconcisemodelcanhelpbuildeffectivedefensesagainstattackslike ationextension(Hanetal.,2012),useofspellcheckingalgorithmsfor
+bots, fake accounts (Ferrara et al., 2016) and spam campaigns (Ben- wordcorrection(Han&Baldwin,2011),useofmachinetranslationfor
+evenuto et al., 2010). Additionally, the area of community detection sentence normalization (Kaufmann & Kalita, 2010) and use of Word
+9D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+Table6
+ThemajorstepsofageneralclassificationworkflowforTwitterdatawithmachinelearningmethods.
+Step1.Datacollection
+TwitterAPIBorraandRieder(2014),Hernandez-Suarezetal.
+Methods (2018)andPratikakis(2018)
+OpenDatasets(Limited)Palachy(2018)
+SocialHoneypotsLeeetal.(2010,2011)andStringhinietal.
+(2010)
+Step2.Labeling
+Labels Spam/Legit,Positive/Negative,Bot/Real,Rumor/True
+Manual:HumanExpertsMozetičetal.(2016)
+Methods
+CrowdsourcingFininetal.(2010):AmazonMechanicalTurk,
+Crowdflower
+Automatic:
+Spam:labelingfromshorteningservices(t.co)Amleshwarametal.
+(2013)andGaoetal.(2012)
+Sentiment:EmoticonsGoetal.(2009)andNarretal.(2012)
+Step3.Splitdatain3parts:Train,Testandvalidation
+Step4.FeatureextractionAggarwaletal.(2012),Chu,Widjajaetal.(2012)
+Lexical Tokens,Stems,POS,n-grams,stopwords,emoticons
+Content URLs,Mentions,Hashtags,Topics,Date
+Influence Retweet,Reply,Like
+Profile Friends,Followers,Dateofcreation,Description,#Tweets,Date
+sincelasttweet
+Step5.Addknowledgefromexternalresources
+Sentimentanalysis SentimentlexiconsandvocabulariesPotts(2011)
+Spamclassification OnlineBlack-listservicesAmleshwarametal.(2013),Grieretal.
+(2010)andMartinez-RomoandAraujo(2013)
+Botdetection SearchengineresultsfortheaccountnameFloresandKuzmanovic
+(2013)
+Step6.Machinelearning
+Methods DecisionTreesGaoetal.(2012)andMartinez-RomoandAraujo
+(2013),NaiveBayesWang(2010),
+SVMBenevenutoetal.(2010),RandomForestsLeeetal.(2011)
+andMccordandChuah(2011),
+DeepNeuralNetworksSeverynandMoschitti(2015)
+Implementation Weka(Java)Halletal.(2009),scikit-learn(python)Pedregosa
+etal.(2011)
+Step7.Estimateaccuracy
+Basicmetrics TruePositive,TrueNegative,FalsePositive,FalseNegative
+Accuracymetrics Precision,Recall,F1,AccuracyBenevenutoetal.(2010)
+Sensitivity AreaUndertheCurve(AUC),ConfidenceIntervalsNaveedetal.
+(2011)
+Efficiency TimeandresourcesneededforthecompleteworkflowGrieretal.
+(2010)
+Embeddings for measuring topic similarity (Fang et al., 2016). Also, Other popular features are topics and entities. Topics represent
+it is known that short documents are not suitable for topic modeling clustersofcommonwordsthatappearinasetofdocuments(Hong&
+(Huetal.,2009).Toovercomethis,averyinterestingapproachisto Davison,2010).Adocumentcanbelongtomultipletopicsandtopics
+performaqueryinasearchenginewiththecontentofthetweetand donotnecessarilyhavea‘realworld’interpretation.Themostcommon
+augmentitwiththetopresults(Huetal.,2012).Othermethodsareto method for topic modeling is Latent Dirichlet Allocation (LDA) and a
+addinformationfromTwitterspecificlexiconsetsmadewithMachine commonly used implementation for Twitter data is Twitter-LDA (Lo
+Learning(Ghiassi&Lee,2018)ortosimplyconcatenatethetweetsof etal.,2017;Zhaoetal.,2011).Incontrasttotopics,entitiesarenotions
+thesameuser(Wengetal.,2010)andconstructanauthor-basedtopic with‘realworld’meaning.ThetaskofNamedEntityRecognition(NER)
+model. istheextractionofagenericsemanticidentityforaword.Forexample
+Usefullexicalfeaturesincludewordstems,PartofSpeech(POS)tags ‘Person’ for ‘Obama’ and ‘Place’ for ‘New York’. A popular NER tool
+(Derczynski et al., 2013) and n-grams. Fortunately, there are mature is Stanford NER (Finkel et al., 2005), whereas T-NER (Ritter et al.,
+andefficienttoolsthatperformthesetasks,withminimalprogramming 2011) and TwiNER (Li et al., 2012) are optimized tools for Twitter.
+effort.ExamplesareNLTK(Birdetal.,2009)forPythonandMALLET Another methodology for topic detection is the Twitter Topic Fuzzy
+(McCallum,2002)forJava. Fingerprints, used by Carvalho et al. (2017) and Rosa, Batista et al.
+Lexical features also include emoticons and emojis. Studies show (2014), Rosa, Carvalho et al. (2014). Also by importing the growth
+that tweets with positive emoticons are four times more likely than rateofwordfrequencywecansignificantlyaugmentthetaskoftopic
+tweets with negative (Speriosu et al., 2011), so researchers need to detection(Choi&Park,2019).
+correct for this imbalance. Regarding emojis, the Unicode standard The manual labeling of sentiment in tweets is done through two
+contains2823emojisandmorethanhalfofInstagrampostscontainat possiblemethods.Thisfirstisthroughapanelofexpertsandthesecond
+least one (Dimson, 2018). Research has shown that most used emojis iswithcrowdsourcingtechniques.Thecrowdsourcingtechniqueisthe
+convey both positive and negative sentiment (Chen et al., 2018) and useofonlineplatformsthatallowanyonetomanuallylabelthetweets,
+arevaluablefeaturesforsentimentdetection. usuallywithasmallreward.PopularchoicesareCrowdFlowerandthe
+10D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+Table7 3.2. Milestonestudies,findingsandnotes
+Comparison studies of various types of analysis in Twitter. FS=Feature Selection,
+TP=TextPreprocessing,ML=MachineLearning,DNN=DeepNeuralNetworks,S=Spam,
+The first work on sentiment analysis in Twitter was performed by
+SA=SentimentAnalysis,BT=BotDetection.
+Go et al. (2009). This work used emoticons as sentiment indicators
+Task Study
+for labeling, used a train set of 1.6 million tweets and a test set of
+FSforS Herzallahetal.(2018)
+300 manually labeled tweets. They extracted text features such as n-
+MLforS Herzallahetal.(2018)andWuetal.(2018)
+FSforSA Prusaetal.(2015) grams, bigrams and Part Of Speech tags and achieved a classification
+TPforSA JianqiangandXiaolin(2017) accuracyintherangeof82%.Manysubsequentworksusedthisstudy
+MLforSA Gonçalvesetal.(2013) asabaseline,basedonthefactthattheyalsoreleasedthetraindataset.
+DNNforSA Kim(2014) Insteadofemoticons,Kouloumpisetal.(2011),usedhashtagsfortweet
+MLforBT Rodríguez-Ruizetal.(2020)
+labeling. Hashtags were manually labeled as positive (i.e. #success),
+negative(i.e.#fail)andneutral(i.e.#news).Liuetal.(2012)noticed
+that current models use either emoticons, or manually labeled tweets
+Amazon Mechanical Turk (Finin et al., 2010). A very early analysis assentimentlabelsforclassificationandsuggestedahybridsystemthat
+from Snow et al. (2008) argues that expert employment and crowd- importsinformationfrombothsources.
+sourcing techniques produce both, equally qualitative results. A later Aftertheseinitialstudies,wenoticetwoparalleleffortsinsentiment
+study by Mozetič et al. (2016) discovered that the quality of manual analysis.Thefirstistoincorporateknowledgefromexternalresources
+labelingismoreimportantthanthechoiceoftheclassificationmethod. and the second is to measure the public opinion towards specific
+Ametricthatiscommonlyusedtomeasuretheconcordanceoflabeling entitieslikepersons,eventsandproducts.
+amongmultipleworkersistheFleiss’kappa(Reiss,1981).Interestingly, Bollen et al. (2011) was the first study to employ an external
+one method for locating and encouraging users to participate in a lexicon,inordertolabelthesentimentfeaturesoftweetsandassociate
+crowdsourced dataset labeling task is through Twitter bots (Alperin their fluctuations with real events of 2008. This lexicon was the ex-
+etal.,2017). tendedversionofPOMS(ProfileofMoodStatesPepe&Bollen,2008),
+The result of all this pipeline is the construction of a feature rich whichcontains793termsassociatedwith6mooddimensions(Tension,
+dataset, that contains linguistic features and sentiments for the col- Depression, Anger, Vigour, Fatigue and Confusion). Two studies from
+lected text from social media. This dataset usually is structured as a Saif et al. (2012a, 2012b) considered the use of entity extraction
+𝑇 ×𝐹 vector space with 𝑇 being the number of texts and 𝐹 being services (Rizzo & Troncy, 2011) like AlchemyAPI, OpenCalais and
+Zemantaandaddedentitiesinthefeaturesetoftweets.Finally,Zhang
+the number of features. Alternatively, the extracted features can be
+et al. (2011) at the same year, used an opinion lexicon (Ding et al.,
+modeledasgraphs,byimportinginformationfromthesocialgraph,via
+2008) tailored for product review analysis, to annotate the lexical
+amethodcalled‘labelpropagation’(Speriosuetal.,2011;Talukdar&
+featuresusedforeachentityofinterest(theytestedonObama,Harry
+Crammer,2009).
+Potter,Tangled,iPadandPackers).
+This dataset can be used in a variety of methods. The first is to
+ExamplesofopenexistingdictionariesforNLPpurposesandsenti-
+show the temporal variation of sentiment, over a course of a specific
+mentanalysisare(formoreseePotts(2011)):
+event. For example, we can visualize the variation of the sentiment
+of the public over the course of a political campaign, or a company 1. SentiWordNet(Baccianellaetal.,2010),asentimentlexiconof
+event(Danieletal.,2017).Wecanalsoquantifyhowspecificactions 100,000Englishwords.
+or events altered the public sentiment. Another line of work is to 2. OpinionFinder, a subjectivity lexicon3 containing 2.304 words,
+build a machine learning classifier that predicts the sentiment of the annotatedaspositiveand4.153asnegative.
+public,basedonthelinguisticfeatures.Thiscanhelptoquicklyassess 3. DictionaryofEnglishStopwords.4
+the sentiment, based on linguistic features and find which linguistic 4. The Affective Norms for English Words – ANEW – dataset. It
+featuresaremoreassociatedwithsentiment.Oneofthemostcommonly containsemotionalratingsfor1034Englishwords.
+usedtoolsthatprovidesmostofthepresentedfunctionalitiesisVader 5. A Google-based Profile of Mood States (GPOMS) (Bollen et al.,
+(Gilbert, 2014), which as reported by its authors outperforms even 2010).Itassigns6emotionvalues(Calm,Alert,Sure,Vital,Kind
+human annotators. For a review of available methods for automatic andHappy)inanytext,basedonGoogle’sn-gramcollection.
+sentiment analysis see Gonçalves et al. (2013) and for a review of 6. TheCMUPronouncingDictionary,5withpronunciationinforma-
+sentimentvisualizationtechniquesseeKucheretal.(2018).InTable6 tionfor134.000Englishwords.
+wepresentatypicalclassificationworkflowinTwitter,foravarietyof 7. The Linguistic Inquiry and Word Count (LIWC) (Tausczik &
+classificationtasksincludingsentimentanalysis. Pennebaker,2010),the2015versioncontains6400words,word
+Also Table 7 contains a list of comparison studies for feature se- stems,andemoticons.
+lection and text preprocessing techniques, machine learning methods
+Regarding sentiment measurement towards specific entities, Di-
+and DNN architectures for sentiment analysis. Regarding features, as
+akopoulosandShamma(2010a)used1820manuallylabeledtweetsto
+stated in Prusa et al. (2015), when only individual words (unigrams)
+measure the temporal variation of sentiment, during the broadcast of
+areusedasfeatures,thebestmethodstomeasurethefeatureefficiency
+U.S. presidential debate in 2008. in Asur and Huberman (2010), the
+areChi-SquareandMutualInformationwhereastheoptimalnumberof
+authors exploited the sentiment information, in order to predict the
+features is 200. In the comparative study from Jianqiang and Xiaolin
+revenueofmoviesaftertheirrelease.Jiangetal.(2011)buildamodel
+(2017),thatexamineddifferentnormalizationtechniquesinasetof5
+basedon2400manuallylabeledtweetsandlexicalfeaturestomeasure
+opendatasets,theauthorsshowedthatexpandingacronymsandreplac-
+thesentimenttowards5popularqueries(Obama,Google,iPad,Lakers
+ing negations significantly affects the task of classification. Also they
+and Lady Gaga). This approach has the benefit of accommodating
+demonstratedthatNaiveBayesandRandomForestshowedthehighest
+different uses of words, including slang for different entities. Wang
+sensitivitytothechoiceofnormalizationmethods.Inacomparisonof
+et al. (2012) was the first to build a real-time sentiment monitor,
+8 sentiment analysis lexicon based methods, Gonçalves et al. (2013)
+showed that SentiWordNet (Baccianella et al., 2010) exhibited the
+highestcoverage(fractionsoftextwithidentifiedsentiment)andLIWC 3 http://mpqa.cs.pitt.edu/lexicons/subj_lexicon/.
+(Tausczik & Pennebaker, 2010) had the highest agreement (smaller 4 http://www.ranks.nl/stopwords.
+deviationsfromtheotherlexicons). 5 http://www.speech.cs.cmu.edu/cgi-bin/cmudict.
+11D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+which was tested on the 2012 US elections. It used a model trained 24-hour day. This study provided additional biological insights asso-
+on 1820 manually labeled tweets and it was also the first study to ciating language use with the circadian rhythm. Emotional variation
+alsocorrectforhumorousandsarcasticcontent.Finally,Mitchelletal. is measurable not only in the textual content of the posts, but also
+(2013)performedthefirststudythatexploresdifferencesofexpressed in the changes of the profile summaries and in the display names of
+sentimentinvariousgeographicregions. Twitter users (Wesslen et al., 2018). These changes were associated
+Aninterestingtrendthatappearedinapproximately2014,wasthe with the cultural self-identity of the users. Similarly, it is possible to
+use of Deep Neural Networks for sentiment classification (Severyn & measuretheuseofcertaintypesoflanguagebetweendifferentcultures,
+Moschitti, 2015; Tang, Wei, Qin et al., 2014; Tang, Wei, Yang et al., an area of research that belongs to linguistic relativity. A study that
+2014). In one of the first studies (Tang, Wei, Yang et al., 2014) the analyzed40milliontweets,measuredtheemotionalvariationoftweets
+authors used 10 million tweets, in order to build word embeddings betweenCanadaandUS,confirmingthestereotypethatCanadiansare
+and achieved an impressive 86% accuracy on the task of positive vs. onaveragemorepolitethanAmericans(Snefjellaetal.,2018).
+negative tweet classification. Kim (2014) examined a variety of Con-
+volutionalNeuralNetworks(CNN)andshowedthatmostarchitectures 3.4.1. Healthmonitoring
+evenwithonelayerofconvolutionperformremarkablywell. The users’ timeline in Twitter reveals practical information, not
+only for the psychological, but also for their physiological state. NLP
+3.3. AnalysisoflanguagesotherthanEnglish techniquesonTwitterhavebeenemployedfortaskslikemonitoringof
+influenza epidemic (Broniatowski et al., 2013), drug intake (Mahata
+et al., 2018) and incidents of intestinal disease (Zou et al., 2016),
+Language is a major factor in sentiment analysis, due to major
+obesityanddiabetes(Karamietal.,2018).
+differencesinlexicons,syntaxandsemanticsamonglanguages.Today,
+sentimentanalysishasbeenperformedinallmajorlanguageslikeSpan-
+3.5. SentimentanalysisandpoliticaldiscourseinTwitter
+ish(Antaetal.,2013),Arabic(Duwairietal.,2014)andChinese(Zhao
+etal.,2012),allofthemfollowinglanguagespecifictechniques.What
+Many studies have performed elaborate analyses, in order to in-
+is perhaps more interesting are the multilingual techniques. In cases
+vestigate the behavior of online users, during pre-election periods.
+where lexicons and text processing software is available for multiple
+The purpose of most of these studies is to generate patterns that
+languages,thesecanbecombinedtobuildmultilingualsystems(Tromp
+distinguish users’ or posts’ favoritism towards one political party or
+& Pechenizkiy, 2011). Even more challenging are language agnostic
+certain ideology. Here, the main predicament is to generate election
+techniques. In this area, a common approach is to use emoticons
+predictions, that are close or even outperform public opinion polls
+as inter-language sentiment indicators (Cui et al., 2011; Narr et al.,
+(Lampos et al., 2013), to measure approval ratings (O’Connor et al.,
+2012).Anotherapproachistoemploymachinetranslation,forexample
+2010),ortoassesspublicopinionduringpoliticaldebates(Diakopoulos
+Google translate (Balahur & Turchi, 2013), to ‘normalize’ tweets in a
+&Shamma,2010b).
+commonlanguageandthenapplycommonsentimentanalysismethods.
+Gayo-Avello(2012)liststhemajordifficultiesofthisareathatneed
+When it comes to multilingual analysis in Twitter, it should be taken
+to be addressed, before making Twitter a reliable election prediction
+intoconsiderationthatthedemographicsofTwitterusersmightdiffer
+mechanism.Inbrief,thesedifficultiesarenoiseanddemographics.
+significantlybetweencountries.
+Regardingnoise,ahugeproportionofelection-relatedTwitterposts
+are humorous, ironic or sarcastic and do not portray any party (or
+3.4. Psychometricmethods
+ideology) inclination. It is estimated that approximately half of col-
+lectedtweetsbelongtothiscategory(Andréetal.,2012;Charalampakis
+Psychometrics (Shrout & Lane, 2012) are the family of methods
+et al., 2015). Filtering out these posts or users is a challenging task
+that attempt to assess various psychological traits of users, based on and relies heavily on qualitative human-crafted datasets of sentiment
+the activity and content of their online profiles. In cases where this vocabularies and pre-classified, ‘ground truth’ samples (Hopkins &
+research is focused on ‘happiness’, the term ‘Hedonometrics’ (Dodds King,2010).Low-quality,human-curateddatasetscanresultinavery
+et al., 2011) is also used. The first study in this area (Quercia et al., inefficientclassificationalgorithm,asithappenedinasarcasmdetec-
+2011)foundstatisticalsignificantcorrelationsbetweensimpleTwitter tionsystem(González-Ibáñezetal.,2011).Existingstudiesonsarcasm
+statistics (like number of followers) and ‘The Big Five personality detectionarefocusingonuserandwordselectiontechniques(Lampos
+traits’(Barrick&Mount,1991).Forexample,thenumberoffollowers et al., 2013), or are explicitly addressing reliability level of posts, by
+was strongly associated with the ‘extraversion’ trait, the ‘imaginative’ classifyingthemasrumorsortrolls(Lukasiketal.,2015).
+attribute was present only to popular users and the ‘organized’ trait Regarding demographics, Twitter users belong to a specific social
+waspresentmainlytotheinfluentialusers.Theestimationofthe‘big group, that is not necessarily representative of the whole electorate.
+fivepersonalitytraits’throughtextualanalysiswasalsoassociatedwith Specifically, studies have indicated that Twitter users belong to a
+thechoiceofprofilepicture,throughimageanalysis(Liuetal.,2016). certain age (Gayo-Avello et al., 2011), social (Preotiuc-Pietro et al.,
+Another study found that happiness is assortative (Bliss et al., 2012), 2015)andideologydemographicgroupandtherefore,expressapartial
+meaning that proximal users (distance no more than 3 links) show opinionofthesocietyatbest.Astudyof2011concludedthatdueto
+correlationinhappinessmetrics. itsdemographics,Twitterisbyfarinferior,comparedtoopinionpolls,
+Anotherlineofworkistomeasureemotionalvariation.inPfitzner forelectionpredictionintheU.S.(Gayo-Avelloetal.,2011).Another
+et al. (2012), the authors applied sentiment analysis techniques in a studyreportedthatexistingpoliticalpartyclassificationsystems,based
+corpusof35millionEnglishtweets,concludingthattweetswithhigh onsentimentanalysis,arenobetterthanrandomclassifiers(Chung&
+emotionaldivergencegetretweetedmoreoften.Althoughthepolarity Mustafaraj,2011).Thisindicatesthatsentimentanalysismethodsarein
+of the tweets does not influence the probability of retweeting, the theirinfancyandthattheyshouldbecoupledwithmoresophisticated
+emotional divergence does have a measurable impact. Bollen et al. methodsthatincorporaterichlexicalpropertiesandcontextindicators,
+(2011) measured the effect of important public events (like public specifictoeachcampaign(Shietal.,2012).Fortunately,existingtech-
+holidays or general elections), on the collective sentiment. A study niques can effectively assess and correct these biases (Preotiuc-Pietro
+of Dzogang et al. (2018), analyzed 800 million tweets from the UK etal.,2015).
+andmeasuredthediurnalvariationof73psychometricvariables.The ThefirsttermofBarackObama’spresidency(2009–2012)coincided
+authorslocatedtwoleadingfactors,named‘CategoricalThinking’and withtheimmenseincreaseofTwitter’suserbaseanditsestablishment
+‘Existential Thinking’, which peak at opposite time points during the as a channel for personal political expression. As a consequence, one
+12D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+Table8
+Mainstudiesforelectionprediction,sarcasmdetectionandapplicationsofsentimentanalysisonTwitter.
+Topic Method Reference
+Outperformopinionpolls Lamposetal.(2013)
+DwiPrasetyoandHauff(2015)
+Electionpredictions Measureapprovalratings O’Connoretal.(2010)
+Assessopiniononpoliticaldebates DiakopoulosandShamma(2010b)
+Low-quality,human-curateddataset González-Ibáñezetal.(2011)
+Userandwordselection Lamposetal.(2013)
+Sarcasmdetection Classifyasrumors/trolls Lukasiketal.(2015)
+Noveltailoredlexicon Antonakakietal.(2017)
+GhiassiandLee(2018)
+Grouppolarization Conoveretal.(2011)
+Colleonietal.(2014)
+Arabspring Weberetal.(2013)
+Sentimentanalysis HugoChavez Moralesetal.(2015)
+Climatechange Newman(2017)
+Codyetal.(2015)
+TheEuropeanrefugeecrisis Rossetal.(2017)
+Americanpolitics Wangetal.(2017)
+of the first studies that compared sentiment analysis in Twitter with 4.1. Spam
+‘traditional’opinionpollswasfrom2010,demonstratingastrongcor-
+relationbetweenSentimentAnalysisinTwitterandObama’sapproval Sinceitsearlyperiod,Twitterhashadamajorproblemwithspam
+ratings polls (O’Connor et al., 2010). The application of the same andphishingURLs.Averythoroughstudyof2010(Grieretal.,2010),
+method in 2012 U.S. presidential elections outperformed the public estimatedthatapproximately8%oftheURLspostedinTwitterbelong
+opinion polls (Dwi Prasetyo & Hauff, 2015). Since then, numerous to one of these categories. Like in any other social network, spam on
+studieshaveperformedsimilaranalysisinothercountrieslikeAustria Twitterhastwomainproperties.Thefirstisthatitisusuallydelivered
+(Lamposetal.,2013),UK(Lamposetal.,2013)andItaly(DwiPrasetyo and spread in the form of massive and orchestrated campaigns (Gao
+&Hauff,2015),withvaryingelectionproceduresanddiversecultural etal.,2010).ThesecondisthatspamURLsaremostofthetimeposted
+andlanguagedynamics. from compromised (or else hijacked) accounts (Thomas et al., 2014).
+Other approaches extract knowledge from the social graph, by Therefore,twoofthemainresearchquestionsofthisareaare:Canwe
+studyingtheretweetorthementiongraph(Conoveretal.,2011),orby predictifatweetcontainsspam,orifanaccountbelongstoaspammer?
+averaging on the predefined ideology of the political leaders that the Whattechniquesdospammersemploy,inordertomaximizethespread
+usersfollow(Golbeck&Hansen,2011;Stamatelatosetal.,2020).The oftheircampaigns?PerhapsthemorerecentreviewisfromWuetal.
+tweet volume is a good indicator for a party’s success, given that the (2018),whichpresentsthestateoftheartonspamdetection,compares
+correcttimewindowisdefined(Eometal.,2015),butstudiesindicate the performance of different approaches and discusses existing open
+thatthisisinefficientwithoutsentimentanalysis(Shietal.,2012). issues.
+Sentiment analysis can measure the polarity of Twitter’s users, in
+regard to a specific event or movement (Antonakaki, Spiliotopoulos 4.1.1. Workflowsforspamclassification
+etal.,2016;Colleonietal.,2014;Conoveretal.,2011).Forexample, Spam detection and classification are some of the most vivid re-
+group polarization have been studied on the context of ‘Arab spring’ search areas on Twitter. There are three types of classification tasks:
+(Weberetal.,2013),theVenezuelanpresidentHugoCha¸vez(Morales (1) detecting spam tweets, (2) detecting spam users (spammers) and
+etal.,2015),theclimatechange(Codyetal.,2015;Newman,2017), (3)detectingspamcampaigns(Chu,Widjajaetal.,2012).Ifweinclude
+the European refugee crisis (Ross et al., 2017) and American politics
+botdetectionandsentimentclassification,werealizethatclassification
+(Wangetal.,2017).
+isavitalpartofmanyTwitterstudies.InTable6,weshowthegeneral
+Otherworksincludeformingdomainontologiesforsentimentanal-
+structureandmainsteps,commonlyfoundinaclassificationworkflow
+ysis, like in Kontopoulos et al. (2013), where they label the tweets
+thatusesMachineLearningmethods.Ontheremainingofthissection,
+withsentimentscoreandadditionallyassignasentimentgradeforeach
+wesurveyindetailthesestepsforthetaskofspamclassification.
+notion.inAntonakakietal.(2017)theyuseentitiesinsteadofontolo-
+gies,thatareformedfromthecompleteTwittercorpusforapolitical Labeling data as spam/legit The first part of a workflow for spam
+event in Greece, concerning the Greek bailout referendum in 2015 classificationisthecollectionandlabelingoftweets,accordingtotheir
+and the subsequent elections. This dataset contained 301,000 tweets spam/legit status. This dataset will be used to train the classifier and
+(referendum)and182,000(elections).Theycompiledanovelpolitical assesstheefficiencyoftheresultedclassificationalgorithm.
+lexicon for sentiment and entity detection, tailored for the specific Regarding collection, researchers can simply use Twitter’s API to
+events. They applied volume, sentiment analysis, sarcasm correction collectasmanytweetsaspossible,expectingto‘harvest’afairamount
+andLDAfortopicanalysis. ofspam.Interestingly,thisprocedurecanbespedupbybuilding‘social
+In Table 8 we list the main studies presented here for election honeypots’,wheremultiplelegitimateaccountsaresetforthepurpose
+prediction,sarcasmdetectionandtheapplicationofSentimentAnalysis of attracting and investigating spam and phishing URLs (Lee et al.,
+onTwitter. 2010,2011;Stringhinietal.,2010).
+Regarding spam labeling, one of the most common methods is
+4. Attacksandexploits by employing human inspectors (Benevenuto et al., 2010; Flores &
+Kuzmanovic, 2013; Wang, 2010). Although the false positive ratio of
+Generally, social networks have been the target of a variety of thismethodisverylow,anobviousdisadvantageisthatitrequiresa
+maliciousattacks(Markatosetal.,2013).Here,wediscussthreeofthe considerableamountofhumaneffort.Twitteritselfprovidestheability
+mostseriouscategoriesofattacks,withhighprevalenceonTwitter.The toanyusertoreportatweetoraccountasspam.Thismethodutilizes
+firstisspam,thesecondisautomatedactivityfrombotaccounts,with thepowerofthesocialnetworkitself,nevertheless,reportingdatahas
+thepurposeofspreadingmisinformationandthethirdishatespeech. neverbeenreleasedbyanysocialnetwork.
+13D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+Perhaps the most efficient method for spam labeling is through webpresence.AFacebookspecificfeatureistheuserinteractiongraph
+the automatic profiling of posted URLs. Due to the restricted size of (Gaoetal.,2012),whichtargetsusersthatunexpectedlyinteractwith
+messages,allURLsonTwitterareshortenedtoreducetheirsize,which ahighnumberoffriends.
+also has a negative side-effect: the website that the URL points to is Usually studies extract a subset of the aforementioned features.
+hidden and the user only sees the address of the shortening service However, there is a distinction between studies that are based on
+alongwitharandomidentifier.TwitterhasemployedaURLshortener contentbasedfeatures(tweettextoruser’sprofile)andgraphbasedfea-
+service that preemptively checks for reported malware and phishing tures(basedonthepropertiesofthesocialgraph).Papersthatbelong
+sites before shortening a URL (Twitter Inc., 2018). A Twitter report tothefirstcategoryare:Amleshwarametal.(2013),Benevenutoetal.
+from 2010 (Chowdhury, 2010) states that this service contributed to (2010), Lee et al. (2011), Martinez-Romo and Araujo (2013), Wang
+a drop on spam from 8% to 1%. When users click a URL posted on (2010)andtothesecondare:Amleshwarametal.(2013),Benevenuto
+Twitter, they are either redirected to the initial posted URL (in case etal.(2010),Leeetal.(2011)andWang(2010).
+of legitimate content) or redirected to a page informing them that Itisalsopossibletomeasuretheclassificationabilityofeachfeature
+this URL has been flagged as malicious. This is convenient because andrankthemaccordingly.Availablemethodsforthispurposeare:In-
+researchersdonothavetoemployanysophisticatedtechniqueinorder formationgainPrusaetal.(2015),chisquare(Benevenutoetal.,2010),
+toexaminethelegitimacyofalink(asforexampleintraditionalmail area under the curve, Precision–Recall plot, Gini Index, Kolmogorov–
+spam).Incontrast,theyonlyhavetoinspecttheresponseoftheURL Smirnov statistic, Mutual Information and Probability Ratio. Another
+shortening service when it is asked to un-shorten a URL. Example of option is to perform classification, by using a single feature and then
+studies that use this method for spam detection are (Amleshwaram measurethisfeature’saccuracy.
+etal.,2013)and(Gaoetal.,2012).
+ClassificationandClusteringmethodsAfterdatacollection,labelingand
+Another method to check the validity of a URL is to query online
+feature extraction, researchers usually feed this data to a Machine
+blacklisting services (Amleshwaram et al., 2013; Antonakaki et al.,
+Learning algorithm and attempt to build a SPAM vs. LEGIT classi-
+2014;Martinez-Romo&Araujo,2013).Servicesthathavebeenusedon
+fier. Various algorithms have been tested for this purpose, including
+Twitter are PhishTank (Kumaraguru et al., 2007) and Google
+NaiveBayes(Wang,2010),DecisionTrees(Gaoetal.,2012;Martinez-
+Safebrowsing(Gaoetal.,2010).Themajordrawbackoftheseservices
+Romo & Araujo, 2013), Random Forest (Lee et al., 2011; Mccord &
+is that they exhibit a significant delay (it can be up to 3 days) for
+Chuah, 2011), Support Vector Machines (Benevenuto et al., 2010)
+updatingwithnovelmaliciousURLs(Shengetal.,2009).SinceTwitter
+and Aggregate methods (Amleshwaram et al., 2013). Some studies
+is notorious for spreading information rapidly, this can be a major also perform unsupervised learning (clustering), with the purpose of
+issue.Spammersareawarethatdomainblacklistingisaveryefficient generating clusters based on the content (Amleshwaram et al., 2013;
+defense mechanism. Specifically, only 2% of spam originates from a Gaoetal.,2012;Thomasetal.,2014).Towardsthisdirection,avery
+dedicatedregistereddomainThomasetal.(2011).Forthisreasonthe usefulalgorithmistheminhash(Broder,1997).
+majorityofspamURLsoriginatefromfreesub-domains,suchasco.cc Clusteringhelpsgroupingtweetsandsignificantlyspeedstheeffort
+or dot.tk. These domains cannot be blacklisted as they may contain ofidentifyingspamcampaigns,incollectionsofbillionsoftweets.An
+any kind of content, including legitimate and they do not have any exampleofunsupervisedclassificationforrealtimespamdetectionon
+registration fees. Similarly spammers often exploit free blog hosting Twitter is presented by Washha et al. (2019). Initially, the authors
+services.Inthesamestudy(Thomasetal.,2011),theauthorsrevealed filter tweets by creating a feature vector with a predefined set of
+thatthethirdmostpopulardomaincontainingspamisblogspot.com. light features and then they apply periodic classification where they
+OtherpopularchoicesareLiveJournalandWordpress.Asaconclusion, periodicallystorestreamedtweetsandupdatealabeledtrainingdataset
+domainblacklistingshouldbeavoided,asaninefficientstrategy,com- usingunsupervisedmethods.
+paredtothemoretargetedapproachofURLblacklisting.Examplesof The comparison between these studies is not easy, due to the
+domainblacklistingservicesthathavebeenprovedinefficient,dueto fact that they are performed in datasets collected and labeled with
+delayed updates and containing many false positives, are URIBL and different methods. This brings forward the necessity for a publicly
+Joewein Grier et al. (2010). Similarly, traditional mail spam defense availableandpre-labeledTwitterspamdataset,similartovariousemail
+mechanisms,likeReal-timeBlackholeList(RBLs),arealsoineffective. spamdatasetsavailableonline(Cormack,2008).Fortunately,thereare
+Another method for evading detection is multiple redirects. A spam studies that have undertaken the task to compare the classification
+URLthatgoesthroughmultipleredirectingservicesandlandseitherin efficiencyofdifferentfeaturesandalgorithms,butforthesamedataset.
+afreesubdomainorevenbetterinabloghostingservice,isthemost One of these is Herzallah et al. (2018) which showed that features
+stealthyapproach. liketheageoftheaccount,theaveragetimebetweentweetsandthe
+average length of tweets, had the best spam discriminatory ability,
+Feature Extraction Features for spam classification are account based,
+whereasSVMwasselectedasthebestalgorithm.AlsoWuetal.(2018)
+like the longevity of the account, the number of posted tweets, the
+compared a set of common methods from a dataset of 600 million
+average tweets per day, the number of followers, the number of fol-
+tweetscontaining6.5millionspamtweets.Theyconcludedthatmost
+lowingandwhetherornottheaccounthasadescription(Chu,Widjaja
+classifiershavenosignificantdifferenceswhereasthefeaturescontain-
+et al., 2012). Some meta-features are the ratio of followers versus
+ing the number of hashtags, number of user mentions and number of
+followingsandthenumberofbidirectionalfriends.Featuresbasedon
+URLshadthehighestdiscriminativeefficiency.
+tweet content are tweet length, number of URLs posted, number of
+unique URLs, number of total and unique user mentions, number of EstimatingtheperformanceofaspamdefensesystemAwell-designedspam
+trendingtopicsandnumberofretweetsandhasthags.URLsseemtobe defensemechanismshouldhavetwomaincharacteristics:accuracyand
+avaluablesourceofinformationformalevolentcontent.URLfeatures efficiency. Accuracy is measured on both sensitivity and specificity.
+includelength,numberofsubdomains,numberofredirectionsandage Highsensitivitymeansthatthesystemcorrectlyidentifiesspamcontent
+ofthelandingdomainAggarwaletal.(2012).Also,languagefeatures inahighratio.Highspecificitymeansthatthesystemhasalownumber
+include n-grams, similarity of texts sent (a high similarity indicates of misclassified non-spam content as spam (or else false positives).
+that the account is actually a robot), similarity of the usernames of a In general a non-spam tweet misclassified as spam should be more
+userfriends(Stringhinietal.,2010)andsimilaritybetweentheposted penalized than a misclassified spam as a non-spam. This is because
+trends and text (Amleshwaram et al., 2013). An interesting feature is flagging or even hiding legitimate content from the user may affect
+thenumberofresultsreturnedfromawebsearchofanaccount’sname moretheuser’soverallexperiencefromtheservice,thandealingwith
+(Flores & Kuzmanovic, 2013) since fraudulent accounts rarely have a spamthateludeddetection.Usersaremoreaccustomedtobeexposed
+14D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+Table9
+MainareasandexistingstudiesinspamidentificationonTwitter.
+Topic Method Reference
+Campaigns Grieretal.(2010)
+Hijackedaccounts Thomasetal.(2014)
+Blacklistsdrawbacksforlabeling Shengetal.(2009)
+Spamclassification Grieretal.(2010)
+Martinez-RomoandAraujo
+(2013)
+Amleshwarametal.(2013)
+Realtime Washhaetal.(2019)
+NaiveBayes Wang(2010)
+DecisionTrees Martinez-RomoandAraujo
+(2013)
+Gaoetal.(2012)
+Clustering RandomForest Leeetal.(2011)
+SVM Benevenutoetal.(2010)\
+Aggregatemethods Amleshwarametal.(2013)
+Necessityforpre-labeleddatasets Cormack(2008)
+Unsupervisedlearning Clusterbasedoncontent Amleshwarametal.(2013)
+Gaoetal.(2012),
+Thomasetal.(2014)
+Minihash Broder(1997)
+Spamdefensesystemperformance Sensitivity/specificity:80%,99% O’Donovanetal.(2012)
+Ozdikisetal.(2012),
+Grieretal.(2010)
+Timeefficiency(halfsecond) Grieretal.(2010)
+Spammers’adaptation Sridharanetal.(2012)
+Bulkcontentdistribution Kreibichetal.(2008)
+Click-throughrate Grieretal.(2010)
+Fakeaccounts Leeetal.(2011)
+Linkfarming Ghoshetal.(2012)
+Spamtechniquesandpractices Trend-jacking Martinez-RomoandAraujo
+(2013)
+Antonakakietal.(2014)
+andGrieretal.(2010),
+Martinez-RomoandAraujo
+(2013)
+Accounthijacking Grieretal.(2010)
+Aggarwaletal.(2012)and
+Harvey(2010)
+Benevenutoetal.(2010)
+Almaatouqetal.(2014)
+Wang(2010)
+Leeetal.(2011)
+Amleshwarametal.(2013)
+FloresandKuzmanovic
+(2013)
+Music,gamesandfilms Grieretal.(2010)
+Spamcontent Followerscampaigns Thomasetal.(2013)
+Stringhinietal.(2013)
+Perlroth(2013)
+Antonakaki,Polakisetal.
+(2016)
+McCoyetal.(2012)
+Stone-Grossetal.(2013)
+Weightlosssupplements Thomasetal.(2014)
+tospamthanhavinglegitcontentbeinghiddenfromthem.Ageneral Another consideration is that spammers are adapting quickly to
+consensusforacceptablesensitivityandspecificityvaluesare80%and avoid tracing mechanisms. Even if a defense is successful for current
+99%,respectively(Grieretal.,2010;O’Donovanetal.,2012;Ozdikis data,thereisnoevidencethatthemethodcanberobustonfuturespam
+etal.,2012). deployed campaigns. This robustness is rarely discussed in existing
+Efficiency measures the time overhead added to the system (or to studies(Sridharanetal.,2012).
+user experience), by employing a specific defense mechanism. A very
+elaborateandcomplicateddefense,regardlessitssuccess,mightrender 4.1.2. Commonspamtechniquesandpractices
+aserviceuseless,ifitusesaconsiderableamountoftime.Acceptable Comparedtotraditionalemailcampaigns,spamonTwitter,appears
+efficiencyvaluesareintherangeofhalfofsecond.Thisincludesboth to follow a more orchestrated and organized approach. Specifically,
+theamountoftimetakentoextractthefeaturesandtoclassifyagiven emailspamreliesonthebulkdistributionofcontenttowardsrandom
+tweet(Grieretal.,2010). emails, usually harvested from web crawlers (Kreibich et al., 2008).
+15D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+This is reflected in the clickthrough rate, which is the percentage of Oneofthemostwidely-usedtechniquesistore-postURLstopopular
+spam links that users are tricked to follow, over the sum of the total content such as news items, product releases and trending Internet
+spamthattheyreceive.ForTwitter,thisratehasbeenestimatedtobe memes. This practice is also known as ‘link farming’ (Ghosh et al.,
+0.13% (Grier et al., 2010), which is orders of magnitude higher than 2012).Othertechniquestoartificiallyincreaseinfluenceare(1)adding
+theclickthroughrateofmailspam,estimatedat0.01%(Kanichetal., mentions to popular users, (2) retweeting legitimate popular tweets
+2008). In this section we investigate some common exploits used by and (3) adding hashtags with trending topics. The latter technique is
+spammersforrapidcontentdelivery. calledtrend-jacking;Martinez-RomoandAraujo(2013)andGrieretal.
+Account hijacking Through account hijacking a single spammer can (2010)revealedthat14%oftrendingtopicsaregeneratedexclusively
+‘own’ thousands of legitimate accounts and orchestrate massive spam from spammers. The goal of this attack is to masquerade the spam
+campaigns,unbeknownsttothem(Grieretal.,2010).Accounthijack- message to make it seem innocuous and blend in with numerous
+ing on Twittercan happen either from bruteforcepassword guessing otherlegitimatetweetsaboutaspecifictopic(Antonakakietal.,2014;
+(Wisniewski,2010)orfromphishingtechniques(Aggarwaletal.,2012; Martinez-Romo &Araujo,2013). Thistechniquealsotakes advantage
+Harvey, 2010). It is estimated that $520 millions were lost due to of the very popular and efficient search functionality of Twitter. To
+phishingattemptsin2011(Aggarwaletal.,2012).Astudyfrom2014 put this in perspective, in 2018 Google served 3.5 billion searches
+(Thomasetal.,2014)revealedthatoutof168millionusers,14million daily (Mangles, 2018), in 2016 Facebook’s search engine received 2
+hadtheiraccountshijackedand5millionsweredeliberatefraudulent billion queries per day (Constine, 2016) and in 2014, Twitter served
+accounts.Hijackedaccountsaccountfor69%oftotalspamonTwitter 2 billion queries per day (Myers, 2014). Although, these companies
+and the probability of users becoming victims is correlated with the publish usage statistics sparsely, in a way that makes it difficult to
+number of victims that they follow. The authors also challenged one comparebetweeneachother,itisevidentthatsearcheswithinTwitter
+ofthemostprofoundbeliefsregardingsecurityinsocialmedia:‘‘Only constitutesasignificantpercentageoftotalsearchesforcontentonthe
+novice users can get hijacked’’. In contrast, they found that accounts web.Therefore,‘hijacking’searchresultsofTwitter,bymixingpopular
+that had many years of frequent online presence with hundreds of contentwithspamURLs,isasuccessfulstrategy.
+thousands of followers were victims as well. Social consequences are
+from abandoning an account (1 out of 5 victims), to losing online
+friends (1 out of 2 victims). This finding signifies the importance 4.1.3. Spamcontent
+of introducing better spam defense mechanisms, as well as, raising Another interesting question is what is the content that spammers
+awarenessofthepubliconthisissueandurginguserstobesuspicious trytopromote?Accesstoentertainmentcontentlikemusic,gamesand
+andadoptbasicpracticesforsecurebrowsing. filmsisrankedasnumberone(Grieretal.,2010).Interestinglycontent
+Becauseofaccounthijacking,thereisacrucialdistinctionbetween that is most often seen in email spam like pharmaceutical drugs, diet
+spamclassificationversusspammersidentification(Benevenutoetal., productsandadultcontentisrankedlow(lessthan5%intotal).
+2010). Although spam content is very distinguishable, spam accounts Another consideration is the rise of a fraudulent account trading
+can be in reality hijacked accounts that post a mix of legit and spam marketplace, that offers additional followers. These campaigns, also
+content.Thiswasconfirmedinastudyof100milliontweetsat2014 called ‘Gain More Follower’ campaigns, attempt to attract victims by
+(Almaatouq et al., 2014), in which the authors identified two very offeringamassincreasetotheuser’snumberoffollowers.Thisaccount
+distinct patterns of spam accounts: The first had the same tweeting sellingmarketgenerates$127,000–$459,000revenueperyear(Thomas
+and social patterns to legit users, whereas the second had in average
+et al., 2013) just by selling Twitter accounts. The same market also
+more followings and lower betweenness centrality. Therefore, a spam
+offers accounts for other services like Hotmail, Yahoo and Gmail.
+messageonTwitter,doesnotnecessarilymeansthatitwassentfrom
+Additionally there are rough estimations of the get-more-followers
+a dedicated spam account. For this reason, the accuracy of tweets
+type of spam, that approximate their revenue to multi-millions of
+classificationmethods(suchasBenevenutoetal.(2010),Wang(2010))
+dollars (Perlroth, 2013; Stringhini et al., 2013). Spammers in these
+are usually higher than methods for account classification (such as
+campaignsfollowastealthierapproach,comparedtootherspammers,
+Amleshwaram et al. (2013), Benevenuto et al. (2010), Flores and
+as they manage to masquerade the malicious URLs behind legitimate
+Kuzmanovic(2013),Leeetal.(2011),Wang(2010)).
+and popular sites such as links to Google search results (Antonakaki,
+InTable9wepresentthemainresearchareasandrelevantstudies
+Polakis et al., 2016). The revenue of the account selling market is
+forfightingSpamonTwitter.
+smallcomparedtopharmaceuticaldrugspromotingcampaigns,which
+Fake accounts Another popular technique is to simply create multiple is estimated to have a value of 185$ millions (McCoy et al., 2012)
+accounts and have them exhibit a tweeting pattern that attracts a or to fake anti-virus markets with a revenue of $130 million (Stone-
+fair amount of followers (Lee et al., 2011). After acquiring a critical Grossetal.,2013).Neverthelessthesemarketsmightrequiretohavean
+massoffollowers/targetstheseaccountscantweetspamcontent,along actualphysicalinfrastructure(despitesellingfakeproducts),compared
+withharmlesstweets.OfcourseTwitterhasexplicitlydisallowedthis
+to the account and get-more-followers markets that require only the
+practiceandhasbuiltdefensesagainstit(TwitterHelpCenter,2018).
+exploitationofaccountverificationmechanismsofthesocialnetworks.
+In 2018, Twitter announced (Roth & Harvey, 2018) that it has
+Other popular spam content is Weight Loss Supplements and Survey
+improved its spam detection techniques and as a result it suspended
+Leads(Thomasetal.,2014).
+70millionaccounts.Twitteralso‘challenges’9.9millionaccountsper
+weekandhasalsoposedactionsagainstaccountsthatareofferedasfol-
+lowers,inexchangeformoney.Forexample,oneparticularcompany, 4.2. Botsandthe‘fakenews’epidemic
+Devumi,hassold200millionTwitterfollowers,fromacollectionof3.5
+millionfakeaccounts(Confessoreetal.,2018).Twitterestimatedthat Fake accounts and automatic content posting can have more dark
+aftertheseactions,theaveragenumberoffollowersoftheiruserswill
+motivesthansimplefinancialgain,asithappenswithspam.Todayitis
+dropby4.
+consideredaculturalandsocialphenomenonthewidespreadof‘news’
+Link farming and Trend-jacking One of the main objectives of spam- ofquestionableoriginandvalidity.Thisphenomenoniscalledthe‘fake
+mers is to augment their targeting audience, or else to increase their news’epidemicandiswidespreadonOSNs.Inarecentsurvey,Sharma
+followers base. To achieve this, they usually engage in activities to et al. (2019) reports existing methodologies, techniques and datasets
+make a spamming account appear as ‘interesting’ and ‘informative’. regardingidentificationandmitigationoffakenews.
+16D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+Table10
+DifferentareasandrelevantstudiespresentedforBots,‘fakenews’andHatespeech.
+Topic Method Reference
+Botsforfakenews Russianelections Thomasetal.(2012)
+USelections Broniatowskietal.(2018)andByrnes
+Australiaelections (2016)
+Measurespread Waughetal.(2013)
+Measurevulnerability Vosoughietal.(2018)
+Automaticamplification Edwardsetal.(2014)
+Honeypot Stellaetal.(2018)
+Tool:Botornot Gilanietal.(2016)andMessiasetal.
+Tool:SybilDetector (2013)
+Tool:Debot Davisetal.(2016)
+Tool:RTBust Alsalehetal.(2014)
+Challenge:DARPA Chavoshietal.(2016)
+Task:Benignvs.Malignbots Mazzaetal.(2019)
+Task:Effectofelimination Subrahmanianetal.(2016)
+Method:Anomalydetection Chu,Gianvecchioetal.(2012)
+Shaoetal.(2018)
+Rodríguez-Ruizetal.(2020)
+Rumor Review MeelandVishwakarma(2019)
+FeatureAnalysis O’Donovanetal.(2012)
+Feature:Retweetpattern Mendozaetal.(2010)andO’Donovanetal.
+Feature:Replypattern (2012)
+Dataset:PHEME Wuetal.(2020)
+Method:DNN Zubiagaetal.(2016)
+Task:Astroturfing Ajaoetal.(2018)
+Ratkiewiczetal.(2011)
+Hatespeech Definitionandcontext FortunaandNunes(2018)
+Definition WaseemandHovy(2016)
+Corpus Fountaetal.(2018)
+Yahoo!Corpus Nobataetal.(2016)
+Featureanalysis UnsvågandGambäck(2018)
+Focusingonevent BurnapandWilliams(2015)
+Focusingonblackcommunity KwokandWang(2013)
+4.2.1. Prevalenceofbotsandmaintechniquesforfakecontentcirculation 4.2.2. Botdetection
+InThomasetal.(2012),theauthorsstudiedtheinfrastructureused Giventhesophisticationofbotaccounts,thetaskofbotidentifica-
+to launch a massive misinformation campaign, in order to influence tionisaverychallengingtask.Themostwell-knowntoolthatemploys
+political conversations regarding the outcome of 2011 Russian’s par- machine learning methods for bot detection is botornot (Davis et al.,
+2016). This system has been expanded and renamed to Botometer
+liamentaryelections.Theattackwasdonefromcomputersaroundthe
+(Yang et al., 2019), using an impressive number of 1200 different
+globe, consisting of 39% of blacklisted IPs, probably originated from
+features and is based on Random Forests. The Twitter Sybil Detector
+compromised hosts. Of course, ‘opinion hijacking’ through the use of
+(Alsaleh et al., 2014) (TSD) uses Machine Learning methods on 17
+Twitter bots is not only pertinent in politics. in Broniatowski et al.
+featuresandachievesa95%detectionratio,althoughitfailstodetect
+(2018),theauthorsrevealedthatRussianaccountsthatwereactivein
+hybrid accounts (acting both as bots and as legit), which is a main
+US elections, were also spreading misinformation that promoted the
+drawback,giventhehijackednatureofmanyaccounts.TSDhasmade
+anti-vaccinationmovement.
+publicly available a Twitter Sybils corpus that can be used for com-
+Morerecentstudiesrevealedthatbotactivityismorewide-spread parative analysis. DeBot (Chavoshi et al., 2016) is a detection system
+andmoreeffectivethanitwasthought.Ananalysisof14milliontweets that exploits the fact that bots tend to post content synchronously,
+in2018demonstratedthatalownumberofbots(6%oftotalaccounts) in contrast to humans. Similarly RTbust (Mazza et al., 2019) exploits
+isenoughtospread31%offakenews(Shaoetal.,2018).Thisstudy the temporal patterns of re-tweeting bots. DARPA has challenged 6
+also revealed two of the most successful bots’ strategies. The first is research groups to perform bot detection for anti-vaccination cam-
+to reproduce low-credibility content, as early as possible, (preferably paigns (Subrahmanian et al., 2016). One of the interesting parts of
+less than 10 s) after the content is originally posted. This gives the thechallengewasthatcontestantshadtodistinguishanti-vaccination
+chance, for the content, to be widely spread before it is refuted. The botsfromotherkindsofbots.Similarly,Chu,Gianvecchioetal.(2012)
+secondistotarget,throughuser-mentions,verypopularusershoping triedtodistinguishmalevolentbotsfrombotsthatpostbenigncontent
+thattheywillretweetandredistributethecontent(Stellaetal.,2018). (called cyborgs, i.e. with automatic weather reports). Rodríguez-Ruiz
+etal.(2020)suggestedaone-classclassificationmethodwhichattempts
+Thesetechniqueswerecalled‘automatedamplification’.Anotherstudy
+tosimplylocatedeviations,oranomalies,froma‘normal’dataset.The
+(Vosoughi et al., 2018) that analyzed 126,000 stories, revealed that
+samestudyalsocontainedathoroughreviewandcomparisonanalysis.
+false news-items required, in average, 10 h to reach 1500 people,
+Thereviewshowedthatfrom13existingmethodsthehighestefficiency
+whereasvalidnews-itemsrequired60htoreachthesameamountof
+isreportedfromBotometerforthetaskofidentifyingpoliticaltweets
+people.
+withtheimpressiveAUCof1.Thecomparisonof10differentMachine
+Botactivitiesthattargetpoliticalcampaignsareofspecialinterest.
+Learningmethods,thatwereassignedtoperformamulti-classdetection
+OnTwitter,hundredsofthousandsoffakeaccountsseemtoparticipate from4differentbotdatasets,resultedintheLogisticRegressionhaving
+inorchestratedeffortstopromote(orlibel)certainpoliticalcampaigns, thehighestAUC.
+anactionthatcanbereferredas‘opinionhijacking’.Thephenomenon Anotherinterestinglineofworkistodeliberatelyconstructavariety
+hasbeennoticedduringelectionsincountrieslikeRussia(Krebs,2018), of harmless bots, each with different ‘behavior’ and then study the
+USA (Byrnes, 2016), Australia (Waugh et al., 2013) and also in the number of followers or other influence metrics that they acquired
+Catalanreferendumforindependence(Stellaetal.,2018). (Gilani et al., 2016; Messias et al., 2013). In a similar study it was
+17D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+found that a group of users did not find any differences on source theytestedaclassifierwith24,582tweets,wherehalfofthemtargeting
+credibility, communication competence and interactional intentions theblackcommunityandhalfhavingneutralcontent.
+betweentweetsoriginatingfromhumansorbots(Edwardsetal.,2014). Hate speech has been a major issue on Twitter. A study from
+The defense against bots is to simply apply mechanisms for early AmnestyInternational(AmnestyInternational,2018)reportedthat,on
+detectionandelimination.Shaoetal.(2018)estimatedthatbyelimi- average,awomanreceivesanabusingtweetevery30sandthatwomen
+natingonly10%ofbotsisenoughtosignificantlydecreasetheirimpact. ofcoloraremorelikelytobetargetsof‘troubling’tweets.Twitterhas
+Twitteritselfappliesa‘qualityfilter’thatremovespossibleautomated acknowledgedthisissueandacquiredSmyte,acompanythatperforms
+contentfromauser’stimeline(Leong,2016). spam, abuse and fraud detection, with the sole purpose of addressing
+hate speech (Twitter Official Blog, 2018). In Table 10 we summarize
+4.2.3. Rumorsandfakenewsdetection themostimportantstudiesmentionedabove.
+Bot detection is a different task than rumor detection. Although
+rumorsandfakenewsexploitOSNsforrapidcirculation,theydonot 5. Discussionandconclusions
+havetobebasedontheexistenceof‘botarmies’.Mostofthetime,a
+wellconstructedrumorfromaseeminglytrustworthysource,regarding
+Without doubt, Twitter is a fascinating OSN with some unique
+a recent and unexpected event, can be very easily propagated, even
+properties.Forexample:Ithasatypicalsocialnetworkstructure(users
+from experienced users. Consider that in 2013, a single tweet was
+connected to users), but at the same time is mostly used for news
+enoughformakingthestock-marketcrash,forashorttime(Matthews,
+dissemination (Kantrowitz, 2018; Kwak et al., 2010; Myers et al.,
+2013). One of the most thorough review containing the prevalence,
+2014).Itsupportsthedeliveryofshorttextmessagesbutatthesame
+consequences, datasets and classification studies is from Meel and
+time it allows rich media (i.e. URLs, images, videos) and semantic
+Vishwakarma(2019).
+(i.e. hashtags, mentions, retweets) content. It has the 1/6 of monthly
+Analysisof18featuresonadatasetbetweencredibleandnoncredi-
+active users of Facebook but the average Twitter user has four times
+bletweetsrevealedsmalldifferences(O’Donovanetal.,2012).Zubiaga
+moreconnections(see 2.2.2).
+etal.(2016)havestudiedandmadefreelyavailableadatasetof5802
+Although30%oftheworldpopulationisonFacebook,researchers
+tweets, regarding 5 fatal events that sparked the circulation of many
+most of the time use Twitter, in order to quickly assess the public
+fake news (also called the PHEME dataset). Analysis of this dataset
+opinion, sentiment, trend or belief regarding a subject of interest. A
+with deep neural networks yielded an accuracy of 82% (Ajao et al.,
+brief search on Google Scholar, only for 2019, will locate thousands
+2018). Another valuable source of information for rumor detection is
+of studies that have used Twitter, as a sampling platform for society
+theretweetpatternofatweet.Whencombinedwithsimplelinguistic
+in general. Some random examples are: Natural disaster response,
+analysis,itcanidentifytrustworthyversusinvalidinformationspread
+socialprotestparticipation,patientsafety,tobaccouse,breastcancer,
+(Mendoza et al., 2010; O’Donovan et al., 2012). Similarly, the reply
+nonprofit communication management, corporate public relationship
+patternofatweethassignificantdiscriminativeabilityasdemonstrated
+management,genderstudies,enhancingstudentlearning,consensusof
+in a study that used DNN techniques for rumor detection (Wu et al.,
+nuclearenergypolicyandcityplanning.Giventheplethoraandmulti-
+2020).
+disciplinary nature of this thematic potpourri, we can conclude that
+Anactivitysimilartorumorspreading,isastroturfing,whichisthe
+Twitterisanimportantresearchtoolformodernscience.
+spread of positive comments, with the purpose of generating a fake
+Yet, before we utilize and recruit Twitter as a research object, we
+‘supportive’movementtowardsapersonorapolicy(Ratkiewiczetal.,
+should assess and understand its basic features, metrics, dynamics,
+2011).Automaticdefensemechanismsagainstthespreadoffakenews
+contentanddangers.Thisisthemainobjectiveofthissurvey.Initially,
+are just now starting to take place. Yet, we believe that the user’s
+we presented the characteristics of the Twitter platform, along with
+vigilanceandwell-constructedskepticismisbyfarthebestdefense.
+the optimum sampling and data collection techniques. Tables 1 and
+2 contains a list of the major research areas of Twitter (i.e. influence
+4.3. Identificationofhatespeech
+measurementandspamdetection),thatarebasedonthecarefulstudy
+HatespeechinOSNsisdefinedasonlinepostsandcommentsthat ofthesecharacteristics(i.e.HashtagsandRetweets).Inthefirstchap-
+are disgraceful towards individuals of certain race, religion, ethnic ter, we also discussed the most important obstacle of the research in
+group or sexual orientation (Fortuna & Nunes, 2018). Perhaps the Twitter, which is the unavailability of gold-standard datasets, as an
+largest available corpus with hateful or abusive content in Twitter is effect of the strict Terms of Services of the platform. In Section 2 we
+from Founta et al. (2018), which contains 80,000 annotated tweets. surveyed the social graph of Twitter. We presented studies that have
+Available data for hate speech detection is also available from the attemptedtoextractthegeneralstructureofthisgraph,measuredand
+commentssectionofYahoo!(Nobataetal.,2016)andYahoo!Finance interpreteditsproperties,compareditwithotherOSNsandassessedthe
+(Djuricetal.,2015).InWaseemandHovy(2016),theauthorsdefined temporal growth dynamics of the graph. In Section 3 we delved into
+11criteriaforhatespeechidentificationanddevelopedrespectiveNLP studies that attempt to extract the sentiment from tweets. Sentiment
+techniques to quantify their predictive efficiency. They also released is a multifaceted notion that can have simple ‘positive’ or ‘negative’
+the Twitter IDs of 16,000 manually annotated tweets. Similarly to dimensions or more complex like emotion, sarcasm, humor, polar-
+rumordetection,commonfeaturessuchasprofileinformation,network ized and subjective attributes. Applying sentiment analysis on tweets
+propertiesandtextfeatureshavelowdiscriminativeability(Unsvåg& with certain keywords, hashtags or geographic region can quickly
+Gambäck,2018) give insight regarding a political campaign, a product release, or the
+Due to the sensitive nature of this area, it is more interesting to psychological status of a group of users. Finally, in Section 4 we
+examine the data collection methods, rather than the classification presentedthemajorattacksthatthreatenTwitter’susers.Thesebelong
+techniqueswhicharesimilartothetaskspresentedbefore.Forexam- tothreemaincategories.Thefirstarespamandphishingattempts,the
+ple, one approach is to focus on specific events that can spark online second are malevolent bots that deliberately spread rumors and ‘fake
+debate, that might include hate speech. In a relevant study (Burnap news’andthethirdishatespeech.Wepresentedautomaticdetection
+& Williams, 2015), the authors collected 450,000 tweets containing andclassificationsystemsandwealsopresentedthecharacteristicsof
+a hashtag related to a specific event and had 2000 randomly chosen large,massivelycontrolledspamand‘fakenews’campaigns.Giventhe
+tweets,tobemanuallylabeledas‘containinghatespeech’throughthe sophistication of these attacks, we pinpoint the need to educate the
+CrowdFlowerservice.Anotherlineofresearchistoidentifyhatespeech publictonotrelyexclusivelyonautomaticdetectionmechanisms,but
+thattargetsaspecificgroup.Forexample,inKwokandWang(2013) todevelopinsteadstrongfact-checkingskills.
+18D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+5.1. OpenquestionsonTwitterresearch CRediTauthorshipcontributionstatement
+Despoina Antonakaki: Conceptualization, Methodology, Investi-
+As a final remark, we should note that there are still many open
+gation, Resources, Writing - original draft, Writing - review & edit-
+orpartiallycoveredresearchquestions.Regardingdatacollectionand
+ing,Visualization.ParaskeviFragopoulou:Conceptualization,Super-
+sampling, some open questions are: Given the current limitations of
+vision, Project administration, Funding acquisition. Sotiris Ioanni-
+Twitter’sAPI,isitpossibletocollectenoughdatatoconfidentlymea-
+dis: Conceptualization, Supervision, Project administration, Funding
+sure the network properties of the social graph as it is today? The
+acquisition.
+estimation of these properties requires either the complete graph of
+Twitterorasubsetofatleast15%(Leskovec&Faloutsos,2006)ofthe
+Declarationofcompetinginterest
+nodesinthegraph.Allthegraphpropertiesthatweknowtoday,were
+estimatedinatimewhenthiswaspracticallypossible.Today,obtaining
+The authors declare that they have no known competing finan-
+asampleofthatsizeispracticallyimpossibleevenforpayingoptions. cial interests or personal relationships that could have appeared to
+Moreover,givenTwitter’sTermsofService,isitpossibletogenerate influencetheworkreportedinthispaper.
+andreleaseagoldstandardforvariousclassificationtasks(spam,bot,
+sentimentandtopicidentification)?Anotherquestionis,canwe’delve Acknowledgments
+into the past’ of Twitter and collect enough historic data, in order to
+studypastevents,aswellasthetemporalevolutionofthesocialgraph? This work has been supported by the European project CONCOR-
+Regarding the social graph itself, some open questions that we DIA,withgrantnumber830927(EUROPEANCOMMISSIONDirectorate-
+located during this study are: Which mathematical model describes GeneralCommunicationsNetworks,ContentandTechnology).Also,we
+optimally the evolution of Twitter? Also, what is the relationship be- wouldliketothanktheanonymousreviewersfortheirmeaningfuland
+tweenTwitter’ssocialnetworkandtheunderlyingrealsocialnetwork? constructivecomments.
+Or else, can we differentiate between the accounts that we treat as
+References
+newsprovidersandtheaccountsthatweconsiderasreal-life‘friends’?
+We also noticed that some of the most basic properties of the social
+Abel, F., Gao, Q., Houben, G.-J., & Tao, K. (2011a). Semantic enrichment of twitter
+graphhavenotyetbeingmeasuredconfidently,orthestudiesthathave
+posts for user profile construction on the social web. In Extended semantic web
+measuredthemaremorethanfiveyearsold.Thereforesomeadditional conference(pp.375–389).Springer.
+open questions are: Is the node degree distribution a power-law and Abel, F., Gao, Q., Houben, G.-J., & Tao, K. (2011b). Semantic enrichment of twitter
+postsforuserprofileconstructiononthesocialweb.InG.Antoniou,M.Grobelnik,
+whatistheexponentofthepower-lawdistribution?Additionally,what
+E.Simperl,B.Parsia,D.Plexousakis,P.DeLeenheer,&J.Pan(Eds.),Thesemanic
+isthediameterofthesocialgraph?Isthesocialgraphsteadyovertime, web: Research and applications: 8th extended semantic web conference, ESWC 2011,
+shrinkingorexpanding? Heraklion,Crete,Greece,May29–June2,2011,Proceedings,PartII(pp.375–389).
+On sentiment analysis, we noticed that most, if not all, studies Berlin,Heidelberg:SpringerBerlinHeidelberg.
+Abner,L.(2018).Google+isshuttingdownforconsumersafterprivacybug.https://
+perform analysis on an ad-hoc sample of Twitter. For example, they
+9to5google.com/2018/10/08/google-plus-shutting-down/.Accessed:2018-10-27.
+collect all tweets that contain a set of hashtags. But is this enough to Adedoyin-Olowe,M.,Gaber,M.M.,Dancausa,C.M.,Stahl,F.,&Gomes,J.B.(2016).A
+capturethepublic’ssentimenttowardsanentity?Ifnot,thenwhatis ruledynamicsapproachtoeventdetectionintwitterwithitsapplicationtosports
+andpolitics.ExpertSystemswithApplications,55,351–360.
+theoptimumsamplingtechniqueandsizeforassessingdifferenttypes
+Aggarwal,A.,Rajadesingan,A.,&Kumaraguru,P.(2012).PhishAri:Automaticrealtime
+of sentiment? Another issue isthat Twitter, as aworldwide OSN, can phishingdetectionontwitter.In2012ECrimeresearcherssummit(pp.1–12).IEEE,
+capturethesentimenttowardsvariousentitiesfromdifferentcultures URL:http://ieeexplore.ieee.org/document/6489521/.
+and languages. Although there are many studies that perform multi- Ahmed,W.(2020).UsingTwitterasadatasource:anoverviewofsocialmediaresearch
+tools(2019).https://bit.ly/3f21WDz.Accessed:2020-7-5.
+lingual sentiment analysis, these studies do not perform comparative
+Ajao,O.,Bhowmik,D.,&Zargari,S.(2018).Fakenewsidentificationontwitterwith
+analysis. Namely, they do not compare the public sentiment towards hybrid cnn and rnn models. In Proceedings of the 9th international conference on
+thesameentity.Itwouldbemorethaninterestingtoshedsomelight socialmediaandsociety(pp.226–230).ACM.
+onthedifferentialwaysinwhichculturesperceivethesameentity(for AlexaInternet,Inc.(2018).Alexatop500globalsites.http://www.alexa.com/topsites.
+Accessed:2018-10-28.
+examplethepresidentoftheUSA,immigration,climatechange,etc.)
+Almaatouq, A., Alabdulkareem, A., Nouh, M., Shmueli, E., Alsaleh, M., Singh, V. K.,
+Regarding spam classification and bot detection we noticed that Alarifi,A.,Alfaris,A.,&Pentland,A.S.(2014).Twitter:whogetscaught?observed
+thereissomeexcellentresearchthatperformsverysophisticatedmeth- trendsinsocialmicro-bloggingspam.InProceedingsofthe2014ACMconferenceon
+webscience(pp.33–41).ACM.
+ods for these tasks. Yet, all these studies pinpoint the need for timely
+Alperin,J.P.,Hanson,E.W.,Shores,K.,&Haustein,S.(2017).Twitterbotsurveys:A
+detection. Time is of extreme essence regarding the success of spam discretechoiceexperimenttoincreaseresponserates.In#SMSociety17,Proceedings
+campaigns and the spread of fake news. So, can we build a real-time of the 8th international conference on social media & society (pp. 27:1–27:4). New
+York,NY,USA:ACM.
+botand/orspamdetector?Andcanwegetreliablereal-timeindication
+Alsaleh,M.,Alarifi,A.,Al-Salman,A.M.,Alfayez,M.,&Almuhaysin,A.(2014).Tsd:
+ofthetrustworthinessofatweet? Detecting sybil accounts in twitter. In Machine learning and applications (ICMLA),
+201413thinternationalconferenceon(pp.463–469).IEEE.
+Amleshwaram, A. A., Reddy, A. L. N., Yadav, S., Gu, G., & Yang, C. (2013). CATS:
+5.2. Conclusion CharacterizingautomationofTwitterspammers.InCOMSNETS(pp.1–10).IEEE.
+AmnestyInternational(2018).Trollpatrolfindings,usingcrowdsourcing,datascience&
+machinelearningtomeasureviolenceandabuseagainstwomenontwitter.https://
+Twitterisconstantlyevolvinginmanyways.Asaprivately-owned bit.ly/2QAQZk9. URL: https://decoders.amnesty.org/projects/troll-patrol/findings
+service that seeks financial stability, as a platform that faces extreme [Online;Accessed2018-12-30].
+André,P.,Bernstein,M.,&Luther,K.(2012).Whogivesatweet?:Evaluatingmicroblog
+technicalchallengesandasasocialnetworkthattriestofulfillthecom-
+contentvalue.InCSCW’12,CSCW’12.NewYork,NY,USA:ACM.
+plex needs of an ever-changing user base. As an effect, the presented Anta, A. F., Chiroque, L. N., Morere, P., & Santos, A. (2013). Sentiment analysis
+aspects of Twitter research should be regularly updated with surveys andtopicdetectionofspanishtweets:AcomparativestudyofofNLPtechniques.
+thatcoverthesechanges.Wehopethatthissurveywillsettheground ProcesamientodelLenguajeNatural,50,45–52.
+Antonakaki, D., Ioannidis, S., & Fragopoulou, P. (2018). Utilizing the average node
+forthesefuturestudiesandhelpfortheoptimumutilizationofTwitter
+degreetoassessthetemporalgrowthrateofTwitter.SocialNetworkAnalysisand
+asaresearchobjectforscientificdiscovery. Mining,8(1),12.
+19D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+Antonakaki,D.,Polakis,I.,Athanasopoulos,E.,Ioannidis,S.,&Fragopoulou,P.(2014). Broder,A.(1997).Ontheresemblanceandcontainmentofdocuments.InSEQUENCES
+Thinkbeforert:Anexperimentalstudyofabusingtwittertrends.InInternational ’97, Proceedings of the compression and complexity of sequences 1997 (p. 21).
+conferenceonsocialinformatics(pp.402–413).Springer. Washington, DC, USA: IEEE Computer Society, URL: http://dl.acm.org/citation.
+Antonakaki,D.,Polakis,I.,Athanasopoulos,E.,Ioannidis,S.,&Fragopoulou,P.(2016). cfm?id=829502.830043.
+Exploiting abused trending topics to identify spam campaigns in twitter. Social Broniatowski, D. A., Jamison, A. M., Qi, S., AlKulaib, L., Chen, T., Benton, A.,
+NetworkAnalysisandMining,6(1),48. Quinn,S.C.,&Dredze,M.(2018).Weaponizedhealthcommunication:Twitterbots
+Antonakaki, D., Spiliotopoulos, D., Samaras, C. V., Ioannidis, S., & Fragopoulou, P. and Russian trolls amplify the vaccine debate. American Journal of Public Health,
+(2016).Investigatingthecompletecorpusofreferendumandelectionstweets.In 108(10),1378–1384.
+2016IEEE/ACMinternationalconferenceonadvancesinsocialnetworksanalysisand Broniatowski, D. A., Paul, M. J., & Dredze, M. (2013). National and local influenza
+mining(ASONAM)(pp.100–105).IEEE. surveillancethroughtwitter:ananalysisofthe2012-2013influenzaepidemic.PloS
+Antonakaki, D., Spiliotopoulos, D., V. Samaras, C., Pratikakis, P., Ioannidis, S., & One,8(12),Articlee83672.
+Fragopoulou,P.(2017).Socialmediaanalysisduringpoliticalturbulence.PloSOne, Buccafurri, F., Lax, G., Nicolazzo, S., & Nocera, A. (2016). Interest assortativity in
+12(10),Articlee0186836. twitter.InWEBIST(1)(pp.239–246).
+Asur, S., & Huberman, B. A. (2010). Predicting the future with social media. In Burnap, P., & Williams, M. L. (2015). Cyber hate speech on twitter: An application
+2010 IEEE/WIC/ACM international conference on web intelligence and intelligent ofmachineclassificationandstatisticalmodelingforpolicyanddecisionmaking.
+agent technology (pp. 492–499). IEEE, URL: http://ieeexplore.ieee.org/document/ Policy&Internet,7(2),223–242.
+5616710/. Byrnes, N. (2016). How the Bot-y politic influenced this election. https://bit.ly/
+Asur,S.,Huberman,B.A.,Szabo,G.,&Wang,C.(2011).Trendsinsocialmedia:Per- 2fBN13R.Technologyreview.com,Accessed:2018-12-30.
+sistenceanddecay.SSRNElectronicJournal,URL:http://www.ssrn.com/abstract= Carvalho, J. P., Rosa, H., Brogueira, G., & Batista, F. (2017). MISNIS: An intelligent
+1755748. platformfortwittertopicmining.ExpertSystemswithApplications,89,374–388.
+Baccianella, S., Esuli, A., & Sebastiani, F. (2010). Sentiwordnet 3.0: an enhanced Cataldi, M., Di Caro, L., & Schifanella, C. (2010a). Emerging topic detection on
+lexical resource for sentiment analysis and opinion mining. In Lrec, Vol. 10 (pp. twitterbasedontemporalandsocialtermsevaluation.InProceedingsofthetenth
+2200–2204). internationalworkshoponmultimediadatamining(p.4).ACM.
+Backstrom, L., Boldi, P., Rosa, M., Ugander, J., & Vigna, S. (2012). Four degrees Cataldi, M., Di Caro, L., & Schifanella, C. (2010b). Emerging topic detection on
+of separation. In Proceedings of the 3rd annual ACM web science conference on twitterbasedontemporalandsocialtermsevaluation.InProceedingsofthetenth
+- WebSci ’12 (pp. 33–42). New York, New York, USA: ACM Press, URL: http: internationalworkshoponmultimediadatamining-MDMKDD’10(pp.1–10).New
+//dl.acm.org/citation.cfm?id=2380718.2380723. York,NewYork,USA:ACMPress.
+Bader,D.A.,Kintali,S.,Madduri,K.,&Mihail,M.(2007).Approximatingbetweenness Cha,M.,Haddadi,H.,Benevenuto,F.,&Gummadi,K.(2010).Measuringuserinfluence
+centrality. In Algorithms and models for the web-graph (pp. 124–137). Berlin, in twitter: The million follower fallacy. In 4th international AAAI conference on
+Heidelberg:SpringerBerlinHeidelberg. weblogsandsocialmedia(ICWSM).
+Bakshy, E., Hofman, J. M., Mason, W. A., & Watts, D. J. (2011). Everyone’s an Cha, M., Mislove, A., & Gummadi, K. P. (2009). A measurement-driven analysis of
+influencer.InProceedingsofthefourthACMinternationalconferenceonwebsearch information propagation in the flickr social network. In Proceedings of the 18th
+anddatamining-WSDM’11(p.65).NewYork,NewYork,USA:ACMPress. international conference on world wide web - WWW ’09 (p. 721). New York, New
+Balahur, A., & Turchi, M. (2013). Improving sentiment analysis in twitter using York,USA:ACMPress.
+multilingualmachinetranslateddata.InProceedingsoftheinternationalconference Charalampakis, B., Spathis, D., Kouslis, E., & Kermanidis, K. (2015). Detecting irony
+recentadvancesinnaturallanguageprocessingRANLP2013(pp.49–55). ongreekpoliticaltweets:Atextminingapproach.InEANN’15,Proceedingsofthe
+Barabási, A. (1999). Emergence of scaling in random networks. Science, 286(5439), 16th international conference on engineering applications of neural networks (INNS)
+509–512,URL:http://science.sciencemag.org/content/286/5439/509.abstract. (pp.17:1–17:5).NewYork,NY,USA:ACM.
+Barbieri,N.,Bonchi,F.,&Manco,G.(2013).Cascade-basedcommunitydetection.In Chavoshi, N., Hamooni, H., & Mueen, A. (2016). Debot: Twitter bot detection via
+ProceedingsofthesixthACMinternationalconferenceonwebsearchanddatamining warpedcorrelation.InICDM(pp.817–822).
+(pp.33–42).ACM. Chen,Y.,Yuan,J.,You,Q.,&Luo,J.(2018).Twittersentimentanalysisviabi-sense
+Barbieri,N.,Bonchi,F.,&Manco,G.(2014).Whotofollowandwhy:linkprediction emojiembeddingandattention-basedLSTM.arXivpreprintarXiv:1807.07961.
+withexplanations.InProceedingsofthe20thACMSIGKDDinternationalconference Choi,H.-J.,&Park,C.H.(2019).Emergingtopicdetectionintwitterstreambasedon
+onknowledgediscoveryanddatamining(pp.1266–1275).ACM. highutilitypatternmining.ExpertSystemswithApplications,115,27–36.
+Barrick, M. R., & Mount, M. K. (1991). The big five personality dimensions and job Choudhury, M. D., Lin, Y.-R., Sundaram, H., Candan, K. S., Xie, L., & Kelliher, A.
+performance:ameta-analysis.PersonnelPsychology,44(1),1–26. (2010).Howdoesthedatasamplingstrategyimpactthediscoveryofinformation
+Batrinca,B.,&Treleaven,P.C.(2015).Socialmediaanalytics:asurveyoftechniques, diffusioninsocialmedia?InProceedingsofthe4thinternationalAAAIconferenceon
+toolsandplatforms.AI&Society,30(1),89–116. weblogsandsocialmedia(pp.34–41).
+Benevenuto,F.,Magno,G.,Rodrigues,T.,&Almeida,V.(2010).Detectingspammerson Chowdhury,A.(2010).StateofTwitterSpam.https://bit.ly/2QwmB5G.Twitter.com,
+twitter.InAnnualcollaboration,electronicmessaging,anti-abuseandspamconference Accessed:2018-12-30.
+(CEAS). Chu,Z.,Gianvecchio,S.,Wang,H.,&Jajodia,S.(2012).Detectingautomationoftwitter
+Bird,S.,Klein,E.,&Loper,E.(2009).NaturallanguageprocessingwithPython:analyzing accounts:Areyouahuman,bot,orcyborg?IEEETransactionsonDependableand
+textwiththenaturallanguagetoolkit.‘‘O’ReillyMedia,Inc.’’. SecureComputing,9(6),811–824.
+Blei, D. M., Ng, A. Y., & Jordan,M. I. (2003). Latentdirichlet allocation. Journal of Chu,Z.,Widjaja,I.,&Wang,H.(2012).Detectingsocialspamcampaignsontwitter.In
+MachineLearningResearch(JMLR),3,993–1022. Internationalconferenceonappliedcryptographyandnetworksecurity(pp.455–472).
+Bliss, C. A., Frank, M. R., Danforth, C. M., & Dodds, P. S. (2013). An evolutionary Springer.
+algorithmapproachtolinkpredictionindynamicsocialnetworks.CoRRabs/1304. Chun,H.,Kwak,H.,Eom,Y.-H.,Ahn,Y.-Y.,Moon,S.,&Jeong,H.(2008).Comparison
+6257. ofonlinesocialrelationsinvolumevsinteraction.InProceedingsofthe8thACM
+Bliss, C. A., Kloumann, I. M., Harris, K. D., Danforth, C. M., & Dodds, P. S. (2012). SIGCOMM conference on internet measurement conference - IMC ’08 (p. 57). New
+Twitter reciprocal reply networks exhibit assortativity with respect to happiness. York,NewYork,USA:ACMPress.
+JournalofComputerScience,3(5),388–397. Chung, J. E., & Mustafaraj, E. (2011). Can collective sentiment expressed on twitter
+Bollen,J.,Mao,H.,&Pepe,A.(2010).Determiningthepublicmoodstatebyanalysis predictpoliticalelections?InAAAI,Vol.11(pp.1770–1771).
+ofmicrobloggingposts.InProceedingsofthealifeXIIconference. Cody,E.M.,Reagan,A.J.,Mitchell,L.,Dodds,P.S.,&Danforth,C.M.(2015).Climate
+Bollen, J., Mao, H., & Pepe, A. (2011). Modeling public mood and emotion: Twitter changesentimentontwitter:anunsolicitedpublicopinionpoll.PloSOne,10(8),
+sentimentandsocio-economicphenomena..Icwsm,11,450–453. Articlee0136092.
+Borra,E.,&Rieder,B.(2014).Programmedmethod:developingatoolsetforcapturing Colleoni, E., Rozza, A., & Arvidsson, A. (2014). Echo chamber or public sphere?
+andanalyzingtweets.AslibJournalofInformationManagement,66(3),262–278. Predictingpoliticalorientationandmeasuringpoliticalhomophilyintwitterusing
+Bošnjak, M., Oliveira, E., Martins, J., Mendes Rodrigues, E., & Sarmento, L. (2012). bigdata.JournalofCommunication,64(2),317–332.
+Twitterecho: a distributed focused crawler to support open research with twitter Confessore, n., Dance, G. J., Harris, R., & Hansen, M. (2018). The follower factory.
+data. In Proceedings of the 21st international conference on world wide web (pp. https://nyti.ms/2rJ8YZM.Accessed:2018-10-20.
+1233–1240).ACM. Conover, M., Ratkiewicz, J., Francisco, M. R., Gonçalves, B., Menczer, F., &
+Boyd,D.,Golder,S.,&Lotan,G.(2010).Tweet,tweet,retweet:Conversationalaspects Flammini,A.(2011).Politicalpolarizationontwitter.Icwsm,133,89–96.
+ofretweetingontwitter.InSystemsciences(Hicss),201043rdHawaiiinternational Constine,J.(2016).Facebooksees2billionsearchesperday,butit’sattackingTwitter
+conferenceon(pp.1–10).IEEE. notGoogle.https://tcrn.ch/2aL3jGk.Accessed:2018-12-30.
+Bray, P. (2015). Social authority: Our measure of twitter influence. http://moz.com/ Cormack, G. V. (2008). Email spam filtering: A systematic review. Foundations and
+blog/social-authority.[Online;accessed10-October-2015]. TrendsinInformationRetrieval,1(4),335–455,URL:http://dl.acm.org/citation.cfm?
+Brin, S., & Page, L. (1998). The anatomy of a large-scale hypertextual Web search id=1454707.1454708.
+engine. Computer Networks and ISDN Systems, 30(1–7), 107–117, URL: http://dl. Csardi, G., & Nepusz, T. (2006). The igraph software package for complex network
+acm.org/citation.cfm?id=297810.297827. research.InterJournal,ComplexSystems,1695,URL:http://igraph.org.
+20D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+Cui,A.,Zhang,M.,Liu,Y.,&Ma,S.(2011).Emotiontokens:Bridgingthegapamong Founta,A.-M.,Djouvas,C.,Chatzakou,D.,Leontiadis,I.,Blackburn,J.,Stringhini,G.,
+multilingualtwittersentimentanalysis.InAsiainformationretrievalsymposium(pp. Vakali,A.,Sirivianos,M.,&Kourtellis,N.(2018).Largescalecrowdsourcingand
+238–249).Springer. characterizationoftwitterabusivebehavior.arXivpreprintarXiv:1802.00393.
+Daniel,M.,Neves,R.F.,&Horta,N.(2017).Companyeventpopularityforfinancial Freelon,D.(2018).Socialmediadatacollectiontools.http://socialmediadata.wikidot.
+marketsusingTwitterandsentimentanalysis.ExpertSystemswithApplications,71, com/.Accessed:2018-10-21.
+111–124. Freeman,L.(2004).Thedevelopmentofsocialnetworkanalysis.AStudyintheSociology
+Davis,C.A.,Varol,O.,Ferrara,E.,Flammini,A.,&Menczer,F.(2016).Botornot:A ofScience,1.
+system to evaluate social bots. In Proceedings of the 25th international conference Gabielkov,M.,&Legout,A.(2012).Thecompletepictureofthetwittersocialgraph.
+companion on world wide web (pp. 273–274). International World Wide Web InProceedingsofthe2012ACMconferenceonCoNEXTstudentworkshop(pp.19–20).
+ConferencesSteeringCommittee. ACM.
+Derczynski, L., Ritter, A., Clark, S., & Bontcheva, K. (2013). Twitter part-of-speech Gabielkov, M., Rao, A., & Legout, A. (2014a). Sampling online social networks: an
+taggingforall:Overcomingsparseandnoisydata.InProceedingsoftheinternational experimental study of twitter. In Proceedings of the 2014 ACM conference on
+conferencerecentadvancesinnaturallanguageprocessingRANLP2013(pp.198–206). SIGCOMM(pp.127–128).ACM.
+Diakopoulos,N.A.,&Shamma,D.A.(2010a).Characterizingdebateperformancevia Gabielkov, M., Rao, A., & Legout, A. (2014b). Studying social networks at scale:
+aggregated twitter sentiment. In Proceedings of the SIGCHI conference on human macroscopicanatomyofthetwittersocialgraph.InACMSIGMETRICSperformance
+factorsincomputingsystems(pp.1195–1198).ACM. evaluationreview,Vol.42(pp.277–288).ACM.
+Gao,H.,Chen,Y.,Lee,K.,Palsetia,D.,&Choudhary,A.(2012).Towardsonlinespam
+Diakopoulos,N.A.,&Shamma,D.A.(2010b).Characterizingdebateperformancevia
+filteringinsocialnetworks.InSymposiumonnetworkanddistributedsystemsecurity
+aggregated twitter sentiment. In CHI ’10, Proceedings of the SIGCHI conference on
+(NDSS).
+humanfactorsincomputingsystems(pp.1195–1198).NewYork,NY,USA:ACM.
+Gao, H., Hu, J., Wilson, C., Li, Z., Chen, Y., & Zhao, B. Y. (2010). Detecting and
+Dimson, T. (2018). Emojineering part 1: Machine learning for emoji trends. https:
+characterizingsocialspamcampaigns.InProceedingsofthe10thannualconference
+//bit.ly/2PcHKBm.Accessed:2018-10-7.
+oninternetmeasurement-IMC’10(p.35).NewYork,NewYork,USA:ACMPress.
+Ding, X., Liu, B., & Yu, P. S. (2008). A holistic lexicon-based approach to opinion
+Gayo-Avello, D. (2012). A meta-analysis of state-of-the-art electoral prediction from
+mining.InProceedingsofthe2008internationalconferenceonwebsearchanddata
+twitterdata.CoRRabs/1206.5851.URL:http://arxiv.org/abs/1206.5851.
+mining(pp.231–240).ACM.
+Gayo-Avello,D.,Metaxas,P.T.,&Mustafaraj,E.(2011).Limitsofelectoralpredictions
+Djuric, N., Zhou, J., Morris, R., Grbovic, M., Radosavljevic, V., & Bhamidipati, N.
+usingtwitter.InICWSM.TheAAAIPress.
+(2015). Hate speech detection with comment embeddings. In Proceedings of the Ghiassi, M., & Lee, S. (2018). A domain transferable lexicon set for Twitter senti-
+24thinternationalconferenceonworldwideweb(pp.29–30).ACM. mentanalysisusingasupervisedmachinelearningapproach.ExpertSystemswith
+Dodds, P. S., Harris, K. D., Kloumann, I. M., Bliss, C. A., & Danforth, C. M. (2011). Applications,106,197–216.
+Temporal patterns of happiness and information in a global social network: Ghosh, S., Viswanath, B., Kooti, F., Sharma, N. K., Korlam, G., Benevenuto, F.,
+Hedonometricsandtwitter.PloSOne,6(12),Articlee26752. Ganguly,N.,&Gummadi,K.P.(2012).Understandingandcombatinglinkfarming
+Dong,A.,Zhang,R.,Kolari,P.,Bai,J.,Diaz,F.,Chang,Y.,Zheng,Z.,&Zha,H.(2010). inthetwittersocialnetwork.InProceedingsofthe21stinternationalconferenceon
+Timeisoftheessence:improvingrecencyrankingusingtwitterdata.InProceedings worldwideweb-WWW’12(p.61).NewYork,NewYork,USA:ACMPress,URL:
+ofthe19thinternationalconferenceonworldwideweb(pp.331–340).ACM. http://dl.acm.org/citation.cfm?id=2187836.2187846.
+Duncan,G.(2010).It’snotjustyou:71percentoftweetsareignored.https://bit.ly/ Giachanou, A., & Crestani, F. (2016). Like it or not: A survey of twitter sentiment
+2H9hZTr.[Online;accessed2018-30-12]. analysismethods.ACMComputingSurveys,49(2),28.
+Duwairi, R. M., Marji, R., Sha’ban, N., & Rushaidat, S. (2014). Sentiment analysis Gilani,Z.,Wang,L.,Crowcroft,J.,Almeida,M.,&Farahbakhsh,R.(2016).Stweeler:
+in arabic tweets. In Information and communication systems (Icics), 2014 5th A framework for twitter bot analysis. In Proceedings of the 25th international
+internationalconferenceon(pp.1–6).IEEE. conference companion on world wide web (pp. 37–38). International World Wide
+DwiPrasetyo,N.,&Hauff,C.(2015).Twitter-basedelectionpredictioninthedevel- WebConferencesSteeringCommittee.
+opingworld.InHT’15,Proceedingsofthe26thACMconferenceonhypertext&#38; Gilbert,C.E.(2014).Vader:Aparsimoniousrule-basedmodelforsentimentanalysis
+socialmedia(pp.149–158).NewYork,NY,USA:ACM. ofsocialmediatext.InEighthinternationalconferenceonweblogsandsocialmedia
+Dzogang,F.,Lightman,S.,&Cristianini,N.(2018).Diurnalvariationsofpsychometric (ICWSM-14).
+indicatorsintwittercontent.PLOSONE,13(6),1–18. Go,A.,Bhayani,R.,&Huang,L.(2009).Twittersentimentclassificationusingdistant
+Ediger,D.,Jiang,K.,Riedy,J.,Bader,D.A.,&Corley,C.(2010).Massivesocialnetwork supervision.InCS224Nprojectreport,Stanford,Vol.1.
+analysis: Mining twitter for social good. In 2010 39th international conference on Golbeck, J., & Hansen, D. (2011). Computing political preference among twitter
+parallelprocessing(pp.583–593).IEEE,URL:http://ieeexplore.ieee.org/document/ followers. In CHI ’11, Proceedings of the SIGCHI conference on human factors in
+5599247/. computingsystems(pp.1105–1108).NewYork,NY,USA:ACM.
+Edwards,C.,Edwards,A.,Spence,P.R.,&Shelton,A.K.(2014).Isthatabotrunning Gonçalves,P.,Araújo,M.,Benevenuto,F.,&Cha,M.(2013).Comparingandcombining
+the social media feed? Testing the differences in perceptions of communication sentimentanalysismethods.InProceedingsofthefirstACMconferenceononlinesocial
+qualityforahumanagentandabotagentontwitter.ComputersinHumanBehavior, networks(pp.27–38).
+33,372–376. Gonçalves,B.,Perra,N.,&Vespignani,A.(2011).Modelingusers’activityontwitter
+Efron,M.(2010).Hashtagretrievalinamicrobloggingenvironment.InSIGIR’10,Pro- networks:validationofDunbar’snumber.PloSOne,6(8),Articlee22656.
+ceedingsofthe33rdinternationalACMSIGIRconferenceonresearchanddevelopment González-Ibáñez, R., Muresan, S., & Wacholder, N. (2011). Identifying sarcasm in
+ininformationretrieval(pp.787–788).NewYork,NY,USA:ACM. twitter: A closer look. In HLT ’11, Proceedings of the 49th annual meeting of the
+association for computational linguistics: human language technologies: Short papers
+Eom,Y.-H.,Puliga,M.,Smailovic,J.,Mozetic,I.,&Caldarelli,G.(2015).Twitter-based
+- volume 2 (pp. 581–586). Stroudsburg, PA, USA: Association for Computational
+analysisofthedynamicsofcollectiveattentiontopoliticalparties.PloSOne.
+Linguistics,URL:http://dl.acm.org/citation.cfm?id=2002736.2002850.
+Eysenbach, G. (2011). Can tweets predict citations? Metrics of social impact based
+Grier,C.,Thomas,K.,Paxson,V.,&Zhang,M.(2010).@spam:Theundergroundon140
+ontwitterandcorrelationwithtraditionalmetricsofscientificimpact.Journalof
+charactersorless.InCCS’10,Proceedingsofthe17thACMconferenceoncomputer
+MedicalInternetResearch,13(4),Articlee123.
+andcommunicationssecurity(pp.27–37).NewYork,NY,USA:ACM.
+Fang, A., Macdonald, C., Ounis, I., & Habel, P. (2016). Using word embedding to
+Griffiths, T. L., & Steyvers, M. (2004). Finding scientific topics. Proceedings of the
+evaluate the coherence of topics from Twitter data. In Proceedings of the 39th
+NationalAcademyofSciencesoftheUnitedStatesofAmerica,5228–5235.
+international ACM SIGIR conference on research and development in information
+Hall,M.,Frank,E.,Holmes,G.,Pfahringer,B.,Reutemann,P.,&Witten,I.H.(2009).
+retrieval(pp.1057–1060).
+TheWEKAdataminingsoftware:anupdate.ACMSIGKDDExplorationsNewsletter,
+Ferrara,E.,Varol,O.,Davis,C.,Menczer,F.,&Flammini,A.(2016).Theriseofsocial
+11(1),10–18.
+bots.CommunicationsoftheACM,59(7),96–104.
+Han, B., & Baldwin, T. (2011). Lexical normalisation of short text messages: Makn
+Finin,T.,Murnane,W.,Karandikar,A.,Keller,N.,Martineau,J.,&Dredze,M.(2010). sens a# twitter. In Proceedings of the 49th annual meeting of the association for
+Annotating named entities in Twitter data with crowdsourcing. In Proceedings of computationallinguistics:Humanlanguagetechnologies(pp.368–378).
+theNAACLHLT2010workshoponcreatingspeechandlanguagedatawithamazon’s Han, B., Cook, P., & Baldwin, T. (2012). Automatically constructing a normalisation
+mechanicalturk(pp.80–88).AssociationforComputationalLinguistics. dictionary for microblogs. In Proceedings of the 2012 joint conference on empirical
+Finkel,J.R.,Grenager,T.,&Manning,C.(2005).Incorporatingnon-localinformation methods in natural language processing and computational natural language learning
+intoinformationextractionsystemsbygibbssampling.InProceedingsofthe43rd (pp.421–432).
+annualmeetingonassociationforcomputationallinguistics(pp.363–370).Association Hanneman,R.A.,&Riddle,M.(2005).Introductiontosocialnetworkmethods.University
+forComputationalLinguistics. ofCaliforniaRiverside.
+Flores,M.,&Kuzmanovic,A.(2013).Searchingforspam:detectingfraudulentaccounts Harvey,D.(2010).Trustandsafety.https://bit.ly/2LWt3Cl.Accessed:2018-12-30.
+viawebsearch.InPassiveandactivemeasurement(pp.208–217).Springer. Hashemi,M.(2018).Theinfrastructurebehindtwitter:Scale.https://bit.ly/2qMuuJC.
+Foroozani, A., & Ebrahimi, M. (2019). Anomalous information diffusion in social Accessed:2018-10-21.
+networks:TwitterandDigg.ExpertSystemswithApplications,134,249–266. Haveliwala, T. H., & H., T. (2002). Topic-sensitive PageRank. In Proceedings of the
+Fortuna, P., & Nunes, S. (2018). A survey on automatic detection of hate speech in eleventhinternationalconferenceonworldwideweb-WWW’02(p.517).NewYork,
+text.ACMComputingSurveys,51(4),1–30. NewYork,USA:ACMPress.
+21D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+Hernandez-Suarez,A.,Sanchez-Perez,G.,Toscano-Medina,K.,Martinez-Hernandez,V., Kumar, R., Novak, J., & Tomkins, A. (2006). Structure and evolution of online
+Sanchez,V.,&Perez-Meana,H.(2018).Awebscrapingmethodologyforbypassing social networks. In Proceedings of the 12th ACM SIGKDD international conference
+twitterAPIrestrictions.arXivpreprintarXiv:1803.09875. onknowledgediscoveryanddatamining-KDD’06(p.611).NewYork,NewYork,
+Herzallah, W., Faris, H., & Adwan, O. (2018). Feature engineering for detecting USA:ACMPress,URL:http://dl.acm.org/citation.cfm?id=1150402.1150476.
+spammersonTwitter:Modellingandanalysis.JournalofInformationScience,44(2), Kumaraguru, P., Rhee, Y., Acquisti, A., Cranor, L. F., Hong, J., & Nunge, E. (2007).
+230–247. Protectingpeoplefromphishing.InProceedingsoftheSIGCHIconferenceonhuman
+Hirsch, J. (2005). An index to quantify an individual’s scientific research output. factorsincomputingsystems-CHI’07(p.905).NewYork,NewYork,USA:ACM
+Proceedings of the National Academy of Sciences of the United States of America, Press.
+102(46),16569–16572. Kupavskii, A., Ostroumova, L., Umnov, A., Usachev, S., Serdyukov, P., Gusev, G., &
+Hong,L.,Dan,O.,&Davison,B.D.(2011).Predictingpopularmessagesintwitter.In Kustarev, A. (2012). Prediction of retweet cascade size over time. In Proceedings
+Proceedingsofthe20thinternationalconferencecompaniononworldwideweb-WWW ofthe21stACMinternationalconferenceoninformationandknowledgemanagement
+’11(p.57).NewYork,NewYork,USA:ACMPress. (pp.2335–2338).ACM.
+Hong, L., & Davison, B. D. (2010). Empirical study of topic modeling in twitter. In Kwak, H., Lee, C., Park, H., & Moon, S. (2010). What is Twitter, a social network
+SOMA ’10, Proceedings of the first workshop on social media analytics - SOMA ’10 or a news media? In Proceedings of the 19th international conference on world
+(pp.80–88).NewYork,NY,USA:ACM. wide web - WWW ’10 (p. 591). New York, New York, USA: ACM Press, URL:
+http://dl.acm.org/citation.cfm?id=1772690.1772751.
+Hong, S., & Nadler, D. (2012). Which candidates do the public discuss online in an
+Kwok,I.,&Wang,Y.(2013).Locatethehate:Detectingtweetsagainstblacks.InAAAI.
+electioncampaign?:Theuseofsocialmediaby2012presidentialcandidatesand
+itsimpactoncandidatesalience.GovernmentInformationQuarterly,29(4),455–461. Laflin,P.,Mantzaris,A.V.,Ainley,F.,Otley,A.,Grindrod,P.,&Higham,D.J.(2013).
+Discovering and validating influence in a dynamic online social network. Social
+Hopkins,D.,&King,G.(2010).Amethodofautomatednonparametriccontentanalysis
+NetworkAnalysisandMining,3(4),1311–1323.
+forsocialscience.AmericanJournalofPoliticalScience,54(1),229–247.
+Lampos, V., Preoţiuc-Pietro, D., & Cohn, T. (2013). A user-centric model of voting
+Howlader, P., & Sudeep, K. (2016). Degree centrality, eigenvector centrality and the
+intentionfromsocialmedia.InACL’13,Proceedingsofthe51stannualmeetingof
+relation between them in twitter. In 2016 IEEE international conference on recent
+theassociationforcomputationallinguistics(pp.993–1003).URLhttp://www.aclweb.
+trendsinelectronics,information&communicationtechnology(RTEICT)(pp.678–682).
+org/anthology/P13-1098.
+IEEE.
+Lee, K., Caverlee, J., & Webb, S. (2010). Uncovering social spammers. In Proceeding
+Hu, Y., John, A., Wang, F., & Kambhampati, S. (2012). Et-lda: Joint topic modeling
+of the 33rd international ACM SIGIR conference on research and development in
+foraligningeventsandtheirtwitterfeedback.InTwenty-sixthAAAIconferenceon
+informationretrieval-SIGIR’10(p.435).NewYork,NewYork,USA:ACMPress.
+artificialintelligence.
+Lee,K.,Eoff,B.D.,&Caverlee,J.(2011).Sevenmonthswiththedevils:Along-term
+Hu, X., Sun, N., Zhang, C., & Chua, T.-S. (2009). Exploiting internal and external
+studyofcontentpollutersontwitter.InICWSM.
+semanticsfortheclusteringofshorttextsusingworldknowledge.InProceedingsof
+Leong, E. (2016). New ways to control your experience on Twitter. https://bit.ly/
+the18thACMconferenceoninformationandknowledgemanagement (pp.919–928).
+2b2dtRD.Accessed:2018-12-30.
+Huang, J., Thornton, K. M., & Efthimiadis, E. N. (2010). Conversational tagging Lerman, K., & Ghosh, R. (2010). Information contagion: An empirical study of the
+in twitter. In HT ’10, Proceedings of the 21st ACM conference on hypertext and spread of news on digg and twitter social networks. In Fourth international AAAI
+hypermedia(pp.173–178).NewYork,NY,USA:ACM. conferenceonweblogsandsocialmedia(pp.90–97).URL:http://arxiv.org/abs/1003.
+Investopedia(2020).Howtwittermakesmoney.https://tinyurl.com/y7q2cehz.[Online; 2664.arXiv:1003.2664.
+accessed2020-15-06]. Leskovec,J.,Backstrom,L.,Kumar,R.,&Tomkins,A.(2008).Microscopicevolution
+Jiang, L., Yu, M., Zhou, M., Liu, X., & Zhao, T. (2011). Target-dependent twitter ofsocialnetworks.InProceedingofthe14thACMSIGKDDinternationalconference
+sentimentclassification.InProceedingsofthe49thannualmeetingoftheassociation onknowledgediscoveryanddatamining-KDD08(p.462).NewYork,NewYork,
+for computational linguistics: Human language technologies-volume 1 (pp. 151–160). USA:ACMPress,URL:http://dl.acm.org/citation.cfm?id=1401890.1401948.
+AssociationforComputationalLinguistics. Leskovec, J., & Faloutsos, C. (2006). Sampling from large graphs. In Proceedings of
+Jianqiang,Z.,&Xiaolin,G.(2017).Comparisonresearchontextpre-processingmethods the 12th ACM SIGKDD international conference on knowledge discovery and data
+ontwittersentimentanalysis.IEEEAccess,5,2870–2879. mining - KDD ’06 (p. 631). New York, New York, USA: ACM Press, URL: http:
+Johnson, S., Torres, J. J., Marro, J., & Munoz, M. A. (2010). Entropic origin of //dl.acm.org/citation.cfm?id=1150402.1150479.
+disassortativity in complex networks. Physical Review Letters, 104(10), Article Leskovec,J.,Kleinberg,J.,&Faloutsos,C.(2005).Graphsovertime:densificationlaws,
+108702. shrinking diameters and possible explanations. In Proceeding of the eleventh ACM
+Kanich, C., Kreibich, C., Levchenko, K., Enright, B., Voelker, G. M., Paxson, V., & SIGKDDinternationalconferenceonknowledgediscoveryindatamining-KDD’05(p.
+Savage,S.(2008).Spamalytics:anempiricalanalysisofspammarketingconversion. 177).NewYork,NewYork,USA:ACMPress,URL:http://dl.acm.org/citation.cfm?
+InCCS’08:Proceedingsofthe15thACMconferenceoncomputerandcommunications id=1081870.1081893.
+security(pp.3–14).NewYork,NY,USA:ACM,URL:http://portal.acm.org/citation. Leskovec,J.,Kleinberg,J.,&Faloutsos,C.(2007).Graphevolution:Densificationand
+cfm?id=1455770.1455774. shrinkingdiameters.InTKDD,Vol.1(p.2).ACM.
+Kantrowitz, A. (2018). How twitter made the tech world’s most unlikely comeback. Leskovec,J.,Lang,K.J.,Dasgupta,A.,&Mahoney,M.W.(2008).Statisticalproperties
+https://bit.ly/2M0sOpy.Accessed:2018-10-21. of community structure in large social and information networks. In Proceeding
+Karami,A.,Dahl,A.A.,Turner-McGrievy,G.,Kharrazi,H.,&Shaw,G.(2018).Char- of the 17th international conference on world wide web - WWW ’08 (p. 695).
+acterizing diabetes, diet, exercise, and obesity comments on twitter. International New York, New York, USA: ACM Press, URL: http://dl.acm.org/citation.cfm?id=
+JournalofInformationManagement,38(1),1–6. 1367497.1367591.
+Kaufmann, M., & Kalita, J. (2010). Syntactic normalization of twitter messages. In Li,C.,Weng,J.,He,Q.,Yao,Y.,Datta,A.,Sun,A.,&Lee,B.-S.(2012).Twiner:named
+Internationalconferenceonnaturallanguageprocessing,Kharagpur,India,Vol.16. entityrecognitionintargetedtwitterstream.InProceedingsofthe35thinternational
+ACM SIGIR conference on research and development in information retrieval (pp.
+Kim,Y.(2014).Convolutionalneuralnetworksforsentenceclassification.arXivpreprint
+721–730).ACM.
+arXiv:1408.5882.
+Liu,K.-L.,Li,W.-J.,&Guo,M.(2012).Emoticonsmoothedlanguagemodelsfortwitter
+Kleinberg,J.(2000).Navigationinasmallworld.Nature,406(6798),845.
+sentimentanalysis..InAaai,Vol.12(pp.22–26).
+Kleinberg,J.M.,Kumar,R.,Raghavan,P.,Rajagopalan,S.,&Tomkins,A.S.(1999).
+Liu,L.,Preotiuc-Pietro,D.,Samani,Z.R.,Moghaddam,M.E.,&Ungar,L.H.(2016).
+The web as a graph: measurements, models, and methods. In Computing and
+Analyzingpersonalitythroughsocialmediaprofilepicturechoice..InICWSM(pp.
+combinatorics(pp.1–17).Springer.
+211–220).
+Kleineberg,K.-K.,&Boguñá,M.(2014).Evolutionofthedigitalsocietyrevealsbalance
+LiveStats,I.(2018).Twitterusagestatistics-Internetlivestats.www.internetlivestats.
+betweenviralandmassmediainfluence.PhysicalReviewX,4,Article031046.
+com/twitter-statistics/.Accessed:2018-12-30.
+Kolchyna,O.,Souza,T.T.,Treleaven,P.,&Aste,T.(2015).Twittersentimentanalysis:
+Lo,S.L.,Chiong,R.,&Cornforth,D.(2017).Anunsupervisedmultilingualapproach
+Lexiconmethod,machinelearningmethodandtheircombination.arXivpreprint
+for online social media topic identification. Expert Systems with Applications, 81,
+arXiv:1507.00955.
+282–298.
+Kontopoulos, E., Berberidis, C., Dergiades, T., & Bassiliades, N. (2013). Ontology- Lukasik, M., Cohn, T., & Bontcheva, K. (2015). Estimating collective judgement of
+basedsentimentanalysisoftwitterposts.ExpertSystemswithApplications,40(10), rumoursinsocialmedia.CoRRabs/1506.00468.URL:http://arxiv.org/abs/1506.
+4065–4074. 00468.
+Kouloumpis, E., Wilson, T., & Moore, J. D. (2011). Twitter sentiment analysis: The Madduri, K., Ediger, D., Jiang, K., Bader, D. A., & Chavarria-Miranda, D. (2009). A
+goodthebadandtheomg!Icwsm,11(538–541),164. fasterparallelalgorithmandefficientmultithreadedimplementationsforevaluating
+Krebs, B. (2018). Twitter bots drown out anti-kremlin tweets. URL: https:// betweenness centrality on massive datasets. In 2009 IEEE international symposium
+krebsonsecurity.com/tag/maxim-goncharov/accessed:2018-12-30. onparallel&distributedprocessing(pp.1–8).IEEE,URL:http://ieeexplore.ieee.org/
+Kreibich, C., Kanich, C., Levchenko, K., Enright, B., Voelker, G. M., Paxson, V., & document/5161100/.
+Savage,S.(2008).Onthespamcampaigntrail.LEET,8,1–9. Maharani, W., & Gozali, A. A. (2014). Degree centrality and eigenvector centrality
+Kucher, K., Paradis, C., & Kerren, A. (2018). The state of the art in sentiment intwitter.InTelecommunicationsystemsservicesandapplications(TSSA),20148th
+visualization.InComputergraphicsforum,Vol.37(pp.71–96).WileyOnlineLibrary. internationalconferenceon(pp.1–5).IEEE.
+22D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+Mahata, D., Friedrichs, J., Shah, R. R., & Jiang, J. (2018). Did you take the pill?- Nakov, P., Ritter, A., Rosenthal, S., Sebastiani, F., & Stoyanov, V. (2016). SemEval-
+detecting personal intake of medicine from twitter. arXiv preprint arXiv:1808. 2016task4:SentimentanalysisinTwitter.InProceedingsofthe10thinternational
+02082. workshoponsemanticevaluation(Semeval-2016)(pp.1–18).
+Mangles, C. (2018). Search engine statistics 2018. https://bit.ly/2Bwhqva. Accessed: Narr, S., Hulfenhaus, M., & Albayrak, S. (2012). Language-independent twitter sen-
+2018-12-30. timent analysis. In Knowledge discovery and machine learning (KDML), LWA (pp.
+Markatos, E., Balzarotti, D., Almgren, M., Athanasopoulos, E., Bos, H., Cavallaro, L., 12–14).
+Ioannidis,S.,Lindorfer,M.,Maggi,F.,&Minchev,Z.(2013).Theredbook.SysSec Naveed, N., Gottron, T., Kunegis, J., & Alhadi, A. C. (2011). Bad news travel fast:
+Consortium. A content-based analysis of interestingness on twitter. In Proceedings of the 3rd
+Marketingcharts(2013).Socialnetworkingeatsup3+hoursperdayfortheaverage internationalwebscienceconference(p.8).ACM.
+Americanuser.https://bit.ly/1mmPPhB.Accessed:2018-12-30. Newman,M.E.(2002).Assortativemixinginnetworks.PhysicalReviewLetters,89(20),
+Martínez-Cámara, E., Martín-Valdivia, M. T., Urena-López, L. A., & Montejo-Ráez, A. Article208701.
+R.(2014).Sentimentanalysisintwitter.NaturalLanguageEngineering,20(1),1–28. Newman,M.E.(2005).Powerlaws,ParetodistributionsandZipf’slaw.Contemporary
+Martinez-Romo,J.,&Araujo,L.(2013).Detectingmalicioustweetsintrendingtopics Physics,46(5),323–351.
+using a statistical analysis of language. Expert Systems with Applications, 40(8), Newman,T.P.(2017).Trackingthereleaseofipccar5ontwitter:Users,comments,
+2992–3000. andsourcesfollowingthereleaseoftheworkinggroupisummaryforpolicymakers.
+Matthews, C. (2013). How does one fake tweet cause a stock market crash?. https: PublicUnderstandingofScience,26(7),815–825.
+//bit.ly/2FkPjEE.Times.com,Accessed:2018-12-30. Nishi, R., Takaguchi, T., Oka, K., Maehara, T., Toyoda, M., Kawarabayashi, K.-i., &
+Mazza,M.,Cresci,S.,Avvenuti,M.,Quattrociocchi,W.,&Tesconi,M.(2019).Rtbust: Masuda, N. (2016). Reply trees in twitter: data analysis and branching process
+Exploitingtemporalpatternsforbotnetdetectionontwitter.InProceedingsofthe models.SocialNetworkAnalysisandMining,6(1),26.
+10thACMconferenceonwebscience(pp.183–192). Nobata,C.,Tetreault,J.,Thomas,A.,Mehdad,Y.,&Chang,Y.(2016).Abusivelanguage
+McCallum, A. K. (2002). MALLET: A machine learning for language toolkit. http: detectioninonlineusercontent.InProceedingsofthe25thinternationalconferenceon
+//mallet.cs.umass.edu. worldwideweb(pp.145–153).InternationalWorldWideWebConferencesSteering
+Mccord,M.,&Chuah,M.(2011).Spamdetectionontwitterusingtraditionalclassifiers. Committee.
+In International conference on autonomic and trusted computing (pp. 175–186). O’Connor, B., Balasubramanyan, R., Routledge, B. R., & Smith, N. A. (2010). From
+Springer. tweetstopolls:Linkingtextsentimenttopublicopiniontimeseries.InProceedings
+McCoy,D.,Pitsillidis,A.,Jordan,G.,Weaver,N.,Kreibich,C.,Krebs,B.,Voelker,G. oftheinternationalAAAIconferenceonweblogsandsocialmedia.
+M.,Savage,S.,&Levchenko,K.(2012).Pharmaleaks:understandingthebusiness O’Donovan, J., Kang, B., Meyer, G., Höllerer, T., & Adalii, S. (2012). Credibility in
+of online pharmaceutical affiliate programs. In Proceedings of the 21st USENIX context:Ananalysisoffeaturedistributionsintwitter.InSocialCom/PASSAT(pp.
+conferenceonsecuritysymposium(p.1).USENIXAssociation. 293–301).
+McCreadie,R.,Soboroff,I.,Lin,J.,Macdonald,C.,Ounis,I.,&McCullough,D.(2012).
+Omnicore (2018). Twitter by the numbers: Stats, demographics & fun facts. https:
+On building a reusable twitter corpus. In Proceedings of the 35th international
+//www.omnicoreagency.com/twitter-statistics/.Accessed:2018-10-27.
+ACM SIGIR conference on research and development in information retrieval (pp.
+Ozdikis,O.,Senkul,P.,&Oguztuzun,H.(2012).Semanticexpansionofhashtagsfor
+1113–1114).ACM.
+enhancedeventdetectioninTwitter.InProceedingsofthe1stInternationalWorkshop
+McPherson,M.,Smith-Lovin,L.,&Cook,J.M.(2001).Birdsofafeather:Homophily
+onOnlineSocialSystems.
+insocialnetworks.AnnualReviewofSociology,27,415–444.
+Pak,A.,&Paroubek,P.(2010).Twitterasacorpusforsentimentanalysisandopinion
+Meeder,B.,Karrer,B.,Sayedi,A.,Ravi,R.,Borgs,C.,&Chayes,J.(2011).Weknow
+mining.InN.C.C.Chair,K.Choukri,B.Maegaard,J.Mariani,J.Odijk,S.Piperidis,
+whoyoufollowedlastsummer:inferringsociallinkcreationtimesintwitter.In
+M.Rosner,&D.Tapias(Eds.),Proceedingsoftheseventhinternationalconferenceon
+Proceedings of the 20th international conference on world wide web (pp. 517–526).
+language resources and evaluation (LREC’10). Valletta, Malta: European Language
+ACM.
+ResourcesAssociation(ELRA).
+Meel, P., & Vishwakarma, D. K. (2019). Fake news, rumor, information pollution in
+Palachy, S. (2018). A list of Twitter datasets and related resources. https://
+socialmediaandweb:Acontemporarysurveyofstate-of-the-arts,challengesand
+bit.ly/2H5P8zu.URL:https://github.com/shaypal5/awesome-twitter-data[Online;
+opportunities.ExpertSystemswithApplications,Article112986.
+Accessed2018-12-30].
+Mendoza,M.,Poblete,B.,&Castillo,C.(2010).Twitterundercrisis.InProceedingsof
+Patel-Schneider,P.F.,Pan,Y.,Hitzler,P.,Mika,P.,Zhang,L.,Pan,J.Z.,Horrocks,I.,
+thefirstworkshoponsocialmediaanalytics-SOMA’10(pp.71–79).NewYork,New
+& Glimm, B. (2010). Making sense of twitter. In P. F. Patel-Schneider, Y. Pan,
+York,USA:ACMPress.
+P.Hitzler,P.Mika,L.Zhang,J.Z.Pan,I.Horrocks,&B.Glimm(Eds.),Thesemantic
+Mersch, V. v. d. (2018). Twitter’s 10 year struggle with developer relations. https:
+web–ISWC2010:9thinternationalsemanticwebconference,ISWC2010,Shanghai,
+//bit.ly/2TAG1YR.Accessed:2018-10-28.
+China, November 7-11, 2010, Revisedselected papers, Part I (pp. 470–485).Berlin,
+Messias,J.,Schmidt,L.,Oliveira,R.,&Benevenuto,F.(2013).Youfollowedmybot!
+Heidelberg:SpringerBerlinHeidelberg.
+transformingrobotsintoinfluentialusersintwitter.FirstMonday,18(7).
+Paul, I., Khattar, A., Kumaraguru, P., Gupta, M., & Chopra, S. (2019). Elites tweet?
+Midha,A.(2014).Study:Exposuretobrandtweetsdrivesconsumerstotakeaction–
+Characterizing the twitter verified user network. In 2019 IEEE 35th international
+bothonandoffTwitter.https://bit.ly/2CgY6UV.[Online;accessed2018-30-12].
+conferenceondataengineeringworkshops(ICDEW)(pp.278–285).IEEE.
+Milgram,S.(1967).Thesmallworldproblem.InPsychologytoday,Vol.2,NewYork
+(pp.60–67). Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O.,
+Mislove, A., Marcon, M., Gummadi, K. P., Druschel, P., & Bhattacharjee, B. (2007). Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A.,
+Measurementandanalysisofonlinesocialnetworks.InProceedingsofthe7thACM Cournapeau, D., Brucher, M., Perrot, M., & Duchesnay, E. (2011). Scikit-learn:
+SIGCOMM conference on internet measurement - IMC ’07 (p. 29). New York, New Machine learning in Python. Journal of Machine Learning Research (JMLR), 12,
+York,USA:ACMPress,URL:http://dl.acm.org/citation.cfm?id=1298306.1298311. 2825–2830.
+Mitchell,L.,Frank,M.R.,Harris,K.D.,Dodds,P.S.,&Danforth,C.M.(2013).Thege- Pepe,A.,&Bollen,J.(2008).Betweenconjectureandmemento:Shapingacollective
+ographyofhappiness:Connectingtwittersentimentandexpression,demographics, emotionalperceptionofthefuture.InAAAIspringsymposium:Emotion,personality,
+andobjectivecharacteristicsofplace.PloSOne,8(5),Articlee64417. andsocialbehavior(pp.111–116).
+Morales,A.,Borondo,J.,Losada,J.,&Benito,R.(2014).Efficiencyofhumanactivityon Perlroth, N. (2013). Fake twitter followers become multimillion-dollar business. The
+informationspreadingontwitter.InElsevier-Socialnetworks,Vol.39(pp.1–2011). NewYorkTimes,Accessed:2018-12-30.
+Elsevier. Petrović, S., Osborne, M., & Lavrenko, V. (2010). The edinburgh twitter corpus. In
+Morales, A., Borondo, J., Losada, J. C., & Benito, R. M. (2015). Measuring political ProceedingsoftheNAACLHLT2010workshoponcomputationallinguisticsinaworld
+polarization:Twittershowsthetwosidesofvenezuela.Chaos.AnInterdisciplinary ofsocialmedia(pp.25–26).
+JournalofNonlinearScience,25(3),Article033114. Pfitzner, R., Garas, A., & Schweitzer, F. (2012). Emotional divergence influences
+Motamedi,R.,Jamshidi,S.,Rejaie,R.,&Willinger,W.(2020).Examiningtheevolution informationspreadingintwitter.ICWSM,12,2–5.
+oftheTwitterelitenetwork.SocialNetworkAnalysisandMining,10(1),1. Potts, C. (2011). Sentiment symposium tutorial: Lexicons. https://bit.ly/2smM9Zo.
+Mottl, D. (2020). GetOldTweets3. https://github.com/Mottl/GetOldTweets3. [Online; URL: http://sentiment.christopherpotts.net/lexicons.html. [Online; Accessed 2018-
+Accessed2020-7-5]. 12-30].
+Mozetič, I., Grčar, M., & Smailović, J. (2016). Multilingual Twitter sentiment Pratikakis, P. (2018). TwAwler: A lightweight twitter crawler. arXiv preprint arXiv:
+classification:Theroleofhumanannotators.PloSOne,11(5),Articlee0155036. 1804.07748.
+Myers, L. (2014). What Happens in a Twitter Minute? Infographic. https://louisem. Preotiuc-Pietro, D., Volkova, S., Lampos, V., Bachrach, Y., & Aletras, N. (2015).
+com/6267/twitter-minute-infographic.Accessed:2018-12-30. Studyinguserincomethroughlanguage,behaviourandaffectinsocialmedia.PloS
+Myers, S. A., Sharma, A., Gupta, P., & Lin, J. (2014). Information network or social One,URL:http://research.microsoft.com/apps/pubs/default.aspx?id=258405.
+network?:Thestructureofthetwitterfollowgraph.InProceedingsofthecompanion Priyanta,S.,Trisna,I.P.,&Prayana,N.(2019).Socialnetworkanalysisoftwitterto
+publication of the 23rd international conference on world wide web companion (pp. identifyissueroftopicusingpagerank.InternationalJournalofAdvancedComputer
+493–498).InternationalWorldWideWebConferencesSteeringCommittee. ScienceandApplications,10(1),107–111.
+Naaman,M.,Becker,H.,&Gravano,L.(2011).Hipandtrendy:Characterizingemerging Prusa,J.D.,Khoshgoftaar,T.M.,&Dittman,D.J.(2015).Impactoffeatureselection
+trends on Twitter. Journal of the American Society for Information Science and techniquesfortweetsentimentclassification.InThetwenty-eighthinternationalflairs
+Technology,62(5),902–918. conference.
+23D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+Quercia,D.,Kosinski,M.,Stillwell,D.,&Crowcroft,J.(2011).Ourtwitterprofiles,our Snefjella, B., Schmidtke, D., & Kuperman, V. (2018). National character stereotypes
+selves:Predictingpersonalitywithtwitter.InPrivacy,security,riskandtrust(PAS- mirrorlanguageuse:AstudyofcanadianandAmericantweets.PLOSONE,13(11),
+SAT) and 2011 IEEE third inernational conference on social computing (SocialCom), 1–37.
+2011IEEEthirdinternationalconferenceon(pp.180–185).IEEE. Snow, R., O’Connor, B., Jurafsky, D., & Ng, A. Y. (2008). Cheap and fast—but is it
+Räbiger,S.,&Spiliopoulou,M.(2015).Aframeworkforvalidatingthemeritofprop- good?:evaluatingnon-expertannotationsfornaturallanguagetasks.InProceedings
+ertiesthatpredicttheinfluenceofatwitteruser.ExpertSystemswithApplications, oftheconferenceonempiricalmethodsinnaturallanguageprocessing(pp.254–263).
+42(5),2824–2834. AssociationforComputationalLinguistics.
+Ratkiewicz, J., Conover, M., Meiss, M., Goncalves, B., Flammini, A., & Menczer, F. Speriosu, M., Sudan, N., Upadhyay, S., & Baldridge, J. (2011). Twitter polarity
+(2011). Detecting and tracking political abuse in social media. In Conference on classification with label propagation over lexical links and the follower graph.
+weblogsandsocialmedia(ICWSM2011).URL:http://www.aaai.org/ocs/index.php/ In Proceedings of the first workshop on unsupervised learning in NLP (pp. 53–63).
+ICWSM/ICWSM11/paper/view/2850. AssociationforComputationalLinguistics.
+Reiss,J.(1981).Statisticalmethodsforratesandproportions(2nded.).(pp.212–225). Sridharan, V., Shankar, V., & Gupta, M. (2012). Twitter games: How successful
+NewYork:JohnWileyandSons. spammers pick targets. In ACSAC ’12, Proceedings of the 28th annual computer
+Riquelme,F.,&González-Cantergiani,P.(2016).MeasuringuserinfluenceonTwitter: securityapplicationsconference(pp.389–398).NewYork,NY,USA:ACM.
+Asurvey.InformationProcessing&Management,52(5),949–975. Stamatelatos, G., Gyftopoulos, S., Drosatos, G., & Efraimidis, P. S. (2020). Revealing
+Ritter, A., Clark, S., & Etzioni, O. (2011). Named entity recognition in tweets: an thepoliticalaffinityofonlineentitiesthroughtheirtwitterfollowers.Information
+experimentalstudy.InProceedingsoftheconferenceonempiricalmethodsinnatural Processing&Management,57(2),Article102172.
+languageprocessing(pp.1524–1534).AssociationforComputationalLinguistics. Stella,M.,Ferrara,E.,&DeDomenico,M.(2018).Botsincreaseexposuretonegative
+Rizzo, G., & Troncy, R. (2011). Nerd: A framework for evaluating named entity and inflammatory content in online social systems. Proceedings of the National
+recognitiontoolsinthewebofdata.In10thinternationalsemanticwebconference AcademyofSciences,Article201803470.
+(ISWC’11),DemoSession,Bonn,Germany(pp.1–4). Stone-Gross, B., Abman, R., Kemmerer, R. A., Kruegel, C., Steigerwald, D. G., &
+Rodríguez-Ruiz, J., Mata-Sánchez, J. I., Monroy, R., Loyola-González, O., & López- Vigna, G. (2013). The underground economy of Fake Antivirus Software. In
+Cuevas,A.(2020).Aone-classclassificationapproachforbotdetectionontwitter. EconomicsofinformationsecurityandprivacyIII(pp.55–78).NewYork,NY:Springer
+Computers&Security,91,Article101715. NewYork.
+Romero,D.M.,Galuba,W.,Asur,S.,&Huberman,B.A.(2011).Influenceandpassivity Stringhini,G.,Kruegel,C.,&Vigna,G.(2010).Detectingspammersonsocialnetworks.
+insocialmedia.InProceedingsofthe20thinternationalconferencecompaniononworld InProceedingsofthe26thannualcomputersecurityapplicationsconference(pp.1–9).
+wideweb-WWW’11(p.113).NewYork,NewYork,USA:ACMPress. ACM.
+Rosa,H.,Batista,F.,&Carvalho,J.P.(2014).Twittertopicfuzzyfingerprints.In2014 Stringhini, G., Wang, G., Egele, M., Kruegel, C., Vigna, G., Zheng, H., & Zhao, B.
+IEEEinternationalconferenceonfuzzysystems(FUZZ-IEEE)(pp.776–783).IEEE. Y.(2013).Followthegreen:growthanddynamicsintwitterfollowermarkets.In
+Proceedingsofthe2013conferenceoninternetmeasurementconference(pp.163–176).
+Rosa,H.,Carvalho,J.P.,&Batista,F.(2014).Detectingatweet’stopicwithinalarge
+ACM.
+number of portuguese twitter trends. In 3rd symposium on languages, applications
+Subrahmanian,V.,Azaria,A.,Durst,S.,Kagan,V.,Galstyan,A.,Lerman,K.,Zhu,L.,
+andtechnologies.SchlossDagstuhl-Leibniz-ZentrumfuerInformatik.
+Ferrara,E.,Flammini,A.,&Menczer,F.(2016).Thedarpatwitterbotchallenge.
+Rosen, A., & Ihara, I. (2018). Giving you more characters to express yourself. https:
+arXivpreprintarXiv:1601.05140.
+//bit.ly/2fQ2b7W.Twitter.com,Accessed:2018-12-30.
+Suh,B.,Hong,L.,Pirolli,P.,&Chi,E.H.(2010).Wanttoberetweeted?largescale
+Ross, B., Rist, M., Carbonell, G., Cabrera, B., Kurowsky, N., & Wojatzki, M. (2017).
+analytics on factors impacting retweet in twitter network. In 2010 IEEE second
+Measuring the reliability of hate speech annotations: The case of the european
+internationalconferenceonsocialcomputing(pp.177–184).IEEE.
+refugeecrisis.arXivpreprintarXiv:1701.08118.
+Talukdar, P. P., & Crammer, K. (2009). New regularized algorithms for transductive
+Roth,Y.,&Harvey,D.(2018).Howtwitterisfightingspamandmaliciousautomation.
+learning.InSpringerBerlinHeidelberg(pp.442–457).SpringerBerlinHeidelberg.
+https://bit.ly/2N40umE.Accessed:2018-10-20.
+Tang,D.,Wei,F.,Qin,B.,Liu,T.,&Zhou,M.(2014).Coooolll:Adeeplearningsystem
+Sadikov, E., & Martinez, M. M. M. (2009). Information propagation on Twitter. In
+fortwittersentimentclassification.InProceedingsofthe8thinternationalworkshop
+CS322projectreport.
+onsemanticevaluation(SemEval2014)(pp.208–212).
+Said, A., Bowman, T. D., Abbasi, R. A., Aljohani, N. R., Hassan, S.-U., & Nawaz, R.
+Tang,D.,Wei,F.,Yang,N.,Zhou,M.,Liu,T.,&Qin,B.(2014).Learningsentiment-
+(2019).Miningnetwork-levelpropertiesofTwitteraltmetricsdata.Scientometrics,
+specificwordembeddingfortwittersentimentclassification.InProceedingsofthe
+120(1),217–235.
+52nd annual meeting of the association for computational linguistics (volume 1: long
+Saif, H., He, Y., & Alani, H. (2012a). Alleviating data sparsity for twitter sentiment
+papers),Vol.1(pp.1555–1565).
+analysis. In 2nd workshop on making sense of microposts (#MSM2012): Big things
+Tausczik,Y.R.,&Pennebaker,J.W.(2010).Thepsychologicalmeaningofwords:LIWC
+come in small packages at the 21st international conference on theworld wide web
+andcomputerizedtextanalysismethods.JournalofLanguageandSocialPsychology,
+(WWW’12) (pp. 2–9). CEUR Workshop Proceedings (CEUR-WS.org), URL: http:
+29(1),24–54.
+//oro.open.ac.uk/38501/.
+Teevan, J., Ramage, D., & Morris, M. R. (2011). # twitterSearch: a comparison of
+Saif, H., He, Y., & Alani, H. (2012b). Semantic sentiment analysis of twitter. In
+microblog search and web search. In Proceedings of the fourth ACM international
+Internationalsemanticwebconference(pp.508–524).Springer.
+conferenceonwebsearchanddatamining(pp.35–44).ACM.
+Seo, Y.-D., Kim, Y.-G., Lee, E., & Baik, D.-K. (2017). Personalized recommender Telegraph,M.(2018).Twittertoremove‘like’toolinabidtoimprovethequalityof
+systembasedonfriendshipstrengthinsocialnetworkservices.ExpertSystemswith debate.https://bit.ly/2yExMmK.Accessed:2018-11-15.
+Applications,69,135–148. Thelwall,M.,Haustein,S.,Larivière,V.,&Sugimoto,C.R.(2013).Doaltmetricswork?
+Severyn,A.,&Moschitti,A.(2015).Twittersentimentanalysiswithdeepconvolutional Twitterandtenothersocialwebservices.PloSOne,8(5),Articlee64841.
+neuralnetworks.InProceedingsofthe38thinternationalACMSIGIRconferenceon Thomas, K., Grier, C., & Paxson, V. (2012). Adapting social spam infrastructure for
+researchanddevelopmentininformationretrieval(pp.959–962).ACM. politicalcensorship.InPresentedaspartofthe5thUSENIXworkshoponlarge-scale
+Shao,C.,Ciampaglia,G.L.,Varol,O.,Yang,K.-C.,Flammini,A.,&Menczer,F.(2018). exploitsandemergentthreats.
+Thespreadoflow-credibilitycontentbysocialbots.NatureCommunications,9(1), Thomas,K.,Grier,C.,Song,D.,&Paxson,V.(2011).Suspendedaccountsinretrospect:
+4787. Ananalysisoftwitterspam.InIMC’11,Proceedingsofthe2011ACMSIGCOMM
+Sharma,K.,Qian,F.,Jiang,H.,Ruchansky,N.,Zhang,M.,&Liu,Y.(2019).Combating conferenceoninternetmeasurementconference(pp.243–258).NewYork,NY,USA:
+fakenews:Asurveyonidentificationandmitigationtechniques.ACMTransactions ACM.
+onIntelligentSystemsandTechnology(TIST),10(3),21. Thomas, K., Li, F., Grier, C., & Paxson, V. (2014). Consequences of connectivity. In
+Sheng,S.,Wardman,B.,Warner,G.,Cranor,L.F.,Hong,J.,&Zhang,C.(2009).An Proceedings of the 2014 ACM SIGSAC conference on computer and communications
+empiricalanalysisofphishingblacklists.InProceedingsofsixthconferenceonemail security - CCS ’14 (pp. 489–500). New York, New York, USA: ACM Press, URL:
+andanti-spam(CEAS). http://dl.acm.org/citation.cfm?id=2660267.2660282.
+Shi,L.,Agarwal,N.,Agrawal,A.,Garg,R.,&Spoelstra,J.(2012).PredictingUSprimary Thomas,K.,McCoy,D.,Grier,C.,Kolcz,A.,&Paxson,V.(2013).Traffickingfraudulent
+electionswithTwitter.https://stanford.io/2shORiz.accessed:2018-12-30. accounts: The role of the underground market in twitter spam and abuse. In
+Shrout, P., & Lane, S. (2012). Psychometrics. In M. R. Mehl, & T. S. Conner (Eds.), Proceedingsofthe22ndusenixsecuritysymposium.
+Handbookofresearchmethodsforstudyingdailylife(pp.302–320).NewYork,NY: Titcomb, J. (2018). Twitter makes first profit in 12-year history. https://bit.ly/
+GuilfordPress.[GoogleScholar]. 2RD1MtD.telegraph.co.uk,Accessed:2018-11-15.
+Shuai,X.,Pepe,A.,&Bollen,J.(2012).Howthescientificcommunityreactstonewly Travers,J.,&Milgram,S.(1969).Anexperimentalstudyofthesmallworldproblem.
+submittedpreprints:articledownloads,twittermentions,andcitations.PloSOne, InJSTOR-sociometry(pp.425–443).JSTOR.
+7(11),Articlee47523. Tromble,R.,Storz,A.,&Stockmann,D.(2017).Wedon’tknowwhatwedon’tknow:
+Sinnenberg,L.,Buttenheim,A.M.,Padrez,K.,Mancheno,C.,Ungar,L.,&Merchant,R. Whenandhowtheuseoftwitter’spublicAPIsbiasesscientificinference.Available
+M. (2017). Twitter as a tool for health research: a systematic review. American atSSRN3079927.
+JournalofPublicHealth,107(1),e1–e8. Tromp, E., & Pechenizkiy, M. (2011). Senticorr: Multilingual sentiment analysis of
+Smith,A.,&Anderson,M.(2018).Socialmediausein2018.https://pewrsr.ch/2FDfiFd. personal correspondence. In Data mining workshops (ICDMW), 2011 IEEE 11th
+Accessed:2018-12-30. internationalconferenceon(pp.1247–1250).IEEE.
+24D.Antonakakietal. ExpertSystemsWithApplications164(2021)114006
+Tumasjan,A.,Sprenger,T.O.,Sandner,P.G.,&Welpe,I.M.(2011).Electionforecasts Weitzel,L.,Quaresma,P.,&deOliveira,J.P.M.(2012).Measuringnodeimportance
+with Twitter: How 140 characters reflect the political landscape. Social Science ontwittermicroblogging.InProceedingsofthe2ndinternationalconferenceonweb
+ComputerReview,29(4),402–418. intelligence,miningandsemantics(pp.1–7).
+Twitter (2020). Twitter API access that scales with you and your solution. https: Weng,J.,Lim,E.-P.,Jiang,J.,&He,Q.(2010).Twitterrank.InProceedingsofthethird
+//developer.twitter.com/en/pricing.[Online;accessed2020-15-06]. ACMinternationalconferenceonwebsearchanddatamining-WSDM’10(p.261).
+Twitter Help Center (2018). The twitter rules. https://bit.ly/2j9xU9n. Accessed: New York, New York, USA: ACM Press, URL: http://dl.acm.org/citation.cfm?id=
+2018-12-30. 1718487.1718520.
+Twitter Inc. (2018). Shutting down spammers. https://bit.ly/2VEEZx1. Twitter.com, Wernicke,S.,&Rasche,F.(2006).FANMOD:atoolforfastnetworkmotifdetection.
+Accessed:2018-12-30. Bioinformatics (Oxford, England), 22(9), 1152–1153, URL: http://bioinformatics.
+Twitter official API documentation (2018). Standard API rate limits per window. oxfordjournals.org/content/22/9/1152.long.
+https://bit.ly/2REDPCl.Accessed:2018-11-15. Wesslen,R.,Nandu,S.,Eltayeby,O.,Gallicano,T.,Levens,S.,Jiang,M.,&Shaikh,S.
+Twitter Official Blog (2018). Continuing our commitment to health. https://bit.ly/ (2018).Bumperstickersonthetwitterhighway:Analyzingthespeedandsubstanceof
+2tocAOi.URL:https://bit.ly/2tocAOi[Online;Accessed2018-12-30]. profilechanges.SocArXiv,URL:osf.io/preprints/socarxiv/bx9rm.
+Twitterofficialblog(2018).Deliveringaconsistenttwitterexperience.https://bit.ly/ Wilson,R.E.,Gosling,S.D.,&Graham,L.T.(2012).Areviewoffacebookresearch
+2C8KX00.Accessed:2018-11-15. inthesocialsciences.PerspectivesonPsychologicalScience,7(3),203–220.
+Ugander, J., Karrer, B., Backstrom, L., & Marlow, C. (2011). The anatomy of the Wisniewski, C. (2010). Twitter hack demonstrates the power of weak passwords.
+facebooksocialgraph.arXivpreprintarXiv:1111.4503. https://bit.ly/2sgQsFi.Accessed:2018-12-30.
+Unsvåg,E.F.,&Gambäck,B.(2018).Theeffectsofuserfeaturesontwitterhatespeech Wong,J.C.,&Solon,O.(2018).Googletoshutdowngoogle+afterfailingtodisclose
+detection.InProceedingsofthe2ndworkshoponabusivelanguageonline(ALW2)(pp. user data leak. The Guardian, URL: https://www.theguardian.com/technology/
+75–85). 2018/oct/08/google-plussecurity-breach-wall-street-journal.
+Vosoughi, S., Roy, D., & Aral, S. (2018). The spread of true and false news online. Wu,S.,Hofman,J.M.,Mason,W.A.,&Watts,D.J.(2011).Whosayswhattowhom
+Science, 359(6380), 1146–1151, arXiv:http://science.sciencemag.org/content/359/ on twitter. In Proceedings of the 20th international conference on world wide web -
+6380/1146.full.pdf.URL:http://science.sciencemag.org/content/359/6380/1146. WWW’11(p.705).NewYork,NewYork,USA:ACMPress.
+Wang, A. H. (2010). Don’t follow me - spam detection in twitter. In SECRYPT (pp. Wu, Z., Pi, D., Chen, J., Xie, M., & Cao, J. (2020). Rumor detection based on
+142–151). propagationgraphneuralnetworkwithattentionmechanism.ExpertSystemswith
+Wang,H.,Can,D.,Kazemzadeh,A.,Bar,F.,&Narayanan,S.(2012).Asystemforreal- Applications,Article113595.
+timetwittersentimentanalysisof2012uspresidentialelectioncycle.InProceedings Wu,T.,Wen,S.,Xiang,Y.,&Zhou,W.(2018).Twitterspamdetection:Surveyofnew
+oftheACL2012systemdemonstrations(pp.115–120).AssociationforComputational approachesandcomparativestudy.Computers&Security,76,265–284.
+Linguistics. Yang, J., & Leskovec, J. (2011). Patterns of temporal variation in online media. In
+Wang,T.,Chen,Y.,Zhang,Z.,Sun,P.,Deng,B.,&Li,X.(2011).Unbiasedsampling ProceedingsofthefourthACMinternationalconferenceonwebsearchanddatamining
+in directed social graph. ACM SIGCOMM Computer Communication Review, 41(4), (pp.177–186).ACM.
+401–402. Yang,K.-C.,Varol,O.,Davis,C.A.,Ferrara,E.,Flammini,A.,&Menczer,F.(2019).
+Wang, Y., Feng, Y., Hong, Z., Berger, R., & Luo, J. (2017). How polarized have we Armingthepublicwithartificialintelligencetocountersocialbots.HumanBehavior
+become?amultimodalclassificationoftrumpfollowersandclintonfollowers.In andEmergingTechnologies,1(1),48–61.
+Internationalconferenceonsocialinformatics(pp.440–456).Springer. Ye,S.,&Wu,S.(2010).MeasuringmessagepropagationandsocialinfluenceonTwitter.
+Wang, Y., Liu, J., Qu, J., Huang, Y., Chen, J., & Feng, X. (2014). Hashtag graph com.InInternationalconferenceonsocialinformatics(pp.216–231).Springer.
+basedtopicmodelfortweetmining.InDatamining(ICDM),2014IEEEinternational Yu,J.,&Muñoz-Justicia,J.(2020).Freeandlow-costtwitterresearchsoftwaretools
+conferenceon(pp.1025–1030).IEEE. forsocialscience.SocialScienceComputerReview,Article0894439320904318.
+Waseem,Z.,&Hovy,D.(2016).Hatefulsymbolsorhatefulpeople?predictivefeatures Zhang, L., Ghosh, R., Dekhil, M., Hsu, M., & Liu, B. (2011). Combining lexicon-based
+forhatespeechdetectionontwitter.InProceedingsoftheNAACLstudentresearch and learning-based methods for twitter sentiment analysis, Vol. 89: Technical Report
+workshop(pp.88–93). HPL-2011,HPLaboratories.
+Washha,M.,Qaroush,A.,Mezghani,M.,&Sèdes,F.(2019).Unsupervisedcollective- Zhao,J.,Dong,L.,Wu,J.,&Xu,K.(2012).Moodlens:anemoticon-basedsentiment
+based framework for dynamic retraining of supervised real-time spam tweets analysis system for chinese tweets. In Proceedings of the 18th ACM SIGKDD
+detectionmodel.ExpertSystemswithApplications,135,129–152. international conference on knowledge discovery and data mining (pp. 1528–1531).
+Waugh,B.,Abdipanah,M.,Hashemi,O.,AbdulRahman,S.,&Cook,D.M.(2013).The ACM.
+influenceanddeceptionoftwitter:theauthenticityofthenarrativeandslacktivism Zhao, W. X., Jiang, J., Weng, J., He, J., Lim, E.-P., Yan, H., & Li, X. (2011).
+intheAustralianelectoralprocess.InECCWS2014-Proceedingsofthe13thEuropean Comparingtwitterandtraditionalmediausingtopicmodels.InEuropeanconference
+conferenceoncyberwarefareandsecurity.SecurityResearchInstitute,EdithCowan oninformationretrieval(pp.338–349).Springer.
+University. Zou, B., Lampos, V., Gorton, R., & Cox, I. J. (2016). On infectious intestinal disease
+Weber,I.,Garimella,V.R.K.,&Batayneh,A.(2013).Secularvs.islamistpolarization surveillance using social media content. In Proceedings of the 6th international
+in egypt on twitter. In Proceedings of the 2013 IEEE/ACM international conference conferenceondigitalhealthconference(pp.157–161).ACM.
+onadvancesinsocialnetworksanalysisandmining(pp.290–297).ACM. Zubiaga, A., Liakata, M., & Procter, R. (2016). Learning reporting dynamics during
+breaking news for rumour detection in social media. arXiv preprint arXiv:1610.
+07363.
+25

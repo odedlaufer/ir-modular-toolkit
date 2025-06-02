@@ -1,0 +1,436 @@
+SENTINET: a deep sentiment analysis network for political media bias detection artículo de investigación / research articlennnn
+Anuradha Yenkikar, C. Narendra Babu and D. Jude Hemanth
+SENTINET: a deep sentiment analysis
+network for political media bias
+detection
+SENTINET: Una red de análisis profundo de sentimientos para la detección de
+prejuicios políticos en los medios de comunicación
+nnnn
+Anuradha Yenkikar1, *, C. Narendra Babu1 and D. Jude Hemanth2
+1 M. S. Ramaiah University of Applied Sciences. Gnanagangothri Campus. New BEL Road. 560054Bengaluru, Karnataka (India).
+2 Karunya Institute of Technology and Sciences. Karunya Nagar - 641114Coimbatore, Tamil Nadu (India).
+* Corresponding author
+DOI: https://doi.org/10.6036/10593 | Received: 26/jul/2022 • Reviewing: 26/jul/2022 • Accepted: 16/set/2022
+To cite this article: YENKIKAR, Anuradha; BABU, Narendra; HEMANTH, Jude. SENTINET: A DEEP SENTIMENT ANALYSIS NETWORK FOR POLITICAL MEDIA BIAS DETECTION. DYNA November –
+December 2022. vol.97, n.6 , pp. 645-651. DOI: https://doi.org/10.6036/10593
+the lowest press freedom rankings for democracies. Media bias
+RESUMEN plays an influencing role even at the voting booth as propaganda
+can skew voter decisions and perceptions of what is true in this
+• L a India es el país con mayor tirada de periódicos del
+era of fake news. It’s vital to keep an eye on bias in the news and
+mundo, pero desgraciadamente también tiene altos índices
+de parcialidad en los medios de comunicación y una de to provide a platform where people can get unbiased and relia-
+las clasificaciones de libertad de prensa más bajas de las ble news. Researchers in sentiment analysis and bias detection
+democracias. La parcialidad de los medios de comunicación have been using various techniques to achieve higher accuracy.
+influye incluso en las urnas, ya que la propaganda puede This study aims Indian political media bias detection by propo-
+sesgar las decisiones de los votantes y su percepción de lo sing SentiNet - a graphical processing unit (GPU) trained modified
+que es cierto en esta era de noticias falsas. Es vital vigilar
+convolution neural network (CNN) model consisting of linearly in-
+la parcialidad de las noticias y proporcionar una plataforma
+verted depth-wise separable convolutions capable of classifying
+en la que la gente pueda obtener noticias imparciales y
+news as either ‘unbiased’ or ‘biased’ from Twitter data. Because
+fiables. Los investigadores del análisis de sentimientos y la
+of its simple architecture and lesser number of tuning parameters,
+detección de sesgos han utilizado diversas técnicas para lograr
+una mayor precisión. Este estudio tiene como objetivo la it is observed that SentiNet is a good fit in terms of accuracy and
+detección de sesgos en los medios de comunicación políticos loss function and its training time reduces by 50% when using a
+indios proponiendo SentiNet, un modelo de red neuronal de GPU. Considering top 5 media news houses, from results it is ob-
+convolución (CNN) modificado y entrenado por una unidad de served that Channel 1 and Channel 2 emerged as the most biased
+procesamiento gráfico (GPU) que consiste en convoluciones towards ruling party and Opposition parties respectively. Channel
+separables en profundidad y linealmente invertidas, capaz de
+3 and Channel 5 emerged unbiased towards ruling party with ba-
+clasificar las noticias como “imparciales” o “sesgadas” a partir
+lanced reporting. Channel 4 has emerged as unbiased towards Op-
+de los datos de Twitter. Debido a su sencilla arquitectura y
+position parties. From Twitter political discourse, it is found that
+al menor número de parámetros de ajuste, se observa que
+parties discuss themselves or their opposing parties and seldom
+SentiNet se ajusta bien en términos de precisión y función de
+pérdida y su tiempo de entrenamiento se reduce en un 50% issues of national interest. Apart from governments, the proposed
+cuando se utiliza una GPU. Considerando los 5 principales model can be extended to other social media networks and used
+medios de comunicación, se observa que el Canal 1 y el Canal by companies to measure customer bias in any product or service.
+2 resultaron ser los más sesgados hacia el partido gobernante Key Words: media bias, convolution neural network, graphical
+y los partidos de la oposición, respectivamente. El Canal 3 y el processing unit, twitter.
+Canal 5 se mostraron imparciales hacia el partido en el poder
+con una información equilibrada. El Canal 4 ha resultado
+ser imparcial hacia los partidos de la oposición. Del discurso
+1. INTRODUCTION
+político de Twitter se desprende que los partidos hablan de sí
+Opinions play a significant role in decision-making. When
+mismos o de los partidos de la oposición y rara vez de temas de
+interés nacional. Aparte de los gobiernos, el modelo propuesto choosing a product or service, customers are influenced by the
+puede extenderse a otras redes sociales y ser utilizado por opinions of everyone else. People used to rely on the experiences
+las empresas para medir el sesgo de los clientes en cualquier of family members and peers to make better decisions. People
+producto o servicio. and organizations use social media not just to share content and
+• Palabras clave: sesgo mediático, red neuronal de convolución, engage in conversations, but also to express their opinions on a
+unidad de procesamiento gráfico, twitter.
+variety of products, services, and individuals. It is vital to keep an
+eye on bias in the news and to provide a platform where people
+can get balanced and reliable news. Facebook and Twitter, for ex-
+ABSTRACT ample, give a steady stream of personal viewpoints on a variety of
+India has the highest circulation of newspapers in the world, topics. This allows people all across the world to learn about each
+but unfortunately it also has high media bias rates and one of other’s experiences. This can help companies to make important
+Cod. 10593 | Tecnología de las telecomunicaciones | 3325.99-5 Inteligencia artificial Dyna | Noviembre-Diciembre 2022 | Vol. 97 nº6 | 645-651 | ISSN-L: 0012-7361 | 645nnnnartículo de investigación / research article SENTINET: a deep sentiment analysis network for political media bias detection
+Anuradha Yenkikar, C. Narendra Babu and D. Jude Hemanth
+business decisions with respect to any product or services. efficient classification model with fewer parameters and
+There has been much discussion in recent decades concern- a lightweight design. The model is resilient and adaptable
+ing the media’s dependability in reporting news. The Indian media because it can be customized to a wide range of dataset
+landscape is vast and heavily populated, with over 100,000 pub- sizes: its block layers can be repeated for depth wise expan-
+lications (including 36,000 weekly newspapers) and 380 televi- sion, and the number of filters in the convolutions can be
+sion news stations. It swings from Extreme left to Extreme right changed for width wise growth.
+based on the political inclination they harbor. This involves the 2) We study the effect of GPU on training the model.
+identification of bias in everyday news, as well as the availability 3) We study bias in five Indian English channels towards ruling
+of a platform that allows users to get fair and secure news. This party and opposition parties using twitter sentiment data
+study uses Twitter, which has grown to become a powerful micro- emanating from these media networks and get insights into
+blogging site with 330 million monthly active users as of the last their affiliations.
+reported quarter. One of the most visible examples of this impact 4) The model provides insights into common topics discussed
+is in the socio-political sector, where social media sources such by various political parties on Twitter.
+as Twitter play a significant role in influencing people’s views, at- The remaining part of the paper is laid out as follows. Section
+titudes, and sentiments [1]. While the developed world struggles 2 includes the associated work. Section 3 delves into the materials
+with political influence via social media, the developing world and methodology used. Part 4 presents the experimental results
+does not. In the Western world, where the judiciary, law and or- and discussion, and section 5 is the conclusion.
+der, democracy, and free speech are vital, terms like “fake news”,
+“post-truth” and “bots” have become major topics of debate.
+Concerns about the use of social media for political purposes are 2. RELATED WORK
+exacerbated in developing countries, where the democratic infra- Many studies have used twitter data to predict political events
+structure is comparatively weak and mass crowds are emotionally in recent years, including electoral prediction [7], political orien-
+charged and politically motivated [2]. tation prediction [8], and news source bias [5]. Despite its wide-
+The type of news that media outlets report is reflected in their spread popularity, mainstream media frequently fails to uphold
+tweets. The open nature and worldwide reach of such news sourc- journalistic ethics and mistakenly patronizes certain viewpoints
+es can propagate false or misleading information with an agenda [4]. Furthermore, news sources are known to include political bias
+to deceive people and sway their beliefs [3]. It has been proposed in their reporting [9], potentially influencing audience political be-
+that bias in social media toward or against a specific entity or liefs and, as a result, voting behaviour. Researchers explored many
+ideology might impact the behaviour of a specific group of indi- types of bias. A substantial portion of the study in [10] focuses
+viduals, as well as accidentally assist in the fulfilment of a specific on a positive to negative bias spectrum. Authors classified it into
+objective [4]. Such prejudice has the potential to influence voting three categories: positive/negative/neutral, positive/negative/oth-
+behaviour and foster intolerance and animosity in social and po- er, and positive/negative/other, respectively. [11] utilized a simi-
+litical issues [5]. For cultures where social networking platforms lar for/against labelling. Other researchers used terms like Israeli/
+like Twitter have the power to impact democracy, monitoring, Palestinian [12] or conservative/liberal to describe their political
+tracking, and overcoming bias in the media is critical [6]. Gov- views. Finally, rather than focusing on the syntactic or semantic
+ernments use such platforms before or during elections to gauge level, and [13] investigated bias selection. Unsupervised methods
+voter bias towards any specific party. Authors have for long used to assess three types of media biases: selection bias, coverage bias,
+conventional Machine Learning models for sentiment analysis, in- and statement bias were introduced in [5]. They evaluated data
+cluding ensemble models. Off late a lot of researchers have used from various foreign news outlets over the course of two weeks
+Deep Learning for this task. In this study, we propose a robust GPU and discovered that biases are visible and depend on geographic
+trained system for gauging sentiments on political themes [4]. This borders. Similarly, many studies have quantified media bias, but
+study examines the tweets of five leading media house networks most of them [9] focus on US-centric news outlets. These studies
+in India. It analyses and categorizes news as either ‘Unbiased’ or are limited to analysing media bias toward two political ideologies
+‘Biased,’ and then distributes it to a network of individuals who (liberal and conservative) in the United States, and it cannot be
+follow/consume it via social media. Deep learning has long failed generalized to more varied multi-party contexts such as in India.
+to meet the demand for effective classification models with fewer The goal of study [6] is to provide a metric for comparing media
+parameters, lightweight design, and consistent performance, even outlets’ ideological viewpoints to political actors and determining
+though most recently published research uses convolution neural if a news organization is left or right centric. However, the author
+networks (CNN) for this job. The enormous number of parameters is more concerned in defining centrist from a US perspective than
+in deep models of regular convolutions needs a lot of computation from a global perspective. The ideological scores for various major
+and infrastructure. Furthermore, situations such as fitting need media outlets are used to calculate media bias. They did this by
+additional data or deeper layers, all of which increase the com- counting how many times a certain media outlet quoted specific
+putational complexity beyond the capabilities of a standard CPU, think tanks and policy groups, then comparing that to how many
+necessitating the use of a GPU to reduce network training. As a times members of Congress cited the same organisations. [14]
+result, when using ordinary CNN, there is always a trade-off be- describes a method for determining media bias in story cover-
+tween computational cost, model complexity, time and accuracy, age. The study’s conclusions appear to be accurate and consistent
+all of which are unrelated. To solve this challenge at hand, newer with public perceptions of the media, including both the outlets
+CNN architectures are required. in question and the industry as a whole. In the absence of a well-
+Therefore, the key contributions and novelty of this work can defined, standardized, and peer-reviewed approach for measuring
+be summarized as: media bias, it’s critical to evaluate the model’s performance as a
+1) Designed and implemented a GPU-based optimized Sen- single case study. Indeed, considerable work need to be done be-
+tiNet model using CNN for detecting media bias. It is an fore a valid method of measuring media bias can be established.
+646 | ISSN-L: 0012-7361 | 645-651 | Vol. 97 nº6 | Noviembre-Diciembre 2022 | Dyna Cod. 10593 | Tecnología de las telecomunicaciones | 3325.99-5 Inteligencia artificialSENTINET: a deep sentiment analysis network for political media bias detection artículo de investigación / research articlennnn
+Anuradha Yenkikar, C. Narendra Babu and D. Jude Hemanth
+While researching the most important news sources, the newspa- the keywords representatively without actually calling out specific
+pers that would furnish the data set were discovered. Six news- political party/leader names so as to focus on the
+papers were chosen by the author: USA Today, The New York Post, RulingParty = [“w”, “x”, ”y”, ......., ”z”]
+The New York Times, The Washington Post, The Daily News and The OppositionParty = [“a”, ”b”, “c”, .......,”f”]
+Los Angeles Times. The next stage is to determine the study’s time Approximately, the dataset contains 1.6 million data points.
+frame. The news stories were sourced from chosen newspapers us- For every channel, two .csv files will be downloaded, one for rul-
+ing the RIT Library database. Then each outlet’s news stories might ing party (.csv file – ruling party tweets) and other for opposition
+be ordered chronologically. The next stage is to figure out which party (.csv file-opposition party tweets). Ruling party files contain
+of the stories from the previous step are appropriate for the study. all tweets released by news channel with keywords mentioned in
+They obtain dataset by following the aforesaid methods. Following ‘RulingParty’ list and opposition party file contains all tweets re-
+the preparation of the data set, a clustering technique such as the leased by news channels with keywords mentioned in ‘Opposition-
+k-means clustering algorithm was used. Party’ list. A Python script to download tweets from different news
+Algorithms in [15] provides an overview of several keyways for channels is shown in Figure 1.
+identifying the sources of media bias and what to do about it in
+their study. As Internet users become more reliant on social me-
+dia sites like Facebook and Twitter for news, they are confronted
+with an overwhelming quantity of news media options. For media
+watchdog organizations that rely on content analysis, determin-
+ing the bias of these media pages offers a significant challenge. In
+[16] proposed a scalable system for properly inferring the biases of
+hundreds of news sources on social media sites like Facebook and
+Twitter. The main goal is to use their advertiser interfaces, which
+provide precise information on the demographics of the news
+source’s social media readership. Furthermore, the authors show Figure 1: Algorithm for downloading tweets
+how audience attributes, such as ethnicity, gender, age, national-
+ity, and income, can be leveraged to infer finer-grained source
+biases. 3.2. PRE-PROCESSING
+The authors in [17] discuss identifying and analysing media bias Tweet text may contain special symbols, hashtags, numbers,
+in news articles. As a result of media bias, or slanted news cover- punctuations and URLs. It must be filtered before it is input to the
+age, the public’s perception of specific topics can be significantly model. Python RegEx regular expression package is used to filter
+influenced. In computer science, on the other hand, rapid, auto- these impurities.
+mated, and scalable ways are available, but few methodologies Next step is to apply NLP operations like tokenization, removal
+adequately analyse media bias. Despite their greater technological of stopwords, lemmatization etc. Finally, this processed data needs
+capabilities, computer science models for investigating media bias to be converted into numerical vectors using different techniques
+are often simpler than those employed in the social sciences, and like BoW, TF-IDF, word2vec, Glove etc. In this study, we chose
+they don’t necessarily address the most serious substantive issues. word2vec and Glove as BoW and TF-IDF don’t preserve semantics
+By projecting advances in the social sciences to a framework that of the sentence. For w2v embedding we use existing pre-trained
+can be targeted by computer science approaches, the proposed Google’s model with 300 dimensions. Similarly, Glove also con-
+article builds a shared conceptual understanding. [17]. News Bird verts word into vector where semantically correlated words are
+is currently investigating alternative perspectives on international close in vector space.
+news. Our goal is to provide observations into biased media and Next, we create text to wordIndex using keras tokenizer ().
+news interpretation and, as a result, allows people to make their For every sentence/tweet we create wordIndex values for word. To
+own decisions about the potential bias. Various studies are exam- make it of uniform size we perform padding. So, all input sizes are
+ining social media content to investigate India’s political scene, now of 30 sizes as shown in example below.
+particularly in the context of general elections. [18] examines the Example: [0 0 0 0 0 0 0 0 43 1 900]
+impact of changing political traditions before the 2014 Indian
+general election using tweets from the official accounts of the 3.3. CNN ARCHITECTURE
+top ten political parties over a two-month period. [19] presents a One of the main goals of this study is to propose an effective
+sentiment analysis of tweets for predicting the 2016 general state classification model for categorizing media bias as ‘unbiased’ or
+elections. The authors analysed two months of data to determine ‘biased’ using a large Twitter dataset. From literature [20], it is
+how people felt about five political parties. found that with usage of ordinary CNN there is always a com-
+promise owing to computational complexity, model complexity or
+accuracy which are not connected. To solve the problem, other
+3. MATERIALS AND METHODS CNN designs are required. Using the best features of various avail-
+able models, a GPU-accelerated Depthwise Separable Convolu-
+3.1. DATASET tions (DSC) network is proposed that efficiently uses its param-
+Top five (05) English news channels from India are consid- eters, the parallel processing capability of a GPU, maintains maxi-
+ered (mentioned representatively) in this work, namely Channel 1, mum accuracy, while keeping the model architecture simple and
+Channel 2, Channel 3, Channel 4 and Channel 5. The tweets ema- straight forward. The suggested design is schematically similar to
+nating from these news channels are collected over a month. For MobileNetV2 in terms of inverted DSC, usage of the PReLU func-
+each channel we download tweets by specifying keywords related tion for non-linearity activation, and the concept of layer block
+to Ruling party and Opposition party. Here, we have mentioned progression. The number of parameters and computations utilized
+Cod. 10593 | Tecnología de las telecomunicaciones | 3325.99-5 Inteligencia artificial Dyna | Noviembre-Diciembre 2022 | Vol. 97 nº6 | 645-651 | ISSN-L: 0012-7361 | 647nnnnartículo de investigación / research article SENTINET: a deep sentiment analysis network for political media bias detection
+Anuradha Yenkikar, C. Narendra Babu and D. Jude Hemanth
+in convolutional procedures are dramatically reduced when DSC to 1, and a dropout layer with 50% removal during training. The
+is applied. Table I contains a detailed description of the SentiNet model is completed by a fully linked layer with a Softmax and a
+model specs, and Figure 2 depicts the entire flow diagram. In- classification layer. All convolution layers are bagged with a batch
+verted DSCs with residuals are used in the proposed architecture. normalization layer, but it is not stated in the figures or the table.
+Two typical separable full 3x3 convolutions are utilized at first, The feature extraction basis of the network is made up of 40 con-
+with 32 and 64 stride 2 filters. These layers are stacked with four volutional layers divided into 14 modules, all of which have linear
+DSC Modules, which are feature extractors with an expansion fac- connections, except for the first and last modules of the network
+tor of 8 applied to the input tensor. Each module/block has three and the third module of each row.
+DSC segments, with the first two having residual connections and The overall flow chart of the proposed methodology is shown
+the third having a linear built. A point-wise convolution, a depth- in Figure 3.
+wise convolution [48], and a PReLU [20] are factorized for each As dataset is in text format and problem definition is media
+segment layer. Except at the final DSC module, down sampling is bias detection, which is a sub-set of sentiment analysis, sequence
+handled with a stride of 2 in the last part of the block. The design models are the best choice in Deep Learning. We must decide
+is completed with a final 1x1 convolution layer with 1024 filters, whether the text sentiment is positive or negative, and sequence
+a global average pooling layer that reduces the spatial resolution information is critical, thus we use the DSC model. Furthermore,
+Figure 2: Architecture of SentiNet, a DSC-based classification model for media bias detection
+Layer Channel
+Input size Kernel size Stride the model is durable and versatile since it can be customized to a
+operation count
+variety of model sizes - its block layers can be repeated for depth
+Image 299 x 299 x 3 - - -
+wise expansion, and the number of filters in the convolutions can
+Convolution 1 150 x 150 x 32 3 x 3 32 2 be changed for width wise growth. This is important as some
+Convolution 2 75 x 75 x 64 3 x 3 64 2 times meaning of current word depends on next word and we
+DSC Module 1 75 x 75 x 192 1 x 1, 3 x 3 192 1/1/2 need both the depth and width wise extensions. The complete 1.6
+million data points for training the model is used.
+DSC Module 2 38 x 38 x 256 1 x 1, 3 x 3 256 1/1/2
+DSC Module 3 19 x 19 x 512 1 x 1, 3 x 3 512 1/1/2
+3.4. BIAS MEASUREMENT
+DSC Module 4 10 x 10 x 768 1 x 1, 3 x 3 768 1/1/2
+When more favorable statements are utilized for a certain po-
+Convolution 3 10 x 10 x 1024 1 x 1 1024 1 litical party or entity at the expense of others, there is bias in
+GAvg Pool 1 x 1 x 1024 10 x 10 1024 - tweets. We use sentiments to investigate biases in tweets. Using
+TextBlob’s sentiment analyzer, we calculated sentiment scores in
+FC - - K -
+two dimensions (positive, biased, and negative, unbiased). It as-
+Note: (a) Each line describes the sequence of layers, (b) DSC Module 1 - 4
+refers to the structure as in Figure 2, (c) The kernel size 1 x 1, 3 x 3 means signs a sentiment score s between 1.0 and 1.0, with a value close
+t
+point-wise convolution shadowed with depth-wise convolution, (d) The to these numbers indicating that the content has more negative
+stride 1 / 1 / 2 relates to stride of 2 at 3rd convolution module of each block. and positive sentiment, respectively. Assume that s is the senti-
+t
+Table I: SentiNet parameters ment score for a tweet t, and that we want to classify s into
+t
+648 | ISSN-L: 0012-7361 | 645-651 | Vol. 97 nº6 | Noviembre-Diciembre 2022 | Dyna Cod. 10593 | Tecnología de las telecomunicaciones | 3325.99-5 Inteligencia artificialSENTINET: a deep sentiment analysis network for political media bias detection artículo de investigación / research articlennnn
+Anuradha Yenkikar, C. Narendra Babu and D. Jude Hemanth
+TensorFlow, Keras, OpenCV, and SciKit-learn are used to
+implement the CNN model in Python 3.8. On the hardware
+side, we used Google Collab and an Nvidia K40 GPU instance
+to train.
+3.4. IMPLEMENTATION
+SentiNet model Training, data pre-processing of test data,
+classification based on knowledge learnt, and final bias prediction
+are the four stages of the proposed model implementation which
+are explained in brief below. Figure 4 illustrates the implementa-
+tion of the SentiNet classification model. And the pseudocode for
+SentiNet classification (train, validate, test) is shown in Figure 5.
+· Training: The hidden parameters for training are initialized
+in this segment. The execution environment, mini batch size,
+initial learning rate, momentum, epoch, and an optimizer are
+all conventional settings. The model is trained on both a CPU
+and a GPU machine here. Among other combinations, a mini-
+batch size of 35 worked nicely. The starting learning rate is set
+to 0.01, the maximum epoch to 50, and the optimizer is sto-
+chastic gradient descent with momentum (SGDM). Every ten
+epoch, the default learning rate drops. Along with the training
+options shown in Figure 4, the filters are also subjected to a
+momentum of 0.9 with shuffle at each epoch and L2 regular-
+ization. The SGDM modifies the network parameters (weights
+and biases) to minimize the loss function by taking incremental
+steps in the direction of the loss function’s negative gradient.
+The inclusion of momentum helps to reduce oscillations that
+may occur along the sharpest descending path to the optimum.
+The stochastic gradient descent with momentum algorithm
+utilizes a single learning rate for all parameters. The following
+Figure 3: Flow-chart of overall methodology is the algorithm’s description:
+(2)
+one of the two sentiment types, positive or negative, by using the
+interval given in Eq. 1, where S is the classified sentiment type. where, n signifies the number of iterative training steps, is
+t
+the learning rate, the vector of qualifying parameters, E( ) de-
+(1) notes the loss function and is the momentum factor indicating
+how much the previous iteration step affects the current iteration
+step.
+Figure 4: SentiNet implementation model architecture
+Cod. 10593 | Tecnología de las telecomunicaciones | 3325.99-5 Inteligencia artificial Dyna | Noviembre-Diciembre 2022 | Vol. 97 nº6 | 645-651 | ISSN-L: 0012-7361 | 649nnnnartículo de investigación / research article SENTINET: a deep sentiment analysis network for political media bias detection
+Anuradha Yenkikar, C. Narendra Babu and D. Jude Hemanth
+· Data pre-processing: The dataset is randomized and ran- 4. RESULTS AND DISCUSSION
+domly split into train, test, and validate sets in proportions of Training of the SentiNet network is done using the 1.6M data
+75%, 10%, and 15% respective. points dataset curated which is split into 75% for training, 15%
+· Classification: The training is done with the DNN model, on validation and 10% on testing. The training was done for up
+with hyper parameter values changed from the training data- to 9 epochs. It is observed that the model takes a lot of time on
+set’s training choices. The training is done with the validation CPU (1123 mins 25 secs) for training. Using a GPU, the network
+dataset after each epoch. Following the iterations, the network takes less than half the time (535 mins 3 secs) for training. This is
+is used to categorize the test data to make final bias predic- on account of many-core GPU architecture which accelerates the
+tions. computational pats of the training and the fact that the proposed
+model architecture is simple with fewer parameters to modify.
+The model accuracy and loss graphs are shown in Figure 6. The
+training score curve and the cross-validation score curve converge
+as the size of the training set grows, as shown in the model ac-
+curacy graph. As more training data is added, the cross-validation
+accuracy improves. As seen from the model loss graph, model is a
+good fit as the validation loss decreases to a point of stability. The
+‘generalization gap’ between the two is also good.
+From media bias results for ruling party as illustrated in Figure
+7(a), it is observed that Channel 1 is most pro-ruling party with
+70% positive tweets and only 30% against it, followed by Channel
+4 with 56% positive tweets and only 44% against it. Channel 2
+with 44% positive tweets and 56% against it has emerged anti-
+ruling party among all the media channels. Channel 3 and Channel
+5 came across as neutral with balanced reporting.
+From media bias results for Opposition parties as illustrated in
+Figure 7(b), it is observed that Channel 2 is most pro-Opposition
+parties with 54% positive tweets and only 44% against it, fol-
+lowed very closely by Channel 3 with 53% positive tweets and
+Figure 5: Pseudocode for SentiNet classification
+only 47% against it. Channel 4 with 49% positive tweets and only
+51% against it has emerged neutral, whereas Channel 1 and Chan-
+nel 5 with 44%, 41%
+positive and 56%,
+59% negative tweets
+respectively have
+emerged as anti-op-
+position parties among
+the other media chan-
+nels.
+We can also create
+word clouds from the
+top 50 phrases associ-
+ated with each topic
+learned by the Senti-
+Net model to observe
+Figure 6: Accuracy and Loss functions for Media Bias classification using SentiNet topics under discus-
+sion. It can be used to
+show how incumbents
+Figure 7: Media bias results using SentiNet
+650 | ISSN-L: 0012-7361 | 645-651 | Vol. 97 nº6 | Noviembre-Diciembre 2022 | Dyna Cod. 10593 | Tecnología de las telecomunicaciones | 3325.99-5 Inteligencia artificialSENTINET: a deep sentiment analysis network for political media bias detection artículo de investigación / research articlennnn
+Anuradha Yenkikar, C. Narendra Babu and D. Jude Hemanth
+(any current government) and opposition parties use Twitter for lens of mainstream and alternative news sources,” in Proceedings of the
+2017 Internet Measurement Conference. ACM, pp. 405–417, 2017.
+political communication. The terms with bigger font size have
+[4] S. Zafar, U. Sarwar, Z. Gilani, and J. Qadir, “Sentiment analysis of
+a higher frequency of use and relevance. We can discover what
+controversial topics on pakistan’s twitter user-base,” in Proceedings of the
+are the most frequent mentions by say some politicians and how 7th Annual Symposium on Computing for Development, ser. ACM DEV ’16.
+close/far are they from issues of national interest. New York, NY, USA: ACM, 2016, pp. 35:1–35:4,2016. [Online]. Available:
+Disclaimer: The research work carried out is purely from the http://doi.acm.org/10.1145/3001913.3006644
+[5] D. Saez-Trumper, C. Castillo, and M. Lalmas, “Social media news
+perspective of using Deep Learning techniques to solve Sentiment
+communities: gatekeeping, coverage, and statement bias,” in Proceedings
+Analysis problems of this nature and scale. It is not for politi-
+of the 22nd ACM international conference on Conference on information
+cal criticism citing any specific media, political party or individu- & knowledge management. ACM, pp. 1679–1684, 2013.
+als. The article purely focusses on the scientific methodology for [6] G. B. Leichty, M. U. D’Silva, and M. R. Johns, “Twitter and aam aadmi party:
+checking Media Bias and can be adopted for various other appli- Collective representations of a social movement turned political party.”
+Intercultural Communication Studies, vol. 25, no. 2, 2016.
+cation domains too.
+[7] P. Burnap, R. Gibson, L. Sloan, R. Southern, and M. Williams, “140 characters
+to victory?: Using twitter to predict the uk 2015 general election,” Electoral
+Studies, vol. 41, pp. 230–233, 2016.
+5. CONCLUSION [8] M. D. Conover, B. Gonc¸alves, J. Ratkiewicz, A. Flammini, and F. Menczer,
+The media can shape public opinion, which in turn shapes and “Predicting the political alignment of twitter users,” in Privacy, Security,
+Risk and Trust (PASSAT) and 2011 IEEE Third Inernational Conference on
+influences people’s daily lives. It plays an influencing role even at
+Social Computing (SocialCom), IEEE Third International Conference on.
+the voting booth as propaganda can skew voter decisions and per-
+IEEE, pp. 192–199, 2011.
+ceptions of what is true in this era of fake news. Therefore, track- [9] A. Younus, M. A. Qureshi, S. K. Kingrani, M. Saeed, N. Touheed, C. O’Riordan,
+ing bias in everyday news and building a platform where people and P. Gabriella, “Investigating bias in traditional media through social
+can receive neutral and unequivocal news information is impor- media,” in Proceedings of the 21st International Conference on World Wide
+Web. ACM, pp. 643–644, 2012.
+tant. Various Machine learning and deep learning techniques have
+[10] S. Park, K. Lee, and J. Song, “Contrasting opposing views of news articles
+been used by researchers in the past. It is found that in usage of
+on contentious issues,” in Proceedings of the 49th Annual Meeting
+ordinary CNN there is always a compromise owing to computa- of the Association for Computational Linguistics: Human Language
+tional complexity, model complexity or accuracy which are not Technologies - Volume 1, ser. HLT ’11. Stroudsburg, PA, USA: Association
+connected. In this study, we design and implement a GPU-based, for Computational Linguistics, 2011, pp. 340–349. [Online]. Available:
+http://dl.acm.org/citation.cfm?id=2002472.2002516
+DSC optimized CNN model on large scale twitter political data
+[11] S. Somasundaran and J. Wiebe, “Recognizing stances in ideological on-
+from five media houses. It is observed that the model is durable
+line debates,” in Proceedings of the NAACL HLT 2010 Workshop on
+and versatile since it can be customized to a variety of model Computational Approaches to Analysis and Generation of Emotion in Text,
+sizes - its block layers can be repeated for depth wise expansion, ser. CAAGET ’10. Stroudsburg, PA, USA: Association for Computational
+and the number of filters in the convolutions can be changed for Linguistics, pp. 116–124, 2010. [Online]. Available: http://dl.acm.org/
+citation.cfm?id=1860631.1860645
+width wise growth. This is important as some times meaning of
+[12] A. Ahmed and E. P. Xing, “Staying informed: Supervised and semi
+current word depends on next word and we need both the depth
+supervised multi-view topical analysis of ideological perspective,” in
+and width wise extensions. From results, the GPU helps in reduc- Proceedings of the 2010 Conference on Empirical Methods in Natural
+ing the training computational complexity by half. The model is Language Processing, ser. EMNLP ’10. Stroudsburg, PA, USA: Association
+a good fit in terms of accuracy with validation loss decreasing for Computational Linguistics, pp. 1140–1150, 2010. [Online]. Available:
+http://dl.acm.org/citation.cfm?id=1870658.1870769
+to a point of stability. In terms of media houses, Channel 1 and
+[13] V. Niculae, C. Suen, J. Zhang, C. Danescu-Niculescu-Mizil, and J. Leskovec,
+Channel 2 emerged as the most biased towards ruling party and
+“Quotus: The structure of political media coverage as revealed by quoting
+Opposition parties respectively. Channel 3 and Channel 5 emerged patterns,” in Proceedings of the 24th International Conference on World
+unbiased towards ruling party with balanced reporting. Channel 4 Wide Web, ser. WWW ’15. Republic and Canton of Geneva, Switzerland:
+has emerged as unbiased towards Opposition parties. From twit- International World Wide Web Conferences Steering Committee, pp. 798–
+808, 2015. [Online]. Available: https://doi.org/10.1145/2736277.2741688
+ter political discourse, it is found that parties discuss themselves
+[14] Dev Sheth, “Measuring Ideological Bias in News Coverage of Political
+or their opposing parties and seldom issues of national interest.
+Events by Print Media using Data Analytics”, Capstone Project, 2016.
+Apart for use by governments to find out electoral prediction, po- [15] Richard Alan Nelson, “Tracking propaganda to the source: tools for
+litical orientation prediction, and news source bias [5]., the model analyzing media bias”, European Journal of Social Sciences Studies, [S.l.],
+can be extended for use by businesses to check customer bias for 2019.
+[16] Filipe N. Ribeiro, Lucas Henrique, Fabrício Benevenuto, Abhijnan
+their products and services. As part of future research, the pro-
+Chakraborty, Juhi Kulshrestha, Mahmoudreza Babaei, Krishna Gummadi,
+posed model will be extended to other social media networks for
+“Media Bias Monitor: Quantifying Biases of Social Media News Outlets at
+monitoring and to explore other application domains like brand Large-Scale”, Association for the Advancement of Artificial Intelligence
+monitoring and reputation management, customer support ticket (www.aaai.org), 2018.
+analysis, consumer marketing behaviour and workplace bias man- [17] Felix Hamborg, Karsten Donnay, Bela Gipp, “Automated identification
+of media bias in news articles: an interdisciplinary literature review”,
+agement.
+International Journal on Digital Libraries, 2018.
+[18] K. Jaidka and S. Ahmed, “The 2014 indian general election on twitter: An
+analysis of changing political traditions,” in Proceedings of the Seventh
+REFERENCES International Conference on Information and Communication Technologies
+[1] N. Eltantawy and J. B. Wiest, “The arab spring social media in the egyptian and Development. ACM, 2015, p. 43.
+revolution: reconsidering resource mobilization theory,” International [19] P. Sharma and T.-S. Moh, “Prediction of indian election using sentiment
+Journal of Communication, vol. 5, p. 18, 2011. analysis on hindi twitter,” in Big Data (Big Data), 2016 IEEE International
+[2] M. Lynch, D. Freelon, and S. Aday, “Syrias socially mediated civil war,” Conference on. IEEE, 2016, pp. 1966–1971.
+United States Institute of Peace, vol. 91, no. 1, pp. 1–35, 2014. [20] Bianco, S.; Cadene, R.; Celona, L.; Napoletano, P. “Benchmark analysis of
+[3] S. Zannettou, T. Caulfield, E. De Cristofaro, N. Kourtelris, I. Leontiadis, representative deep neural network architectures”, IEEE Access, 6: 64270-
+M. Sirivianos, G. Stringhini, and J. Blackburn, “The web centipede: 64277, 2018.
+understanding how web communities influence each other through the
+Cod. 10593 | Tecnología de las telecomunicaciones | 3325.99-5 Inteligencia artificial Dyna | Noviembre-Diciembre 2022 | Vol. 97 nº6 | 645-651 | ISSN-L: 0012-7361 | 651

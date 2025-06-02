@@ -1,0 +1,541 @@
+Available online at www.sciencedirect.com
+Available online at www.sciencedirect.com
+ScienceDirect
+ScienceDirect
+AvaiP Plar ro obc cle eed
+d
+i ioa an C Clio onm mep
+p
+au ut tte
+e
+wr
+r
+S Swc ci iwe en n.sc ce ec i0 0e0 0n ( (c2 2e0 02 2d1 1ir) )e 0 0c0 0t0 0.c– –0 0o0 0m0
+0
+www.elsevier.com/locate/procedia
+www.elsevier.com/locate/procedia
+ScienceDirect
+Procedia Computer Science 197 (2022) 660–667
+Sixth Information Systems International Conference (ISICO 2021)
+Sixth Information Systems International Conference (ISICO 2021)
+Sentiment analysis of twitter data related to Rinca Island
+Sentiment analysis of twitter data related to Rinca Island
+development using Doc2Vec and SVM and logistic regression as
+development using Doc2Vec and SVM and logistic regression as
+classifier
+classifier
+Tirta Hema Jaya Hidayat*, Yova Ruldeviyani, Achmad Rizki Aditama, Gusti Raditia
+Tirta Hema Jaya Hidayat*, Yova Ruldeviyani, Achmad Rizki Aditama, Gusti Raditia
+Madya, Ade Wija Nugraha, Muhammad Wijaya Adisaputra
+Madya, Ade Wija Nugraha, Muhammad Wijaya Adisaputra
+Faculty of Computer Science, Universitas Indonesia, Jakarta, Indonesia
+Faculty of Computer Science, Universitas Indonesia, Jakarta, Indonesia
+Abstract
+Abstract
+Development on Rinca Island by the Indonesian Government has received a lot of reaction from the community. Masses expressed
+Development on Rinca Island by the Indonesian Government has received a lot of reaction from the community. Masses expressed
+their opinion through social media, especially Twitter regarding the matter. The research was conducted to analyze the public’s
+their opinion through social media, especially Twitter regarding the matter. The research was conducted to analyze the public’s
+sentiment about this development which was divided into three categories: pro, contra, and neutral. There are two Doc2Vec models
+sentiment about this development which was divided into three categories: pro, contra, and neutral. There are two Doc2Vec models
+used in this research, the distributed model, and the distributed bag of words, and using support vector machines and logistic
+used in this research, the distributed model, and the distributed bag of words, and using support vector machines and logistic
+regression as classifiers. Each combination of the models and classifier has an accuracy rate above 75% and shows that almost all
+regression as classifiers. Each combination of the models and classifier has an accuracy rate above 75% and shows that almost all
+are against the development of Rinca Island.
+are against the development of Rinca Island.
+© 2021 The Authors. Published by ELSEVIER B.V.
+© 2021 The Authors. Published by Elsevier B.V.
+© 2021 The Authors. Published by ELSEVIER B.V.
+This is an open access article under the CC BY-NC-ND license (https://creativecommons.org/licenses/by-nc-nd/4.0)
+This is an open access article under the CC BY-NC-ND license (https://creativecommons.org/licenses/by-nc-nd/4.0)
+This is an open access article under the CC BY-NC-ND license (https://creativecommons.org/licenses/by-nc-nd/4.0)
+Peer-review under responsibility of the scientific committee of the Sixth Information Systems International Conference.
+Peer-review under responsibility of the scientific committee of the Sixth Information Systems International Conference.
+Peer-review under responsibility of the scientific committee of the Sixth Information Systems International Conference.
+Keywords:Sentiment analysis; Doc2Vec; support vector machine; logistic regression; natural languange processing
+Keywords:Sentiment analysis; Doc2Vec; support vector machine; logistic regression; natural languange processing
+1. Introduction
+1. Introduction
+Indonesia is an archipelago country with various tourism attraction potentials. Several regions rely on the tourism
+Indonesia is an archipelago country with various tourism attraction potentials. Several regions rely on the tourism
+sector as a source of regional income. Such as is West Manggarai, West Manggarai one of the regencies located in
+s Ee ac st to Nr uas
+s
+aa
+T
+s eo nu grc ge
+a
+ro af
+P
+r re og vi io nn ca el
+.
+income. Such as is West Manggarai, West Manggarai one of the regencies located in
+East Nusa Tenggara Province.
+* Corresponding author. E-mail address: tirta.hema01@ui.ac.id
+* Corresponding author. E-mail address: tirta.hema01@ui.ac.id
+1 877-0509 © 2021 The Authors. Published by ELSEVIER B.V.
+T18h7is7 -is0 5a0n9 o ©pe n2 0a2c1c eTshs ea rAtiuctlhe ournsd. Peru tbhleis CheCd BbyY E-NLCSE-NVDIE lRic eBn.sVe .( https://creativecommons.org/licenses/by-nc-nd/4.0)
+PTeheisr- irse vaine wop uenn daecrc reesssp aorntiscilbei luitnyd oefr tthhee sCcCie nBtYifi-cN cCo-mNmDi tltiecee nosfe t h(het tSpisx:t/h/c Irnefaotirvmeactoimonm Soynsst.eomrgs/ lIincteenrnseast/iboyn-anl cC-nodn/f4e.r0e)n ce.
+Peer-review under responsibility of the scientific committee of the Sixth Information Systems International Conference.
+1877-0509 © 2021 The Authors. Published by Elsevier B.V.
+This is an open access article under the CC BY-NC-ND license (https://creativecommons.org/licenses/by-nc-nd/4.0)
+Peer-review under responsibility of the scientific committee of the Sixth Information Systems International Conference.
+10.1016/j.procs.2021.12.187
+10.1016/j.procs.2021.12.187 1877-0509Available online at www.sciencedirect.com
+Available online at www.sciencedirect.com
+ScienceDirect
+ScienceDirect
+P Pr ro oc ce ed di ia
+a
+C Co om mp pu ut te er
+r
+S Sc ci ie en nc ce
+e
+0 00
+0
+( (2 20 02 21 1)
+)
+0 00 00 0– –0 00 00
+0
+www.elsevier.com/locate/procedia
+2 Tirta
+HTi er mta
+a
+H Je am yaa HJa idy aa
+y
+H ati d ea
+t
+y aa l.t
+/
+Pet
+r
+oal c.
+e
+/
+d
+P iar o Cc oe mdi pa
+u
+C teo rm Sp cu iet ner
+c
+eS c 0i 0e n (2ce
+0
+21 19 )7
+0
+( 02 00 –2 02 0)
+0
+6 60–667 661
+www.elsevier.com/locate/procedia
+There are two islands in West Manggarai, Komodo and Rinca, in West Manggarai, which are the original habitat
+for endemic Indonesian animals, called Komodo (Varanus Komodoensis). Both islands are part of the Komodo
+National Park. The Komodo National Park upholds three pillars: the pillar of protection, the pillar of reservation, and
+the pillar of utilization. The Komodo National Park actualizes the utilization pillar by building residential areas and
+organizing tourism activities in the Komodo National Park area.
+Sixth Information Systems International Conference (ISICO 2021)
+Sixth Information Systems International Conference (ISICO 2021) As the government's effort to maximize tourism potential in Komodo National Park and other tourism potentials in
+Indonesia, the government issued Government Regulation Number 50 of 2011, explaining the National Tourism
+Sentiment analysis of twitter data related to Rinca Island Development Plan (RPKN) from 2010 to 2025. To realize it, the government, through the Ministry of Public Works
+Sentiment analysis of twitter data related to Rinca Island
+and Public Housing (PUPR) and the Ministry of Environment and Forestry, will carry out a project to build supporting
+development using Doc2Vec and SVM and logistic regression as
+development using Doc2Vec and SVM and logistic regression as facilities and infrastructure to develop the tourism sector on Rinca Island in 2020. The development project is one of
+the activities to structure the National Tourism Strategic Area (KSPN) Labuan Bajo in East Nusa Tenggara Province.
+classifier
+classifier The development for Komodo Island can increase the local revenue and improve the standard of living for residents
+around the area [7]. Even so, the development process has received support and hindrance from the community. Many
+Tirta Hema Jaya Hidayat*, Yova Ruldeviyani, Achmad Rizki Aditama, Gusti Raditia expressed their aspirations and personal opinions through social media. This study aims to analyze the sentiments of
+Tirta Hema Jaya Hidayat*, Yova Ruldeviyani, Achmad Rizki Aditama, Gusti Raditia
+the community regarding development projects on Rinca Island and Komodo Island.
+Madya, Ade Wija Nugraha, Muhammad Wijaya Adisaputra
+Madya, Ade Wija Nugraha, Muhammad Wijaya Adisaputra This research aims to provide an overview of the community's view of an event. An example in this research is the
+development on Rinca Island. Knowing and understanding the public’s opinion regarding an issue is very important,
+Faculty of Computer Science, Universitas Indonesia, Jakarta, Indonesia
+Faculty of Computer Science, Universitas Indonesia, Jakarta, Indonesia primarily to determine the decisions to be taken. For example, after learning that more majority supports the
+development, the development can continue. If not, then the government must reconsider whether the development is
+continued or not and next steps need to be readjusted to the public’s opinion.
+Abstract
+Abstract
+2. Literature review
+Development on Rinca Island by the Indonesian Government has received a lot of reaction from the community. Masses expressed
+Development on Rinca Island by the Indonesian Government has received a lot of reaction from the community. Masses expressed
+their opinion through social media, especially Twitter regarding the matter. The research was conducted to analyze the public’s 2.1. Related research
+their opinion through social media, especially Twitter regarding the matter. The research was conducted to analyze the public’s
+sentiment about this development which was divided into three categories: pro, contra, and neutral. There are two Doc2Vec models
+sentiment about this development which was divided into three categories: pro, contra, and neutral. There are two Doc2Vec models
+used in this research, the distributed model, and the distributed bag of words, and using support vector machines and logistic
+Various studies that focus on analyzing social media data have been carried out, especially those related to specific
+used in this research, the distributed model, and the distributed bag of words, and using support vector machines and logistic
+regression as classifiers. Each combination of the models and classifier has an accuracy rate above 75% and shows that almost all
+events [1]. The intensive use of social media has attracted the attention of academic researchers, and many
+regression as classifiers. Each combination of the models and classifier has an accuracy rate above 75% and shows that almost all
+are against the development of Rinca Island.
+are against the development of Rinca Island. investigations have been conducted to obtain important information about the event. In recent years, substantial studies
+have been undertaken on sentiment analysis on Twitter.
+© 2021 The Authors. Published by ELSEVIER B.V.
+© 2021 The Authors. Published by ELSEVIER B.V. Jain and Dannavar [2] have investigated several steps for conducting sentiment analysis on Twitter data using
+This is an open access article under the CC BY-NC-ND license (https://creativecommons.org/licenses/by-nc-nd/4.0)
+This is an open access article under the CC BY-NC-ND license (https://creativecommons.org/licenses/by-nc-nd/4.0) machine learning algorithms. They also provide details of the proposed approach to sentiment analysis. This approach
+Peer-review under responsibility of the scientific committee of the Sixth Information Systems International Conference.
+Peer-review under responsibility of the scientific committee of the Sixth Information Systems International Conference. collects data by pre-processing data using the NLP technique. Then, feature extraction is carried out to get features
+K eywords:Sentiment analysis; Doc2Vec; support vector machine; logistic regression; natural languange processing that are relevant to the sentiment. Finally, a model is trained using classifiers, such as Naïve Bayes, Support Vector
+Keywords:Sentiment analysis; Doc2Vec; support vector machine; logistic regression; natural languange processing
+Machine (SVM), and Decision Tree.
+Another sentiment analysis was also carried out by Qianjun Shuai et al. [3] on the data of Chinese hotel reviews.
+1. Introduction The research also using Doc2Vec is a feature for each document, then grouped the collected data into a balanced
+1. Introduction
+amount of positive and negative sentiment. After the Doc2Vec model is trained, the data is combined to being tested
+Indonesia is an archipelago country with various tourism attraction potentials. Several regions rely on the tourism using classifiers such as SVM, Logistic Regression, and Naïve Bayes. From the results of this research, SVM gave
+Indonesia is an archipelago country with various tourism attraction potentials. Several regions rely on the tourism
+sector as a source of regional income. Such as is West Manggarai, West Manggarai one of the regencies located in the best results compared to other classifiers, with the F-Measure value of 81.16%.
+Ese ac st to Nr uas
+s
+aa
+T
+s eo nu grc ge
+a
+ro af
+P
+r re og vi io nn ca el
+.
+income. Such as is West Manggarai, West Manggarai one of the regencies located in
+East Nusa Tenggara Province.
+2.2. Sentiment analysis
+Sentiment analysis is the unification of various research fields such as NLP, data mining, and text mining with the
+aim of finding people’s opinions expressed in written language [10]. There are several tasks in sentiment analysis such
+* Corresponding author. E-mail address: tirta.hema01@ui.ac.id
+* Corresponding author. E-mail address: tirta.hema01@ui.ac.id as sentiment extraction, sentiment classification, summarization, and many more [16]. This research will be a focus
+on sentiment classification. Sentiment can be classified as positive, negative, or neutral [16].
+1 877-0509 © 2021 The Authors. Published by ELSEVIER B.V. Sentiment analysis is not an easy thing to do. Several challenges in conducting sentiment analysis include synonym
+T18h7is7 -is0 5a0n9 o ©pe n2 0a2c1c eTshs ea rAtiuctlhe ournsd. Peru tbhleis CheCd BbyY E-NLCSE-NVDIE lRic eBn.sVe .( https://creativecommons.org/licenses/by-nc-nd/4.0)
+and polysemy, sarcasm, compound sentences, unstructured data, aspect, and many more [10]. For example, how the
+PTeheisr- irse vaine wop uenn daecrc reesssp aorntiscilbei luitnyd oefr tthhee sCcCie nBtYifi-cN cCo-mNmDi tltiecee nosfe t h(het tSpisx:t/h/c Irnefaotirvmeactoimonm Soynsst.eomrgs/ lIincteenrnseast/iboyn-anl cC-nodn/f4e.r0e)n ce.
+Peer-review under responsibility of the scientific committee of the Sixth Information Systems International Conference. model can handle sentences with the same meaning but are described with different words (synonyms) or how the
+model can handle words with multiple meanings (polysemy). One way to handle this case is to use stemming.
+Stemming helps to process the word into its root word. this method cannot control the case if different word is used.
+These problems can be the cause of the resulting low performance.662 Tirta Hema Jaya Hidayat et al. / Procedia Computer Science 197 (2022) 660–667
+Tirta Hema Jaya Hidayat et al./ Procedia Computer Science 00 (2021) 000–000 3
+Sentiment analysis is critical. Nowadays, people will very often post on social media such as Twitter. The
+data is very massive and unstructured. Therefore, it will be a challenge for humans to analyze the data and receive
+insight from the information effectively [3]. Sentiment analysis has come to solve this problem. Sentiment analysis
+can help organizations such as companies or even governments get some insight into people’s opinions about their
+decision.
+2.3. Doc2Vec
+Doc2Vec is a model to represent numeric values from a document, no matter how long the document is. The main
+reason for using this model is that a document is not like words with a logical structure. The vector that Doc2vec can
+be used for several purposes, such as finding similarities between sentences/paragraphs. In this research used two
+types of Doc2Vec, distributed memory model of a paragraph vector (PV-DM) and a paragraph vector with a
+distributed bag of Words (PV-DBOW) [3]. The reason for using a paragraph vector is because a paragraph vector has
+some advantages [12]. The advantage of paragraph vectors is that paragraph vectors can learn from unlabelled data
+and work well with data with not enough labelled data.
+a b
+Fig. 1. (a) PV-DM; (b) PV-DBOW
+PV-DM adds a paragraph ID to train with word vectors. This paragraph ID contains the missing information from
+the word that is going to be predicted. The PV-DM representation is shown in Figure 1 a. On the other hand, PV-
+DBOW only uses paragraph ID to predict words that chosen from the random sample. As shown in Figure 1 b there
+are no words that are used for training the model.
+There are several differences between PV-DM and PV-DBOW. PV-DM predicts one word from 4 inputs. On the other
+hand, PV-DBOW predicts four words from 1 input, as seen in Figure 1 a and Figure 2 b. The second difference is PV-DM draws
+words from the surround of the target, and PV-DBOW draws a word from the entire paragraph. Last, PV-DBOW tends to store
+less data than PV-DM because only SoftMax weights are stored [12].
+2.4. Support vector machine
+Support Vector Machine is an algorithm to determine optimal boundaries between groups of data [4]. SVM is used
+for searching the best hyperplane by maximizing the gap between the groups of data. The representation of SVM is
+shown in Figure 2. Hyperplane is a function that can be used to be an interclass divider [11]. The formula optimal
+value of hyperplane can be seen in Eq. (1).
+(1)
+The interval between the sample point and the hyperplane is called margin, margin can be formulated in Eq. (2).
+𝑤𝑤.𝑥𝑥+𝑏𝑏 =0
+(2)
+2
+𝑚𝑚𝑚𝑚𝑚𝑚𝑚𝑚𝑚𝑚𝑚𝑚 =‖𝑤𝑤‖Tirta Hema Jaya Hidayat et al. / Procedia Computer Science 197 (2022) 660–667 663
+Tirta Hema Jaya Hidayat et al./ Procedia Computer Science 00 (2021) 000–000 3 4 Tirta Hema Jaya Hidayat et al./ Procedia Computer Science 00 (2021) 000–000
+Sentiment analysis is critical. Nowadays, people will very often post on social media such as Twitter. The
+data is very massive and unstructured. Therefore, it will be a challenge for humans to analyze the data and receive
+insight from the information effectively [3]. Sentiment analysis has come to solve this problem. Sentiment analysis
+can help organizations such as companies or even governments get some insight into people’s opinions about their
+decision.
+2.3. Doc2Vec
+Doc2Vec is a model to represent numeric values from a document, no matter how long the document is. The main
+reason for using this model is that a document is not like words with a logical structure. The vector that Doc2vec can
+be used for several purposes, such as finding similarities between sentences/paragraphs. In this research used two
+types of Doc2Vec, distributed memory model of a paragraph vector (PV-DM) and a paragraph vector with a Fig. 2. Hyperplane
+distributed bag of Words (PV-DBOW) [3]. The reason for using a paragraph vector is because a paragraph vector has
+some advantages [12]. The advantage of paragraph vectors is that paragraph vectors can learn from unlabelled data Therefore, the problem of finding the best classifier lies in the optimization problem of these parameters [3].
+and work well with data with not enough labelled data.
+2.5. Logistic regression
+a b
+Logistic regression is a classification algorithm to classify linear logarithm. It can be defined as shown in Eq. (3) and
+Eq. (4) [5]:
+(3)
+𝑒𝑒𝑒𝑒𝑒𝑒⁡(𝑤𝑤.𝑒𝑒+𝑏𝑏)
+𝑃𝑃(𝑥𝑥)=1+𝑒𝑒𝑒𝑒𝑒𝑒⁡(𝑤𝑤.𝑒𝑒+𝑏𝑏)
+(4)
+1
+𝑃𝑃(𝑥𝑥)=1+𝑒𝑒𝑒𝑒𝑒𝑒⁡(𝑤𝑤𝑒𝑒+𝑏𝑏)
+Fig. 1. (a) PV-DM; (b) PV-DBOW
+Where is the input feature, is the label vector, w is the weight, b is the offset value, and w.x is the
+dot product fr𝑛𝑛om the matrices. The logistic regression then compares the two probability values and assign to the
+PV-DM adds a paragraph ID to train with word vectors. This paragraph ID contains the missing information from 𝑥𝑥 ∈𝑅𝑅 𝑌𝑌∈{0,1}
+category with the higher probability value. Figure 3 represents logistic regression in a graph.
+the word that is going to be predicted. The PV-DM representation is shown in Figure 1 a. On the other hand, PV-
+𝑥𝑥
+DBOW only uses paragraph ID to predict words that chosen from the random sample. As shown in Figure 1 b there
+are no words that are used for training the model.
+There are several differences between PV-DM and PV-DBOW. PV-DM predicts one word from 4 inputs. On the other
+hand, PV-DBOW predicts four words from 1 input, as seen in Figure 1 a and Figure 2 b. The second difference is PV-DM draws
+words from the surround of the target, and PV-DBOW draws a word from the entire paragraph. Last, PV-DBOW tends to store
+less data than PV-DM because only SoftMax weights are stored [12].
+2.4. Support vector machine
+Support Vector Machine is an algorithm to determine optimal boundaries between groups of data [4]. SVM is used Fig. 3. Logistic regression
+for searching the best hyperplane by maximizing the gap between the groups of data. The representation of SVM is
+shown in Figure 2. Hyperplane is a function that can be used to be an interclass divider [11]. The formula optimal 2.6. F1 score
+value of hyperplane can be seen in Eq. (1).
+In the statistical analysis of binary classification, the F1 score is a technique to measure the accuracy of a trial. To
+(1)
+calculate F1 score can be seen in Eq. (5), to calculate it required precision and recall values.
+The interval between the sample point and the hyperplane is called margin, margin can be formulated in Eq. (2).
+𝑤𝑤.𝑥𝑥+𝑏𝑏 =0
+(5)
+(2)
+2
+𝑚𝑚𝑚𝑚𝑚𝑚𝑚𝑚𝑚𝑚𝑚𝑚
+=‖𝑤𝑤2
+‖
+𝐹𝐹1𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠𝑠 =⁡ 𝑟𝑟𝑟𝑟𝑟𝑟1 𝑟𝑟𝑟𝑟𝑟𝑟+𝑃𝑃𝑟𝑟𝑟𝑟𝑟𝑟1
+𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃
+In the context of information retrieval, precision and recall can be defined in retrieved document condition and
+relevant documents [9]. Measuring of precision can be seen in Eq. (6) and recall can be seen in Eq. (7).664 Tirta Hema Jaya Hidayat et al. / Procedia Computer Science 197 (2022) 660–667
+Tirta Hema Jaya Hidayat et al./ Procedia Computer Science 00 (2021) 000–000 5
+(6)
+|{𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟⁡𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑟𝑟𝑟𝑟𝑟𝑟𝑑𝑑}⁡∩⁡{𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑑𝑑⁡𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑟𝑟𝑟𝑟𝑟𝑟𝑑𝑑}|
+𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃=⁡ |{𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑑𝑑⁡𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑟𝑟𝑟𝑟𝑟𝑟𝑑𝑑}|
+(7)
+|{𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟⁡𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑟𝑟𝑟𝑟𝑟𝑟𝑑𝑑}⁡∩⁡{𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑑𝑑⁡𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑟𝑟𝑟𝑟𝑟𝑟𝑑𝑑}|
+𝑅𝑅𝑃𝑃𝑃𝑃𝑅𝑅𝑅𝑅𝑅𝑅 =⁡ |{𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟⁡𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑟𝑟𝑟𝑟𝑟𝑟𝑑𝑑}|
+2.7. Preprocessing
+Preprocessing processes have a huge effect on sentiment analysis. This is because it is closely related to the results
+produced. The preprocessing process included several processes, such as stemming, stop word removal, and
+tokenizing [8].
+Stemming is a process of mapping and removing inflection in a word into the form of a word into base word forms.
+There are many approaches to stemming, which depend on what language is used. Stemming process in Indonesia,
+for example, will follow the Indonesian rules for affix and others. For example, the word “membelikan” has the affix
+“me” and the suffix “kan”. After going through the process of stemming in the word into base form, it will become
+“beli”. Stemming can reduce the indexing size by 40-50% [8].
+Lemmatization is a task to determine two words that have the same root [13]. Stemming and lemmatization have
+the same goal. Both goals are to reduce the form into a base form. Different from stemming that only use algorithm,
+lemmatization use complete morphological parsing [13]. The advantage of using lemmatization is getting a more
+accurate base word from stemming. The disadvantage of using lemmatization is lemmatization is slower and consumes
+more resources than stemming.
+Stop word removal is a process of removing words that are not meaningful but are often used repeatedly. These
+words are generally in the form of conjunction words that connect between sentences and in a sentence. Words that
+fall into the stop word category are 20-30% [8] of a document. Therefore, removing the stop words is expected to
+make the model more effective and efficient.
+Tokenization is the process of breaking sentences into smaller parts (words). This solving process varies in each
+language. For example, in English and Indonesian, the solving process can be broken down based on spaces or
+punctuation marks. For other languages, it will follow the rules that apply. An example of tokenization is the following
+sentence “I eat rice” into an array like this [“I”,” eat”,” rice”]. The purpose of tokenization is to maintain consistency
+and identify the meaning of keywords.
+3. Research methodology
+3.1. Data collection
+In this stage, tweet data is collected through crawling process using the Twitter API using the following words:
+- Komodo
+- Rinca
+- Jurassic Park
+Those words were chosen as a keyword because those words are very popular for this topic, like choosing komodo
+as a keyword because Rinca Island is the komodo habitat. Rinca is the name of the island where the development will
+be located. Jurassic Park because of the development in Pulau Rinca called Jurassic Park by Twitter users. The process
+produces 8000 tweet data that contain the keywords. The data collected through Twitter API is then removed from
+duplicate and unrelated data. After data cleansing, there are 1038 relevant tweet data.
+3.2. Tagging
+This process aims to train the model. Each tweet is tagged with a value of -1,0,1. Value 1 is a tweet that supports
+or is pro toward the development of Rinca Island. The value 0 is neutral with the development on Rinca Island, or the
+tweet is some news. The value -1 is a tweet that rejects or contradicts with development on Rinca Island.
+The tagging process is done manually. Three people do a tag with the same tweets data. The final tagging value is
+the tagging value that is selected at most.
+After Tagging all data, the distribution of each tagging can be seen in Table 1. The data in Table 1 is not balanced
+between labels. This can be seen from the number of labels worth 0 and 1, which has a composition of more than 75%Tirta Hema Jaya Hidayat et al. / Procedia Computer Science 197 (2022) 660–667 665
+Tirta Hema Jaya Hidayat et al./ Procedia Computer Science 00 (2021) 000–000 5 6 Tirta Hema Jaya Hidayat et al./ Procedia Computer Science 00 (2021) 000–000
+of the total data.
+(6)
+|{𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟⁡𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑟𝑟𝑟𝑟𝑟𝑟𝑑𝑑}⁡∩⁡{𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑑𝑑⁡𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑟𝑟𝑟𝑟𝑟𝑟𝑑𝑑}|
+𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃=⁡ |{𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑑𝑑⁡𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑟𝑟𝑟𝑟𝑟𝑟𝑑𝑑}| Table 1. Distribution of each tagging
+(7) Tagging Value Neutral
+|{𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟⁡𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑟𝑟𝑟𝑟𝑟𝑟𝑑𝑑}⁡∩⁡{𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑑𝑑⁡𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑟𝑟𝑟𝑟𝑟𝑟𝑑𝑑}|
+1 249
+𝑅𝑅𝑃𝑃𝑃𝑃𝑅𝑅𝑅𝑅𝑅𝑅 =⁡ |{𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟𝑟⁡𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑑𝑟𝑟𝑟𝑟𝑟𝑟𝑑𝑑}|
+2.7. Preprocessing 0 404
+-1 382
+Preprocessing processes have a huge effect on sentiment analysis. This is because it is closely related to the results
+produced. The preprocessing process included several processes, such as stemming, stop word removal, and
+tokenizing [8].
+3.3. Text preprocessing
+Stemming is a process of mapping and removing inflection in a word into the form of a word into base word forms.
+There are many approaches to stemming, which depend on what language is used. Stemming process in Indonesia,
+At this stage, the tweet data that have been obtained are adjusted to suit the needs. Text preprocessing consists of
+for example, will follow the Indonesian rules for affix and others. For example, the word “membelikan” has the affix
+“me” and the suffix “kan”. After going through the process of stemming in the word into base form, it will become 5 steps. The first step is cleansing. This process removes the data that only contain one or two words. After the data
+“beli”. Stemming can reduce the indexing size by 40-50% [8]. cleansing, the second step is to transform a word into its root word. The third steps are stop words and punctuation
+Lemmatization is a task to determine two words that have the same root [13]. Stemming and lemmatization have removal. The last process is tokenizing the sentence.
+the same goal. Both goals are to reduce the form into a base form. Different from stemming that only use algorithm, There are two alternatives to transforming a word into its root word, stemming and lemmatization. Lemmatization
+lemmatization use complete morphological parsing [13]. The advantage of using lemmatization is getting a more has better accuracy than stemming, as explained in the literature review, but stemming has better performance and not
+accurate base word from stemming. The disadvantage of using lemmatization is lemmatization is slower and consumes consuming as many resources as lemmatization.
+more resources than stemming. In this research, stemming from the PySastrawi library was used. The stemming implemented Nazief Adriani
+Stop word removal is a process of removing words that are not meaningful but are often used repeatedly. These Algorithm that claimed have 94.8% of accuracy for stemming in Bahasa [14]. The stemming process is not like normal
+words are generally in the form of conjunction words that connect between sentences and in a sentence. Words that stemming that only implements a stemming algorithm. After implementation of the stemming algorithm than the result
+fall into the stop word category are 20-30% [8] of a document. Therefore, removing the stop words is expected to is compared to their dictionary. This process is like the lemmatization process. Those processes are expected to get
+make the model more effective and efficient.
+better accuracy in changing a word into its root word, than a normal stemming process.
+Tokenization is the process of breaking sentences into smaller parts (words). This solving process varies in each
+Stop word removal and punctuation removals such as punctuation or unrelated characters such as ‘@’.’#’. Last,
+language. For example, in English and Indonesian, the solving process can be broken down based on spaces or
+tokenization aims to change a sentence or group of words into an array of words contained in the sentence. Those
+punctuation marks. For other languages, it will follow the rules that apply. An example of tokenization is the following
+processes are also using PySastrawi Library.
+sentence “I eat rice” into an array like this [“I”,” eat”,” rice”]. The purpose of tokenization is to maintain consistency
+Pre-processing has a very important role in this research. The goal of all these processes is to get the data clean and
+and identify the meaning of keywords.
+ready to be processed. Clean data is expected to improve results in subsequent processes.
+3. Research methodology
+3.4. Data modelling
+3.1. Data collection
+At this stage, the modeling results from the text that have been preprocessed were carried out using Doc2Vec.
+Preprocessed data will be separated into two groups. The first group is for training, and the second one is for testing.
+In this stage, tweet data is collected through crawling process using the Twitter API using the following words:
+The ratio between the two groups is 70:30. The vectors generated by Doc2Vec can be used to find similarities between
+- Komodo
+sentences. To do data modeling will be using the Doc2Vec in Gensim Library. There are two types of models Doc2Vec
+- Rinca
+used in this research: Distributed Memory Model of Paragraph Vectors (PV DM) and Distributed Bag of Words (PV-
+- Jurassic Park
+DBOW)
+Those words were chosen as a keyword because those words are very popular for this topic, like choosing komodo
+as a keyword because Rinca Island is the komodo habitat. Rinca is the name of the island where the development will
+3.5. Sentiment classification
+be located. Jurassic Park because of the development in Pulau Rinca called Jurassic Park by Twitter users. The process
+produces 8000 tweet data that contain the keywords. The data collected through Twitter API is then removed from
+At this stage, sentiment classification is carried out on the data that has been modeled using SVM and Logistic
+duplicate and unrelated data. After data cleansing, there are 1038 relevant tweet data.
+Regression. The application of SVM and Logistic Regression is carried out by utilizing the Sklearn module and the
+Gensim library for the Doc2vec model for the distributed bag of word model and distributed memory for sentiment
+3.2. Tagging
+analysis processes the Python programming language.
+This process aims to train the model. Each tweet is tagged with a value of -1,0,1. Value 1 is a tweet that supports
+3.6. Analysis and evaluation
+or is pro toward the development of Rinca Island. The value 0 is neutral with the development on Rinca Island, or the
+tweet is some news. The value -1 is a tweet that rejects or contradicts with development on Rinca Island.
+This stage produces a sentiment classification of the tweet data and tests the result of the sentiment classification.
+The tagging process is done manually. Three people do a tag with the same tweets data. The final tagging value is
+Evaluation for this research is using several metrics such as accuracy and F-1 score.
+the tagging value that is selected at most.
+After Tagging all data, the distribution of each tagging can be seen in Table 1. The data in Table 1 is not balanced
+between labels. This can be seen from the number of labels worth 0 and 1, which has a composition of more than 75%666 Tirta Hema Jaya Hidayat et al. / Procedia Computer Science 197 (2022) 660–667
+Tirta Hema Jaya Hidayat et al./ Procedia Computer Science 00 (2021) 000–000 7
+4. Result and discussion
+Table 2 illustrates the comparison of the result of each of the methods implemented. As for the experiment, only
+PV-DBOW with Logistic Regression has a different result from other experiments. PV-DBOW with Logistic
+Regression has classified several data as a positive value (pro to the development in Rinca Island). The result seems
+to have polarity toward cons to development in Rinca Island, and this can be caused by several things. First, the data
+used for training and testing was imbalanced, therefore the data tend to be polarized (this case negative). Another
+reason may be due to amount of data used for training and testing is very small compared to paper [3] using more than
+10.000 of data. The problem of lack of data can cause overfitting, which affects the performance of this model.
+Several studies use the Doc2Vec model for sentiment analysis, such as paper [3] about Chinese hotel reviews and
+paper [15] about Turkish Twitter Data. Both papers and this research using the same model and the same classifier.
+Paper [3] got the best result of F-1 score 0.88 compared to this research 0.807. This can be caused by the amount of
+data used for the training. Paper [3] uses 11,600 data, and this research uses only 1035 data. Paper [15] has two
+experiments using Turkish and English, each experiment resulting in an accuracy of 0.43 and 0.61. This research has
+a better result than paper [15]. It can be caused by paper [15] using logistic regression only for the classifier. Because
+in paper [3] and this research best result got from SVM. Besides that, in paper [15], there is no explanation about the
+preprocessing. This could be the cause of lower accuracy in paper [15] than paper [3]. From this research, the
+importance of preprocessing the data and selecting the PV-DBOW model with the SVM classifier can produce very
+good results compared to the paragraph vector model.
+Table 2. Result comparison for tweet classification result for every method.
+Method Neutral Positive Negative
+PV-DBOW SVM 0 0 312
+PV-DBOW Logistic Regression 40 15 257
+PV-DM SVM 0 0 312
+PV-DM Logistic Regression 0 0 312
+Table 3. Comparison F1 score and accuracy score for every method.
+Method F1 score Accuracy score
+PV-DBOW SVM 0.80750538769 0.86858974359
+PV-DBOW Logistic Regression 0.77109027698 0.75961538462
+PV-DM SVM 0.80750538769 0.86858974359
+PV-DM Logistic Regression 0.80750538769 0.86858974359
+In Table 2, three of the four experiments classify the test data against Rinca Island development this experiment
+get both accuracy and F1 score above 75% that can be seen in Table 3. As in the first paragraph of this section, the
+results of this study may be biased due to unbalanced datasets. Besides that, in Table 1, most labels are neutral, but
+the data could be obtained from tweets or retweets from news portals. If you ignore neutral data and focus on positive
+and negative data, the dataset amount of negative data is far more than positive data. This can be a reference for the
+Indonesian Government to rethink the continuation of this project. If the Indonesian Government wants to continue,
+it should educate the public about the benefits of this project. So that later, the Government can get full support from
+the community.
+5. Conclusion
+The development on Rinca Island became a trending topic on Twitter in October 2020. This was triggered by the
+viral photo of the Komodo dragon that seems to block the truck carrying the building materials in Rinca Island. The
+community was polarized where some people agree, and others disagree with this development. This research aims to
+determine the whole picture of public opinion on Twitter regarding the development in Rinca Island.Tirta Hema Jaya Hidayat et al. / Procedia Computer Science 197 (2022) 660–667 667
+Tirta Hema Jaya Hidayat et al./ Procedia Computer Science 00 (2021) 000–000 7 8 Tirta Hema Jaya Hidayat et al./ Procedia Computer Science 00 (2021) 000–000
+4. Result and discussion The first phase in this research is collecting data using the Twitter API, resulting in 8000 tweets. Duplicated data is
+then deleted, resulting in 1035 data. Data that is not duplicated is then labelled with a value of -1,0,1, which represents
+Table 2 illustrates the comparison of the result of each of the methods implemented. As for the experiment, only the opinion of the data. After that, a model is created and this data is then classified using two classifiers, SVM and
+PV-DBOW with Logistic Regression has a different result from other experiments. PV-DBOW with Logistic logistic regression.
+Regression has classified several data as a positive value (pro to the development in Rinca Island). The result seems This research uses 312 data that show the same result from three out of four combinations of model and classifier
+to have polarity toward cons to development in Rinca Island, and this can be caused by several things. First, the data using in this research. The result of PV-DBOW with SVM, PV-DM with SVM, and logistic regression has the highest
+used for training and testing was imbalanced, therefore the data tend to be polarized (this case negative). Another level of accuracy and F1-score compared to another model. The best result shows accuracy at around 87% and an F1
+reason may be due to amount of data used for training and testing is very small compared to paper [3] using more than score at around 81%.
+10.000 of data. The problem of lack of data can cause overfitting, which affects the performance of this model. The method and result of this research can be utlized by the government to find out the views of the Indonesian
+Several studies use the Doc2Vec model for sentiment analysis, such as paper [3] about Chinese hotel reviews and people regarding the development in Rinca Island or can be implemented in other events. This data can be used as a
+paper [15] about Turkish Twitter Data. Both papers and this research using the same model and the same classifier. consideration for the next step taken by the government, such as the continuation of this development or to provide
+Paper [3] got the best result of F-1 score 0.88 compared to this research 0.807. This can be caused by the amount of the education needed to Indonesian citizens so the community will also support the development in the Rinca Island
+data used for the training. Paper [3] uses 11,600 data, and this research uses only 1035 data. Paper [15] has two area.
+experiments using Turkish and English, each experiment resulting in an accuracy of 0.43 and 0.61. This research has In this research, there are still many gaps to be improved. One of them is how to face the challenges as described
+a better result than paper [15]. It can be caused by paper [15] using logistic regression only for the classifier. Because in the sentiment analysis subsection. Future research should also ensure that it has a balanced dataset between labels.
+in paper [3] and this research best result got from SVM. Besides that, in paper [15], there is no explanation about the In addition, further research should try to classify by the topic, not only by the sentiment.
+preprocessing. This could be the cause of lower accuracy in paper [15] than paper [3]. From this research, the
+importance of preprocessing the data and selecting the PV-DBOW model with the SVM classifier can produce very 6. References
+good results compared to the paragraph vector model.
+[1] Saad, S. E., and J. Yang. (2019) "Twitter Sentiment Analysis Based on Ordinal Regression." IEEE Access 7: 163677-163685.
+[2] Jain A. P., and P. Dandannavar. (2016) "Application of machine learning techniques to sentiment analysis." 2016 2nd International
+Table 2. Result comparison for tweet classification result for every method. Conference on Applied and Theoretical Computing and Communication Technology (iCATccT): 628-632.
+[3] Shuai, Q., Y. Huang, L. Jin, and L. Pang. (2018) "Sentiment Analysis on Chinese Hotel Reviews with Doc2Vec and Classifiers." 2018 IEEE
+Method Neutral Positive Negative 3rd Advanced Information Technology, Electronic and Automation Control Conference (IAEAC): 1171-1174.
+[4] Tbarki, K., S. Ben Said, R. Ksantini, and Z. Lachiri. (2016) "RBF kernel based SVM classification for landmine detection and
+PV-DBOW SVM 0 0 312
+discrimination." 2016 International Image Processing, Applications and Systems (IPAS): 1-6.
+PV-DBOW Logistic Regression 40 15 257 [5] Ananthakumar, U., and R. Sarkar. (2017) "Application of Logistic Regression in Assessing Stock Performances," 2017 IEEE 15th Intl Conf
+on Dependable, Autonomic and Secure Computing, 15th Intl Conf on Pervasive Intelligence and Computing, 3rd Intl Conf on Big Data
+PV-DM SVM 0 0 312
+Intelligence and Computing and Cyber Science and Technology Congress (DASC/PiCom/DataCom/CyberSciTech): 1242-1247.
+PV-DM Logistic Regression 0 0 312 [6] Hidayat, Rachmad. (2019) "KONEKTIVITAS TATAKELOLA “TAMAN NASIONAL KOMODO” BERCIRI KEPULAUAN PADA
+KONSERVASI FAUNA ASLI INDONESIA." University of Muhammadiyah Malang.
+[7] Idris, M. H., Selva, and R. Destari. (2019) “Pengaruh Destinasi Pariwisata Pulau Komodo Terhadap Beberapa Aspek Pembangunan Di
+Table 3. Comparison F1 score and accuracy score for every method.
+Kabupaten Manggarai Barat.” Jurnal Ilmu Administrasi Publik 7(1): 56-58.
+Method F1 score Accuracy score [8] Kannan, Subbu, Vairaprakash Gurusamy, S. Vijayarani, J. Ilamathi, M. Nithya, S. Kannan, and V. Gurusamy. (2014) “Preprocessing
+Techniques for Text Mining.” International Journal of Computer Science & Communication Networks 5 (1): 7-16.
+PV-DBOW SVM 0.80750538769 0.86858974359 [9] Coletta, Luiz FS, Nadia FF da Silva, Eduardo Raul Hruschka, and Estevam Rafael Hruschka. (2014) "Combining Classification and
+Clustering for Tweet Sentiment Analysis." 2014 Brazilian Conference on Intelligent Systems: 210-215.
+PV-DBOW Logistic Regression 0.77109027698 0.75961538462
+[10] Farhadloo, Mohsen, and Erik Rolland. (2016) “Fundamentals of Sentiment Analysis and Its Applications.”
+PV-DM SVM 0.80750538769 0.86858974359 [11] García-Gonzalo, Esperanza, Zulima Fernández-Muñiz, Paulino José García Nieto, Antonio Bernardo Sánchez, and Marta Menéndez
+Fernández. (2016) “Hard-Rock Stability Analysis for Span Design in Entry-Type Excavations with Learning Classifiers.” Materials 9
+PV-DM Logistic Regression 0.80750538769 0.86858974359
+(7):531.
+[12] Le, Quoc, and Tomas Mikolov. (2014) “Distributed Representations of Sentences and Documents.” International Conference on Machine
+In Table 2, three of the four experiments classify the test data against Rinca Island development this experiment Learning: 1188-1196.
+[13] Jurafsky, Dan, and James H. Martin. (2020) “Speech and Language Processing.” Stanford University (3rd ed. Draft).
+get both accuracy and F1 score above 75% that can be seen in Table 3. As in the first paragraph of this section, the
+[14] Adriani, Mirna, Jelita Asian, Bobby Nazief, Seyed MM Tahaghoghi, and Hugh E. Williams. (2007) “Stemming Indonesian: A confix-
+results of this study may be biased due to unbalanced datasets. Besides that, in Table 1, most labels are neutral, but
+stripping approach.” ACM Transaction Asian Language Information Processing 6(4):1-33.
+the data could be obtained from tweets or retweets from news portals. If you ignore neutral data and focus on positive [15] Bilgin, Metin, and İzzet Fatih Şentürk. (2017) “Sentiment analysis on Twitter data with semi-supervised Doc2Vec.” 2017 International
+and negative data, the dataset amount of negative data is far more than positive data. This can be a reference for the Conference on Computer Science and Engineering (UBMK): 661-666.
+[16] Kharde, Vishal, and Prof Sonawane. (2016) “Sentiment Analysis of Twitter Data: A Survey of Techniques.” International Journal of
+Indonesian Government to rethink the continuation of this project. If the Indonesian Government wants to continue,
+Computer Applications 139(11): 5-15.
+it should educate the public about the benefits of this project. So that later, the Government can get full support from
+the community.
+5. Conclusion
+The development on Rinca Island became a trending topic on Twitter in October 2020. This was triggered by the
+viral photo of the Komodo dragon that seems to block the truck carrying the building materials in Rinca Island. The
+community was polarized where some people agree, and others disagree with this development. This research aims to
+determine the whole picture of public opinion on Twitter regarding the development in Rinca Island.

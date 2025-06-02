@@ -1,0 +1,2150 @@
+applied
+sciences
+Article
+
+3D Digital Preservation, Presentation, and Interpretation of
+Wooden Cultural Heritage on the Example of Sculptures of the
+FormaViva Kostanjevica Na Krki Collection
+Andrej Učakar 1 , Ana Sterle 2 , Martina Vuga 2 , Tamara Trček Pečak 2 , Denis Trček 3 , Jure Ahtik 1 ,
+Karin Košak 4 , Deja Muck 1 , Helena Gabrijelčič Tomc 1, * and Tanja Nuša Kočevar 4
+1
+
+2
+
+3
+4
+
+*
+
+Citation: Učakar, A.; Sterle, A.; Vuga,
+M.; Trček Pečak, T.; Trček, D.; Ahtik,
+J.; Košak, K.; Muck, D.; Gabrijelčič
+Tomc, H.; Kočevar, T.N. 3D Digital
+Preservation, Presentation, and
+Interpretation of Wooden Cultural
+Heritage on the Example of
+Sculptures of the FormaViva
+Kostanjevica Na Krki Collection.
+
+Faculty of Natural Sciences and Engineering, Department of Textiles, Graphic Arts and Design,
+Chair of Information and Graphic Arts Technology, University of Ljubljana, Snežniška 5,
+1000 Ljubljana, Slovenia
+Department of Conservation and Restoration, Academy of Fine Arts and Design, University of Ljubljana,
+Erjavčeva ulica 23, 1000 Ljubljana, Slovenia
+Faculty of Computer and Information Science, University of Ljubljana, Večna pot 113, 1000 Ljubljana, Slovenia
+Faculty of Natural Sciences and Engineering, Department of Textiles, Graphic Arts and Design,
+Chair of Textile and Fashion Design, University of Ljubljana, Snežniška 5, 1000 Ljubljana, Slovenia
+Correspondence: helena.gabrijelcictomc@ntf.uni-lj.si
+
+Abstract: The paper presents an interdisciplinary approach to the treatment of the FormaViva
+collection of wooden sculptures exhibited outdoors in a natural environment near the Božidar Jakac
+Art Museum in Kostanjevica na Krki in Slovenia. The study focuses on 3D graphic representations of
+sculptures created with photogrammetry and 3D modelling. The results are photorealistic renderings,
+interactive presentations, 3D printed reproductions, jewellery, and interpretive animations. The
+research results show that graphic documentation techniques on 3D models allow for a more detailed
+investigation of the original structural identity of the sculpture. By incorporating 3D and interactive
+technologies, we are expanding the usability of cultural heritage objects. By using interpretive
+techniques that have led to jewellery and interpretive animations in our research, we not only breathe
+new life into the sculptures, but also enrich the stories of the sculptures with our own experiences of
+the sculptural work.
+
+Appl. Sci. 2022, 12, 8445. https://
+doi.org/10.3390/app12178445
+Academic Editors: Areti Damala,
+
+Keywords: 3D modelling; 3D printing; animation; cultural heritage; jewellery; photogrammetry;
+preservation; representation; wooden sculptures
+
+Akrivi Katifori, Angeliki Antoniou
+and Paraskevi Raftopoulou
+Received: 15 July 2022
+Accepted: 18 August 2022
+Published: 24 August 2022
+Publisher’s Note: MDPI stays neutral
+with regard to jurisdictional claims in
+published maps and institutional affiliations.
+
+Copyright: © 2022 by the authors.
+Licensee MDPI, Basel, Switzerland.
+This article is an open access article
+distributed under the terms and
+conditions of the Creative Commons
+Attribution (CC BY) license (https://
+creativecommons.org/licenses/by/
+4.0/).
+
+1. Introduction
+In recent years, the rapid developments of digitization have reached cultural heritage.
+Technologies such as digital archiving, documentation, and reconstruction, 360◦ capturing,
+3D laser scanning, modelling, and printing are influencing the way cultural heritage is
+maintained, managed, and preserved, as well as the way it is observed by visitors and
+audiences in general. In addition to the technologies, augmented, mixed, and virtual reality
+are also increasingly being used in the cultural heritage sector [1].
+These new technologies can help increase the reach of cultural heritage. In some
+cases, they can extend and expand the life of cultural heritage when its original physical
+manifestation is no longer present [1].
+Technologies are now financially affordable, and quality is increasing. The decline in
+price [2] and the increasing accuracy of 3D printing technologies [3] are now providing
+new ways to represent and analyse cultural heritage. This “digital cultural heritage”, also
+referred to as “heritage information resource” [4], can extend the life of heritage and become
+accessible to everyone.
+A cultural heritage is defined by its historical relevance and artistic qualities, but also
+by its cultural values, identity, associations, and ability to evoke memories [5].
+
+Appl. Sci. 2022, 12, 8445. https://doi.org/10.3390/app12178445
+
+https://www.mdpi.com/journal/applsci
+
+Appl. Sci. 2022, 12, 8445
+
+2 of 17
+
+If we focus on 3D printing of sculptures, this opens new possibilities in the field of
+research and accessibility of this cultural heritage.
+One of the most important and probably most obvious advantages of 3D printing
+is its high flexibility compared to traditional methods of producing copies of sculptures.
+Three-dimensional-printed prototypes can be touched without fear of damaging them.
+Thus, they represent a new way of interacting with exhibits. There are many factors to
+consider if we would like to get as close as possible to the original. For example, we also
+need to consider texture, weight, and final appearance, which is sometimes difficult to
+achieve with 3D printing [6,7] and “material poetics” may be lost [8].
+Three-dimensional capturing technologies and processing methods differ in terms
+of accuracy and thus the final results of 3D printing. When we capture with different
+technologies, we obtain a point cloud that depends on the accuracy of the capture. During
+processing, different filters are used to optimize the digital model, which in turn can affect
+the geometry of the model. Metrics obtained by photogrammetry or laser scanning often
+contain a lot of noise [3,6].
+We can also create 3D prototypes of the exhibits using the 3D modelling process, but
+we must be aware that such models are ultimately only an approximation of the original,
+as they are the result of interpretation [6].
+Each artwork requires a unique approach, especially in the capture of the artwork’s
+digital data and data processing. Depending on the characteristics of the artwork, such as
+size, construction, material, age, and condition, we determine the conditions for capturing,
+equipment and further data processing.
+For the capture of wooden sculptures, both photogrammetry and scanning prove to
+be reliable capture methodologies. Each method has its advantages and disadvantages,
+and the choice of method depends on the sculpture in question [9].
+When feasible, computed tomography (CT) could be a valuable examination technique
+for 3D visualization and analysis of the internal structure of wooden sculptures (life size),
+their construction with various joint materials (nails, dowels of different wood type) or
+internal damages (cracks, woodworm tunnels) [10].
+New technologies are becoming increasingly important in the field of conservation
+for digital records of artworks for research, documentation, reproduction, and treatment
+purposes. In certain cases, they can help to reassemble (broken) sculptures [11], or they
+can be used for the preparation, virtual sculpting, and printing of missing elements of
+artworks [12]. Three-dimensional data of artworks also help in the production of storage
+and transport packaging for museum collections [13].
+Their use for documentation purposes is probably even more important. They allow
+for 3D visualization of most of the details of the sculpture, which are not only viewed
+visually, but the 3D models could also be “enriched” with the data obtained from material
+analysis (FTIR, micro RAMAN). Such an interactive presentation of the object could serve as
+a reference for recording and depicting areas of decay, repair, intervention, and diagnostic
+intervention as well as a starting point for further research [14].
+Digital approaches to the treatment of cultural heritage are marked by differences
+compared to traditional approaches. Although the methods are often combined in practice,
+the importance of digitization and its collaboration with machine learning approaches
+in documentation, presentation, and interpretation is steadily increasing. Regardless of
+the type of approach, the goal in interpretation remains to increase public accessibility to
+the heritage object, improve audience understanding, increase participant interest in the
+experience, and pleasure and enjoyment [15]. As Knudson states, the goal of interpretation
+is “the development of an informed and experienced citizenry in relation to our cultural
+heritage”, which requires the interdisciplinary collaboration of experts from various fields
+(landscape architects, archaeologists, historians, designers, UX planners, psychologists,
+anthropologists, etc.) in implementing interpretive approaches.
+Interpretive approaches facilitate both emotional and cognitive engagement of participants with cultural heritage and increased memorability and learning efficiency. Targeted
+
+Appl. Sci. 2022, 12, 8445
+
+3 of 17
+
+interpretive approaches also allow for universality of heritage presentation beyond cultural,
+sociological, religious, and gender issues. In addition, interpretive approaches contribute to
+increased accessibility of cultural heritage, which is consistent with sustainability goals [16].
+Interpretive approaches are also responsible for cultural heritage being increasingly
+presented in an educational context, even outside of research in archaeology, history, anthropology, cultural studies, computer science, graphic design, didactics, sociology, natural
+sciences, etc. At both formal and informal educational levels, interpretive approaches are
+being skilfully used to integrate cultural heritage into presentation content and learning
+materials [17].
+The presented research addresses the collection of Forma Viva’s collection, wooden
+sculptures displayed outdoors in a natural environment near the Božidar Jakac Art Museum
+in Kostanjevica na Krki in Slovenia.
+The conservation of outdoor wooden sculptures is a complex issue, where traditional
+conservation approaches are limited. Large sculptures that are in a poor state of preservation require even more technically demanding, laborious and often financially costly
+conservation and restoration measures. Although they do not replace physical preservation, new technologies could be beneficial in many ways. For one, they could expand the
+conservator’s ability to examine, document, and assess condition. Digitization also allows
+us to preserve at least the cultural and historical values of those art objects that cannot
+be preserved for various reasons. It can be used as a tool to promote cultural, social, and
+economic values, but in doing so, we must respect and protect intellectual property and
+work in an interdisciplinary manner [18].
+2. Aim of the Research
+The goal of the research was to apply digital technologies to selected sculptures from
+Forma Viva’s collection. We have developed an interdisciplinary approach to experiment
+with new ways of graphic documentation on a 3D model, a visualization that allows
+for a clearer representation of the examination of the original structural identity of the
+sculpture (technological part: carving, construction, joinery), but also to assess the extent of
+deterioration processes and consequently to assess the need for intervention (treatment)
+requirements. The method has been shown to be useful for documentation purposes in the
+past [14,19].
+Experimental work has included digital documentation, digital 3D presentation, and
+the introduction of 3D interpretive approaches to wooden sculptures.
+The research is presented through case studies of two wood sculptures from the
+above-mentioned collection. The two sculptures were created almost 40 years apart, which
+indicates the different states of preservation of the two statues. As a result, the treatment of
+these sculptures also offers different approaches to the treatment and implementation of 3D
+technologies. The first case is Jon Oxman’s Tower of Babel, wood, 480 × 60 × 55 cm (1978),
+which has been studied, documented, analysed, and evaluated through visual observation,
+but also through digitization, photogrammetry, schematic 3D representation of damage,
+interactive 3D presentation, 3D printing, and interpreted into useful objects and interpretive
+presentations in audio–visual media (jewellery, animation). The Tower of Babel sculpture
+was created in 1978. The sculptor Jon Oxman was born in the United States of America in
+1955. He graduated in sculpture and improved his drawing skills, and he studied ceramics.
+As for the origin of the sculpture, we know that the inspiration was a well-known myth,
+which the sculptor interpreted through the placement of wooden segments and the red
+colouring in the areas where the wooden segments move away from the vertical structure.
+The second example is Ryszard Litwiniuk’s, Transition, wood, 350 × 350 × 296 cm (2017),
+which was modelled, textured, and visualized in 3D. Ryszard Litwiniuk is a Polish sculptor
+born in 1966 who works in the fields of sculpture, graphics and installation. The basic
+materials of sculpture are wood and stone, which, along with metal, are used in the
+Transition statue of 2017. The “Transition” sculpture has a constructivist structure, in the
+form of a circle made up of individual segments. This raises the question of time, of cyclical
+
+Appl. Sci. 2022, 12, 8445
+
+wood, 350 × 350 × 296 cm (2017), which was modelled, textured, and visualized in 3D.
+Ryszard Litwiniuk is a Polish sculptor born in 1966 who works in the fields of sculpture,
+graphics and installation. The basic materials of sculpture are wood and stone, which,
+along with metal, are used in the Transition statue of 2017. The “Transition” sculpture
+4 of 17 has
+a constructivist structure, in the form of a circle made up of individual segments. This
+raises the question of time, of cyclical paths of progress and thus of constant growth. The
+visitor
+can
+it thus
+as a door
+and thus
+as a “passage
+of can
+timeexperience
+in space”.itDigital
+presenpaths
+of experience
+progress and
+of constant
+growth.
+The visitor
+as a door
+tations
+of the
+statues
+prepared
+for exhibition
+purposes
+useful
+objects
+and thus
+as atwo
+“passage
+of were
+time in
+space”. Digital
+presentations
+of theand
+two as
+statues
+were
+prepared with
+for exhibition
+purposes
+and
+as useful objects
+(jewellery) with interpretation and
+(jewellery)
+interpretation
+and
+storytelling
+approaches.
+storytelling
+approaches.
+Transferring
+the idea of a wooden sculpture materialised by the artists into a new
+Transferring
+the idea
+of a wooden
+materialised byisthe
+artists
+intoimportance
+a new
+interpretation through
+different
+levels ofsculpture
+digital representation
+also
+of great
+interpretation through different levels of digital representation is also of great importance
+from the point of view of storytelling.
+from the point of view of storytelling.
+
+3. Experimental
+3. ExperimentalPart
+Part
+The
+workflowfor
+for3D
+3Dpresentation
+presentationand
+and interpretation
+interpretation of
+The
+workflow
+of wooden
+woodensculptures
+sculptureswas
+was didivided
+into
+three
+approaches:
+a
+conservation
+approach,
+a
+technological
+approach,
+and
+vided into three approaches: a conservation approach, a technological approach, aand a
+design–creativeapproach,
+approach, as
+as shown
+shown in
+design–creative
+inFigure
+Figure1.1.
+
+Figure 1. Schematic presentation of workflow of digital preservation, 3D reproduction and interFigure 1. Schematic presentation of workflow of digital preservation, 3D reproduction and interprepretation of Forma Viva sculptures from Kostanjevica na Krki.
+tation of Forma Viva sculptures from Kostanjevica na Krki.
+
+The
+properties
+consideredfor
+for
+the
+presentation
+divided
+The
+propertiesofofthe
+thesculptures
+sculptures considered
+the
+3D3D
+presentation
+werewere
+divided
+into into
+thethe
+following
+categories:
+following
+categories:
+Damage
+thesculptures
+sculptures (major
+(major damage:
+stillstill
+together
+partsparts
+of theof the
+1. 1. Damage
+ofof
+the
+damage:preservation—or
+preservation—or
+together
+sculpture,
+missing
+parts
+of
+the
+sculpture
+and
+minor
+damage:
+cracks,
+insect
+damage,
+sculpture, missing parts of the sculpture and minor damage: cracks, insect damage,
+lichen and moss, etc.);
+lichen
+and moss, etc.);
+2.
+Material of the sculptures (wood, possible additions of stone, metal, etc.),
+2. Material of the sculptures (wood, possible additions of stone, metal, etc.),
+3.
+Surface treatments/layers (coatings, paints, etc.),
+3. 4. Surface
+treatments/layers
+(coatings, paints, etc.),
+Size and
+location in the environment.
+4. 5. Size
+and
+location
+in
+the
+environment.
+Morphological properties of the sculptures (number of details, orientation of the surfaces
+5. Morphological
+properties
+oforientation
+the sculptures
+(numbercomplexity
+of details,and
+orientation
+of the surof the sculptures,
+geometric
+and organicity,
+branching).
+6. faces
+Suitability
+of the sculpture
+for theorientation
+photogrammetry
+or for the 3D
+modelling process.
+of the sculptures,
+geometric
+and organicity,
+complexity
+and branching).
+The selection of sculptures for analysis and 3D presentation was based on the characof the of
+artworks
+for conducting
+procedure, whichorwere
+determined
+during process.
+the
+6. teristics
+Suitability
+the sculpture
+for the the
+photogrammetry
+for the
+3D modelling
+analysis of the sculptures in the field. Of all (more than 100, but today around 80 remain-
+
+Appl. Sci. 2022, 12, 8445
+
+5 of 17
+
+ing) the outdoor sculptures in the collection, 24 sculptures were selected for capture with
+photogrammetry, and 19 sculptures were selected for 3D modelling.
+The methodology presented below for the two selected statues was determined on the
+basis of multiple attempts at the appropriateness of different approaches in research, art
+and didactic (collaboration with students) terms, some of which were also abandoned (e.g.,
+3D scanning, application development). The statues considered in this research represent
+two “extremes”. A statue exhibited more than forty years ago, Tower of Babel, is heavily
+damaged, and its condition has changed significantly from its original form, requiring a
+photogrammetric approach to capture it, and Transition, exhibited recently, in which its
+good preservation state allowed only for documentation of the existing condition and the
+use of 3D modelling for 3D recreation.
+The approaches to the sculptures thus represent the optimal framework from documentation to interpretation, which was determined for the selected sculpture based on
+two years of interdisciplinary research collaboration among the restoration, computer, and
+graphic arts professions.
+3.1. Conservation Approach
+We carefully assessed the condition of the sculpture, which is important for the
+development of the conservation and restoration plan [20]. At the same time, we collected
+archival records about the statues and their condition.
+The sculptures were documented using traditional conservation in situ sketches (simplified linear drawings), measurements, photographs, video recordings, and written documentation, as well as the process of photogrammetry and 3D modelling, which also served
+for further procedures of 3D presentations and interpretations.
+After the completion of the 2D graphic documentation of the Tower of Babel, our goal
+was to display/transmit the same information on the 3D model (see below).
+3.2. Technological Approach
+The goal of the technological approach was to obtain the most realistic digital reproductions of the original wooden sculptures. The first step was to digitize the sculptures.
+We used 3D modelling and photogrammetry to capture the data of the sculptures. Due to
+equipment (scanner) limitations and the size of the outdoor sculptures, 3D scanning was
+not possible.
+We decided to use 3D modelling for sculptures that would be difficult to capture with
+3D photogrammetry (holes, large overhangs) or whose morphology is simple (and therefore
+more suitable for modelling). The technological approach also included visualization with
+texturing, interactive presentation of the digitized sculptures, and 3D printing of the
+selected sculptures.
+3.3. Photogrammetry
+Photo recording was carried out with UAV (Unmanned Aerial Vehicle), i.e., DJI Mavic
+Pro Platinum (SZ DJI Technology Co. Ltd., Shenzhen DJI Sciences, Technologies Ltd.,
+Nanshan, Shenzhen, China), equipped with a standard 3-channel RGB camera, and handheld digital cameras (Sony alpha a6000 and alpha 7 mk I, Sony, Minato, Tokyo, Japan) for
+capturing the parts of the sculptures that were inaccessible for drone recording. For certain
+wooden sculptures (exhibited outdoors), the placement of the sculpture (proximity to other
+objects such as trees, walls, etc.) also makes it necessary to combine (image) captures
+from different devices. The correct import and coordination of the photographs in photogrammetry programs was required further on (for the program to treat them correctly in
+terms of focal length, lens, angle, spherical aberrations). The number of drone photographs
+averaged 380, and we used between 50 and 150 additional photographs, depending on
+the sculpture. Photogrammetry was performed in Agisoft Metashape (Agisoft LLC, Sankt
+Petersburg, Russian Federation). Some sculptures required mesh correction, model, and
+texture optimization for real-time web presentation after the polygonal mesh was created
+
+Appl. Sci. 2022, 12, 8445
+
+photographs averaged 380, and we used between 50 and 150 additional photographs,
+pending on the sculpture. Photogrammetry was performed in Agisoft Metashape (Agis
+LLC, Sankt Petersburg, Russian Federation). Some sculptures required mesh correcti
+model, and texture optimization for real-time web presentation after the polygonal m
+6 of 17
+was created (missing parts of the sculptures). This was carried out in Blender
+(Blen
+Foundation, Amsterdam, Netherlands).
+The Tower of Babel was photographed three times from 209 to 350 photos and p
+(missing parts of the sculptures). This was carried out in Blender (Blender Foundation,
+togrammetrically processed in Meshroom (AliceVision framework, Paris, France) a
+Amsterdam, Netherlands).
+Agisoft
+in 209
+Agisoft
+steps Al
+The(Metashape).
+Tower of BabelThe
+was photogrammetry
+photographed three process
+times from
+to 350 included
+photos andthe
+phophotos,
+Build dense
+cloud,inBuild
+mesh and
+Build texture.
+In Meshroom,
+theand
+process c
+togrammetrically
+processed
+Meshroom
+(AliceVision
+framework,
+Paris, France)
+Agisoftof(Metashape).
+TheDepth
+photogrammetry
+process
+in Filter,
+AgisoftFeature
+included Ex-traction,
+the steps AlignFeature
+phosisted
+CameraInit,
+Map, Depth
+Map
+Mat
+tos,
+Build
+dense
+cloud,
+Build
+mesh
+and
+Build
+texture.
+In
+Meshroom,
+the
+process
+consisted
+ing, Image Matching, Mesh Filtering, Meshing, Prepare Dense Scene, Structure from M
+of CameraInit, Depth Map, Depth Map Filter, Feature Ex-traction, Feature Matching, Image
+tion,
+and Texturing. Figure 2c shows the texture of MeshRoom and Agisoft. The result
+Matching, Mesh Filtering, Meshing, Prepare Dense Scene, Structure from Motion, and
+both
+cases were satisfactory for further work; however, we used models and textures fr
+Texturing. Figure 2c shows the texture of MeshRoom and Agisoft. The results in both cases
+Agisoft.
+Figure 2d
+showswork;
+the presentation
+of the
+sculpture
+on the
+Sketchfab
+were satisfactory
+for further
+however, we used
+models
+and textures
+from
+Agisoft. web
+viewer.
+Figure 2d shows the presentation of the sculpture on the Sketchfab web 3D viewer.
+
+(a)
+
+(b)
+
+(c)
+Figure 2. Cont.
+
+Appl. Sci. 2022, 12, x FOR PEER REVIEW
+Appl. Sci. 2022, 12, 8445
+
+7 of 17
+
+7 of
+
+(d)
+
+Figure
+stages
+representation.
+(a) Tower
+of(Jon
+Babel
+(Jon Oxman,
+Figure2.
+2. Different
+Different stages
+of of
+representation.
+(a) Tower
+of Babel
+Oxman,
+1978); (b) 1978);
+texture (b)
+andtexture a
+photogrammetric 3D
+presentation
+in MeshRoom
+(Authors
+of 3D presentation:
+Luka Obal, Alja
+Berlot);
+photogrammetric
+3D
+presentation
+in MeshRoom
+(Authors
+of 3D presentation:
+Luka
+Obal, Alja B
+(c) texture
+and photogrammetric
+3D presentation
+in Agisoft Metashape
+of 3D (authors
+presentation
+lot);
+(c) texture
+and photogrammetric
+3D presentation
+in Agisoft(authors
+Metashape
+of 3D pres
+Urška
+Klenovšek,
+Karmen
+Kogej,
+Hana
+Ocvirk,
+Mylana
+Peresypkina);
+(d)
+representation
+of
+sculpture
+tation Urška Klenovšek, Karmen Kogej, Hana Ocvirk, Mylana Peresypkina); (d) representation
+on Sketchfab.
+sculpture
+on Sketchfab.
+3.4. 3D Graphic Documentation
+
+3.4. 3D Graphic Documentation
+
+The method was used to first create a high polygon 3D model and then gradually
+The itmethod
+used tooffirst
+create
+high
+polygon
+3D model
+and then
+simplify
+to reducewas
+the number
+polygons
+(upa to
+500,000
+polygons/faces)
+to preserve
+as gradua
+much detail
+possiblethe
+while
+increasing
+the speed of
+processing,
+andpolygons/faces)
+secondly, to export
+simplify
+it toasreduce
+number
+of polygons
+(up
+to 500,000
+to preser
+the
+3D
+model
+without
+the
+unnecessary
+environment
+of
+the
+sculpture,
+which
+allowed
+us
+to
+as much detail as possible while increasing the speed of processing, and secondly, to
+extract the texture with only essential components of the object.
+port the 3D model without the unnecessary environment of the sculpture, which allow
+In order to create a graphical documentation, the patterns had to be defined beforehand
+us(Figure
+to extract
+thegoal
+texture
+with
+only essential
+components
+of the object.
+3). The
+was to
+generalize
+the patterns
+for the conservation
+community. A
+In
+order
+to
+create
+a
+graphical
+documentation,
+the
+patterns
+had
+to be defined
+befo
+collection of textures representing different types of damage and other conditions
+was
+created.
+The patterns
+the was
+hatches
+chosen the
+carefully.
+The main
+concern
+was to select
+hand
+(Figure
+3). Thefor
+goal
+to were
+generalize
+patterns
+for the
+conservation
+communi
+that of
+matched
+each
+other so that they
+could types
+be overlayed.
+They and
+wereother
+then colour
+Atextures
+collection
+textures
+representing
+different
+of damage
+conditions w
+coded, e.g.,
+coloured
+green
+represents
+while red The
+illustrates
+to was to
+created.
+Thetextures
+patterns
+for the
+hatches
+werevegetation
+chosen carefully.
+maindamage
+concern
+the support. A translucent background was added to some of these textures so that they
+lect textures that matched each other so that they could be overlayed. They were th
+can be seen even when the applied area is small.
+colourThe
+coded,
+textures
+coloured
+green
+vegetation
+while
+red illustra
+® (Adobe
+texturee.g.,
+of the
+3D model
+was edited
+withrepresents
+Adobe Photoshop
+complex,
+damage
+theUSA)
+support.
+translucent
+background
+was
+to some
+of hatches
+these textures
+San Jose,to
+CA,
+image A
+processing
+software.
+It was used
+as aadded
+background,
+where
+of all
+sculpture’s
+conditions
+applied
+to a newly
+created
+layer (Figure 4), which was
+that
+they
+can be seen
+evenwere
+when
+the applied
+area
+is small.
+saved as a new texture in the same format as the original one. In order to use the resulting
+3D model in presentation software for presentation of 3D models, it was exported to a
+.3mf file, which was then combined with the texture (Figures 5 and 6) in the 3D Builder
+program (Microsoft, Redmond, WA, USA).
+The 3D web viewer Sketchfab (Sketchfab, Paris, France, New York City, NY, USA)
+was used for the interactive 3D presentation of the virtual models (https://sketchfab.com/
+reformaviva, accessed on 8 June 2022). Figure 7 shows the 3D presentation of sculptures
+in Sketchfab.
+
+Appl.
+Appl.Sci.
+Sci.2022,
+2022,12,
+12,8445
+x FOR PEER REVIEW
+
+88ofof1717
+
+Figure 3. Legend of patterns representing different types of damage and other conditions (authors:
+Katarina Bartolj, Eva Marija Fras, Marko Odić, Lara Skukan, Ana Sterle, Sara Štorgel).
+
+The texture of the 3D model was edited with Adobe Photoshop® (Adobe complex,
+San Jose, CA, USA) image processing software. It was used as a background, where
+hatches of all sculpture’s conditions were applied to a newly created layer (Figure 4),
+which was saved as a new texture in the same format as the original one. In order to use
+the resulting 3D model in presentation software for presentation of 3D models, it was
+exported to a .3mf file, which was then combined with the texture (Figures 5 and 6) in the
+Figure
+Legend
+patterns
+representing
+differentWA,
+typesof
+ofdamage
+damageand
+andother
+otherconditions
+conditions(authors:
+(authors:
+3D
+Builder
+program
+(Microsoft,
+Redmond,
+USA).
+Figure
+3.3.Legend
+ofofpatterns
+representing
+different
+types
+KatarinaBartolj,
+Bartolj,Eva
+EvaMarija
+MarijaFras,
+Fras,Marko
+MarkoOdić,
+Odić,Lara
+LaraSkukan,
+Skukan,
+Ana
+Sterle,
+Sara
+Štorgel).
+Katarina
+Ana
+Sterle,
+Sara
+Štorgel).
+
+The texture of the 3D model was edited with Adobe Photoshop® (Adobe complex,
+San Jose, CA, USA) image processing software. It was used as a background, where
+hatches of all sculpture’s conditions were applied to a newly created layer (Figure 4),
+which was saved as a new texture in the same format as the original one. In order to use
+the resulting 3D model in presentation software for presentation of 3D models, it was
+exported to a .3mf file, which was then combined with the texture (Figures 5 and 6) in the
+3D Builder program (Microsoft, Redmond, WA, USA).
+
+Figure4.4. A
+A result
+result of
+presentation
+of the
+sculpture
+TowerTower
+of Babel
+next to next
+the to the
+Figure
+of the
+the3D
+3Dgraphic
+graphic
+presentation
+of the
+sculpture
+of pasted
+Babel pasted
+original
+sculpture
+(mentor:
+Prof.
+Dr.
+Denis
+Trček;
+Author:
+Lara
+Skukan).
+original sculpture (mentor: Prof. Dr. Denis Trček; Author: Lara Skukan).
+
+Figure 4. A result of the 3D graphic presentation of the sculpture Tower of Babel pasted next to the
+original sculpture (mentor: Prof. Dr. Denis Trček; Author: Lara Skukan).
+
+12, x FOR PEER REVIEW
+
+9 of 17
+
+Appl. Sci. 2022, 12, 8445
+
+9 of 17
+
+Figure 5. The texture before and after the applied hatches (mentor: pr
+
+Figure 5. The texture before and after the applied hatches (mentor: prof. dr. Denis Trček; author:
+The Ana
+texture
+before and after the applied hatches (mentor: prof. dr. Denis Trček; author:
+Ana
+Sterle).
+Sterle).
+
+Figure 5.
+Ana Sterle).
+
+Figure 6. Legend of applied hatch patterns used on Figures 4 and 5 (mentor: Prof. Mag. Tamara
+Trček Pečak; authors: Lara Skukan, Ana Sterle).
+Figure
+6. Legend
+of applied hatch
+patterns used
+on Figures
+4 and 5 used
+(mentor:on
+Prof.
+Mag. Tamara
+Figure
+6. Legend
+of applied
+hatch
+patterns
+Figures
+4 and
+Trček Pečak; authors: Lara Skukan, Ana Sterle).
+
+5(
+
+Trček
+Pečak;
+authors:
+Lara Skukan,
+Sterle).
+The 3D web
+viewer
+Sketchfab
+(Sketchfab,
+Paris,Ana
+France,
+New York City, NY, USA)
+The
+results
+of
+3D
+graphic
+documentation
+and
+mapping
+of
+patterns
+showing
+was used for the interactive 3D presentation of the virtualgraphic
+models
+(https://sketchdamage and other conditions are new to the field of documentation and conservation
+fab.com/reformaviva,
+accessed
+on 8viewer
+June 2022).
+Figure 7(Sketchfab,
+shows
+the 3D
+presentation
+The
+3D
+web
+Paris,
+France,ofN
+interventions.
+The
+usefulness
+for researchSketchfab
+can be seen in the
+further study and
+investigation
+sculptures inofSketchfab.
+sculptures,
+especially
+ability to 3D track3D
+the condition
+of the sculpture
+was
+used
+for with
+thetheinteractive
+presentation
+ofover
+thetime.virtua
+
+fab.com/reformaviva, accessed on 8 June 2022). Figure 7 show
+sculptures in Sketchfab.
+
+The 3D web viewer Sketchfab (Sketchfab, Paris, France, New York City, NY, USA)
+was used for the interactive 3D presentation of the virtual models (https://sketchaccessed on 8 June 2022). Figure 7 shows the 3D presentation of
+Appl.fab.com/reformaviva,
+Sci. 2022, 12, 8445
+10 of 17
+sculptures in Sketchfab.
+
+Appl. Sci. 2022, 12, x FOR PEER REVIEW
+
+10 of 17
+
+Figure 7. Three-dimensional presentations of sculptures in 3D viewer Sketchfab.
+
+The results of 3D graphic documentation and mapping of graphic patterns showing
+damage and other conditions are new to the field of documentation and conservation interventions. The usefulness for research can be seen in the further study and investigation
+of sculptures, especially with the ability to 3D track the condition of the sculpture over
+time.
+3.5. 3D Modelling
+The process of 3D modelling was applied to sculptures without many organic shapes,
+to sculptures with many open parts and to those that are geometrically more regular. Such
+sculptures can be easily described with ordinary Euclidean geometry.
+Of the two sculptures we used for the study, the Transition sculpture was better
+suited for 3D modelling.
+The first requirement for modelling was to have the exact dimensions of the parts of
+the sculpture. Figure 8 shows a sketch with the dimensions of each part.
+Figure
+Three-dimensional
+presentations
+of sculptures
+in 3D
+viewer high-quality
+Sketchfab.
+In7.addition
+to accurate
+sketches, modelling
+also
+requires
+photographs
+of
+the
+entire
+sculpture,
+its
+details,
+and
+textures
+(Figure
+8).
+The
+modelling
+of
+the
+Transition
+3.5. 3D Modelling
+sculpture was simple. Mainly “primitive” mesh shapes such as planes, cubes and cylinThe process of 3D modelling was applied to sculptures without many organic shapes,
+ders were used for modelling. First, a concrete base was modelled on the base of the cube,
+to sculptures with many open parts and to those that are geometrically more regular. Such
+and then a board and a beam. If the sculpture has two beams, another one was created
+sculptures can be easily described with ordinary Euclidean geometry.
+using the mirror transformer. The board was placed over the beam, and then, the tube
+Of the two sculptures we used for the study, the Transition sculpture was better suited
+was added with a solidify transformer to form a tube. An empty object was added to the
+for 3D modelling.
+centre of the tube to serve as a reference point for the array transformer. Additional boards
+The first requirement for modelling was to have the exact dimensions of the parts of
+(27 of them) were created using the transformer mentioned above. Each board was rotated
+the sculpture. Figure 8 shows a sketch with the dimensions of each part.
+clockwise around the centre of the axis at an angle of 13.3° to the previous one.
+
+Figure 8. The process of the technological approach to the reconstruction of the sculpture “TransiFigure 8. The process of the technological approach to the reconstruction of the sculpture “Transition”,
+tion”, Ryszard Litwiniuk, 2017 by the process of 3D modelling (authors: Eva Bužanin, Monika
+Ryszard Litwiniuk, 2017 by the process of 3D modelling (authors: Eva Bužanin, Monika Samsa,
+Samsa, Nejc Suhadolnik).
+Nejc Suhadolnik).
+
+The steps of modelling parts of the Transition sculpture, i.e., the lower support part
+and the main elements of the sculpture, are shown in Figure 8. The exact modelling, including the screws, was performed only for the final visualization with texturing. The
+final visualization of the sculpture can be seen in Figure 9.
+
+Appl. Sci. 2022, 12, 8445
+
+11 of 17
+
+In addition to accurate sketches, modelling also requires high-quality photographs
+of the entire sculpture, its details, and textures (Figure 8). The modelling of the Transition
+sculpture was simple. Mainly “primitive” mesh shapes such as planes, cubes and cylinders
+were used for modelling. First, a concrete base was modelled on the base of the cube, and
+then a board and a beam. If the sculpture has two beams, another one was created using
+the mirror transformer. The board was placed over the beam, and then, the tube was added
+with a solidify transformer to form a tube. An empty object was added to the centre of the
+tube to serve as a reference point for the array transformer. Additional boards (27 of them)
+were created using the transformer mentioned above. Each board was rotated clockwise
+around the centre of the axis at an angle of 13.3◦ to the previous one.
+The steps of modelling parts of the Transition sculpture, i.e., the lower support part
+and the main elements of the sculpture, are shown in Figure 8. The exact modelling,
+Appl. Sci. 2022, 12, x FOR PEER REVIEWincluding the screws, was performed only for the final visualization with texturing. The
+11 of 17
+final visualization of the sculpture can be seen in Figure 9.
+
+Figure 9. Final visualisation of the sculpture Transition, Ryszard Litwiniuk 2017 (authors of 3D
+Figure 9. Final visualisation of the sculpture Transition, Ryszard Litwiniuk 2017 (authors of 3D model
+model and visualization: Gaja Hanuna, Simon Perovnik, Nina Krpan).
+and visualization: Gaja Hanuna, Simon Perovnik, Nina Krpan).
+
+Model
+Preparationand
+and3D
+3D Printing
+Printing
+3.6.3.6.
+Model
+Preparation
+A ZMorphprinter
+printer (ZMorph
+Wrocław,
+Poland)
+with awith
+working
+volumevolume
+of 235 (X):
+A ZMorph
+(ZMorphS.A.,
+S.A.,
+Wrocław,
+Poland)
+a working
+of 235
+250
+(Y):
+165
+(Z)
+mm
+was
+used
+to
+print
+the
+prototypes
+of
+the
+wooden
+sculptures.
+It
+is
+(X): 250 (Y): 165 (Z) mm was used to print the prototypes of the wooden sculptures. It is
+based on the fused deposition modelling technology. The prototypes of the sculptures
+based on the fused deposition modelling technology. The prototypes of the sculptures
+were printed using white thermoplastic PLA filament with a diameter of 1.75 mm. Both
+were
+printed using white thermoplastic PLA filament with a diameter of 1.75 mm. Both
+models presented in this paper were printed in 1:20 scale. We produced or printed all
+models
+in this paper
+were printed
+1:20
+scale.
+WeThe
+produced
+orwas
+printed
+other presented
+sculptures included
+in the project
+research in
+at the
+stated
+ratio.
+exception
+the all
+other
+sculptures
+included
+in
+the
+project
+research
+at
+the
+stated
+ratio.
+The
+exception
+was the
+sculptures that exceeded the printer’s working volume despite the consideration of the
+sculptures
+exceeded
+thesuch
+printer’s
+working
+despite
+the consideration
+1:20 scale.that
+There
+were three
+sculptures
+amongvolume
+all sculptures
+selected
+for 3D printingof the
+we had
+to further
+reduce
+in size.
+1:20that
+scale.
+There
+were three
+such
+sculptures among all sculptures selected for 3D printing
+the sculptures
+that weBoth
+hadprototypes
+to furtherof
+reduce
+in size. (those created by photogrammetry and those created
+byBoth
+3D modelling)
+were
+printed
+using the
+same created
+procedure.
+the meshes of the
+prototypes of the sculptures
+(those
+by First,
+photogrammetry
+andmodel
+those crewere analysed in Blender (e.g., overhang, thickness, intersections, distortions, sharp edges).
+ated by 3D modelling) were printed using the same procedure. First, the meshes of the
+Then, the optimal orientation of each model was determined. The model had to be oriented
+model
+were analysed in Blender (e.g., overhang, thickness, intersections, distortions,
+to achieve the best print quality. In addition to high visual quality, model orientation affects
+sharp
+edges). properties,
+Then, theoptimal
+optimal
+orientation
+of each
+model
+wasconsumption
+determined.
+The model
+mechanical
+printing
+time, and
+optimal
+material
+(support
+
+had to be oriented to achieve the best print quality. In addition to high visual quality,
+model orientation affects mechanical properties, optimal printing time, and optimal material consumption (support structures, fill density, number of walls). An appropriately
+prepared print model was exported in the form of an .stl file.
+
+Appl. Sci. 2022, 12, 8445
+
+12 of 17
+
+structures, fill density, number of walls). An appropriately prepared print model was
+exported in the form of an .stl file.
+The basic printing parameters were chosen to achieve good print quality and rational
+energy consumption (printing time and material consumption).
+The layer thickness was set at 0.2 mm. The filling used was a honeycomb form with
+30% density of the inner filling. The printing speed was set to 30 mm/s. In addition to the
+filling pattern, three outer walls were used for printing each layer.
+Voxelizer software was used for the final preparation of the models and creation of the
+G-code. The images of the model preparation of the transition sculpture for printing and
+the final prints can be seen below in Figure 10. Figure 11 shows the result, the printed and
+Appl. Sci. 2022, 12, x FOR PEER REVIEW
+12 of 17
+assembled scale model of the Transition sculpture and the 3D printed parts of the sculpture
+Appl. Sci. 2022, 12, x FOR PEER REVIEW
+12 of 17
+and the process of assembly.
+
+Figure 10. Three-dimensional printed model of the Transition sculpture.
+Figure10.
+10.Three-dimensional
+Three-dimensionalprinted
+printed model
+model of
+Figure
+of the
+theTransition
+Transitionsculpture.
+sculpture.
+
+Figure 11. Three-dimensional printed parts of the sculpture Transition and the process of its asFigure
+11. Three-dimensional printed parts of the sculpture Transition and the process of its assembly.
+Figure 11. Three-dimensional printed parts of the sculpture Transition and the process of its assembly.
+sembly.
+
+The
+of the
+thescope
+scopeofoftechnological
+technological
+approaches
+a methodological
+innoTheapplicability
+applicability of
+approaches
+is aismethodological
+innovaapplicability
+of the
+scope
+of technological
+approaches
+is a methodological
+innotionThe
+ininthe
+case
+of wooden
+cultural
+heritage.
+It included
+the integration
+of photogrammetry
+vation
+the
+case
+of wooden
+cultural
+heritage.
+It included
+the integration
+of photogramvation
+in
+themodelling
+case
+of wooden
+cultural
+heritage.
+included
+integration
+ofofphotogramand/or
+3D
+and retopology,
+in
+the case
+a final
+presentation
+texturing of
+metry
+and/or
+3D modelling
+and
+retopology,
+inItof
+the
+case digital
+ofthe
+a final
+digital presentation
+metry
+and/or
+3D
+modelling
+and
+retopology,
+in
+the
+case
+of
+a
+final
+digital
+presentation
+of
+and rendering,
+and in theand
+caseinofthe
+a physical
+the preparation
+for 3D printing
+texturing
+and rendering,
+case of apresentation
+physical presentation
+the preparation
+for 3D
+texturing
+and
+rendering,
+and
+in
+the
+case
+of
+a
+physical
+presentation
+the
+preparation
+for
+3D
+and 3D printing,
+which with
+further
+interpretations
+increased the
+possibilities
+of using the of
+printing
+and 3D printing,
+which
+with
+further interpretations
+increased
+the possibilities
+printing
+and
+3D
+printing,
+which
+with
+further
+interpretations
+increased
+the
+possibilities
+of
+products
+beyond
+research
+circles
+to
+the
+general
+public.
+using the products beyond research circles to the general public.
+using the products beyond research circles to the general public.
+4. Interpretation of Digitized Sculptures
+
+4. Interpretation of Digitized Sculptures
+Interpretationof
+inDigitized
+Jewellery Sculptures
+4. 4.1.
+Interpretation
+4.1. Interpretation
+in
+Jewellery
+The goal ofintranslating
+4.1. Interpretation
+Jewellery a sculpture into a jewellery collection was to understand
+goal ofand
+translating
+sculpture
+jewellery
+collection
+to understand
+the The
+monument
+translateaits
+concept into a design
+piece
+made ofwas
+a different
+material,the
+of
+translating
+sculpture
+into
+a jewellery
+toInunderstand
+butThe
+withgoal
+the
+same
+purpose:
+to communicate
+withpiece
+the collection
+viewer
+user.
+addition
+monument
+and
+translate
+itsaconcept
+into
+a design
+made oforawas
+different
+material,tothe
+but
+monument
+andpurpose:
+translate to
+itscommunicate
+concept into awith
+design
+made
+of a In
+different
+material,
+but
+with the same
+the piece
+viewer
+or user.
+addition
+to creating
+with
+the same
+purpose:
+to communicate
+the viewer to
+or create
+user. In
+addition
+to products
+creating
+miniature
+replicas
+of works
+of art, it waswith
+also interesting
+new
+creative
+miniature
+replicas
+of
+works
+of
+art,
+it
+was
+also
+interesting
+to
+create
+new
+creative
+products
+that art galleries could offer as part of the sales programme. In this way, we have reinterthat
+art galleries
+could
+offer as part of the sales
+programme.
+In this way, wejewellery.
+have reinterpreted
+one artistic
+field—sculpture—into
+another
+artistic field—original
+The
+preted one artistic field—sculpture—into another artistic field—original jewellery. The
+
+Appl. Sci. 2022, 12, 8445
+
+13 of 17
+
+creating miniature replicas of works of art, it was also interesting to create new creative
+products that art galleries could offer as part of the sales programme. In this way, we have
+reinterpreted one artistic field—sculpture—into another artistic field—original jewellery.
+The new technologies of 3D printing from new materials, especially metal alloys, are ideal
+for the production of jewellery, whether one-offs or micro-series, due to their precision and
+material quality.
+The design process began with the study of the two selected sculptures, which were
+analysed from visual, conceptual, artistic and production points of view, to then explore
+their interpretation in a jewellery collection.
+In addition, the study of contemporary jewellery design was important. Therefore,
+we focused on conceptual jewellery design, where the value lies in the thought process
+ppl. Sci. 2022, 12, x FOR PEER REVIEW
+13 of 17 jewellery
+or concept of a piece rather than the materials or forms used. For conceptual
+designers, the intent of a piece of jewellery is to provoke and stimulate reactions in the
+wearers and viewers.
+design
+process
+begins
+initialofsketches
+of design
+The designThe
+process
+begins
+with
+initialwith
+sketches
+design ideas.
+Theideas.
+shapeThe
+andshape
+size ofand size of
+the must
+jewellery
+mustthe
+consider
+shape
+of the
+human
+and beas
+adjusted
+as necessary.
+the jewellery
+consider
+shape the
+of the
+human
+body
+and body
+be adjusted
+necessary.
+The
+process continues
+with 3D modelling
+of theusing
+jewellery
+using the
+Blender program.
+The process
+continues
+with 3D modelling
+of the jewellery
+the Blender
+program.
+Once the3D
+detailed
+models
+of thewere
+jewellery
+werethey
+designed,
+they
+had to for
+be prepared
+Once the detailed
+models3D
+of the
+jewellery
+designed,
+had to be
+prepared
+for
+3D
+printing
+by
+defining
+their
+exact
+dimensions
+and
+preparing
+them
+with
+3D printing by defining their exact dimensions and preparing them with the chosen tech-the chosen
+technology.
+Theof3D
+of the
+jewellery
+created are
+in Blender
+shown12.
+in Figure
+nology. The
+3D models
+themodels
+jewellery
+created
+in Blender
+shown are
+in Figure
+The 12. The
+weight
+of
+the
+jewellery
+also
+had
+to
+be
+considered.
+weight of the jewellery also had to be considered.
+
+Figure 12. Three-dimensional models of jewellery created in Blender.
+Figure 12. Three-dimensional models of jewellery created in Blender.
+
+Two different printing technologies have been used for 3D printing: Fused Deposition Modelling (FDM) technology and Selective Laser Melting (SLM). The latter technology was used to print the jewellery with metal powder. The jewellery, based on the Transition sculpture, was printed using FDM technology with a polymer containing 40% recycled wood (Figure 13). The texture is rougher, and the colour is reminiscent of light wood.
+
+Appl. Sci. 2022, 12, 8445
+
+14 of 17
+
+Two different printing technologies have been used for 3D printing: Fused Deposition
+Modelling (FDM) technology and Selective Laser Melting (SLM). The latter technology
+was used to print the jewellery with metal powder. The jewellery, based on the Transition
+sculpture, was printed using FDM technology with a polymer containing 40% recycled
+wood (Figure 13). The texture is rougher, and the colour is reminiscent of light wood. When
+printing with this polymer, the choice of the angle of layer deposition is important to create
+differences in the gloss of the surface of the PLA filament. The perimeter of the filament
+used was 1.75 mm, and the layer thickness was 100 microns. The infill pattern was linear in
+the horizontal direction with an infill density of 40%. Each layer was printed with three
+outer walls. SLM technology with metal powder was used to print 14
+jewellery
+2, x FOR PEER REVIEW
+of 17 inspired
+by the Tower of Babel sculpture. This technology allows for the production of jewellery
+with final functionality (Figure 14). For this purpose, a 100 W laser metal printer, LPM100
+(Dentas, Maribor, Slovenija), and a metal powder alloy Co-Cr-Mo-W were used. The layer
+thickness
+was 100 micrometres.
+After printing
+with metal
+powder,
+the the
+surface
+of the object feels rough.
+Therefore,
+we sandblasted
+and, in some
+cases,
+polished
+jew-of the object
+feels rough. Therefore, we sandblasted and, in some cases, polished the jewellery.
+ellery.
+
+Figure 13. CollectionFigure
+of jewellery
+printedofwith
+polymer
+containing
+recycled
+wood (author:
+13. Collection
+jewellery
+printed
+with polymer
+containing
+recycled Katrin
+wood (author: KaVečerina).
+trin Večerina).
+
+Appl. Sci. 2022, 12, 8445
+
+15 of 17
+
+Figure 13. Collection of jewellery printed with polymer containing recycled wood (author: Katrin
+Večerina).
+
+Appl. Sci. 2022, 12, x FOR PEER REVIEW
+
+15 of 17
+
+Figure 14. A ring printed with metal powder (author: Kaja Bakan).
+Figure 14. A ring printed with metal powder (author: Kaja Bakan).
+
+Interpretative Animation
+4.2. Interpretative
+The interpretation process also included the production of 3D animations by placing
+sculptures in the story (following
+(following a short script proposal) and allowing users to
+digital sculptures
+sculpture
+in ainmore
+interactive
+and and
+engaging
+way.
+experience the
+the medium
+mediumby
+bypresenting
+presentingthe
+the
+sculpture
+a more
+interactive
+engaging
+TheseThese
+artisticartistic
+interpretations
+promotepromote
+and stimulate
+different different
+perspectives
+on the sculptures
+way.
+interpretations
+and stimulate
+perspectives
+on the
+of Forma viva
+and enrich
+cultural heritage
+in the
+Park ofinSculptures
+in
+sculptures
+of Forma
+viva the
+andexperience
+enrich theofexperience
+of cultural
+heritage
+the Park of
+Kostanjevica
+na
+Krki.
+As
+an
+interpretive
+animation,
+we
+present
+the
+example
+of
+the
+Tower
+Sculptures in Kostanjevica na Krki. As an interpretive animation, we present the example
+of the
+Babel.
+Theofanimation
+the original
+story
+of the story
+Towerofofthe
+Babel,
+placing
+the
+of
+Tower
+Babel. Thedepicts
+animation
+depicts the
+original
+Tower
+of Babel,
+sculpture
+in
+the
+desert
+landscape
+of
+the
+Middle
+East
+and
+explaining
+the
+origins
+of
+the
+placing the sculpture in the desert landscape of the Middle East and explaining the origins
+diversity
+of languages
+and human
+attempts
+to reachtoheaven
+on Earth,
+thewith
+addition
+of
+of
+the diversity
+of languages
+and human
+attempts
+reach heaven
+onwith
+Earth,
+the addramatic
+metallic materials,
+bright redbright
+textures,
+a dynamic
+circling
+around
+the
+dition
+of dramatic
+metallic materials,
+redand
+textures,
+and acamera
+dynamic
+camera
+circling
+sculpture,
+the confusion,
+and defeat. After
+a dramatic
+around
+thehighlighting
+sculpture, highlighting
+thedisappointment
+confusion, disappointment
+and defeat.
+Afterdisplay
+a draof
+confusion,
+the
+story
+and
+its
+interpretation
+are
+calmed
+by
+the
+presentation
+of
+a scene in
+matic display of confusion, the story and its interpretation are calmed by the presentation
+which
+the in
+sculpture
+is placed
+in aisnatural
+bringing peace
+and knowledge
+of
+a scene
+which the
+sculpture
+placed environment,
+in a natural environment,
+bringing
+peace and
+about
+the
+tower
+myth
+and
+its
+meaning.
+Figure
+15
+illustrates
+the
+processes
+of technological
+knowledge about the tower myth and its meaning. Figure 15 illustrates the
+processes of
+and interpretive
+toapproaches
+the Tower ofto
+Babel.
+technological
+andapproaches
+interpretive
+the Tower of Babel.
+
+Figure 15. The process of an interpretative approach for creation of 3D animation of the sculpture
+Figure 15. The process of an interpretative approach for creation of 3D animation of the sculpture
+“Tower of Babel”, Jon Oxman, 1978 (author of 3D animation: Jernej Kalin).
+“Tower of Babel”, Jon Oxman, 1978 (author of 3D animation: Jernej Kalin).
+
+Interpretive approaches also bring artistic and educational usability to the results.
+The possibility of interacting with sculptures is thus extended by researchers to users and
+to the realm of user experience, the introduction of multisensory (seeing, touching, hearing) digital and physical presentation media, and thus greater user engagement.
+
+Appl. Sci. 2022, 12, 8445
+
+16 of 17
+
+Interpretive approaches also bring artistic and educational usability to the results. The
+possibility of interacting with sculptures is thus extended by researchers to users and to
+the realm of user experience, the introduction of multisensory (seeing, touching, hearing)
+digital and physical presentation media, and thus greater user engagement.
+5. Conclusions
+The paper presents an interdisciplinary approach to the treatment of the FormaViva
+collection of wooden sculptures exhibited by the Božidar Jakac Gallery (Kostanjevica na
+Krki, Slovenia).
+The new technologies are not able to replace real artworks/sculptures, but they can
+significantly improve the way conservators examine, document, and assess their condition.
+Various 3D methods were applied to selected sculptures, which informed the documentation process that serves as the basis of planning preservation. Three-dimensional representations provide more comprehensive records of the physical structure and condition of
+the artworks at a given point in time (evidence of their history), which is needed prior to
+any intervention. Three-dimensional graphic presentations allow conservators to visualise
+certain data that are difficult to achieve with (traditional) 2D presentations, but their use
+requires new skills, knowledge, and additional equipment or the necessary collaboration
+with other experts, which is not always possible.
+Digitization also allows us to preserve at least information about those art objects
+that cannot be physically preserved for various reasons. High-quality data can be made
+available (digitally) to experts for research or to the public worldwide to promote artworks
+in various ways, respecting an artist’s intellectual property.
+Interpretive approaches, user-centered design approaches, and storytelling principles
+have been applied to 3D representations of statues created with photogrammetry and 3D
+modelling. The results are photorealistic renderings, interactive presentations (SketchFab
+3D viewer), 3D-printed reproductions, jewellery, and interpretive animations. These
+approaches open new ways of presenting the heritage of the wooden statues and, in
+particular, their digital conservation, which expands the possibilities for disseminating the
+research findings in the public space.
+The results of the research show that the procedures of graphic documentation on 3D
+models, innovatively introduced in 3D form on wooden heritage objects in this research,
+allow for a more detailed investigation of the original structural identity of the sculpture.
+This is especially important when artworks are in situ and post-processing the 3D object
+with two-dimensional recorded information becomes difficult. By analysing 3D graphic
+documents and incorporating 3D and interactive technologies (3D printing, interactive
+3D presentations), we expand the usability of cultural heritage objects and create new
+modalities of use (tactility, interactivity). By using interpretive techniques that resulted in
+jewellery and interpretive animations in our research, we not only breathe new life into the
+sculptures, but also enrich the stories of the sculptures with our own experiences of the
+sculptural work and the form and expressiveness of the sculptures.
+The story of the sculptures was told in an innovative way that has a great impact on
+the understanding and personification of the work of art.
+Author Contributions: Conceptualization, D.T., K.K., H.G.T. and T.N.K.; methodology, A.U. and
+D.M.; software, A.U. and A.S.; validation, M.V., H.G.T. and T.N.K.; investigation, T.T.P. and D.T.;
+resources, M.V. and D.M.; writing—original draft preparation, A.S., M.V., K.K., D.M., H.G.T. and
+T.N.K.; writing—review and editing, J.A., H.G.T. and T.N.K.; visualization, J.A., H.G.T. and T.N.K.;
+supervision, T.T.P., H.G.T. and T.N.K.; funding acquisition, H.G.T. All authors have read and agreed
+to the published version of the manuscript.
+Funding: This research was co-funded by the European Union’s Erasmus+ program, KA203—
+Strategic Partnerships for Higher Education and by the Slovenian Research Agency (Program P2-0213
+Textiles and Ecology).
+Institutional Review Board Statement: Not applicable.
+
+Appl. Sci. 2022, 12, 8445
+
+17 of 17
+
+Informed Consent Statement: Not applicable.
+Data Availability Statement: Not applicable.
+Acknowledgments: We would like to thank our colleagues and project partners from Božidar Jakac
+Art Museum, Estonian Academy of Arts (Department of Cultural Heritage and Conservation), and
+Academy of Fine Arts Zagreb (Department of Art Conservation and Restoration), who greatly helped
+us with their insights and expertise in conducting the research. We would like to thank all the first and
+second level students of Graphic and Media Technology, Graphic and Interactive Communication,
+and Textile and Fashion Design, with whom we collaborated with during the three years of the project
+in the subjects of Digital Design, Basics of 3D Modelling, and Advanced 3D Computer Graphics and
+Visualizations, and whose work contributed to the excellent results of the project. Working with them
+was the essence of the project.
+Conflicts of Interest: The authors declare no conflict of interest.
+
+References
+1.
+2.
+
+3.
+4.
+5.
+6.
+7.
+
+8.
+9.
+
+10.
+11.
+12.
+13.
+14.
+
+15.
+16.
+17.
+18.
+19.
+20.
+
+Ocón, D. Digitalising endangered cultural heritage in Southeast Asian cities: Preserving or replacing? Int. J. Herit. Stud. 2021, 27,
+975–990. [CrossRef]
+Tschirschwitz, F.; Büyüksalih, G.; Kersten, T.P.; Kan, T.; Enc, G.; Baskaraca, P. Virtualising an Ottoman fortress–laser scanning and
+3D modelling for the development of an interactive, immersive virtual reality application. Int. Arch. Photogramm. Remote Sens.
+Spat. Inf. Sci. 2019, XLII-2/W9, 723–729. [CrossRef]
+Balletti, C.; Ballarin, M.; Guerra, F. 3D printing: State of the art and future perspectives. J. Cult. Herit. 2017, 26, 172–182. [CrossRef]
+Lor, P.J.; Britz, J.J. An ethical perspective on political-economic issues in the long-term preservation of digital heritage. J. Am. Soc.
+Inf. Sci. Technol. 2012, 63, 2153–2164. [CrossRef]
+Vecco, M. A definition of cultural heritage: From the tangible to the intangible. J. Cult. Herit. 2010, 11, 321–324. [CrossRef]
+Ballarin, M.; Balletti, C.; Vernier, P. Replicas in cultural heritage: 3D printing and the museum experience. Int. Arch. Photogramm.
+Remote Sens. Spat. Inf. Sci. 2018, 42, 55–62. [CrossRef]
+Allard, T.; Sitchon, M.; Sawatzky, R.; Hoppa, R. Use of hand-held laser scanning and 3D printing for creation of a museum
+exhibit. In Proceedings of the 6th International Symposium on Virtual Reality, Archaelogy and Cultural Heritage, Pisa, Italy,
+8–11 November 2005.
+Sargentis, G.F.; Frangedaki, E.; Chiotinis, M.; Koutsoyiannis, D.; Camarinopoulos, S.; Camarinopoulos, A.; Lagaros, N.D. 3D
+Scanning/Printing: A Technological Stride in Sculpture. Technologies 2022, 10, 9. [CrossRef]
+Tucci, G.; Guidi, G.; Ostuni, D.; Costantino, F.; Pieraccini, M.; Beraldin, J.A. Photogrammetry and 3d scanning: Assessment of
+metric accuracy for the digital model of danatello’s maddalena. In Proceedings of the Workshop on 3D Digital Imaging and
+Modeling, Quebec City, QC, Canada, 28 May–1 June 2001; pp. 20–28.
+Kapitany, K.; Somogyi, A.; Barsi, A. Inspection of a medieval wood sculpture using computer tomography. Int. Arch. Photogramm.
+Remote Sens. Spat. Inf. Sci 2016, XLI-B5, 287–291. [CrossRef]
+Arbace, L.; Sonnino, E.; Callieri, M.; Dellepiane, M.; Fabbri, M.; Idelson, A.I.; Scopigno, R. Innovative uses of 3D digital
+technologies to assist the restoration of a fragmented terracotta statue. J. Cult. Herit. 2013, 14, 332–345. [CrossRef]
+Henriques, F.; Bailão, A.; Rocha, J.; Costa, J. Restoration of an 18th century frame: 3D modelling, printing and matching color of
+decorative flowers elements. Ge-Conservacion 2002, 18, 313–322. [CrossRef]
+Wachowiak, M.J.; Karas, B.V. 3D scanning and replication for museum and cultural heritage applications. J. Am. Inst. Conserv.
+2009, 48, 141–158. [CrossRef]
+Pelosi, C.; Calienno, L.; Fodaro, D.; Borrelli, E.; Rubino, A.R.; Sforzini, L.; Monaco, A.L. An integrated approach to the conservation
+of a wooden sculpture representing Saint Joseph by the workshop of Ignaz Günther (1727–1775): Analysis, laser cleaning and 3D
+documentation. J. Cult. Herit. 2016, 17, 114–122. [CrossRef]
+Knudson, D.M.; Cable, T.T.; Beck, L. Interpretation of Cultural and Natural Resources; Venture Publishing, Inc.: State College, PA,
+USA, 1995.
+Jameson, J.H.; Baugher, S. Creating Participatory Dialogue in Archaeological and Cultural Heritage Interpretation: Multinational
+Perspectives; Springer: Berlin/Heidelberg, Germany, 2022.
+Staiff, R. Re-Imagining Heritage Interpretation: Enchanting the Past-Future; Routledge: England, UK, 2016.
+Borissova, V. Cultural heritage digitization and related intellectual property issues. J. Cult. Herit. 2018, 34, 145–150. [CrossRef]
+Ramm, R.; Heinze, M.; Kühmstedt, P.; Christoph, A.; Heist, S.; Notni, G. Portable solution for high-resolution 3D and color texture
+on-site digitization of cultural heritage objects. J. Cult. Herit. 2022, 53, 165–175. [CrossRef]
+Moore, M. Conservation documentation and the implications of digitisation. J. Conserv. Mus. Stud. 2001, 7, 6–10. [CrossRef]
+
+

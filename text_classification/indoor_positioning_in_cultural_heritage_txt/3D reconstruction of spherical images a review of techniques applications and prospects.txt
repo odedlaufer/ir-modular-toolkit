@@ -1,0 +1,2505 @@
+Geo-spatial Information Science
+ISSN: (Print) (Online) Journal homepage: www.tandfonline.com/journals/tgsi20
+3D reconstruction of spherical images: a review of
+techniques, applications, and prospects
+San Jiang, Kan You, Yaxin Li, Duojie Weng & Wu Chen
+To cite this article: San Jiang, Kan You, Yaxin Li, Duojie Weng & Wu Chen (2024) 3D
+reconstruction of spherical images: a review of techniques, applications, and prospects, Geo-
+spatial Information Science, 27:6, 1959-1988, DOI: 10.1080/10095020.2024.2313328
+To link to this article:  https://doi.org/10.1080/10095020.2024.2313328
+© 2024 Wuhan University. Published by
+Informa UK Limited, trading as Taylor &
+Francis Group.
+Published online: 08 Mar 2024.
+Submit your article to this journal 
+Article views: 2406
+View related articles 
+View Crossmark data
+Citing articles: 5 View citing articles 
+Full Terms & Conditions of access and use can be found at
+https://www.tandfonline.com/action/journalInformation?journalCode=tgsi20
+3D reconstruction of spherical images: a review of techniques, applications, 
+and prospects
+San Jiang
+a,b,c, Kan Youa, Yaxin Li
+b, Duojie Wengb and Wu Chen
+b
+aSchool of Computer Science, China University of Geosciences, Wuhan, China; bDepartment of Land Surveying and Geo-Informatics, The 
+Hong Kong Polytechnic University, Hong Kong, China; cHubei Luojia Laboratory, Wuhan University, Wuhan, China
+ABSTRACT
+3D reconstruction plays an increasingly important role in modern photogrammetric systems. 
+Conventional satellite or aerial-based remote sensing (RS) platforms can provide the necessary 
+data sources for the 3D reconstruction of large-scale landforms and cities. Even with low- 
+altitude Unmanned Aerial Vehicles (UAVs), 3D reconstruction in complicated situations, such as 
+urban canyons and indoor scenes, is challenging due to frequent tracking failures between 
+camera frames and high data collection costs. Recently, spherical images have been extensively 
+used due to the capability of recording surrounding environments from one image. In contrast 
+to perspective images with limited Field of View (FOV), spherical images can cover the whole 
+scene with full horizontal and vertical FOV and facilitate camera tracking and data acquisition in 
+these complex scenes. With the rapid evolution and extensive use of professional and con-
+sumer-grade spherical cameras, spherical images show great potential for the 3D modeling of 
+urban and indoor scenes. Classical 3D reconstruction pipelines, however, cannot be directly 
+used for spherical images. Besides, there exist few software packages that are designed for the 
+3D reconstruction from spherical images. As a result, this research provides a thorough survey 
+of the state-of-the-art for 3D reconstruction from spherical images in terms of data acquisition, 
+feature detection and matching, image orientation, and dense matching as well as presenting 
+promising applications and discussing potential prospects. We anticipate that this study offers 
+insightful clues to direct future research.ARTICLE HISTORY 
+Received 3 August 2023  
+Accepted 29 January 2024 
+KEYWORDS 
+Spherical image; 
+equirectangular projection; 
+3D reconstruction; structure 
+from motion; simultaneous 
+localization and mapping; 
+dense matching; image 
+matching
+1.Introduction
+3D reconstruction is an increasingly critical module in 
+recent photogrammetric systems. It has been exten -
+sively utilized for constructing digital cities (Xiong 
+et al. 2015 ), documenting cultural heritages 
+(Murtiyoso and Grussenmeyer 2017 ), and inspecting 
+tunnel cracks (Liao et al. 2022 ), etc. 3D reconstruction 
+can be implemented by using varying instruments, e.g. 
+Light Detection and Ranging (LiDAR) scanners, Time 
+of Flight (TOF) sensors, and optical cameras. The 
+popularity of image sensors and the development of 
+processing techniques have led to the vast usage of 
+image-based 3D reconstruction techniques among all 
+available sensors in the field of photogrammetry and 
+remote sensing (RS), such as satellite and aerial-based 
+images for urban buildings (Zhang et al. 2022 ).
+With the increasing demands for fine-scale model -
+ing, such as building facades and indoor environ -
+ments, recent years have witnessed explosive 
+development of 3D reconstruction based on low- 
+altitude unmanned aerial vehicles (UAV) (Jiang, 
+Jiang, and Wang 2021 ; Li et al. 2023 ) or terrestrial 
+mobile mapping systems (MMS) (Puente et al. 2013 ). Compared with satellite and airborne-based RS plat-
+forms, these near-ground platforms have the advan -
+tages of flexible instrument integration and multi-view 
+imaging, which can record the contents that cannot be 
+observed from high altitudes. Therefore, UAV and 
+MMS have been used as essential RS platforms for 
+data acquisitions in urban and indoor scenes 
+(Anguelov et al. 2010 ).
+Perspective cameras are the most widely used sen-
+sors for image-based 3D reconstruction. However, due 
+to the characteristics of data acquisition in street-view 
+and indoor environments, two main issues occur for 
+perspective cameras with their limited FOV (Field of 
+View) (da Silveira and Jung 2019 ). On the one hand, 
+surrounding environments are different from aerial 
+photogrammetry. In street-view and indoor environ -
+ments, the trajectory of data acquisitions is limited by 
+street structures and indoor layouts, which causes 
+sudden viewpoint changes at turning points and 
+track failure between camera frames (Ji et al. 2020 ). 
+On the other hand, the observation regions are 
+extended from the single-direction records in aerial 
+photogrammetry to the omnidirectional acquisitions 
+CONTACT Wu Chen 
+ wu.chen@polyu.edu.hkGEO-SPATIAL INFORMATION SCIENCE                
+2024, VOL. 27, NO. 6, 1959–1988 
+https://doi.org/10.1080/10095020.2024.2313328
+© 2024 Wuhan University. Published by Informa UK Limited, trading as Taylor & Francis Group.  
+This is an Open Access article distributed under the terms of the Creative Commons Attribution License (http://creativecommons.org/licenses/by/4.0/ ), which permits 
+unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited. The terms on which this article has been published allow the posting 
+of the Accepted Manuscript in a repository by the author(s) or with their consent.
+in street-view and indoor environments. It requires 
+more images at each camera exposure position and 
+increases acquisition time consumption (Zhang et al. 
+2016 ). Thus, effective imaging techniques are needed 
+for 3D reconstruction in street-view and indoor 
+situations.
+Spherical cameras, also termed 360 cameras or 
+omnidirectional cameras, can record all surrounding 
+environments using one camera exposure. In contrast 
+to traditional perspective cameras, recorded images of 
+spherical cameras can cover the whole scene, whose 
+FOV ranges are 360° and 180° in horizontal and ver-
+tical directions, respectively. Due to the advantage of 
+spherical cameras, spherical images have been adopted 
+for 3D modeling in street-view and indoor environ -
+ments (Bruno and Roncella 2019 ; Fangi et al. 2018 ). In 
+addition, low-cost consumer-grade spherical cameras 
+like the Insta360 and Ricoh theta (Gao et al. 2022 ) are 
+growing in popularity, which greatly simplifies data 
+acquisition and encourages their use in a variety of 
+fields, such as damaged building inspection (Jhan, 
+Kerle, and Rau 2022 ), urban environment analysis 
+(Biljecki and Ito 2021 ), urban geo-localization 
+(Cheng et al. 2018 ; Wen et al. 2020 ), and heritage 
+modeling (Fangi and Nardinocchi 2013 ). Thus, sphe -
+rical images have become one of the important data 
+sources for 3D reconstruction, especially for street- 
+view and indoor environments (Kang et al. 2020 ), as 
+illustrated in Figure 1.
+Spherical images, however, have different charac -
+teristics when compared with traditional perspective 
+images in the context of image-based 3D reconstruc -
+tion (Pagani and Stricker 2011 ). One of the most 
+important differences is the camera imaging model. 
+Consequently, 3D reconstruction from spherical 
+images has technique differences from perspective images. In addition, fewer commercial and open- 
+source solutions are designed for the 3D reconstruc -
+tion from spherical images when compared with per-
+spective images. Therefore, this study aims to give 
+a review of reported techniques related to 3D recon -
+struction from spherical images. The main contribu -
+tions of this study include: (1) we give a systematic and 
+extensive review of recent techniques for 3D recon -
+struction from spherical images; (2) we present the 
+most promising applications related to 3D reconstruc -
+tion from spherical images; and (3) we also conclude 
+the prospects for 3D reconstruction from spherical 
+images from the aspects of technique development 
+and application promotion. The purpose of this 
+study is to provide useful clues to guide further 
+research for 3D reconstruction from spherical images.
+This paper is organized as follows. The state-of-the- 
+art of data acquisition, image matching, image orien -
+tation, and dense matching for 3D modeling of sphe -
+rical images is reviewed in Section 2. Section 3 
+examines prospective applications for 3D reconstruc -
+tion from spherical images, which is followed by the 
+primary prospects presented in Section 4. Finally, 
+Section 5 concludes this work and future studies.
+2.Techniques
+This section presents the recent techniques for 3D 
+reconstruction from spherical images. The main work -
+flow for the photogrammetric 3D reconstruction is first 
+introduced, followed by data acquisition with varying 
+spherical cameras, image matching for establishing cor-
+respondences, image orientation for estimating camera 
+poses, and dense matching for producing point clouds. 
+The details are listed as follows.
+Figure 1. 3D reconstruction based on spherical images. (a) A spherical image and one enlarged region for detail comparison; (b) 
+The sparse reconstruction model; and (c) The dense reconstruction model after texture mapping.1960
+ S. JIANG ET AL.
+2.1. Main workflow
+According to the literature, there are five significant 
+steps in the workflow of image-based 3D reconstruc -
+tion, i.e. data acquisition using photogrammetric sys-
+tems, image matching to establish correspondences, 
+image orientation to determine camera poses, dense 
+matching to produce point clouds, and point cloud 
+meshing and texturing. Spherical images differ in the 
+camera imaging model and image representation for-
+mat compared with classical perspective images, 
+which causes extra considerations in the first four 
+steps. Thus, this study reviews data acquisition, 
+image matching, image orientation, and dense match -
+ing, and the main workflow of 3D reconstruction for 
+spherical images is presented in Figure 2.
+2.2. Data acquisition
+Data acquisition is the first step in the main workflow 
+of 3D reconstruction for spherical images. In this 
+section, three topics related to data acquisition are 
+presented, i.e. spherical cameras, image representa -
+tions, and acquisition platforms. The details are 
+shown in the following subsections.
+2.2.1. Spherical camera
+The development of spherical cameras can be traced 
+back to two centuries ago (Luhmann 2004 ), which are 
+invented for the documentation of ancient buildings 
+and cultural heritages. For the purpose of surveying 
+and mapping, spherical cameras were first used in 
+close-range photogrammetry, in which spherical 
+images were usually captured by rotating camera 
+around the projection center or stitching overlapped 
+images through image matching. For aerial photo -
+grammetry, spherical cameras are designed as an inte-
+grated instrument that consists of several well- 
+calibrated perspective cameras.In recent years, the performance of spherical cam-
+eras has been greatly improved by the progress in the 
+fields of camera sensors and image processing techni -
+ques, e.g. high-resolution digital cameras and high- 
+precision stitching algorithms. Based on the design 
+principle, spherical cameras can be divided into three 
+major categories, i.e. dioptric cameras, catadioptric 
+cameras, and polydioptric cameras (Gao et al. 2022 ; 
+Scaramuzza and Ikeuchi 2014 ):
+●Dioptric cameras use a particular lens group to 
+refract rays that compress the direction of the 
+light entering the subsequent lens group. The 
+obtained FOV reaches 360° in the horizontal 
+direction and is larger than 90° in the vertical 
+direction. Thus, two lenses combined back to back 
+can capture the full surroundings. Figure 3(a) is an 
+example of the fisheye camera.
+●Catadioptric cameras utilize the combination of 
+a lens group for ray refraction and a special mir-
+ror for ray reflection, e.g. a parabolic, hyperbolic, 
+or elliptical mirror, with a standard camera to 
+achieve the FOV of 360° and greater than 100° 
+in the horizontal and vertical direction, respec -
+tively. Compared with dioptric cameras, this 
+design can reflect the surrounding light into the 
+subsequent lens. Figure 3(b) is an illustration of 
+the catadioptric camera.
+●Polydioptric cameras adopt multiple dioptric 
+cameras to obtain a real spherical FOV, i.e. 360° 
+and 180° in the horizontal and vertical directions, 
+respectively, in which dioptric cameras have 
+overlapping FOV to facilitate image stitching. 
+Figure 3(c) shows an example of a polydioptric 
+camera comprising 16 cameras.
+Among the three categories, polydioptric cameras 
+have become the most extensively used spherical cam-
+eras for both professional and consumer-grade appli -
+cations because of two main reasons. On the one hand, 
+Figure 2. The main workflow of 3D reconstruction for spherical images.GEO-SPATIAL INFORMATION SCIENCE
+ 1961
+it can provide the full omnidirectional imaging tech-
+nique; on the other hand, recorded images have extre -
+mely high resolutions due to the use of multiple 
+cameras. Table 1 presents the detailed configurations 
+of well-known spherical cameras, including the con-
+sumer-grade cameras, e.g. the Ricoh Theta series and 
+Insta360 Sphere, and the professional cameras, e.g. 
+Insta360 Pro2 and Teledyne FLIR Ladybug5+. Except 
+for Weiss AG Civetta, all the other spherical cameras 
+are designed by using the polydioptric mechanism. 
+For consumer-grade cameras, the lens number is 
+usually configured as 2 or 3. The illustration of the 
+cameras is presented in Figure 4. In general, there are 
+two ways to increase the resolution of recorded 
+images, i.e. increasing the number of integrated cam-
+eras or exchanging the style of image recording. The 
+former has been used in Panono and Ladybug5+, 
+which enables instant image recording, e.g. equipped 
+with an MMS system. The latter has been used in 
+Weiss AG Civetta to obtain extremely high resolution. 
+This strategy, however, sacrifices the capability of 
+instant acquisition, and it is more suitable for site- 
+based image recording.2.2.2. Image representation
+Spherical images record the surrounding environ -
+ments at each camera exposure position. In contrast 
+to the 2D plane representation of perspective images, 
+Figure 5 presents the most widely used three types of 
+image representation methods (da Silveira et al. 2022 ).
+●The first one is the spherical representation. 
+Objects in surrounding environments are mapped 
+onto a sphere, as presented in Figure 5(a). 
+Spherical representation is useful for panoramic 
+navigation, which has been widely used for street- 
+view navigation, e.g. Google and Baidu Street 
+View. Spherical representation, however, is unsui -
+table for image processing and hardware storage.
+●Equirectangular images, which are produced by 
+the equirectangular projection (ERP), are a com -
+mon representation, as shown in Figure 5(b) . 
+Similar to perspective images, equirectangular 
+images can be considered typical images and 
+processed by existing algorithms, e.g. feature 
+extraction and matching (Pagani and Stricker 
+2011 ). Because of the projection from 3D sphere 
+Figure 3. The design principle of three commonly used spherical cameras. (a) Dioptric camera; (b) Catadioptric camera; and (c) 
+Polydioptric camera (Gao et al. 2022 ).
+Table 1. The detailed configurations of well-known spherical cameras. Noticeably, the resolution for Ladybug5+ is the image 
+dimension of an individual camera.
+Camera Manufacturer PrincipleNumber of 
+lensesResolution 
+(pixel) Weight (kg) Professional
+Gear360 Samsung polydioptric 2 4096×2048 0.13 ×
+Theta Z1 Samsung polydioptric 2 6720×3360 0.18 ×
+Theta X Ricoh polydioptric 2 11008×5504 0.17 ×
+Max 360 Ricoh polydioptric 3 5760×2880 0.16 ×
+Sphere GoPro polydioptric 2 6080×3040 0.19 ×
+Pro 2 Insta360 polydioptric 6 7680×7680 1.55 √
+Panono Insta360 polydioptric 36 16000×8000 0.48 √
+Ladybug5+ Professional360 polydioptric 6 2048×2464* 3.00 √
+Civetta Teledyne FLIR dioptric / 230 M 5.70 √1962
+ S. JIANG ET AL.
+to 2D plane, geometric distortions are introduced 
+to equirectangular images, especially for the 
+regions near sphere poles.
+●The third image representation, i.e. cubic-map 
+representation (CMP), is created to alleviate 
+the distortion in equirectangular projection, 
+which converts one spherical image into six 
+concentric perspective images, as presented in 
+Figure 5(c). Each cubic-map image can be 
+considered as one typical perspective image 
+whose projection distortions have been 
+removed. However, this representation would decrease the overlap region between frames 
+and increase the image number for image 
+orientation.
+Since the simple and typical format, equirectangular 
+representation has been extensively adopted for sphe -
+rical images, including well-known open-source and 
+commercial software packages, e.g. OpenMVG 
+(Moulon et al. 2017 ), Agisoft Metashape (2023 ), and 
+Pix4dMapper (2023 ). Thus, this review pays more 
+attention to the equirectangular representation of 
+spherical images.
+Figure 4. The illustration of the well-known spherical cameras. (a) Gear360; (b) Theta Z1; (c) Theta X; (d) Max 360; (e) Sphere; 
+(f) Pro 2; (g) Panono; (h) Ladybug5+; (i) Civetta.
+Figure 5. Three typical representation for spherical images: (a) Spherical representation; (b) Equirectangular representation; (c) 
+Cubic-map representation.GEO-SPATIAL INFORMATION SCIENCE
+ 1963
+2.2.3. Acquisition platform
+Depending on their individual properties, spherical 
+cameras can be operated manually or with various 
+remote sensing platforms. The most extensively 
+adopted platforms can be moving vehicles (Anguelov 
+et al. 2010 ), ground-fixed tripods (Herban et al. 2022 ), 
+and handheld poles. These platforms record images 
+along urban streets or around center landmarks, as 
+presented in Figure 6(a,b) .
+In recent years, UAV platforms are also 
+designed to accommodate spherical cameras 
+(Zhang et al. 2020 ), which can record spherical 
+images from relatively high altitudes, as shown in 
+Figure 6(c). Compared with spherical cameras for 
+the other two platforms, e.g. Ladybug5+ for mov -
+ing vehicles and Civetta for ground-fixed tripods,  spherical cameras for UAVs are strict to the 
+weight and dimension of sensors due to the lim-
+ited payload weight and flight endurance. In addi -
+tion, spherical cameras are required instant 
+recording ability when mounted on moving vehi -
+cles and UAV platforms, which would restrict the 
+resolution of recorded images. On the contrary, 
+spherical cameras designed for ground-fixed tri-
+pods can record images with extremely high spa-
+tial resolution. Figure 7 shows the images recorded 
+by the Weiss AG Civetta spherical camera, from 
+which details can be observed from both outdoor 
+and indoor recorded spherical images. In the lit-
+erature, there exist some useful and public datasets 
+captured by sphere cameras, which is presented in 
+Table 2.
+Figure 6. Different acquisition platforms and corresponding sample images. (a) Moving vehicles (Anguelov et al. 2010 ); 
+(b) Ground-fixed tripods; and (c) Unmanned aerial vehicles.
+Figure 7. Spherical images recorded by the Weiss AG Civetta camera (2023 ). (a) The example for the outdoor scene; and (b) The 
+example for the indoor scene.1964
+ S. JIANG ET AL.
+2.3. Image matching
+Image matching is the second step in the main work -
+flow of 3D reconstruction for spherical images, which 
+aims to establish correspondence matches between 
+image pairs with high inlier ratio and even spatial 
+distribution. In the literature, image matching has 
+been a well-studied topic in the fields of photogram -
+metry and computer vision, which can be verified 
+from earlier hand-crafted algorithms to recent learn -
+ing-based networks (Chen, Rottensteiner, and Heipke 
+2020 ; Hartmann, Havlena, and Schindler 2016 ; Heipke 
+and Rottensteiner 2020 ; Jiang et al. 2021 ; Ma et al. 
+2021 ). In this section, we focus on reported methods 
+that can be utilized for spherical images. Table 3 lists 
+the algorithms for image matching.
+2.3.1. Feature detection and description
+The purpose of feature detection and description is to 
+detect distinguishable keypoints that can be found in overlapped images and calculate their robust descrip -
+tors that are invariant to the changes in scale, view -
+point, and illumination. Due to the equirectangular 
+projection of spherical images, more serious geometric 
+distortions disturb feature detection and description. 
+According to the strategy used, existing methods can 
+be divided into four groups, including classical meth -
+ods, 2D plane-based methods, 3D sphere-based meth -
+ods, and learning-based methods.
+2.3.1.1. Classical methods. Classical feature detec -
+tion and description methods can also be applied 
+to equirectangular images because of two main rea-
+sons. On the one hand, image regions near the 
+sphere equator have relatively small distortions 
+after equirectangular projection; on the other 
+hand, most data acquisition campaigns are con-
+ducted by fixing the roll and pitch angles of sphere 
+cameras, such as cameras mounted on moving Table 2. A list of benchmark datasets for spherical images.
+Name Year Purpose Website
+3D60 2021 Dense matching https://vcl3d.github.io/Pano3D
+It provides composited and realistically scanned 3D datasets of interior spaces that are used to generate high-quality, 
+densely annotated spherical panoramas Albanis et al. (2021 ).
+Re-rendering subsets of 
+Stanford 2D-3D and 
+Matterpor2020 Dense matching https://albert100121.github.io/360SD-Net-Project-Page/
+It contains re-rendered subsets of the Stanford 2D-3D and Matter-port3D data sets, which consists of 3,577 1024 x 512 
+stereoscopic ERP images N. Wang et al. (2020 ).
+Structured3D 2020 Structured 3D modeling https://structured3d-dataset.org/
+It provides 196,515 frames from 3,500 synthetic, photo-realistic house designs, and each scene has 1024 × 512 ERP images 
+at three different light conditions and camera poses J. Zheng et al. (2020 ).
+Re-rendering subset of 
+Stanford 2D-3D2019 Dense matching https://github.com/pokonglai/ods-net
+It provides a re-rendered subset of the Stanford 2D-3D dataset. It provides about 50,000 256 × 128 stereo ERP images 
+separated by a 6.5cm horizontal baseline (Lai et al. 2019 ).
+PanoSUNCG 2018 Camera motion and depth https://fuenwang.ml/project/360-depth/
+It provides about 25,000 images captured by SUNCG from 103 different scenes in five camera paths, including color, depth, 
+and rendering tracks F. Wang et al. (2018 ).
+Stanford 2D-3D 2017 Dense matching http://3dsemantics.stanford.edu
+It contains 1,413 full Field of View indoor realistic capture of six wide range of areas, which provides depth, normal, and 
+semantic mapping Armeni et al. (2017 ).
+Matterport3D 2017 Dense matching https://niessner.github.io/Matterport/
+It provides 10,800 CMP panoramas from 90 real building scale scenes, including depth, camera position, and semantic 
+segmentation J. Zheng et al. (2020 ).
+Table 3. The algorithms for feature matching of spherical images.
+Name Language Year Website
+OmniCV C++ 2020 https://github.com/kaustubh-sadekar/OmniCV-Lib
+A computer vision library for omnidirectional cameras, e.g. dioptric, catadioptric and polydioptric cameras. It provides tools for format 
+conversion and image viewing.
+SPHORB C++ 2015 https://github.com/tdsuper/SPHORB
+A package based on a nearly regular hexagonal grid parametrization of the sphere geodesic grid, which adapts planar ORB to the 
+spherical domain Q. Zhao et al. (2015 ).
+SSIFT Matlab 2009 https://github.com/Artcs1/Keypoints
+It transforms the plane SIFT to spherical coordinates and proposes two descriptors for feature matching Cruz-Mota et al. (2012 ). Please 
+refer to the file SSIFT.m in this repository.
+Tangent Images Python 2020 https://github.com/meder411/Tangent-Images
+Distortion is alleviated by rendering the spherical image as a set of local planar image grids tangent to the subdivided icosahedron 
+Eder et al. (2020 ).
+UGSCNN Python 2019 https://github.com/maxjiang93/ugscnn
+A CNN network for spherical signals based on parameterized differential operators on unstructured grids C. Jiang et al. (2019 ).
+DEEPSPHERE Python 2020 https://github.com/deepsphere
+A graphical representation of a sampling sphere that achieves a controlled balance between efficiency and rotationally equivalent 
+variance Defferrard et al. (2019 ).
+S2CNN Python 2018 https://github.com/jonkhler/s2cnn
+A library for the rotation equivariant CNNs for spherical signals (e.g. omnidirectional images, signals on the globe) Cohen et al. (2018 ).
+SphereNet Python 2018 https://github.com/ChiWeiHsiao/SphereNet-pytorch
+A network that adjusts sampling positions of CNN kernels, which can transfer existing perspective networks to the omnidirectional 
+case Coors, Condurache, and Geiger (2018 ).GEO-SPATIAL INFORMATION SCIENCE
+ 1965
+vehicles for street-view images (Torii, Havlena, and 
+Pajdla 2009 ) or on fixed tripods for corridor photos 
+(Herban et al. 2022 ). These two conditions ensure 
+the repeatability of extracted features on equirectan -
+gular images.
+In the literature, classical feature detectors have 
+been applied to equirectangular images, including 
+floating and binary feature descriptors (Bay et al. 
+2008 ; Lowe 2004 ; Morel and Yu 2009 ; Rublee et al. 
+2011 ). Torii, Havlena, and Pajdla (2009 ) used SURF 
+(Speeded-up Robust Features) to extract features from 
+street-view images and conduct image orientation 
+based on SfM (Structure from Motion). Thus, existing 
+algorithms can be directly utilized for equirectangular 
+images, which can achieve high efficiency without 
+extra computational costs. Figure 8 gives an example 
+of feature extraction using the classical SIFT.
+2.3.1.2. 2D plane-based methods. When spherical 
+images are rotated around the X (pitch angle) or 
+Z (roll angle) axis, the image appearances near the 
+sphere equator would change obviously, which causes 
+serious geometric distortions. For visual analysis, 
+Figure 8 illustrates three images that are captured by 
+rotating around the X axis with the angle of 0°, 45°, and 75°, respectively. It is clearly shown that geometric 
+distortions increase dramatically with the increase of 
+rotation angles. Because of the introduced distortions, 
+the number of correspondences decreases in these two 
+corresponding regions. Feature detection and descrip -
+tion must therefore receive more attention.
+In the field of photogrammetry, image rectification 
+has been widely used to decrease the influence of 
+geometric distortions on feature detection and 
+description (Jiang and Jiang 2017 ). Similar to the 
+rectification strategy, some research has been docu -
+mented for spherical images, which can be divided 
+into three main groups, i.e. global methods, local 
+methods, and semi-global methods.
+●Global methods aim to rectify the whole image, 
+and cubic-map representation has been the clas-
+sical strategy, as presented in Figure 5(c). For 
+example, Wang et al. (2018 ) proposed reproject -
+ing spherical images into cubic-map images for 
+feature detection and implementing a SLAM 
+(Simultaneous Localization and Mapping) sys-
+tem, termed CubemapSLAM.
+●Local methods aim to rectify local image regions 
+around detected feature points and calculate their 
+Figure 8. The influence of geometric distortion on feature matching using the classical SIFT. The value in each image indicates the 
+rotation angle around the X axis, and the yellow circles represent the matched feature points between the two images.
+Figure 9. The illustration of 2D plane-based methods. (a) Local methods based on the tangent plane projection of feature point 
+patches; (b) Semi-global methods based on the projection around the sphere equator region. Red shapes indicate detected 
+features.1966
+ S. JIANG ET AL.
+descriptors on the rectified image patches (Eder 
+et al. 2020 ; Chuang and Perng 2018 ), as presented 
+in Figure 9(a). In the work of Chuang and Perng 
+(2018 ), image patches around feature points are 
+projected to the tangent planes across these fea-
+ture points, and SURF descriptors are computed 
+from these patches with similar perspective 
+views. Although 2D plane-based methods are 
+based on a simple principle, extra time costs are 
+required in image rectification.
+●Semi-global methods are designed to reproject 
+a proportion of spherical images and conduct 
+feature detection on the rectified image region, 
+which is inspired by the truth that small distor -
+tions exist near the sphere equator, as presented 
+in Figure 9(b). Taira et al. (2015 ) proposed gen-
+erating three reprojected equirectangular images 
+by a rotation of 0°, 60°, and 120° around X axis, 
+respectively, and detecting features from the 
+equator regions in each rectified equirectangular 
+image.
+2.3.1.3. 3D sphere-based methods. In contrast to 
+image geometric rectification, some research starts 
+from scratch to design and implement algorithms for 
+feature detection and description of spherical images 
+(Cruz-Mota et al. 2012 ; Guan and Smith 2017 ; Q. Zhao 
+et al. 2015 ). The primary motivation is to avoid the high 
+computational costs consumed in image geometric rec-
+tification and decrease the influence of geometric dis-
+tortions introduced by equirectangular projection. 
+Naturally, the spherical representation is the optimal 
+solution instead of the equirectangular representation 
+used in the above-mentioned methods. Thus, existing 
+research exploits the spherical coordinate to design new 
+feature detection and description algorithms. The core 
+of these methods is how to construct the scale space 
+pyramid on spherical images (Arican and Frossard 
+2012 ). Like SIFT (Cruz-Mota et al. 2012 ), implemented 
+a spherical SIFT, termed SSIFT, which directly simu -
+lates image representation, scale space construction, 
+extreme point detection, and descriptor calculation in 
+the spherical coordinates, and shows better perfor -
+mance compared with classical SIFT. Inspired by this 
+work, others attempt to improve the efficiency of SSIFT 
+by replacing the time-consuming SIFT with binary 
+detectors and descriptors, such as SPHORB (Zhao 
+et al. 2015 ) and BRISKS (Guan and Smith 2017 ). In 
+a word, 3D sphere-based methods can avoid the geo-
+metric distortions in equirectangular images with the 
+sacrifice of efficiency due to the computation on the 
+sphere.
+2.3.1.4. Learning-based methods. Due to the power -
+ful representation learning ability, CNN (Convolutional 
+Neural Network) based deep learning networks have 
+been extensively used for feature detection and description. According to the work of Jiang et al. 
+(2021 ), existing networks can be divided into three 
+groups, i.e. joint feature and metric learning networks 
+(Han et al. 2015 ; Kumar BG, Carneiro, and Reid 2016 ; 
+Simo-Serra et al. 2015 ), separate detector and descriptor 
+learning networks (Luo et al. 2018 , 2019 ; Mishchuk 
+et al. 2017 ; Tian, Fan, and Wu 2017 ), and joint detector 
+and descriptor learning networks (DeTone, 
+Malisiewicz, and Rabinovich 2018 ; Dusmanu et al. 
+2019 ). For the first group, CNN models learn 
+a similarity function to predict image patch similarities 
+and integrate feature representation and matching 
+within the same network. For the second group, CNN 
+networks only learn feature representation, and feature 
+matching is conducted based on classical strategies, 
+such as the L2-norm Euclidean distance-based metric 
+between feature descriptors. For the third group, 
+trained models learn detectors and descriptors simulta -
+neously, which can cope with images recorded in vary-
+ing conditions. Similar to hand-crafted methods, 
+existing networks have been used for spherical images 
+by using pre-trained or finetuned models, as shown in 
+Figure 10(a) . For further details, readers can refer to 
+(Da Silveira and Jung 2017 ; Murrugarra-Llerena, da 
+Silveira, and Jung 2022 ).
+Due to inevitable distortions in sphere-to-plane 
+projection, CNN networks for perspective images 
+may obtain inaccurate results. To address this issue, 
+reported approaches in literature can be divided into 
+three groups, i.e. tangent projection methods, CNN 
+kernel shape resizing methods, and CNN sampling 
+point adjustment methods.
+●For the first one, similar to 2D plane-based meth -
+ods, equirectangular images are first projected to 
+undistorted tangent images (Eder et al. 2020 ) or 
+divided into quasi-uniform discrete images (Shan 
+and Li 2018 ), and then existing CNN networks 
+are applied to resulting images, as shown in 
+Figure 10(b) . Although these methods can 
+achieve high accurate predictions, they suffer 
+from high computational costs due to resampling 
+of 3D spherical images to 2D plane images.
+●For the second one, CNN networks are designed 
+to work on equirectangular images by adjusting 
+the CNN kernel shape (Coors, Condurache, and 
+Geiger 2018 ; Su and Grauman 2017 ; Zhao et al. 
+2018 ). In the work of (Su and Grauman 2017 ), 
+a network termed SPHCONV has been proposed, 
+which aims to produce results as the output of 
+applying perspective CNN networks to the corre -
+sponding tangent images. SPHCONV was 
+achieved by defining convolution kernels with 
+varying shapes for pixels in different image 
+rows, as illustrated in Figure 10(c) . Similarly, 
+(Su and Grauman 2019 ) proposed a kernel trans -
+former network (KTN) to learn spherical kernels GEO-SPATIAL INFORMATION SCIENCE
+ 1967
+by taking as input the latitude angle and source 
+kernels for perspective images.
+●For the third one, sampling points of CNN ker-
+nels are adjusted based on ERP sphere image 
+distortions instead of adjusting convolution ker-
+nel shape. For example, (Zhao et al. 2018 ) and 
+(Coors, Condurache, and Geiger 2018 ) designed 
+distortion-aware networks that sample non- 
+regular grid locations according to the distortions 
+of different pixels, as shown in Figure 10(d) . The 
+core idea is to determine sampling locations 
+based on the sphere projection of a regular grid 
+on the corresponding tangent plane. Due to reg-
+ular convolution kernels, these frameworks 
+enable the transfer between CNN models for 
+perspective and equirectangular images.
+2.3.2. Feature matching
+The purpose of feature matching is to search correspon -
+dences from two sets of feature descriptors. Generally, 
+feature matching is achieved by using nearest-neighbor 
+searching based on the L2-norm Euclidean distance 
+metric (Muja and Lowe 2009 ). In the literature, extensive 
+research has been reported for feature matching from the 
+aspects of efficiency acceleration and precision improve -
+ment (Hartmann, Havlena, and Schindler 2016 ; S. Jiang, 
+Jiang, and Wang 2021 ). Due to the high dimension of 
+local feature descriptors and the large number of sphe -
+rical images, exhaustive feature matching consumes 
+extremely high time costs. Thus, it becomes very critical 
+to increase the efficiency of feature matching.In the literature, there are valuable methods for 
+accelerating feature matching, including restrict -
+ing the number of features in feature matching, 
+decreasing the number of images, and reducing 
+the number of match pairs. For a detailed review, 
+the readers can refer to this work (Hartmann, 
+Havlena, and Schindler 2016 ; Jiang, Jiang, and 
+Jiang 2020 ). Among these reported methods, 
+match pair selection can be the most straightfor -
+ward and effective way to accelerate feature 
+matching. Three strategies can be exploited for 
+spherical images based on their acquisition envir -
+onments. First, data acquisition constraints can be 
+used, e.g. the time-sequential constraint for street- 
+view images. In other words, feature matching can 
+be restricted to neighbors according to their 
+acquisition time. Second, for professional MMS 
+systems and consumer-grade sensors, precise or 
+rough GNSS (Global Navigation Satellite System) 
+data is usually recorded simultaneously with sphe -
+rical images, which provides the best clue to select 
+spatially overlapped match pairs. Third, the CBIR 
+(Content-based Image Retrieval) technique has 
+become a standard module (Jiang and Jiang 
+2020 ; Zheng, Yang, and Tian 2017 ). It merely 
+uses images for visual retrieval without other 
+assumptions and auxiliary data. Based on the 
+above-mentioned review, Table 4 concludes the 
+advantages and disadvantages of the four cate-
+gories of algorithms for feature detection and 
+description.
+Figure 10. The principle of CNN for spherical images (Su and Grauman 2017 ; Q. Zhao et al. 2018 ). (a) Direct applying CNN on the 
+ERP spherical images; (b) Applying CNN on the tangent images; (c) Adjusting the kernel shape of CNN at varying latitudes; (d) 
+Adjusting the sampling points of CNN kernels by using tangent plane projection.1968
+ S. JIANG ET AL.
+2.4. Image orientation
+Image orientation aims to estimate camera poses, scene 
+structures, and intrinsic parameters based on estab -
+lished two-view correspondences. Image orientation is 
+also termed aerial triangulation (AT) in photogram -
+metric 3D reconstruction, which requires good initial 
+values of unknown parameters and well-designed con-
+figurations in data acquisition. Image orientation of 
+spherical images can be achieved through the well- 
+known Structure from Motion (SfM) technique for 
+multi-view geometry in computer vision (Snavely, 
+Seitz, and Szeliski 2006 ) or the Simultaneous 
+Localization and Mapping (SLAM) technique for 
+instant localization in robot vision (Mouragnon et al. 
+2006 ). Thus, this subsection presents camera calibra -
+tion, SfM-based offline, and SLAM-based online meth -
+ods for spherical image orientation.
+2.4.1. Camera calibration
+2.4.1.1. Camera imaging model. The camera ima-
+ging model is the basis for camera calibration, which 
+establishes the geometric transformation between 3D 
+points in the object space and 2D points in the image plane. Based on the design of spherical cameras, there 
+are three major camera imaging models, i.e. the uni-
+fied projection model, general camera model, and 
+multi-camera model.
+●Unified projection model (Mei and Rives 
+2007 ) has been mainly designed for central 
+catadioptric cameras, in which environment 
+light rays intersect in a single point, i.e. the 
+projection center of the mirror, as shown in 
+Figure 11(a) . This camera imaging model fol-
+lows a strict theoretical projection function 
+that models real-world imaging errors. The 
+unified projection model has recently been 
+verified as effective for wide-angle and fisheye 
+cameras (Heng, Li, and Pollefeys 2013 ).
+●General camera model (Taylor model) 
+(Scaramuzza, Martinelli, and Siegwart 2006 ) has 
+been used for modeling the imaging procedure of 
+central catadioptric and dioptric cameras. Instead 
+of using the strict theoretical model in the unified 
+projection model, the general camera model uti-
+lizes a Taylor polynomial function to fit the 
+projection.Table 4. Method comparison for feature detection and description.
+Category Methods Advantages and disadvantages
+Classical methods SIFT Lowe (2004 ); Morel and Yu (2009 ), SURF 
+Bay et al. (2008 ), ORB Rublee et al. (2011 )Advantages : (1) existing algorithms can be used directly; (2) 
+high efficiency without other computational costs.
+Disadvantages : (1) do not consider geometric distortions.
+2D plane-based methods Local Chuang and Perng (2018 ); Eder et al. 
+(2020 ), semi-global Taira et al. (2015 ), global 
+Y. Wang et al. (2018 )Advantages : (1) decrease local or global geometric 
+distortions.
+Disadvantages : (1) require extra time costs for image 
+rectification.
+3D sphere-based methods SSIFT Cruz-Mota et al. (2012 ), SPHORB Q. Zhao 
+et al. (2015 ), BRISKS Guan and Smith (2017 )Advantages : (1) avoid geometric distortions by using 
+spherical coordinates.
+Disadvantages : (1) requires extra time costs for image 
+reprojection; (2) cannot use existed algorithms.
+Learning-based methods ContextDesc Luo et al. (2019 ), LoFRT Sun et al. 
+(2021 ), SuperGlue Sarlin et al. (2020 ), sphere 
+CNN Su and Grauman (2017 )Advantages : (1) leverage the power of CNN to cope with 
+low textures and repetitive patterns for indoor scenes.
+Disadvantages : (1) depend on large training datasets; (2) 
+retraining of existing networks or design of new networks.
+Figure 11. Camera imaging models (Ji et al. 2014 ; Scaramuzza, Martinelli, and Siegwart 2006 ). (a) Central catadioptric cameras; (b) 
+Multi-camera model; and (c) Unit sphere camera model.GEO-SPATIAL INFORMATION SCIENCE
+ 1969
+●Multi-camera model has been designed to estab -
+lish the projection of the widely used polydioptric 
+cameras that record spherical images by using 
+a camera rig, e.g. the Ladybug 5+ camera. The 
+multi-camera model can be implemented using 
+several individual camera models or a unit sphere 
+camera model (Ji et al. 2014 ). The former is more 
+rigorous in formulating the imaging system, as 
+shown in Figure 11(b) ; on the contrary, the latter 
+has a more straightforward formula widely used 
+in close-range photogrammetry, as shown in 
+Figure 11(c) .
+2.4.1.2. Camera calibration. The purpose of camera 
+calibration is to calculate the intrinsic parameters of 
+cameras, e.g. the focal length, principal point, and lens 
+distortion coefficients. After selecting a proper camera 
+imaging model, camera calibration can be achieved by 
+using a combined bundle adjustment of both interior 
+and exterior orientation parameters. In practice, there 
+are three ways to estimate the parameters: self- 
+calibration based on the epipolar geometry constraint, 
+space resection using non-planar 3D control points, 
+and laboratory calibration using checkerboards 
+(Urban, Leitloff, and Hinz 2015 ). In the work of 
+(Aghayari et al. 2017 ), a Ricoh Theta dual-camera 
+system has been calibrated based on the expanded 
+unit sphere camera model, in which two extra para -
+meters that model the displacement of latitude and 
+longitude coordinates are incorporated into the cam-
+era imaging model. For calibrating a professional 
+Ladybug multi-camera system, Lichti et al. (2020 ) 
+adopted the colinear equation-based rigorous model, 
+which combines five radial distortion parameters and 
+two decentering distortion parameters to model the 
+imaging errors. For comparing different calibration 
+methods for spherical cameras, readers can refer to 
+the work of Puig et al. (2012 ). Besides, Table 5 presents 
+a list of open-source software packages for spherical 
+camera calibration.2.4.2. SfM-based offline methods
+2.4.2.1. Principle of incremental SfM. Existing SfM 
+can be divided into three major groups, i.e. incre -
+mental SfM, global SfM, and hybrid SfM, according 
+to the used strategy for estimating and optimizing 
+unknown parameters (Cui et al. 2017 ). Compared 
+with other techniques, incremental SfM has the 
+advantages of resisting high outlier ratios and 
+achieving accurate orientation models. 
+Incremental SfM has been widely used in photo -
+grammetric 3D reconstruction (Jiang and Jiang 
+2017 ).
+The workflow of incremental SfM is shown in 
+Figure 12, which consists of two components, i.e. 
+feature matching and incremental image registra -
+tion. Feature matching can be solved by using the 
+methods presented in Section 2.3. For image regis -
+tration, consistent correspondences are first tied to 
+create tie-points (Cao et al. 2019 ). In incremental 
+image registration, two seed images are first 
+selected among all matched image pairs, which 
+have a large enough intersection angle and 
+a sufficient number of well-distributed matched 
+features. A base model is then constructed by reco -
+vering their relative poses and triangulating 3D 
+scene points, which would be used to register the 
+next-best image and triangulate more 3D scene 
+points. Meanwhile, local or global bundle adjust -
+ment (BA) optimization is executed to decrease 
+accumulated errors and remove false matches. 
+After iterative image registration and point trian -
+gulation, all images are registered into the same 3D 
+model (Snavely, Seitz, and Szeliski 2008 ).
+In the above-mentioned iterative local and global 
+BA, the optimization problem is usually formulated as 
+a joint minimization of the reprojection function 
+(Triggs et al. 2000 ), where the sum of errors between 
+tie-point projections and their corresponding image 
+points is minimized. The object function of BA is 
+presented by the Equation (1) 
+Table 5. A list of open-source software packages for spherical camera calibration.
+Name Language Year Website
+OCamCalib Matlab 2006 https://sites.google.com/site/scarabotix/ocamcalib- 
+omnidirectional-camera-calibration-toolbox-for-matlab
+A toolbox to calibrate any central omnidirectional camera, i.e. panoramic cameras having a single effective 
+viewpoint Scaramuzza, Martinelli, and Siegwart (2006 ).
+Improved OcamCalib Matlab 2015 https://github.com/urbste/ImprovedOcamCalib
+An add-on toolkit to the OCamCalib toolbox that implements calibration algorithms for wide-angle, fisheye, 
+and omnidirectional cameras Urban, Leitloff, and Hinz (2015 ).
+LIBOMNICAL Matlab 2014 https://www.cvlibs.net/projects/omnicam
+A MATLAB Toolbox to calibrate central and slightly non-central catadioptric cameras and catadioptric stereo 
+setups Schönbein, Strauß, and Geiger (2014 ).
+Omnidirectional Calibration Toolbox Mei Matlab 2007 https://www.robots.ox.ac.uk/~cmei/Toolbox.html
+A toolbox implements the unified projection model to calibrate hyperbolic, parabolic, and folding mirrors 
+and spherical and wide-angle sensors Mei and Rives (2007 ).
+camodocal C++ 2013 https://github.com/hengli/camodocal
+A toolbox for automatic intrinsic and extrinsic calibration of a camera rig with multiple generic cameras and 
+odometry Heng, Li, and Pollefeys (2013 ).
+kalibr C++ 2016 https://github.com/ethz-asl/kalibr
+A toolbox for multi-camera calibration and multi-sensor integration Rehder et al. (2016 ).1970
+ S. JIANG ET AL.
+where Xi and Cj indicate a 3D point and a camera, 
+respectively; PCjCXi �
+is the projection of point Xi on 
+camera Cj; xij is an observed image point correspond -
+ing to Xi; �zzdenotes L2-norm; ρij is an indicator 
+function with ρij1 if point Xi is visible in camera 
+Cj; otherwise ρij0.
+2.4.2.2. Perspective SfM to spherical SfM. For sphe -
+rical image orientation, there have been some attempts 
+to adapt perspective SfM to spherical SfM in the last 
+two decades. Chang and Hebert (2000 ) proposed 
+a two-step SfM for omnidirectional images depending 
+on linear initialization and nonlinear optimization. 
+Uncertainty analysis and result comparison were also 
+conducted and compared with perspective SfM. In the 
+work of Torii, Imiya, and Ohnishi (2005 ), both two- 
+view and three-view geometry of spherical images 
+have been analyzed and discussed. The epipolar geo-
+metry forms the basis for 3D reconstruction from spherical images, e.g. the pose recovery in a virtual 
+navigation system (Kangni and Laganiere 2007 ).
+With the usage of advanced MMS systems for 
+urban city modeling and navigation, some 
+researchers moved their attention to 3D recon -
+struction of large-scale scenes instead of two or 
+three-view geometry estimation in the earlier work 
+(Micusik and Pajdla 2006 ). As one of the early 
+pioneering attempts, Torii, Havlena, and Pajdla 
+(2009 ) proposed an incremental SfM system that 
+combines state-of-the-art techniques, e.g. local fea-
+ture-based feature detection, approximate nearest 
+neighbor-based feature matching, and robust essen -
+tial matrix estimation and optimization. The per-
+formance of the proposed SfM system has been 
+verified by using Google Street View images that 
+cover a large street block (Anguelov et al. 2010 ), as 
+presented in Figure 13(a) . For full spherical images, 
+Pagani and Stricker (2011 ) investigated different 
+error metrics on relative and absolute pose estima -
+tion and also designed the error approximations to 
+reduce computational costs. These error metrics 
+consist of the basic blocks for spherical SfM.
+Figure 12. The workflow of the incremental SfM (S. Jiang, Jiang, and Jiang 2020 ).
+Figure 13. SfM for spherical images. (a) Direct processing of spherical images based on the unit spherical camera model (Torii, 
+Havlena, and Pajdla 2009 ); (b) Indirect processing of spherical images based on sphere-to-plane projection (X. Zhang et al. 2020 ).GEO-SPATIAL INFORMATION SCIENCE
+ 1971
+In contrast to professional sensors, recent years also 
+witnessed the explosive development of consumer- 
+grade spherical cameras (Gao et al. 2022 ) and their 
+usage in 3D modeling. In Guan and Smith (2016 ), the 
+von Mises-Fisher distribution was utilized to model 
+the noise distribution of feature point positions on 
+spherical images and to reformulate the error function 
+in the bundle adjustment optimization. Meanwhile, 
+spherical-n-point and triangulation algorithms that 
+are suitable for spherical images have been proposed 
+to achieve spherical video orientation and viewing 
+direction stabilization. Zhang et al. (2020 ) embedded 
+spherical cameras into a UAV platform and proposed 
+a solution for panoramic photogrammetry, as pre-
+sented in Figure 13(b) . In data processing, original 
+spherical images are first reprojected to cubic images, 
+which are then reconstructed by using existing com -
+mercial software. The study verifies the validation of 
+spherical cameras for oblique photogrammetric 3D 
+modeling of urban buildings.
+Although extensive research has been reported in 
+the literature, the majority of both open-source and 
+commercial software packages are now designed for 
+perspective images. Table 6 lists the well-known and 
+widely used software packages for 3D reconstruction 
+in the fields of photogrammetry and computer vision. 
+It is shown that only a few packages provide the full 
+3D reconstruction module for spherical images, e.g. 
+the open-source software OpenMVG and MicMac and 
+the commercial software Pix4Dmapper and 
+Metashape. With the increasing popularity of spheri -
+cal cameras, there is an urgent requirement for well- 
+designed toolkits that can support scientific research 
+and engineering application. Thus, further research is 
+required for photogrammetric 3D reconstruction 
+from spherical images.2.4.3. SLAM-based online methods
+2.4.3.1. Principle of visual SLAM. In contrast to the 
+offline SfM technique, SLAM can implement simul -
+taneous and real-time image orientation and scene 
+reconstruction, which origins from the robotic field 
+for localization and navigation without GNSS sig-
+nals, as well as environment mapping (Huang, Zhao, 
+and Liu 2019 ). In the field of photogrammetry and 
+computer vision, SLAM has also been used for 
+online image orientation, e.g. UAV and MMS 
+images (Huang et al. 2020 ; Lu et al. 2018 ). Various 
+sensors can be integrated into a SLAM system, such 
+as RGB and depth cameras, laser scanners, GNSS 
+and IMU (Inertial Measurement Unit) instruments, 
+and wheel odometry (Huang, Zhao, and Liu 2019 ). 
+For spherical image orientation, the used SLAM 
+system is termed visual SLAM.
+Figure 14 shows the workflow of the visual SLAM, 
+which consists of two major components. The front- 
+end is utilized to process sequentially observed images 
+through feature extraction, feature matching, motion 
+estimation, and keyframe selection; the back-end is 
+responsible for loop detection, BA optimization, and 
+3D mapping. The processing pipeline of the visual 
+SLAM system includes: 1) sequentially estimating the 
+motion of newly added images with local BA optimi -
+zation; 2) checking whether or not the newly added 
+images are keyframes and creating more map points 
+from keyframes; 3) detecting loops between newly 
+added images and existing 3D models and conducting 
+global BA optimization to reduce error accumulation. 
+Through the iterative execution of these three steps, 
+images are sequentially oriented.
+2.4.3.2. SLAM with large FOV cameras. Cameras 
+with large field-of-view angles can enhance the 
+Table 6. A list of open-source and commercial SfM software packages.
+Name Language Year Website Spherical camera
+AliceVision C++ 2018 https://github.com/alicevision √
+A photogrammetric computer vision framework for 3D reconstruction. It provides three types of camera models, 
+i.e. Radial, Brown, and Fisheye Griwodz et al. (2021 ).
+COLMAP C++ 2016 https://github.com/colmap/colmap ×
+A 3D reconstruction software that includes both sparse and dense matching modules, which includes Radial, and 
+Fisheye camera models Schonberger and Frahm (2016 ).
+OpenMVG C++ 2015 https://github.com/openMVG/openMVG √
+A well-known sparse reconstruction software that provides Radial, Brown, Fisheye, and Sphere camera models. It 
+can directly process spherical images Moulon et al. (2017 ).
+MicMac C++ 2007 https://github.com/micmacIGN/micmac √
+An open-source photogrammetric toolkit that provides modules of AT, dense matching, and ortho-rectification for 
+satellite, aerial and close-range images Rupnik, Daakir, and Deseilligny (2017 ).
+ContextCapture / 2022 https://www.bentley.com ×
+A well-known and widely used 3D modeling software in the field of photogrammetry, which can provide the best 
+3D textured mesh models. It only supports perspective cameras.
+Pix4Dmapper / 2022 https://www.pix4d.com √
+A well-known and widely used photogrammetric software for aerial and close-range images in the field of 
+photogrammetry. It supports perspective, fisheye, and spherical cameras.
+Metashape / 2022 https://www.agisoft.com √
+A well-known and widely used photogrammetric software for aerial and close-range images in the field of 
+photogrammetry. It supports perspective, fisheye, and spherical cameras.
+RealityCapture / 2022 https://www.capturingreality.com ×
+A photogrammetric computer vision software for 3D reconstruction. It features a fast speed for image processing. It 
+now supports a perspective camera.1972
+ S. JIANG ET AL.
+robustness of the SLAM systems (Zhang et al. 2016 ) 
+since they enable long-period feature tracking, espe -
+cially in urban streets and indoor environments. Large 
+FOV cameras have been increasingly integrated into 
+visual SLAM systems. Recently adopted large FOV 
+cameras can be grouped into two categories, including 
+fisheye cameras with wide FOV and spherical cameras 
+with full FOV.
+Fisheye cameras are the most reported large FOV 
+sensors coupled with visual SLAM systems (Caruso, 
+Engel, and Cremers 2015 ; Matsuki et al. 2018 ; Won 
+et al. 2020 ; Zhang et al. 2016 ). Caruso, Engel, and 
+Cremers (2015 ) proposed a direct monocular SLAM 
+based on a unified omnidirectional camera model. It 
+was an extension of their previous LSD-SLAM (Engel, 
+Schöps, and Cremers 2014 ), and it has superior per-
+formance on the accuracy of localization and robust -
+ness to strong rotational movement. In the work of 
+Matsuki et al. (2018 ), the authors also designed 
+a direct monocular SLAM system, which is an exten -
+sion of the DSO system (Engel, Koltun, and Cremers 
+2017 ) and integrates the unified camera model pro-
+posed in (Caruso, Engel, and Cremers 2015 ). Y. Wang 
+et al. (2018 ) proposed a feature-based SLAM system, 
+termed Cubemap-SLAM, based on the cubic projec -
+tion of fisheye images. In this work, the cubemap 
+model has been embedded into the ORB-SLAM. To 
+evaluate the impact of large FOV cameras, Zhang et al. 
+(2016 ) conducted a series of tests by using both indoor 
+and outdoor datasets, and their evaluation reveals that 
+the reconstruction accuracy also depends on the envir -
+onment, and large FOV cameras tend to improve 
+performance in indoor scenes.
+Spherical cameras can further extend the FOV of 
+fisheye cameras, and they have been widely used for 
+data acquisition in MMS systems (Anguelov et al. 
+2010 ; Torii, Havlena, and Pajdla 2009 ). Tardif, 
+Pavlidis, and Daniilidis (2008 ) proposed a feature- 
+based SLAM workflow that only estimates the pose 
+of the latest image without the execution of BA opti-
+mization. The core idea is to decouple the problem of 
+pose recovery into rotation estimation from epipolar geometry and translation estimation using 3D-2D cor-
+respondences. Urban and Hinz (2016 ) extended the 
+ORB-SLAM (Mur-Artal and Tardós 2017 ; Mur-Artal, 
+Montiel, and Tardos 2015 ) system into a multi-fisheye 
+omnidirectional SLAM system, termed MultiCol- 
+SLAM, which supports the arbitrary rigidly coupled 
+multi-camera systems. In Ji et al. (2020 ), a fisheye 
+calibration model has been designed and used for 
+multiple fisheye camera rigs, as shown in Figure 15(a) , 
+and a feature-based SLAM, termed PAN-SLAM, has 
+been proposed based on well-designed strategies for 
+initialization, feature matching and tracking, and loop 
+detection. The tests demonstrate the validation of the 
+proposed SLAM system.
+In recent years, spherical images captured by dual- 
+fisheye cameras are becoming more and more popu -
+lar, which promotes the development of panoramic 
+SLAM systems (Huang and Yeung 2022 ; Im et al. 
+2016 ; Sumikura, Shibuya, and Sakurada 2019 ; Zhang 
+and Huang 2021 ). Sumikura, Shibuya, and Sakurada 
+(2019 ) designed a versatile visual SLAM, termed 
+OpenVSLAM, which implements perspective, fisheye, 
+and spherical camera models and supports monocular, 
+stereo, and RGB-D cameras, as shown in Figure 15(b) . 
+In addition, the authors provided an indoor bench -
+mark for performance evaluation (Chappellet et al. 
+2021 ). Zhang and Huang (2021 ) investigated varying 
+feature detection and description techniques, includ -
+ing SPHORB and SSIFT, and compared their perfor -
+mance in spherical image orientation based on SLAM. 
+Recently, Huang and Yeung (2022 ) implemented 
+a direct SLAM system that extends DSO (Direct 
+Sparse Odometry) with the spherical camera model 
+to process equirectangular images. Table 7 presents 
+a list of open-source SLAM software packages. The 
+same finding can be made as for SfM-based methods 
+that few SLAM systems support full spherical cameras.
+2.5. Dense matching
+Dense matching aims to establish pixel-wise corre -
+spondences and generate point clouds from SfM or 
+Figure 14. The workflow of the visual SLAM system.GEO-SPATIAL INFORMATION SCIENCE
+ 1973
+SLAM-based oriented images. According to the 3D 
+reconstruction pipeline shown in Figure 2, gener -
+ated dense point clouds would be used to construct 
+detailed 3D models after point meshing and texture 
+mapping. Thus, the performance of dense matching 
+methods would determine the precision and com -
+pleteness of the final 3D models. In the literature, 
+dense matching has been an extensively studied 
+topic with the arising of 3D reconstruction in 
+photogrammetry and computer vision. In addition 
+to traditional methods for perspective images, 
+recent years have witnessed increasingly reported 
+dense matching methods for spherical images. 
+Generally, this work can be grouped into single- 
+view depth prediction and multi-view stereo 
+matching.2.5.1. Single-view depth prediction
+Single-view depth prediction methods can process an 
+individual spherical image instead of pixel-wise corre -
+spondence searching between images. In the literature, 
+single-view depth prediction methods are usually 
+implemented through learning-based CNN networks 
+(Albanis et al. 2021 ; Feng, Shum, and Morishima 2022 ; 
+Jang et al. 2022 ; Jin et al. 2020 ; Pintore et al. 2021 ), 
+which belong to a new research topic in the last five 
+years. As one of the earliest works, Albanis et al. (2021 ) 
+prepared and released a spherical training dataset with 
+ground-truth depth maps, as presented in Figure 16 
+(a). It can be used as the training dataset for depth 
+estimation networks for spherical images instead of 
+training on perspective datasets with sub-optimal per-
+formance. Considering the correlation between depth Table 7. A list of open-source SLAM software packages.
+Name Language Year Website Spherical camera
+ORB-SLAM3 C++ 2021 https://github.com/UZ-SLAMLab/ORB_SLAM3 ×
+A SLAM system that supports perspective and fisheye cameras and can be embedded with monocular, stereo, and 
+RGBD cameras Campos et al. (2021 ).
+OpenVSLAM C++ 2019 https://github.com/xdspacelab/openvslam √
+A visual SLAM system that supports various camera models, including perspective, fisheye, and spherical cameras 
+Sumikura, Shibuya, and Sakurada (2019 ).
+Cubemap-SLAM C++ 2018 https://github.com/nkwangyh/CubemapSLAM ×
+A visual SLAM system that converts fisheye images into perspective images and achieves image orientation based 
+on the ORB-SLAM Y. Wang et al. (2018 ).
+DSO C++ 2017 https://github.com/JakobEngel/dso ×
+A direct sparse visual odometry that supports only perspective cameras Engel, Koltun, and Cremers (2017 ).
+MultiCol-SLAM C++ 2016 https://github.com/urbste/MultiCol-SLAM ×
+A multi-fisheye SLAM that supports rigidly coupled multi-camera systems. It extends the ORB-SLAM and ORB- 
+SLAM2 systems Urban and Hinz (2016 ).
+LSD-SLAM C++ 2014 https://github.com/tum-vision/lsd_slam ×
+A direct monocular SLAM system that enables real-time image orientation and semi-dense depth map generation 
+Engel, Schöps, and Cremers (2014 ).
+Figure 15. The visual SLAM systems based on (a) The multi-fisheye camera rig (Ji et al. 2020 ) and (b) The full spherical camera 
+(Sumikura, Shibuya, and Sakurada 2019 ).1974
+ S. JIANG ET AL.
+and geometric structure in indoor environments, Jin 
+et al. (2020 ) attempted to leverage existing geometric 
+structures, e.g. corners, boundaries, and planes, as 
+priors for network training or inferring these struc -
+tures from generated depth estimation. The recon -
+struction models are presented in Figure 16(b) . For 
+indoor scenes, Pintore et al. (2021 ) suggested repre -
+senting equirectangular images by using vertical slices 
+of the sphere, which partitions input images into ver-
+tical slices. Based on the LSTM (long short-term mem -
+ory), the authors designed a network called SliceNet 
+for depth estimation.
+In contrast to indoor scenes, Feng, Shum, and 
+Morishima (2022 ) prepared the Depth360 dataset 
+and designed an end-to-end two-branch network, 
+termed SegFuse, for depth prediction of spherical 
+images. The core idea is to integrate the segmentation 
+of cubic-map images from one branch into the depth estimation of equirectangular images from the other 
+branch.
+2.5.2. Multi-view stereo matching
+2.5.2.1. Existing method. Multi-view stereo match -
+ing methods attempt to recover dense point clouds 
+from two or multiple oriented images based on SfM 
+and SLAM image orientation techniques (Furukawa 
+and Hernández 2015 ). Existing methods can be 
+divided into two groups based on the strategies used. 
+For the first one, traditional hand-crafted methods are 
+on the one hand revised to adapt to spherical images. 
+In the work of (Pagani and Stricker 2011 ; Pagani et al. 
+2011 ), the PMVS (Patch-based Multi-view Stereo) 
+library was revised to directly process spherical images 
+for dense matching, and the results are shown in 
+Figure 17(a) . For the second one, spherical images 
+are projected into cubic-map images, and traditional 
+Figure 16. Single view depth prediction for spherical images. (a) A prepared 360 dataset (Albanis et al. 2021 ); (b) Indoor depth 
+prediction from spherical images (Jin et al. 2020 ).
+Figure 17. Multi-view dense matching for spherical images. (a) Revised PMVS algorithm (Pagani et al. 2011 ); (b) Sphere sweeping 
+algorithm (Im et al. 2016 ); and (c) The finetuned CNN network (Jang et al. 2022 ).GEO-SPATIAL INFORMATION SCIENCE
+ 1975
+hand-crafted algorithms and deep learning-based net-
+works are adopted straightforward since they are 
+designed or trained for perspective images, e.g. hand- 
+crafted methods (Bleyer, Rhemann, and Rother 2011 ; 
+Hirschmuller 2007 ; Rothermel et al. 2012 ; Stereopsis 
+2010 ) and learning-based methods (Chang and Chen 
+2018 ; Khamis et al. 2018 ; Seki and Pollefeys 2017 ; Yao 
+et al. 2018 , 2020 ). These two strategies can make use of 
+existing well-designed methods.
+2.5.2.2. Redesigned method. For this category, algo-
+rithms are designed and implemented from scratch 
+considering the characteristic of spherical images (da 
+Silveira and Jung 2019 ; Im et al. 2016 ; Kim and Hilton 
+2013 ; Meuleman et al. 2021 ; Wang et al. 2020 ). In Kim 
+and Hilton (2013 ), a full workflow was designed for 
+3D reconstruction of spherical image pairs, in which 
+a stereo matching algorithm was proposed based on 
+a partial differential equation (PDE), and the complete 
+3D scene was obtained by registering partial models. 
+Considering the power of the plane sweeping algo-
+rithm, Im et al. (2016 ) proposed a sphere sweeping 
+algorithm based on the unified omnidirectional cam-
+era model, in which virtual spheres were used instead 
+of virtual planes. Matching results are shown in 
+Figure 17(b) . The algorithm was tested by using both 
+synthetic and real datasets. These methods can be seen 
+as mimics of the traditional dense matching algorithm 
+for perspective images.
+Recently, CNN networks have also been adopted to 
+design multi-view stereo solutions. In the work of 
+Wang et al. (2020 ), a dual-camera imaging system 
+that consists of top and bottom cameras was designed, 
+which ensures that the epipolar lines of captured 
+images are vertically aligned. A polar angle layer was 
+added to a two-branch network for depth estimation, 
+which plays as additional input geometric information 
+to supervise model training. Jang et al. (2022 ) pro-
+posed a complete solution for 3D reconstruction from 
+spherical images, including image orientation, epipo -
+lar rectification, dense matching, and texture map -
+ping. For dense matching, the authors adopted an 
+existing network that was retrained using a synthetic 
+dataset to learn spherical disparity and designed a spherical binoctree structure for depth map fusion. 
+The proposed solution achieves superior performance 
+when compared with traditional methods, as pre-
+sented in Figure 17(c) . In conclusion, dense matching 
+methods based on CNN networks attract attention in 
+recent years. This review would not cover all aspects in 
+this field. Based on the above-mentioned review, 
+Table 8 presents the comparison of varying dense 
+matching methods.
+3.Applications
+This section presents promising applications related to 
+spherical images. Due to the characteristics of full 
+FOV and low cost, spherical images have been used 
+widely in a variety of applications. According to the 
+purpose of this study, the reviewed applications would 
+be restricted to 3D reconstruction, including cultural 
+heritage documentation, urban modeling and naviga -
+tion, tunnel mapping and inspection, and other appli -
+cations, e.g. urban tree localization, emergency 
+response and rescue, and underwater occlusion 
+avoidance.
+3.1. Cultural heritage documentation
+Cultural heritage documentation (CHD) is the earliest 
+usage of spherical images, which can be dated back to 
+two centuries ago (Luhmann 2004 ). In contrast to the 
+large-scale acquisition required in aerial photogram -
+metry, the scale of cultural heritage documentation is 
+much smaller but with serious occlusions, e.g. building 
+pillars and inner structures. It requires close-range 
+data acquisition with a large FOV to decrease human 
+labor and ensure completeness. When compared to 
+conventional aerial plane-based and recent UAV- 
+based photogrammetry, spherical images can be 
+recorded in a more flexible way, e.g. ground-fixed 
+tripods and hand-held poles, and have been widely 
+used for cultural heritage documentation.
+In the field of photogrammetry and remote sensing 
+(Fangi 2007 , 2010 ; Fangi and Nardinocchi 2013 ), have 
+made an earlier contribution to CHD by using sphe -
+rical images. These research presents the basic 
+Table 8. Method comparison for dense matching.
+Category Methods Advantages and disadvantages
+Single-view depth prediction Albanis et al. (2021 ); Q. Feng, Shum, and Morishima 
+(2022 ); Jang et al. (2022 ); Jin et al. (2020 ); Pintore 
+et al. (2021 )Advantages : (1) avoid SfM and SLAM-based image 
+orientation.
+Disadvantages : (1) do not use multi-view constraints.
+Traditional methods Hand-crafted methods Hirschmuller (2007 ); Rothermel 
+et al. (2012 ); Stereopsis (2010 ) and learning-based 
+methods J. Chang and Chen (2018 ); Seki and 
+Pollefeys (2017 ); Yao et al. (2020 )Advantages : (1) make use of existing algorithms and 
+software packages; (2) be suitable for engineer usage.
+Disadvantages : (1) cannot avoid the distortions or 
+require extra time costs for image projection.
+Redesigned methods Stereo-view methods Meuleman et al. (2021 ); N. Wang 
+et al. (2020 ) and multi-view methods Jang et al. 
+(2022 )Advantages : (1) adapt to spherical images; (2) make use 
+of the learning-based CNN network.
+Disadvantages : (1) design special acquisition sensors, 
+and (2) labeled data for network training.1976
+ S. JIANG ET AL.
+principle of the proposed spherical photogrammetry 
+(SP), i.e. the collinear equation of spherical imaging 
+and the coplanarity condition for image orientation. 
+By using two church architectures, this study verifies 
+the advantages of spherical images with the remark -
+able efficiency of data acquisition, the completeness of 
+documentation, and the low economic cost compared 
+with other photogrammetric instruments.
+With the explosive development of consumer- 
+grade spherical cameras, recent researchers have also 
+turned to adopting low-cost cameras for data acquisi -
+tion and 3D reconstruction of CHD. For example, 
+Fangi et al. (2018 ) used a Panono 360 camera for the 
+image collection of two churches, which is a ball- 
+shaped camera that consists of 36 camera submodules 
+to record surrounding environments. This study ver-
+ified the centimeter-level precision of dense point 
+clouds from SfM and MVS-based photogrammetric 
+processing. Barazzetti, Previtali, and Roncoroni 
+(2018 ) exploited a Xiaomi Mi Sphere 360 camera for 
+the precision assessment of 3D modeling. In this 
+study, a Leica TS30 total station has been used for an 
+in-site survey of ground control points (GCPs), and 
+two software packages, including Agisoft Metashape 
+and Pix4dMapper, have been evaluated. Experiments 
+demonstrate that millimeter-level accuracy has been 
+obtained in both image orientation and 3D recon -
+struction by using GCPs and laser scanning point 
+clouds.
+Because of the complex structure of cultural her-
+itages, aerial and ground images have also been com -
+bined to reconstruct complex cultural heritages. 
+Herban et al. (2022 ) combined low-altitude UAV 
+images and hand-held spherical images for 3D doc-
+umentation of a bell tower. In this work, a DJI 
+Phantom 4 Pro UAV has been adopted for scanning external structures under a properly designed flight 
+trajectory, and two spherical cameras, i.e. the GoPro 
+Fusion and the Kandao Qoocam 8K, have been used 
+for scanning internal structures. Based on an SfM and 
+MVS-based processing solution, the reconstructed 
+3D model has high-quality details in the external 
+and internal of the complex bell tower. In contrast 
+to using consumer-grade spherical cameras, Zhao 
+(2022 ) conducted high-quality digital twin documen -
+tation of a well-known town, Long Hu Gu Zhai at 
+Guangdong Province, China. This study uses profes -
+sional Weiss AG Civetta spherical cameras for terres -
+trial images with 230 megapixels resolution and 
+a UAV for along-street aerial images. By using the 
+Agisoft Metashape, 3D models were reconstructed 
+from aerial and terrestrial images, as presented in 
+Figure 18. The results demonstrate the potential of 
+aerial and ground images for the precision documen -
+tation of complex buildings.
+3.2. Urban modeling and navigation
+Spherical cameras have been integrated with mobile 
+mapping systems (MMS) for urban street modeling 
+and navigation. The most famous application of sphe -
+rical images comes from Google Street View, which 
+provides immersive navigation and observation along 
+urban streets. At the beginning of Google Street View, 
+collected street images have also been used for 3D 
+modeling of building facades in addition to image 
+navigation (Anguelov et al. 2010 ; Bruno and 
+Roncella 2019 ), as shown in Figure 19(a) . Micusik 
+and Kosecka (2009 ) designed a unified framework to 
+reconstruct 3D models from spherical images cap-
+tured from a Ladybug camera, in which bundle adjust -
+ment free image orientation, piecewise planarity 
+Figure 18. Cultural heritage documentation by using aerial UAV images and terrestrial spherical images (Zhao 2022 ). (a) Data 
+acquisition based on the Weiss AG Civetta camera; (b) Image orientation of aerial-ground images; (c) Dense matching of building 
+inner structures; (d) 3D reconstruction of buildings.GEO-SPATIAL INFORMATION SCIENCE
+ 1977
+constrained dense matching, and novel depth map 
+fusion were reported considering the characteristics 
+of low-texture, repetitive pattern, and large light 
+changes in urban streets.
+In contrast to mesh-based 3D models, recent stu-
+dies show well-formed wire-frame models recon -
+structed from spherical images. Under the 
+Manhattan world assumption, Kim and Hilton 
+(2013 ) converted spherical images into cubic-map 
+representation and segmented urban scenes into pla-
+nar structures under the constraints of image color, 
+and edge and normal information from MVS-based 
+depth maps, as presented in Figure 19(b) . By using 
+street images and deep learning techniques, Xu et al. 
+(2022 ) designed a workflow for building detection and 
+height calculation and created 3D models for large- 
+scale urban scenes.
+Due to the high image overlap of large FOV cam-
+eras, spherical images have also been widely used to 
+achieve localization and navigation in complex urban 
+environments. Cheng et al. (2018 ) proposed a solution 
+for the large-scale localization of photos without geo-
+tagged labels. In this study, 3D sparse models recon -
+structed from street view images were used as the 
+reference data source, and a three-step algorithm was 
+designed for geo-localization, which includes image 
+retrieval-based coarse geo-localization, reliable feature 
+matching between the query image and retrieved can-
+didate images, and the PnP (Perspective n Points) 
+based precise geo-localization. Instead of using low- 
+level features, Jayasuriya, Ranasinghe, and 
+Dissanayake (2020 ) turned to detect high-level seman -
+tic information from spherical images, such as lamp 
+posts and street signs, which are detected based on 
+a retrained YOLO CNN network. To geo-localizing 
+interesting targets within urban scenes to assist vehicle 
+navigation, Li et al. (2023 ) proposed a line of bearing 
+(LOB) based positioning method for urban street 
+objects, e.g. road lamps, shown in Figure 19(c) .3.3. Tunnel mapping and inspection
+Artificial tunnels are extensively used in daily life, e.g. 
+traffic tunnels and drainage pipes. Regular inspection 
+is essential to ensure normal functions and extend the 
+lifespans. In practice, the inspection work has been 
+widely achieved through labor-sensitive operators. In 
+recent years, with the advent of small-size spherical 
+cameras and the development of image processing 
+techniques, image-based inspection solutions have 
+also been presented and verified to achieve automatic 
+tunnel mapping and inspection (Leingartner et al. 
+2016 ).
+In the work of Zhu et al. (2016 ), a low-cost and 
+flexible system has been designed to create a panorama 
+image of the traffic tunnels, in which SfM-based image 
+orientation and stitching-based image registration 
+techniques have been used under the constraint of 
+tunnel design data. This work verified the feasibility 
+of image-based mapping for tunnel in-field inspection. 
+Based on the rapid data acquisition ability of spherical 
+cameras, Janiszewski et al. (2022 ) designed an overall 
+framework for photogrammetric tunnel mapping. In 
+this work, an Insta360 Pro sphere camera integrating 
+six fisheye camera modules has been used to record 
+images with 4000 by 3000 pixels. During data acquisi -
+tion, the spherical camera was installed on a tripod to 
+image recording with long exposure times. For quality 
+verification, point clouds were also collected by using 
+a Riegl VZ-400i TLS scanner. Experimental results 
+demonstrate that the reconstructed tunnel models 
+can achieve millimeter level precision when compared 
+with TLS point clouds, as presented in Figure 20(a) .
+In contrast to large-size tunnel mapping, small-size 
+gas and drainage pipes are the other typical inspection 
+scenes that require the full FOV acquisition ability of 
+a spherical camera due to the limited space in these 
+pipes. In the work of Zhang et al. (2019 ), drainage pipe 
+inspection has been implemented by using low-cost 
+Figure 19. Urban modeling and navigation. (a) Mesh models from google street view (Anguelov et al. 2010 ); (b) 3D models from 
+spherical images (Kim and Hilton 2013 ); (c) Street object localization (Li et al. 2023 ).1978
+ S. JIANG ET AL.
+GoPro Fusion video cameras. Key frames were 
+extracted from recorded videos and converted to 
+cubic-map images, then used to reconstruct 3D mod -
+els based on typical SfM and MVS-based solutions. 
+For the inspection of drainage pipes with minimal 
+space, Fang et al. (2022 ) designed a pipeline capsule 
+machine (PCM), as presented in Figure 20(b) , which 
+mainly consists of a large FOV camera, a LED (light- 
+emitting diode) lighting instrument, and a power sup-
+ply module. The PCM sensor can record images with 
+the flow of water, which are further used for crack and 
+erosion detection based on deep learning-based meth -
+ods (Guo et al. 2022 ).
+Similarly, for the inspection of gas pipes, Karkoub, 
+Bouhali, and Sheharyar (2020 ) designed an inspection 
+robot that is equipped with a catadioptric camera for 
+spherical image collection. Unlike the PCM, depend -
+ing on flowing water, the inspection robot can operate 
+on other pipes since it uses wheels for forward moving. 
+In a word, spherical cameras have good advantages for 
+tunnel mapping and inspection due to the low cost of 
+sensors and the limited space of tunnels.
+3.4. Other applications
+In recent years, spherical images have also been used 
+in other applications, e.g. emergency response and 
+rescue, urban tree detection and mapping, collision 
+avoidance of underwater vehicles. Jhan, Kerle, and 
+Rau (2022 ) designed an integrated system for rapid 
+data acquisition and damaged building inspection. This work took advantage of low-altitude UAVs and 
+ground backpack MMSs to collect aerial-ground 
+images and validate the integration of aerial-ground 
+images for the full 3D reconstruction of urban build -
+ings to boost the observation completeness.
+Tree number, location, and structure are critical 
+for the precision management of vegetation 
+resources. Although conventional aerial photogram -
+metry and LiDAR (Light Detection and Ranging) can 
+provide large-scale RS data, they suffer serious occlu -
+sions of urban scenes and cannot achieve accurate 
+measurements of street trees. Considering these 
+issues, Itakura and Hosoi (2020 ) proposed using 
+spherical cameras for the 3D modeling and para -
+meter calculation of urban trees. In this study, 3D 
+models were reconstructed based on SfM, which were 
+further processed to extract individual trees, as 
+shown in Figure 21(a) . Based on the 3D models, 
+some useful parameters, such as trunk diameter and 
+tree height, can be then calculated. Similarly, 
+Lumnitz et al. (2021 ) adopted a deep learning net-
+work for individual tree detection from urban street 
+images and depended on the single-view depth esti-
+mation and triangulation techniques to calculate the 
+precise tree geo-localization.
+The underwater image collection is a frequent task 
+for marine exploration, which has been completed by 
+using autonomous underwater vehicles. Acoustic 
+sensors are widely utilized instruments for obstacle 
+avoidance. However, they cannot work well at a close 
+range. In the work of Ochoa et al. (2022 ), an obstacle 
+Figure 20. Tunnel mapping and inspection. (a) Mine tunnel mapping (Janiszewski et al. 2022 ); (b) Drainage pipe inspection (Guo 
+et al. 2022 ).GEO-SPATIAL INFORMATION SCIENCE
+ 1979
+detection instrument has been designed by using 
+a spherical camera, which can generate real-time 
+point clouds from a visual SLAM system and assist 
+the autonomous obstacle detection, as presented in 
+Figure 21(b) .
+4.Prospects
+3D reconstruction from spherical images has been 
+greatly promoted by the development of professional 
+and consumer-grade cameras and automatic image 
+processing techniques, as well as their increasing usage 
+in varying fields. Compared with classical perspective 
+images, there still exist some challenges for 3D recon -
+struction based on spherical images, which can be cate-
+gorized as exploitation of crowdsource image, spatial 
+resolution of spherical image, camera distortion and 
+calibration, and integration of aerial-ground image. 
+The details are presented in the following subsections.4.1. Exploitation of crowdsource image
+In recent years, spherical images can be easily recorded 
+based on low-cost and easy-to-use spherical cameras, as 
+presented in Figure 4. Besides, spherical images can also 
+be downloaded from well-known map providers, e.g. 
+Google Maps and Tencent Maps. These crowdsource 
+images are usually freely provided for noncommercial 
+usage, which plays a critical role in spherical image- 
+based applications (Biljecki and Ito 2021 ). However, 3D 
+reconstruction based on these crowdsource images is 
+non-trivial for two main reasons. On the one hand, the 
+diversity of crowdsource images is very large, which can 
+be recorded by using professional or consumer-grade 
+cameras, and obtained from indoor or outdoor scenes, 
+as shown in Figure 22; on the other hand, the overlap 
+degree of crowdsource images can not be ensured since 
+they are captured by nonprofessional users or just for 
+the visual navigation purpose. These factors can fre-
+quently cause the failure of 3D reconstruction.
+Figure 22. Crowdsource images from google street views.
+Figure 21. Spherical cameras for (a) Urban tree detection (Itakura and Hosoi 2020 ) and (b) Obstacle avoidance of underwater 
+vehicles (Ochoa et al. 2022 ).1980
+ S. JIANG ET AL.
+Crowdsource images still have great potential in 
+3D reconstruction, especially for urban buildings, 
+although they have the above-mentioned draw -
+backs. There are some possible solutions to exploit 
+the potential of freely available crowdsource 
+images. First, image classification methods can be 
+used to separate indoor and outdoor images, e.g. 
+recent deep learning-based networks. The classified 
+images can be used for subsequent indoor or out-
+door 3D modeling. Second, existing crowdsource 
+images can be useful compensation from the street 
+viewpoints, such as for UAV images from aerial 
+viewpoints. In this situation, crowdsource images 
+could be registered to the reconstructed 3D models 
+from UAV images, avoiding the requirement of 
+high overlap degrees in image-based 3D 
+reconstruction.
+4.2. Spatial resolution of spherical image
+Spherical cameras record the 360° by 180° of sur-
+rounding environments using only one shot, which 
+dramatically accelerates data acquisition. However, 
+because of the limited CCD (Charge Coupled 
+Device) dimensions of cameras, the spatial resolution 
+of collected images is also obviously decreased when 
+compared with classical perspective cameras with 
+images of the same CCD dimensions. The spatial 
+resolution causes a contradiction between the effi-
+ciency of data acquisition and the quality of the recon -
+structed model.
+●The efficiency of data acquisitions . Much more 
+time would be consumed to record images with 
+higher resolutions to ensure the enough camera 
+exposure time. For example, a Weiss AG Civetta 
+spherical camera can record images with 
+a dimension of 230 M pixels as it uses a rotation 
+lens to scan surrounding scenes. This camera, 
+however, can only be installed on a ground- 
+fixed tripod since it consumes 40 seconds for 
+each camera exposure.●The quality of reconstructed models . The con-
+sumer-grade cameras usually consist of two or 
+more dioptric camera modules, such as the 
+Theta X camera with two lenses. This design 
+model decreases the time costs consumed in out-
+door data acquisition. However, they sacrifice the 
+spatial resolution of recorded images, which can 
+further reduce the quality of reconstructed 
+models.
+In order to increase the spatial resolution of spherical 
+images, two possible solutions can be implemented 
+without sacrificing the efficiency of data acquisition. 
+On the one hand, more cameras can be integrated into 
+one spherical camera as the spherical image is the 
+fusion of images from these camera modules. This 
+strategy has been widely used in recent spherical cam-
+eras, such as the Ladybug 5+ with six cameras and the 
+Panono with 36 cameras; on the other hand, high- 
+speed imaging could be a promising technology. It 
+does not increase the size and weight of spherical 
+cameras, and it decreases the time costs for recording 
+high-resolution images (Feng et al. 2016 ).
+4.3. Camera distortion and calibration
+Serious geometric distortions exist in spherical images. 
+On the one hand, the individual camera module has 
+imaging geometric distortions; on the other hand, 
+generating the spherical image would also introduce 
+distortions. Especially for consumer-grade cameras, 
+such as Ricoh Theta X and Insta360 Sphere, these 
+cameras project multiple images from each camera 
+onto a sphere and generate the ERP format spherical 
+images.
+Generally, an ideal unit sphere camera model is 
+used in the generation of the ERP format, as illustrated 
+in Figure 11(c) , including the well-known commercial 
+and open-source software packages Agisoft 
+Metashape, Pix4Dmapper, and OpenMVG. This pro-
+jection would introduce distortions and cause errors 
+in 3D reconstruction. Figure 23 presents a comparison 
+Figure 23. The illustration of dense matching point clouds from (a) A consumer-grade camera; and (b) A professional camera.GEO-SPATIAL INFORMATION SCIENCE
+ 1981
+of 3D models reconstructed from consumer-grade and 
+professional spherical images. It is clearly shown that 
+the point clouds in Figure 23(a) are very coarse, even 
+on the plain wall. On the contrary, the point clouds 
+generated using the professional camera are more 
+accurate, from which the text is very clear. Therefore, 
+camera calibration should be seriously considered and 
+executed for spherical images to improve the quality of 
+reconstructed models.
+4.4. Integration of aerial-ground image
+Although spherical cameras can record 360° by 180° of 
+surrounding environments, their effective observation 
+range is still limited to the near-ground region. In order 
+to obtain complete reconstruction, aerial images must be 
+integrated with ground spherical images. In the litera -
+ture, there are valuable attempts for the integration of 
+aerial-ground images in the context of 3D reconstruc -
+tion, which can be roughly divided into 2D image-based 
+methods and 3D point cloud-based methods (Gao et al. 
+2018 ).
+●2D image-based methods . These methods aim 
+to establish reliable correspondence between 
+aerial and ground images and implement com -
+bined bundle adjustment by using both aerial 
+and ground images. The commonly used stra-
+tegies are image rectification and virtual ren-
+dering. The former aims to rectify aerial and 
+ground images onto the same plane in the 
+object space (Wu et al. 2018 ); the latter utilizes 
+the rough POS (Positioning and Orientation 
+System) data of ground images and render vir-
+tual images from the 3D models reconstructed 
+from aerial images (Zhu et al. 2020 ). The core 
+idea of these methods is to decrease the geo-
+metric distortion caused by large viewpoints. 
+However, for spherical images, their camera 
+imaging model differs from the conventional 
+perspective model. Thus, further consideration 
+should be paid.
+●3D point cloud-based methods . The core idea is 
+to create 3D models separately from aerial and 
+ground images and find reliable enough common 
+3D correspondences from these 3D models. The 
+integration problem is then converted into the 
+registration of 3D point clouds (Gao et al. 2018 ). 
+However, for spherical images, two issues should 
+be considered. On the one hand, the trajectory of 
+spherical images is limited by the structure of 
+urban streets, which causes large accumulate drift 
+in SfM or SLAM-based image orientation. Thus, it 
+may be hard to model the registration between 3D 
+point clouds by using the commonly used similar -
+ity transformation; on the other hand, as shown in 
+Figure 23, the reconstructed models of spherical images may contain many false 3D points due to 
+camera distortions. Finding reliable correspon -
+dences becomes a non-trivial task between 3D 
+point clouds created from varying images.
+For the first issue, the recent deep learning-based 
+technique can be used to achieve reliable feature detec -
+tion and matching. Especially for decreasing the pro-
+jection distortions, the DCN (deformable 
+convolutional network) (Zhu et al. 2019 ) based net-
+work can be a promising technique to achieve view -
+point invariant feature detection, and the GCN (graph 
+convolutional network) based network, e.g. SuperGlue 
+(Sarlin et al. 2020 ), can exploit the context information 
+to execute reliable feature matching. For the second 
+issue, the large image orientation problem can be 
+divided into some clusters based on the street struc -
+tures, and the accumulated drift can be decreased. This 
+divide-and-conquer strategy has been used for effi-
+cient and accurate 3D reconstruction of UAV images 
+(Jiang et al. 2022 ).
+5.Conclusions
+Spherical images can record all surrounding environ -
+ments by using one camera exposure. In contrast to 
+perspective images with limited FOV, spherical images 
+can cover the whole scene and have been increasingly 
+used for 3D modeling in street-view and indoor envir -
+onments. This paper reviews the 3D reconstruction 
+from spherical images in terms of data acquisition, 
+image matching, image orientation, and dense match -
+ing to wrap up recent techniques of 3D modeling 
+based on spherical images. It also presents promising 
+3D reconstruction applications, including cultural 
+heritage documentation, urban modeling and naviga -
+tion, tunnel mapping and inspection, and other appli -
+cations, e.g. urban tree localization, emergency 
+response and rescue, and underwater collision avoid -
+ance. Finally, the main prospects are discussed in 
+terms of the exploitation of crowdsource images, the 
+spatial resolution of spherical images, camera distor -
+tion and calibration, and integration of aerial-ground 
+images. According to this review, we can conclude that 
+spherical images have great potential in the 3D recon -
+struction of street view and indoor scenes, and con-
+temporary techniques can support their applications. 
+Future studies can increase the spatial resolution of 
+spherical cameras for data acquisition and exploit 
+current deep learning-based methods to optimize the 
+3D reconstruction workflow.
+Disclosure statement
+No potential conflict of interest was reported by the 
+author(s).1982
+ S. JIANG ET AL.
+Funding
+This research was funded by the National Natural Science 
+Foundation of China [Grant No. 42371442], the Hubei 
+Provincial Natural Science Foundation of China [Grant 
+No. 2023AFB568], the Hong Kong Scholars Program 
+[Grant No. 2021-114], and the Open Research fund from 
+the Hubei Luojia Laboratory [Grand No. 230100013].
+Notes on contributors
+San Jiang received the B.Sc. degree in remote sensing 
+science and technology from Wuhan University in 2010, 
+and the M.Sc. and Ph.D. degrees in photogrammetry and 
+remote sensing from Wuhan University in 2012 and 
+2018, respectively. From 2012 to 2014, he worked as an 
+assistant engineer in Tianjin Institute of Surveying and 
+Mapping. From 2014 to 2015, he joined the LIESMARS 
+(State Key Laboratory of Information Engineering in 
+Surveying, Mapping and Remote Sensing of Wuhan 
+University) as a research assistant. Currently, he is an 
+associate professor in the School of Computer Science, 
+China University of GeoSciences (Wuhan). His research 
+interests include photogrammetry and 3D 
+reconstruction.
+Kan You received B.Sc. degree in computer Science and 
+Technology from South-Central Minzu University in 2022. 
+Currently, he is a postgraduate student at the School of 
+Computer Science, China University of Geosciences, 
+Wuhan. His research interests include image matching and 
+3D reconstruction.
+Yaxin Li received his M.Sc. and Ph.D. degrees from the 
+Department of Land Surveying and Geo-Informatics at the 
+Hong Kong Polytechnic University in 2015 and 2020, 
+respectively. He received his B.Sc. degree in Geomatics 
+Engineering, School of Geodesy and Geomatics, Wuhan 
+University, China, in 2013. His research interests include 
+SLAM, indoor 3D modeling, semantic segmentation, and 
+Auto BIM generation.
+Duojie Weng received his B.Sc. and M.Sc. degrees in 
+electrical engineering from Hohai University in 2007 
+and 2010, respectively, and the Ph.D. degree from the 
+Hong Kong Polytechnic University in 2016. He is cur-
+rently a post-doctoral researcher at the Hong Kong 
+Polytechnic University. His research interests include 
+GNSS integrity monitoring, kinematic GPS, and sensor 
+integration.
+Wu Chen is a Professor with the Department of Land 
+Surveying and Geo-Informatics of the Hong Kong 
+Polytechnic University. He has been actively working on 
+GNSS related research for more than 30 years. His main 
+research interests are geodesy and geodynamics, seamless 
+positioning technologies, GNSS positioning and applica -
+tions, system integration, GNSS performance evaluation, 
+regional GPS network, and SLAM.
+ORCID
+San Jiang 
+ http://orcid.org/0000-0002-7799-650X
+Yaxin Li 
+ http://orcid.org/0000-0002-5610-3223
+Wu Chen 
+ http://orcid.org/0000-0002-1787-5191References
+Aghayari, S., M. Saadatseresht, M. Omidalizarandi, and 
+I. Neumann. 2017 . “Geometric Calibration of Full 
+Spherical Panoramic Ricoh-Theta Camera.” ISPRS 
+Annals of the Photogrammetry, Remote Sensing and 
+Spatial Information Sciences IV-1/W1 (2017) 4:237–245. 
+https://doi.org/10.5194/isprs-annals-iv-1-w1-237-2017 .
+Albanis, G., N. Zioulis, P. Drakoulis, V. Gkitsas, 
+V. Sterzentsenko, F. Alvarez, D. Zarpalas, and P. Daras. 
+2021 . “Pano3d: A Holistic Benchmark and a Solid 
+Baseline for 360° Depth Estimation.” Paper presented at 
+the 2021 IEEE/CVF Conference on Computer Vision and 
+Pattern Recognition Workshops (CVPRW), Nashville, 
+TN, USA.
+Anguelov, D., C. Dulong, D. Filip, C. Frueh, S. Lafon, 
+R. Lyon, A. Ogale, L. Vincent, and J. Weaver. 2010 . 
+“Google street view: Capturing the world at street level.” 
+Computer 43 (6): 32–38.
+Arican, Z., and P. Frossard. 2012 . “Scale-invariant features 
+and polar descriptors in omnidirectional imaging.” IEEE 
+Transactions on Image Processing 21 (5): 2412–2423.
+Armeni, I., S. Sax, A. R. Zamir, and S. Savarese. 2017 . “Joint 
+2d-3d-semantic data for indoor scene understanding.” 
+arXiv Preprint arXiv: 170201105 . https://doi.org/10. 
+48550/arXiv.1702.01105 .
+Barazzetti, L., M. Previtali, and F. Roncoroni. 2018 . “Can 
+We Use Low-Cost 360 Degree Cameras to Create 
+Accurate 3D Models?” International Archives of the 
+Photogrammetry, Remote Sensing and Spatial 
+Information Sciences 42 (2), 69–75. https://doi.org/10. 
+5194/isprs-archives-XLII-2-69-2018 .
+Bay, H., A. Ess, T. Tuytelaars, and L. V. Gool. 2008 . 
+“Speeded-Up Robust Features (SURF.” Computer Vision 
+and Image Understanding 110 (3): 346–359.
+Biljecki, F., and K. Ito. 2021 . “Street View Imagery in Urban 
+Analytics and GIS: A Review.” Landscape and Urban 
+Planning 215:104217. https://doi.org/10.1016/j.landurb 
+plan.2021.104217 .
+Bleyer, M., C. Rhemann, and C. Rother. 2011 . “Patchmatch 
+Stereo-Stereo Matching with Slanted Support Windows.” 
+Paper presented at the Bmvc .
+Bruno, N., and R. Roncella. 2019 . “Accuracy Assessment of 
+3d Models Generated from Google Street View Imagery.” 
+The International Archives of Photogrammetry, Remote 
+Sensing & Spatial Information Sciences 42:181–188. 
+https://doi.org/10.5194/isprs-archives-XLII-2-W9-181- 
+2019 .
+Campos, C., R. Elvira, J. J. G. Rodríguez, J. M. Montiel, and 
+J. D. Tardós. 2021 . “Orb-slam3: An accurate open-source 
+library for visual, visual–inertial, and multimap slam.” 
+IEEE Transactions on Robotics 37 (6): 1874–1890.
+Cao, M., W. Jia, Z. Lv, Y. Li, W. Xie, L. Zheng, and X. Liu. 
+2019 . “Fast and Robust Feature Tracking for 3D 
+Reconstruction.” Optics & Laser Technology 110:120– 
+128. https://doi.org/10.1016/j.optlastec.2018.05.036 .
+Caruso, D., J. Engel, and D. Cremers. 2015 . “Large-scale 
+direct slam for omnidirectional cameras.” Paper pre-
+sented at the 2015 IEEE/RSJ International Conference 
+on Intelligent Robots and Systems (IROS), Hamburg, 
+Germany.
+Chang, J., and Y. Chen. 2018 . “Pyramid Stereo Matching 
+Network.” Paper presented at the Proceedings of the IEEE 
+Conference on Computer Vision and Pattern 
+Recognition, Salt Lake City, Utah.GEO-SPATIAL INFORMATION SCIENCE
+ 1983
+Chang, P., and M. Hebert. 2000 . “Omni-Directional 
+Structure from Motion.” Paper presented at the 
+Proceedings IEEE Workshop on Omnidirectional 
+Vision (Cat. No. PR00704), Hilton Head, SC, USA.
+Chappellet, K., G. Caron, F. Kanehiro, K. Sakurada, and 
+A. Kheddar. 2021 . “Benchmarking cameras for open 
+VSLAM indoors.” Paper presented at the 2020 25th 
+International Conference on Pattern Recognition 
+(ICPR), Milan, Italy.
+Chen, L., F. Rottensteiner, and C. Heipke. 2020 . “Feature 
+Detection and Description for Image Matching: From 
+Hand-Crafted Design to Deep Learning.” Geo-Spatial 
+Information Science 24 (1): 1–17. https://doi.org/10. 
+1080/10095020.2020.1843376 .
+Cheng, L., Y. Yuan, N. Xia, S. Chen, Y. Chen, K. Yang, 
+L. Ma, and M. Li. 2018 . “Crowd-Sourced Pictures 
+Geo-Localization Method Based on Street View Images 
+and 3D Reconstruction.” ISPRS Journal of 
+Photogrammetry & Remote Sensing 141:72–85. https:// 
+doi.org/10.1016/j.isprsjprs.2018.04.006 .
+Chuang, T., and N. Perng. 2018 . “Rectified Feature 
+Matching for Spherical Panoramic Images.” 
+Photogrammetric Engineering & Remote Sensing 84 (1): 
+25–32.
+Cohen, T. S., M. Geiger, J. Köhler, and M. Welling. 2018 . 
+“Spherical Cnns.” arXiv Preprint arXiv: 180110130. 
+https://doi.org/10.48550/arXiv.1801.10130 .
+Coors, B., A. P. Condurache, and A. Geiger. 2018 . 
+“Spherenet: Learning Spherical Representations for 
+Detection and Classification in Omnidirectional 
+Images.” Paper presented at the Proceedings of the 
+European conference on computer vision (ECCV), 
+Munich, Germany.
+Cruz-Mota, J., I. Bogdanova, B. Paquier, M. Bierlaire, and 
+J. Thiran. 2012 . “Scale Invariant Feature Transform on 
+the Sphere: Theory and Applications.” International 
+Journal of Computer Vision 98 (2): 217–241.
+Cui, H., X. Gao, S. Shen, and Z. Hu. 2017 . “HsfM: Hybrid 
+Structure-From-Motion.” Paper presented at the 
+Proceedings of the IEEE conference on computer vision 
+and pattern recognition, Honolulu, Hawaii, USA.
+da Silveira, T. L., and C. R. Jung. 2019 . “Dense 3D Scene 
+Reconstruction from Multiple Spherical Images for 
+3-DoF+ VR Applications.” Paper presented at the 2019 
+IEEE Conference on Virtual Reality and 3D User 
+Interfaces (VR), Osaka, Japan.
+da Silveira, T. L., P. G. Pinto, J. Murrugarra-Llerena, and 
+C. R. Jung. 2022 . “3d Scene Geometry Estimation from 
+360 Imagery: A Survey.” ACM Computing Surveys 
+(CSUR) 55 (4): 1–39. https://doi.org/10.1145/3519021 .
+Da Silveira, T. L. T., and C. R. Jung. 2017 . “Evaluation of 
+Keypoint Extraction and Matching for Pose Estimation 
+Using Pairs of Spherical Images.” Paper presented at the 
+2017 30th SIBGRAPI Conference on Graphics, Niteroi, 
+Brazil, Patterns and Images (SIBGRAPI).
+Defferrard, M., M. Milani, F. Gusset, and N. Perraudin. 
+2019 . “DeepSphere: A Graph-Based Spherical CNN.” 
+Paper presented at the International Conference on 
+Learning Representations, New Orleans, Louisiana, USA.
+DeTone, D., T. Malisiewicz, and A. Rabinovich. 2018 . 
+“Superpoint: Self-Supervised Interest Point Detection 
+and Description.” Paper presented at the Proceedings of 
+the IEEE Conference on Computer Vision and Pattern 
+Recognition Workshops, Salt Lake City, Utah.
+Dusmanu, M., I. Rocco, T. Pajdla, M. Pollefeys, J. Sivic, 
+A. Torii, and T. Sattler. 2019 . “D2-Net: A Trainable Cnn 
+for Joint Detection and Description of Local Features.” arXiv Preprint arXiv: 190503561. https://doi.org/10. 
+48550/arXiv.1905.03561 .
+Eder, M., M. Shvets, J. Lim, and J. Frahm. 2020 . “Tangent 
+images for mitigating spherical distortion.” Paper pre-
+sented at the Proceedings of the IEEE/CVF Conference 
+on Computer Vision and Pattern Recognition, Seattle, 
+Washington.
+Engel, J., V. Koltun, and D. Cremers. 2017 . “Direct Sparse 
+Odometry.” IEEE Transactions on Pattern Analysis & 
+Machine Intelligence 40 (3): 611–625.
+Engel, J., T. Schöps, and D. Cremers. 2014 . “LSD-SLAM: 
+Large-scale direct monocular SLAM.” Paper presented at 
+the European conference on computer vision, Zurich, 
+Switzerland.
+Fangi, G. 2007 . “The Multi-Image Spherical Panoramas as 
+a Tool for Architectural Survey-Xxi International Cipa 
+Symposium, 1-6 October 2007, Atene, Isprs International 
+Archive–Vol Xxxvi-5/c53–ISSN 1682-1750–cipa 
+Archives Vol.” XXI-2007 XXXVIII-5/C19:21–28.
+Fangi, G. 2010 . “Multiscale Multiresolution Spherical 
+Photogrammetry with Long Focal Lenses for 
+Architectural Surveys.” The International Archives of 
+Photogrammetry, Remote Sensing & Spatial Information 
+Sciences 38 (Part 5): 1–6.
+Fangi, G., and C. Nardinocchi. 2013 . “Photogrammetric 
+Processing of Spherical Panoramas.” Photogrammetric 
+Record 28 (143): 293–311.
+Fangi, G., R. Pierdicca, M. Sturari, and E. Malinverni. 2018 . 
+“Improving Spherical Photogrammetry using 360° Omni- 
+cameras: Use Cases and New Applications.” International 
+Archives of the Photogrammetry, Remote Sensing and 
+Spatial Information Sciences 42 (2): 331–337. https://doi. 
+org/10.5194/isprs-archives-XLII-2-331-2018 .
+Fang, X., Q. Li, J. Zhu, Z. Chen, D. Zhang, K. Wu, K. Ding, 
+and Q. Li. 2022 . “Sewer Defect Instance Segmentation, 
+Localization, and 3D Reconstruction for Sewer Floating 
+Capsule Robots.” Automation in Construction 142:104494.  
+https://doi.org/10.1016/j.autcon.2022.104494  .
+Feng, Q., H. P. Shum, and S. Morishima. 2022 . “360 Depth 
+Estimation in the Wild-The Depth360 Dataset and the 
+SegFuse Network.” Paper presented at the 2022 IEEE 
+Conference on Virtual Reality and 3D User Interfaces 
+(VR), Christchurch, New Zealand.
+Feng, T., H. Mi, M. Scaioni, G. Qiao, P. Lu, W. Wang, 
+X. Tong, and R. Li. 2016 . “Measurement of Surface 
+Changes in a Scaled-Down Landslide Model Using 
+High-Speed Stereo Image Sequences.” Photogrammetric 
+Engineering & Remote Sensing 82 (7): 547–557.
+Furukawa, Y., and C. Hernández. 2015 . “Multi-View Stereo: 
+A Tutorial.” Foundations and trends® in Computer 
+Graphics and Vision 9 (1–2): 1–148.
+Gao, S., K. Yang, H. Shi, K. Wang, and J. Bai. 2022 . “Review 
+on Panoramic Imaging and Its Applications in Scene 
+Understanding.” arXiv Preprint arXiv: 220505570 71:1– 
+4. https://doi.org/10.1109/TIM.2022.3216675 .
+Gao, X., L. Hu, H. Cui, S. Shen, and Z. Hu. 2018 . “Accurate 
+and Efficient Ground-To-Aerial Model Alignment.” 
+Pattern Recognition 76:288–302. https://doi.org/10.1016/ 
+j.patcog.2017.11.003 .
+Griwodz, C., S. Gasparini, L. Calvet, P. Gurdjos, F. Castan, 
+B. Maujean, G. D. Lillo, and Y. Lanthony. 2021 . 
+“AliceVision Meshroom: An open-source 3D reconstruc -
+tion pipeline.” Paper presented at the Proceedings of the 
+12th ACM Multimedia Systems Conference, Istanbul 
+Turkey.
+Guan, H., and W. A. Smith. 2016 . “Structure-From-Motion 
+in Spherical Video Using the von Mises-Fisher 1984
+ S. JIANG ET AL.
+Distribution.” IEEE Transactions on Image Processing 
+26 (2): 711–723.
+Guan, H., and W. A. Smith. 2017 . “BRISKS: Binary Features 
+for Spherical Images on a Geodesic Grid.” Paper pre-
+sented at the Proceedings of the IEEE Conference on 
+Computer Vision and Pattern Recognition, Honolulu, 
+Hawaii.
+Guo, W., X. Zhang, D. Zhang, Z. Chen, B. Zhou, D. Huang, 
+and Q. Li. 2022 . “Detection and Classification of Pipe 
+Defects Based on Pipe-Extended Feature Pyramid 
+Network.” Automation in Construction 141:104399.  
+https://doi.org/10.1016/j.autcon.2022.104399  .
+Han, X., T. Leung, Y. Jia, R. Sukthankar, and A. C. Berg. 
+2015 . “Matchnet: Unifying Feature and Metric Learning 
+for Patch-Based Matching.” Paper presented at the 
+Proceedings of the IEEE Conference on Computer 
+Vision and Pattern Recognition, Boston, Massachusetts.
+Hartmann, W., M. Havlena, and K. Schindler. 2016 . “Recent 
+developments in large-scale tie-point matching.” ISPRS 
+Journal of Photogrammetry & Remote Sensing 115:47–62. 
+https://doi.org/10.1016/j.isprsjprs.2015.09.005 .
+Heipke, C., and F. Rottensteiner. 2020 . “Deep Learning for 
+Geometric and Semantic Tasks in Photogrammetry and 
+Remote Sensing.” Geo-Spatial Information Science 23 (1): 
+10–19.
+Heng, L., B. Li, and M. Pollefeys. 2013 . “Camodocal: 
+Automatic Intrinsic and Extrinsic Calibration of a Rig 
+with Multiple Generic Cameras and Odometry.” Paper 
+presented at the 2013 IEEE/RSJ International Conference 
+on Intelligent Robots and Systems, Tokyo, Japan.
+Herban, S., D. Costantino, V. S. Alfio, and M. Pepe. 2022 . 
+“Use of Low-Cost Spherical Cameras for the Digitisation 
+of Cultural Heritage Structures into 3D Point Clouds.” 
+Journal of Imaging 8 (1): 13.
+Hirschmuller, H. 2007 . “Stereo Processing by Semiglobal 
+Matching and Mutual Information.” IEEE Transactions 
+on Pattern Analysis & Machine Intelligence 30 (2): 
+328–341.
+Huang, B., J. Zhao, and J. Liu. 2019 . “A Survey of 
+Simultaneous Localization and Mapping with an 
+Envision in 6G Wireless Networks.” arXiv Preprint 
+arXiv: 190905214. https://doi.org/10.48550/arXiv.1909. 
+05214 .
+Huang, F., H. Yang, X. Tan, S. Peng, J. Tao, and S. Peng. 
+2020 . “Fast Reconstruction of 3D Point Cloud Model 
+Using Visual SLAM on Embedded UAV Development 
+Platform.” Remote Sensing 12 (20): 3308.
+Huang, H., and S. Yeung. 2022 . “360VO: Visual Odometry 
+Using a Single 360 Camera.” Paper presented at the 2020 
+IEEE International Conference on Robotics and 
+Automation (ICRA), Philadelphia, PA, USA.
+Im, S., H. Ha, F. Rameau, H. Jeon, G. Choe, and I. S. Kweon. 
+2016 . “All-Around Depth from Small Motion with 
+a Spherical Panoramic Camera.” Paper presented at the 
+European Conference on Computer Vision, Amsterdam, 
+the Netherlands.
+Itakura, K., and F. Hosoi. 2020 . “Automatic Tree Detection 
+from Three-Dimensional Images Reconstructed from 360 
+Spherical Camera Using YOLO V2.” Remote Sensing 
+12 (6): 988.
+Jang, H., A. Meuleman, D. Kang, D. Kim, C. Richardt, and 
+M. H. Kim. 2022 . “Egocentric scene reconstruction from 
+an omnidirectional video.” ACM Transactions on 
+Graphics 41 (4): 1–12.
+Janiszewski, M., M. Torkan, L. Uotinen, and M. Rinne. 2022 . 
+“Rapid Photogrammetry with a 360-Degree Camera for 
+Tunnel Mapping.” Remote Sensing 14 (21): 5494.Jayasuriya, M., R. Ranasinghe, and G. Dissanayake. 2020 . 
+“Active Perception for Outdoor Localisation with an 
+Omnidirectional Camera.” Paper presented at the 2020 
+IEEE/RSJ International Conference on Intelligent Robots 
+and Systems (IROS), Las Vegas, NV, USA.
+Jhan, J., N. Kerle, and J. Rau. 2022 . “Integrating UAV and 
+Ground Panoramic Images for Point Cloud Analysis of 
+Damaged Building.” IEEE Geoscience & Remote Sensing 
+Letters 19:1–5. https://doi.org/10.1109/LGRS.2020. 
+3048150 .
+Ji, S., Z. Qin, J. Shan, and M. Lu. 2020 . “Panoramic SLAM 
+from a Multiple Fisheye Camera Rig.” Isprs Journal of 
+Photogrammetry & Remote Sensing 159:169–183. https:// 
+doi.org/10.1016/j.isprsjprs.2019.11.014 .
+Ji, S., Y. Shi, Z. Shi, A. Bao, J. Li, X. Yuan, Y. Duan, and 
+R. Shibasaki. 2014 . “Comparison of Two Panoramic 
+Sensor Models for Precise 3d Measurements.” 
+Photogrammetric Engineering & Remote Sensing 80 (3): 
+229–238.
+Jiang, C., J. Huang, K. Kashinath, P. Marcus, and 
+M. Niessner. 2019 . “Spherical CNNs on Unstructured 
+Grids.” arXiv Preprint arXiv: 190102039. https://doi.org/ 
+10.48550/arXiv.1901.02039 .
+Jiang, S., and W. Jiang. 2017 . “On-Board GNSS/IMU 
+Assisted Feature Extraction and Matching for Oblique 
+UAV Images.” Remote Sensing 9 (8): 813.
+Jiang, S., and W. Jiang. 2020 . “Efficient Match Pair Selection 
+for Oblique UAV Images Based on Adaptive Vocabulary 
+Tree.” ISPRS Journal of Photogrammetry & Remote 
+Sensing 161:61–75. https://doi.org/10.1016/j.isprsjprs. 
+2019.12.013  .
+Jiang, S., W. Jiang, B. Guo, L. Li, and L. Wang. 2021 . 
+“Learned Local Features for Structure from Motion of 
+Uav Images: A Comparative Evaluation.” IEEE Journal 
+of Selected Topics in Applied Earth Observations & Remote 
+Sensing 14:10583–10597. https://doi.org/10.1109/ 
+JSTARS.2021.3119990 .
+Jiang, S., C. Jiang, and W. Jiang. 2020 . “Efficient Structure 
+from Motion for Large-Scale UAV Images: A Review and 
+a Comparison of SfM Tools.” ISPRS Journal of 
+Photogrammetry & Remote Sensing 167:230–251. https:// 
+doi.org/10.1016/j.isprsjprs.2020.04.016  .
+Jiang, S., W. Jiang, and L. Wang. 2021 . “Unmanned Aerial 
+Vehicle-Based Photogrammetric 3d Mapping: A Survey 
+of Techniques, Applications, and Challenges.” IEEE 
+Geoscience and Remote Sensing Magazine 10 (2): 135–171.
+Jiang, S., Q. Li, W. Jiang, and W. Chen. 2022 . “Parallel 
+Structure from Motion for UAV Images via Weighted 
+Connected Dominating Set.” IEEE Transactions on 
+Geoscience & Remote Sensing 60:1–13. https://doi.org/ 
+10.1109/TGRS.2022.3222776  .
+Jin, L., Y. Xu, J. Zheng, J. Zhang, R. Tang, S. Xu, J. Yu, and 
+S. Gao. 2020 . “Geometric structure based and regularized 
+depth estimation from 360 indoor imagery.” Paper pre-
+sented at the Proceedings of the IEEE/CVF Conference 
+on Computer Vision and Pattern Recognition, Seattle, 
+Washington.
+Kangni, F., and R. Laganiere. 2007 . “Orientation and Pose 
+Recovery from Spherical Panoramas.” Paper presented at 
+the 2007 IEEE 11th International Conference on 
+Computer Vision, Rio de Janeiro, Brazil.
+Kang, Z., J. Yang, Z. Yang, and S. Cheng. 2020 . “A Review of 
+Techniques for 3D Reconstruction of Indoor 
+Environments.” ISPRS International Journal of Geo- 
+Information 9 (5): 330.
+Karkoub, M., O. Bouhali, and A. Sheharyar. 2020 . “Gas 
+Pipeline Inspection Using Autonomous Robots with GEO-SPATIAL INFORMATION SCIENCE
+ 1985
+Omni-Directional Cameras.” IEEE Sensors Journal 
+21 (14): 15544–15553.
+Khamis, S., S. Fanello, C. Rhemann, A. Kowdle, J. Valentin, 
+and S. Izadi. 2018 . “StereoNet: Guided Hierarchical 
+Refinement for Real-Time Edge-Aware Depth 
+Prediction.” Paper presented at the Proceedings of the 
+European Conference on Computer Vision (ECCV), 
+Munich, Germany.
+Kim, H., and A. Hilton. 2013 . “3d scene reconstruction from 
+multiple spherical stereo pairs.” International Journal of 
+Computer Vision 104 (1): 94–116.
+Kumar BG, V., G. Carneiro, and I. Reid. 2016 . “Learning 
+Local Image Descriptors with Deep Siamese and Triplet 
+Convolutional Networks by Minimising Global Loss 
+Functions.” Paper presented at the Proceedings of the 
+IEEE Conference on Computer Vision and Pattern 
+Recognition, Las Vegas, NV, USA.
+Lai, P. K., S. Xie, J. Lang, and R. Laganière. 2019 . “Real-time 
+panoramic depth maps from omni-directional stereo 
+images for 6 dof videos in virtual reality.” Paper presented 
+at the 2019 IEEE Conference on Virtual Reality and 3D 
+User Interfaces (VR), Osaka, Japan.
+Leingartner, M., J. Maurer, A. Ferrein, and G. Steinbauer. 
+2016 . “Evaluation of sensors and mapping approaches for 
+disasters in tunnels.” Journal of Field Robotics 33 (8): 
+1037–1057.
+Liao, J., Y. Yue, D. Zhang, W. Tu, R. Cao, Q. Zou, and Q. Li. 
+2022 . “Automatic tunnel crack inspection using an effi-
+cient mobile imaging module and a lightweight CNN.” 
+IEEE Transactions on Intelligent Transportation Systems 
+23 (9): 15190–15203.
+Lichti, D. D., D. Jarron, W. Tredoux, M. Shahbazi, and 
+R. Radovanovic. 2020 . “Geometric Modelling and 
+Calibration of a Spherical Camera Imaging System.” 
+Photogrammetric Record 35 (170): 123–142.
+Li, Q., H. Huang, W. Yu, and S. Jiang. 2023 . “Optimized 
+Views Photogrammetry: Precision Analysis and a 
+Large-Scale Case Study in Qingdao.” IEEE Journal of 
+Selected Topics in Applied Earth Observations & Remote 
+Sensing 16:1144–1159. https://doi.org/10.1109/JSTARS. 
+2022.3233359  .
+Lowe, D. G. 2004 . “Distinctive Image Features from 
+Scale-Invariant Keypoints.” International Journal of 
+Computer Vision 60:91–110. https://doi.org/10.1023/B: 
+VISI.0000029664.99615.94 .
+Luhmann, T. 2004 . “A Historical Review on Panorama 
+Photogrammetry.” International Archives of the 
+Photogrammetry, Remote Sensing and Spatial 
+Information Sciences 34 (5/W16): 8.
+Lumnitz, S., T. Devisscher, J. R. Mayaud, V. Radic, 
+N. C. Coops, and V. C. Griess. 2021 . “Mapping Trees 
+Along Urban Street Networks with Deep Learning and 
+Street-Level Imagery.” ISPRS Journal of Photogrammetry 
+& Remote Sensing 175:144–157. https://doi.org/10.1016/j. 
+isprsjprs.2021.01.016 .
+Luo, Z., T. Shen, L. Zhou, J. Zhang, Y. Yao, S. Li, T. Fang, 
+and L. Quan. 2019 . “Contextdesc: Local Descriptor 
+Augmentation with Cross-Modality Context.” Paper pre-
+sented at the Proceedings of the IEEE/CVF conference on 
+computer vision and pattern recognition, Long Beach, 
+California.
+Luo, Z., T. Shen, L. Zhou, S. Zhu, R. Zhang, Y. Yao, T. Fang, 
+and L. Quan. 2018 . “Geodesc: Learning Local Descriptors 
+by Integrating Geometry Constraints.” Paper presented at 
+the Proceedings of the European conference on computer 
+vision (ECCV), Munich, Germany.Lu, Y., Z. Xue, G. Xia, and L. Zhang. 2018 . “A survey on 
+vision-based UAV navigation.” Geo-Spatial Information 
+Science 21 (1): 21–32.
+Ma, J., X. Jiang, A. Fan, J. Jiang, and J. Yan. 2021 . “Image 
+Matching from Handcrafted to Deep Features: A Survey.” 
+International Journal of Computer Vision 129:23–79. 
+https://doi.org/10.1007/s11263-020-01359-2 .
+Matsuki, H., L. V. Stumberg, V. Usenko, J. Stückler, and 
+D. Cremers. 2018 . “Omnidirectional DSO: Direct Sparse 
+Odometry with Fisheye Cameras.” IEEE Robotics and 
+Automation Letters 3 (4): 3693–3700.
+Mei, C., and P. Rives. 2007 . “Single view point omnidirec -
+tional camera calibration from planar grids.” Paper pre-
+sented at the Proceedings 2007 IEEE International 
+Conference on Robotics and Automation, Rome, Italy.
+Metashape, Agisoft. 2023 . “Agisoft Metashape.” https:// 
+www.agisoft.com/ .
+Meuleman, A., H. Jang, D. S. Jeon, and M. H. Kim. 2021 . 
+“Real-Time Sphere Sweeping Stereo from Multiview 
+Fisheye Images.” Paper presented at the Proceedings of 
+the IEEE/CVF Conference on Computer Vision and 
+Pattern Recognition, Nashville, Tennessee.
+Micusik, B., and J. Kosecka. 2009 . “Piecewise Planar City 3D 
+Modeling from Street View Panoramic Sequences.” Paper 
+presented at the 2009 IEEE Conference on Computer 
+Vision and Pattern Recognition, Miami, FL, USA.
+Micusik, B., and T. Pajdla. 2006 . “Structure from Motion 
+with Wide Circular Field of View Cameras.” IEEE 
+Transactions on Pattern Analysis & Machine Intelligence 
+28 (7): 1135–1149.
+Mishchuk, A., D. Mishkin, F. Radenovic, and J. Matas. 2017 . 
+“Working Hard to Know Your Neighbor’s Margins: Local 
+Descriptor Learning Loss.” In Proceedings of the 31st 
+International Conference on Neural Information 
+Processing Systems , Long Beach USA, 4829–4840. 
+https://doi.org/10.5555/3295222.3295236 .
+Morel, J., and G. Yu. 2009 . “ASIFT: A New Framework for 
+Fully Affine Invariant Image Comparison.” SIAM Journal 
+on Imaging Sciences 2 (2): 438–469.
+Moulon, P., P. Monasse, R. Perrot, and R. Marlet. 2017 . 
+“Openmvg: Open multiple view geometry.” Paper pre-
+sented at the Reproducible Research in Pattern 
+Recognition: First International Workshop, RRPR 2016, 
+Cancún, Mexico, December 4, 2016. Revised Selected 
+Papers 1.
+Mouragnon, E., M. Lhuillier, M. Dhome, F. Dekeyser, and 
+P. Sayd. 2006 . “Real Time Localization and 3d 
+Reconstruction.” Paper presented at the 2006 IEEE 
+Computer Society Conference on Computer Vision and 
+Pattern Recognition (CVPR’06), New York, NY, USA.
+Muja, M., and D. G. Lowe. 2009 . “Fast approximate nearest 
+neighbors with automatic algorithm configuration.” 
+Visapp (1) 2 (331–340): 2.
+Mur-Artal, R., J. M. M. Montiel, and J. D. Tardos. 2015 . 
+“ORB-SLAM: a versatile and accurate monocular SLAM 
+system.” IEEE Transactions on Robotics 31 (5): 
+1147–1163.
+Mur-Artal, R., and J. D. Tardós. 2017 . “ORB-SLAM2: An 
+Open-Source Slam System for Monocular, Stereo, and 
+Rgb-D Cameras.” IEEE Transactions on Robotics 33 (5): 
+1255–1262.
+Murrugarra-Llerena, J., T. L. da Silveira, and C. R. Jung. 
+2022 . “Pose Estimation for Two-View Panoramas Based 
+on Keypoint Matching: A Comparative Study and Critical 
+Analysis.” Paper presented at the Proceedings of the 
+IEEE/CVF Conference on Computer Vision and Pattern 
+Recognition, New Orleans, Louisiana.1986
+ S. JIANG ET AL.
+Murtiyoso, A., and P. Grussenmeyer. 2017 . “Documentation 
+of Heritage Buildings Using Close ‐Range UAV Images: 
+Dense Matching Issues, Comparison and Case Studies.” 
+Photogrammetric Record 32 (159): 206–229.
+Ochoa, E., N. Gracias, K. Istenič, J. Bosch, P. Cieślak, and 
+R. García. 2022 . “Collision Detection and Avoidance for 
+Underwater Vehicles Using Omnidirectional Vision.” 
+Sensors 22 (14): 5354.
+Pagani, A., C. C. Gava, Y. Cui, B. Krolla, J. Hengen, and 
+D. Stricker. 2011 . “Dense 3D Point Cloud Generation 
+from Multiple High-Resolution Spherical Images.” 
+Paper presented at the VAST .
+Pagani, A., and D. Stricker. 2011 . “Structure from Motion 
+Using Full Spherical Panoramic Cameras.” Paper pre-
+sented at the 2011 IEEE International Conference on 
+Computer Vision Workshops (ICCV Workshops), 
+Barcelona, Spain.
+Pintore, G., M. Agus, E. Almansa, J. Schneider, and 
+E. Gobbetti. 2021 . “SliceNet: Deep Dense Depth 
+Estimation from a Single Indoor Panorama Using a 
+Slice-Based Representation.” Paper presented at the 
+Proceedings of the IEEE/CVF Conference on Computer 
+Vision and Pattern Recognition, Nashville, Tennessee.
+Pix4dMapper. 2023 . “Pix4dMapper.” https://www.pix4d. 
+com .
+Puente, I., H. González-Jorge, J. Martínez-Sánchez, and 
+P. Arias. 2013 . “Review of Mobile Mapping and 
+Surveying Technologies.” Measurement 46 (7): 
+2127–2145.
+Puig, L., J. Bermúdez, P. Sturm, and J. J. Guerrero. 2012 . 
+“Calibration of Omnidirectional Cameras in Practice: 
+A Comparison of Methods.” Computer Vision and 
+Image Understanding 116 (1): 120–137.
+Rehder, J., J. Nikolic, T. Schneider, T. Hinzmann, and 
+R. Siegwart. 2016 . “Extending Kalibr: Calibrating the 
+Extrinsics of Multiple IMUs and of Individual Axes.” 
+Paper presented at the 2016 IEEE International 
+Conference on Robotics and Automation (ICRA), 
+Stockholm, Sweden.
+Rothermel, M., K. Wenzel, D. Fritsch, and N. Haala. 2012 . 
+“SURE: Photogrammetric Surface Reconstruction from 
+Imagery.” Paper presented at the Proceedings LC3D 
+Workshop, Berlin.
+Rublee, E., V. Rabaud, K. Konolige, and G. Bradski. 2011 . 
+“ORB: An Efficient Alternative to SIFT or SURF.” Paper 
+presented at the 2011 International conference on com -
+puter vision, Barcelona, Spain.
+Rupnik, E., M. Daakir, and M. P. Deseilligny. 2017 . 
+“MicMac–A Free, Open-Source Solution for 
+Photogrammetry.” Open Geospatial Data, Software and 
+Standards 2 (1): 1–9.
+Sarlin, P., D. DeTone, T. Malisiewicz, and A. Rabinovich. 
+2020 . “Superglue: Learning Feature Matching with Graph 
+Neural Networks.” Paper presented at the Proceedings of 
+the IEEE/CVF conference on computer vision and pat-
+tern recognition, Seattle, Washington.
+Scaramuzza, D., and K. Ikeuchi. 2014 . “Omnidirectional 
+camera.”
+Scaramuzza, D., A. Martinelli, and R. Siegwart. 2006 . 
+“A flexible technique for accurate omnidirectional cam-
+era calibration and structure from motion.” Paper pre-
+sented at the Fourth IEEE International Conference on 
+Computer Vision Systems (ICVS’06), New York, NY, 
+USA.
+Schönbein, M., T. Strauß, and A. Geiger. 2014 . “Calibrating 
+and centering quasi-central catadioptric cameras.” Paper presented at the 2014 IEEE International Conference on 
+Robotics and Automation (ICRA), Hong Kong, China.
+Schonberger, J. L., and J. Frahm. 2016 . “Structure-From- 
+Motion Revisited.” Paper presented at the Proceedings 
+of the IEEE Conference on Computer Vision and Pattern 
+Recognition, Las Vegas, NV, USA.
+Seki, A., and M. Pollefeys. 2017 . “SGM-Nets: Semi-Global 
+Matching with Neural Networks.” Paper presented at the 
+Proceedings of the IEEE Conference on Computer Vision 
+and Pattern Recognition, Honolulu, Hawaii.
+Shan, Y., and S. Li. 2018 . “Descriptor Matching for 
+a Discrete Spherical Image with a Convolutional Neural 
+Network.” Institute of Electrical and Electronics Engineers 
+Access 6:20748–20755. https://doi.org/10.1109/ACCESS. 
+2018.2825477 .
+Simo-Serra, E., E. Trulls, L. Ferraz, I. Kokkinos, P. Fua, and 
+F. Moreno-Noguer. 2015 . “Discriminative learning of 
+deep convolutional feature point descriptors.” Paper pre-
+sented at the Proceedings of the IEEE International 
+Conference on Computer Vision, Santiago, Chile.
+Snavely, N., S. M. Seitz, and R. Szeliski. 2006 . “Photo 
+Tourism: Exploring Photo Collections in 3D.” In ACM 
+Transactions on Graphics , Vol. 25, 835–846. New York, 
+NY, USA: Association for Computing Machinery. https:// 
+doi.org/10.1145/1141911.1141964 .
+Snavely, N., S. M. Seitz, and R. Szeliski. 2008 . “Modeling the 
+World from Internet Photo Collections.” International 
+Journal of Computer Vision 80:189–210. https://doi.org/ 
+10.1007/s11263-007-0107-3 .
+Stereopsis, R. M. 2010 . “Accurate, Dense, and Robust 
+Multiview Stereopsis.” IEEE Transactions on Pattern 
+Analysis & Machine Intelligence 32 (8): 1362–1376. 
+https://doi.org/10.1109/TPAMI.2009.161 .
+Su, Y., and K. Grauman. 2017 . “Learning Spherical 
+Convolution for Fast Features from 360 Imagery.” 
+Advances in Neural Information Processing Systems , 
+Long Beach, California, USA, 30. https://doi.org/10. 
+5555/3294771.3294822 .
+Su, Y., and K. Grauman. 2019 . “Kernel Transformer 
+Networks for Compact Spherical Convolution.” Paper 
+presented at the Proceedings of the IEEE/CVF 
+Conference on Computer Vision and Pattern 
+Recognition, Long Beach, California.
+Sumikura, S., M. Shibuya, and K. Sakurada. 2019 . 
+“OpenVSLAM: A Versatile Visual SLAM Framework.” 
+Paper presented at the Proceedings of the 27th ACM 
+International Conference on Multimedia, Nashville, 
+Tennessee.
+Sun, J., Z. Shen, Y. Wang, H. Bao, and X. Zhou. 2021 . 
+“LoFTR: Detector-Free Local Feature Matching with 
+Transformers.” Paper presented at the Proceedings of 
+the IEEE/CVF conference on computer vision and pat-
+tern recognition.
+Taira, H., Y. Inoue, A. Torii, and M. Okutomi. 2015 . 
+“Robust Feature Matching for Distorted Projection by 
+Spherical Cameras.” IPSJ Transactions on Computer 
+Vision and Applications 7:84–88. https://doi.org/10. 
+2197/ipsjtcva.7.84 .
+Tardif, J., Y. Pavlidis, and K. Daniilidis. 2008 . “Monocular 
+visual odometry in urban environments using an omni -
+directional camera.” Paper presented at the 2008 IEEE/ 
+RSJ International Conference on Intelligent Robots and 
+Systems, Nice, France.
+Tian, Y., B. Fan, and F. Wu. 2017 . “L2-net: Deep learning of 
+discriminative patch descriptor in euclidean space.” 
+Paper presented at the Proceedings of the IEEE GEO-SPATIAL INFORMATION SCIENCE
+ 1987
+Conference on Computer Vision and Pattern 
+Recognition, Honolulu, Hawaii.
+Torii, A., M. Havlena, and T. Pajdla. 2009 . “From google 
+street view to 3d city models.” Paper presented at the 2009 
+IEEE 12th international conference on computer vision 
+workshops, ICCV Workshops, Kyoto, Japan.
+Torii, A., A. Imiya, and N. Ohnishi. 2005 . “Two-And 
+Three-View Geometry for Spherical Cameras.” Paper 
+presented at the Proceedings of the sixth workshop on 
+omnidirectional vision, camera networks and non- 
+classical cameras.
+Triggs, B., P. F. McLauchlan, R. I. Hartley, and 
+A. W. Fitzgibbon. 2000 . “Bundle adjustment—a modern 
+synthesis.” Paper presented at the Vision Algorithms: 
+Theory and Practice: International Workshop on Vision 
+Algorithms Corfu, Greece, September 21–22, 1999. 
+Proceedings.
+Urban, S., and S. Hinz. 2016 . “Multicol-Slam-A Modular 
+Real-Time Multi-Camera Slam System.” arXiv Preprint 
+arXiv: 161007336. https://doi.org/10.48550/arXiv.1610. 
+07336 .
+Urban, S., J. Leitloff, and S. Hinz. 2015 . “Improved 
+Wide-Angle, Fisheye and Omnidirectional Camera 
+Calibration.” ISPRS Journal of Photogrammetry & 
+Remote Sensing 108:72–79. https://doi.org/10.1016/j. 
+isprsjprs.2015.06.005 .
+Wang, Y., S. Cai, S. Li, Y. Liu, Y. Guo, T. Li, and M. Cheng. 
+2018 . “Cubemapslam: A Piecewise-Pinhole Monocular 
+Fisheye Slam System.” Paper presented at the Asian 
+Conference on Computer Vision.
+Wang, F., H. Hu, H. Cheng, J. Lin, S. Yang, M. Shih, H. Chu, 
+and M. Sun. 2018 . “Self-Supervised Learning of Depth 
+and Camera Motion from 360 Videos.” Paper presented 
+at the Asian Conference on Computer Vision, Perth, 
+Australia.
+Wang, N., B. Solarte, Y. Tsai, W. Chiu, and M. Sun. 2020 . 
+“360sd-net: 360 stereo depth estimation with learnable 
+cost volume.” Paper presented at the 2020 IEEE 
+International Conference on Robotics and Automation 
+(ICRA), Paris, France.
+WeissAG. 2023 . “Weiss AG homepage.” https://weiss-ag. 
+com .
+Wen, W., Y. Zhou, G. Zhang, S. Fahandezh-Saadi, X. Bai, 
+W. Zhan, M. Tomizuka, and L. Hsu. 2020 . “Urbanloco: 
+A full sensor suite dataset for mapping and localization in 
+urban scenes.” Paper presented at the 2020 IEEE 
+International Conference on Robotics and Automation 
+(ICRA), Paris, France.
+Won, C., H. Seok, Z. Cui, M. Pollefeys, and J. Lim. 2020 . 
+“OmniSLAM: Omnidirectional Localization and Dense 
+Mapping for Wide-Baseline Multi-Camera Systems.” 
+Paper presented at the 2020 IEEE International 
+Conference on Robotics and Automation (ICRA), Paris, 
+France.
+Wu, B., L. Xie, H. Hu, Q. Zhu, and E. Yau. 2018 . 
+“Integration of Aerial Oblique Imagery and Terrestrial 
+Imagery for Optimized 3D Modeling in Urban Areas.” 
+ISPRS Journal of Photogrammetry & Remote Sensing 
+139:119–132. https://doi.org/10.1016/j.isprsjprs.2018.03. 
+004 .
+Xiong, B., M. Jancosek, S. O. Elberink, and G. Vosselman. 
+2015 . “Flexible Building Primitives for 3D Building 
+Modeling.” ISPRS Journal of Photogrammetry & Remote 
+Sensing 101:275–290. https://doi.org/10.1016/j.isprsjprs. 
+2015.01.002 .
+Xu, Z., F. Zhang, Y. Wu, Y. Yang, and Y. Wu. 2022 . 
+“Building Height Calculation for an Urban Area Based on Street View Images and Deep Learning.” Computer ‐ 
+Aided Civil and Infrastructure Engineering 38 (7): 892– 
+906. https://doi.org/10.1111/mice.12930 .
+Yao, Y., Z. Luo, S. Li, T. Fang, and L. Quan. 2018 . “Mvsnet: 
+Depth inference for unstructured multi-view stereo.” 
+Paper presented at the Proceedings of the European con-
+ference on computer vision (ECCV), Munich, Germany.
+Yao, Y., Z. Luo, S. Li, J. Zhang, Y. Ren, L. Zhou, T. Fang, and 
+L. Quan. 2020 . “BlendedMVS: A Large-Scale Dataset for 
+Generalized Multi-View Stereo Networks.” Paper pre-
+sented at the Proceedings of the IEEE/CVF Conference 
+on Computer Vision and Pattern Recognition, Seattle, 
+Washington.
+Zhang, C., Y. Cui, Z. Zhu, S. Jiang, and W. Jiang. 2022 . 
+“Building Height Extraction from GF-7 Satellite Images 
+Based on Roof Contour Constrained Stereo Matching.” 
+Remote Sensing 14 (7): 1566.
+Zhang, Y., and F. Huang. 2021 . “Panoramic Visual Slam 
+Technology for Spherical Images.” Sensors 21 (3): 705.
+Zhang, Z., H. Rebecq, C. Forster, and D. Scaramuzza. 2016 . 
+“Benefit of Large Field-Of-View Cameras for Visual 
+Odometry.” Paper presented at the 2016 IEEE 
+International Conference on Robotics and Automation 
+(ICRA), Stockholm, Sweden.
+Zhang, X., P. Zhao, Q. Hu, M. Ai, D. Hu, and J. Li. 2020 . “A 
+UAV-Based Panoramic Oblique Photogrammetry (POP) 
+Approach Using Spherical Projection.” ISPRS Journal of 
+Photogrammetry & Remote Sensing 159:198–219. https:// 
+doi.org/10.1016/j.isprsjprs.2019.11.016 .
+Zhang, X., P. Zhao, Q. Hu, H. Wang, M. Ai, and J. Li. 2019 . 
+“A 3D Reconstruction Pipeline of Urban Drainage Pipes 
+Based on Multiviewimage Matching Using Low-Cost 
+Panoramic Video Cameras.” Water 11 (10): 2101.
+Zhao, C. 2022 . “Case Study of Using Full Spherical 360° 
+Images in Agisoft Metashape.” https://weiss-ag.com/ 
+civetta-agisoft-metashape-application-note/ .
+Zhao, Q., W. Feng, L. Wan, and J. Zhang. 2015 . “SPHORB: 
+A Fast and Robust Binary Feature on the Sphere.” 
+International Journal of Computer Vision 113 (2): 143–159.
+Zhao, Q., C. Zhu, F. Dai, Y. Ma, G. Jin, and Y. Zhang. 2018 . 
+“Distortion-Aware CNNs for Spherical Images.” Paper 
+presented at the IJCAI .
+Zheng, L., Y. Yang, and Q. Tian. 2017 . “SIFT meets CNN: 
+A decade survey of instance retrieval.” IEEE Transactions on 
+Pattern Analysis & Machine Intelligence 40 (5): 1224–1244.
+Zheng, J., J. Zhang, J. Li, R. Tang, S. Gao, and Z. Zhou. 2020 . 
+“Structured3d: A large photo-realistic dataset for struc -
+tured 3d modeling.” Paper presented at the Computer 
+Vision–ECCV 2020: 16th European Conference, 
+Glasgow, UK, August 23–28, 2020. Proceedings, Part IX 
+16.
+Zhu, Q., Z. Wang, H. Hu, L. Xie, X. Ge, and Y. Zhang. 2020 . 
+“Leveraging Photogrammetric Mesh Models for 
+Aerial-Ground Feature Point Matching Toward 
+Integrated 3D Reconstruction.” ISPRS Journal of 
+Photogrammetry & Remote Sensing 166:26–40. https:// 
+doi.org/10.1016/j.isprsjprs.2020.05.024  .
+Zhu, Z., J. Fu, J. Yang, and X. Zhang. 2016 . “Panoramic 
+Image Stitching for Arbitrarily Shaped Tunnel Lining 
+Inspection.” Computer ‐Aided Civil and Infrastructure 
+Engineering 31 (12): 936–953.
+Zhu, X., H. Hu, S. Lin, and J. Dai. 2019 . “Deformable con-
+vnets v2: More deformable, better results.” Paper pre-
+sented at the Proceedings of the IEEE/CVF conference 
+on computer vision and pattern recognition, Long Beach, 
+California, USA.1988
+ S. JIANG ET AL.

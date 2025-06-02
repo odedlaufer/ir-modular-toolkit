@@ -1,0 +1,259 @@
+
+TECHNICAL PAPER
+
+3D printing and 3D scanning of our ancient history: Preservation and protection of our cultural heritage and identity
+
+Maher A.R. Sadiq Al-Baghdadi
+
+Center of Preserving of the Cities Heritage and Identity, International Energy and Environment Foundation, Najaf, P.O.Box 39, Iraq.
+
+Received 12 June 2017; Received in revised form 12 Aug. 2017; Accepted 17 Aug. 2017; Available online 1 Sep. 2017
+
+
+Abstract
+3D printing and 3D scanning are increasingly used in archeology and in cultural heritage preservation. These 3D technologies provide museum curators, researchers and archeologists with new tools to capture in 3D ancient objects, artifacts or art pieces. They can then study, replicate, restore or simply archive them with much more details than traditional 2D pictures. It is even possible to 3D scan entire archeological sites to get a full 3D mapping.
+Iraq is too rich in ancient cultural heritage but unfortunately much of the hundreds of thousands of artifacts remain in archives of the museums worldwide. Having the exact copies of these ancient artifacts will allow the audience here to learn more about our heritage. The Center of Preserving of the Cities Heritage and Identity (CPCHI) at International Energy and Environment Foundation (IEEF) started a roadmap in preserving our ancient history with 3D scanning, 3D virtual reality, and 3D printing technologies. As part of the project create high-quality 3D replicas of our cultural heritage, which are located in our museums and sites, and most of them are spread around the world, and then exhibit it in several venues throughout our country Iraq. Promising results were obtained in this project through printing of 3D models and generating 3D virtual reality models for our cultural heritage, based on the 3D scan of the original objects that submitted by some international museums and heritage institutes. We expect that this project will not only become vital in the field of replicate or reconstruction of ancient objects, but also for research, documentation, preservation and educational purposes, and it has the potential to serve these purposes in an accessible and all-inclusive way.
+Copyright (c) 2017International Energy and Environment Foundation - All rights reserved.
+
+Keywords: Iraq; Cultural heritage; Preservation; Reliefs; Museums; Education; Mesopotamia; Clay tablet; Ancient cities; 3D printing; 3D scanning; 3D virtual reality; Additive manufacturing.
+
+
+1. The importance of cultural heritage
+Cultural heritage is an expression of the ways of living developed by a community and passed on from generation to generation, including customs, practices, places, objects, artistic expressions and values. Cultural heritage is often expressed as either intangible or tangible cultural heritage (ICOMOS [1]). As part of human activity, cultural heritage produces tangible representations of the value systems, beliefs,
+
+442
+
+International Journal of Energy and Environment (IJEE), Volume 8, Issue 5, 2017, pp.441-456
+
+
+
+traditions and lifestyles. As an essential part of culture as a whole, cultural heritage, contains these visible and tangible traces form antiquity to the recent past .
+Cultural heritage provide an automatic sense of unity and belonging within a group and allows us to better understand previous generations and the history of where we come from. Understanding our cultural heritage can give a sense of personal identity. It has the enormous power to join people of different backgrounds. In times of violence and unrest it can be a bridge to connect to each other, to 'the other'. Together people can discuss the shared symbols of their collective memory and consequently work together to rebuild their own identities [2]. Our heritage and culture is what gives us faith, will and hope.
+Cultural heritage has a deep importance to who we are and shapes us into what we are. The preservation of our own cultural heritage begins with understanding this heritage. Only then may we begin to value it. From there, we can learn to care for a culture and eventually enjoy it. With more enjoyment, we will want to learn and understand more (Heritage Cycle [3]).
+Our own cultural heritage is very important in understanding the story of Iraq; its history, identity and its people.
+
+2. Iraq heritage
+The story of civilization in Iraq spans some 10,000 years [4]. As a birthplace of writing, the wheel, and countless other human inventions, Iraq's past has shaped our present.
+Iraq has a too rich cultural history. The "Cradle of Civilization" is a common term for the area comprising modern Iraq as it was home to the earliest known civilization, the Sumerian civilization, which arose in the fertile Tigris-Euphrates river valley of southern Iraq. The cradle of civilization, Mesopotamia; a Greek word meaning "land between the rivers", was the birthplace of indispensable inventions and discoveries. It was here that the world's first writing system and recorded history itself were born. The Sumerians were also the first to harness the wheel and create City States, and whose writings record the first evidence of Mathematics, Astronomy, Astrology, Written Law, Medicine and Organized religion. Most of the innovative ideas that we take it for granted today were invented or discovered in Mesopotamia [5-8].
+Mesopotamian developed the concept of urbanization. For the first time in a history, humans started to settle in a specific place [4]. The invention of agriculture made it possible to feed more people and animals living in the same place. People learned to trade, and the concept of taxes emerged. Mesopotamia emerged as one the first cities of the world built with sun-dried bricks. The urbanization in Mesopotamia was started in Uruk Period (4300-3100 BC). The largest settlement ever in the history of mankind started to build using monumental mud-brick building around 3,200 BC. It was surrounded by huge walls, built by King Gilgamesh. Mesopotamians invented the plow. Farmers used to cultivate wheat, barley, cucumbers and other different foods and vegetables. Mesopotamians learned to control the flow of water from the river and used it for irrigating crops. During the main growing season, the flow of water was properly regulated. Each farmer was allowed a certain amount of water, which was diverted from the canal into an irrigation ditch.
+The Sumerians developed the first form of writing called "Cuneiform" to maintain business records. It was mostly used in trade, where the merchant recorded the information regarding a trade, for example, the number of grains traded. Mesopotamians used writing to record daily events, like trade and astronomy. Cuneiform evolved as a simple pictograph. For instance, the pictograph for a horse might be a small image of a horse. The writer had to drag the tip of a stylus in the clay to create a shape. It was hard to remember every character. The symbols were reduced to 600 words by 2900 B.C. Scribes (specialized people that were hired to write) eventually changed the writing from a drawing image to stamp or imprint writing with a use of a reed stylus with a wedge-shaped tip. Cuneiform script was used by Assyrians, Elamites, Hittites, Babylonians, and Akkadians for about 3,000 years.
+The Code of Ur-Nammu is the oldest known law code surviving today. It is from Mesopotamia and is written on tablets, in the Sumerian language 2100-2050 BC. The first copy of the code in two fragments is found at Nippur. These fragments are held at the Istanbul Archaeological Museums, Turkey. It is three centuries older than the Code of Hammurabi. The code reveals a glimpse at societal structure during the "Sumerian Renaissance ."
+The Code of Hammurabi is a well-preserved Babylonian law code of ancient Mesopotamia, dating back to about 1754 BC. It is one of the oldest deciphered writings of significant length in the world. The sixth Babylonian king, Hammurabi, enacted the code, and partial copies exist on a seven and a half foot stone
+
+International Journal of Energy and Environment (IJEE), Volume 8, Issue 5, 2017, pp.441-456
+
+443
+
+
+
+stele and various clay tablets. The code consists of 282 laws, with scaled punishments, adjusting "an eye for an eye, a tooth for a tooth" as graded depending on social status, of slave versus free man. Nearly one-half of the code deals with matters of contract, establishing, for example, the wages to be paid to an ox driver or a surgeon. Other provisions set the terms of a transaction, establishing the liability of a builder for a house that collapses, for example, or property that is damaged while left in the care of another. A third of the code addresses issues concerning household and family relationships such as inheritance, divorce, paternity, and sexual behavior. Only one provision appears to impose obligations on an official; this provision establishes that a judge who reaches an incorrect decision is to be fined and removed from the bench permanently. A few provisions address issues related to military service. The code of Hammurabi was discovered by modern archaeologists in 1901. The code is carved into a basalt stele in the shape of a huge index finger, 2.25 m tall. The code is inscribed in the Akkadian language, using cuneiform script carved into the stele. It is currently on display in the Louvre Museum, France.
+The oldest map was discovered in Babylonia around 2300 B.C. The Ancient Cartography that was used in Babylonia was a simple sketch on clay tablets. The clay map discovered in Mesopotamia illustrates the Akkadian region of Mesopotamia (present day northern Iraq). It covered a small area and was mostly used as a city map, a military campaign, a hunting ground map, and a trade route. The clay tablet resides at the British Museum, UK.
+When civilization started to flourish, people began to trade items, and they needed an accurate system to count the goods that they gave and received. Sumerians were the first people on earth to develop the concept of counting. They also developed the sexagesimal, or base 60, which is a numeral system with sixty as its base. It originated with the ancient Sumerians in the 3rd millennium BC, was passed down to the ancient Babylonians, and is still used-in a modified form-for measuring time, angles, and geographic coordinates. The sexagesimal helped to develop concepts like the 360-degree circle and the 12-month year. They used 12 knuckles to count on one hand, and another five fingers on the other hand. The Babylonians used base 6 (our modern system uses base 10), where digits on the left column represent large values. The concept of zero was also developed by Babylonians, the value of having nothing, and followed by various civilizations throughout the world. Mesopotamians developed the concept of time, dividing time units into 60 parts, which eventually lead to 60-second minutes, and 60-minute hours. The Babylonians made an astronomical calculation in the base 60 system inherited by Sumerians. The number 60 was chosen because it was easily divisible by six.
+The Old Babylonians had knew, understood, and used what is now called the Pythagoras' (or Pythagorean) theorem and its three dimensions. They applied it in very practical problems. A remarkable Old Babylonian clay tablet, commonly referred to as Plimpton 322 (1800 BC), was found to store combinations of three positive integers that satisfy Pythagoras' theorem [4-6]. Today we call them primitive Pythagorean triples where the term primitive implies that the side lengths share no common divisor. The reason behind the tablet was not an interest in the number-theoretical question, but rather the need to find data for a 'solvable' mathematical problem. This cuneiform tablet has number 322 in the
+G.A. Plimpton Collection at Columbia University, U.S.A.
+One of the earliest mathematical writings is the Babylonian tablet YBC 7289 (1800 BC), which gives a sexagesimal numerical approximation of square root, the length of the diagonal in a unit square [5-7]. This cuneiform tablet is one of Yale Babylonian Collection (Comprising some 45,000 items) Yale University, U.S.A.
+The concept of Astrology was developed during the Sumerian period, where even everyday incidents had a spiritual meaning. The astrologers observed the momentary location of the planets and advised people with high social or political positions. Astronomical mythology, like the concept of a constellation of Capricorn, Leo and Sagittarius, was handed to Greeks by Sumerians and Babylonians and is still in use today. The constellations were also used in day-to-day activities. They were heavily used to mark the seasons for harvesting or sowing crops. They also mapped the movement of the sky, the sun, stars, and the moon, and to predict celestial events, like an eclipse.
+Ancient Babylonian astronomers developed many important concepts that are still in use, including the division of the sky into 360 degrees. They could also predict the positions of the planets using arithmetic. A discovered tablet written in Babylonia's cuneiform script discusses calculating the position of Jupiter [7]. When combined with four other tablets, it suggests that ancient Babylonians used a surprisingly modern technique to calculate how far the bright dot traveled through the sky over the course of months. Their process requires a leap in understanding in how position and speed relate to time; one that wouldn't appear again until 1350 and that was a precursor to modern calculus. The tablets date from 350 to 50 BC.
+
+444
+
+International Journal of Energy and Environment (IJEE), Volume 8, Issue 5, 2017, pp.441-456
+
+
+
+The method relies on determining the area of a trapezium under a graph. This technique was previously thought to have been invented at least 1400 years later in 14th-century Oxford. This means that these ancient Mesopotamian astronomers had not only figured out how to predict Jupiter's paths more than 1,000 years before the first telescopes existed, but they were using mathematical techniques that would form the foundations of modern calculus as we now know it [8]. These cuneiform tablets were excavated from sites in Babylon and Uruk (Iraq) in the 19th century and transported to the British Museum, UK.
+
+3. 3D digital cultural heritage
+3D technologies are increasingly used in archeology and in cultural preservation. It provides museum curators, researchers and archeologists with new tools to capture in 3D ancient objects, artifacts or art pieces. They can then study, restore or simply archive them with much more details than traditional 2D pictures. It is even possible to 3D scan entire archeological sites to get a full 3D mapping. It is possible to use 3D scanning to keep accurate 3D mappings of those historical locations. Professional 3D scanners with a large scanning area allow archaeologists to capture a full site in 3D and obtain a 3D model of the excavation site. It is thus easier to visualize locations of archaeological remains and optimize the excavation site searches [9].
+With 3D scanning, archaeologists or museum curators can improve the conservation of their collections. They can even repair or duplicate the most damaged items, by using 3D printing and 3D scanning. It only takes a few minutes to 3D scan a human-size statue. The 3D model obtained (a simple file) can then be saved, archived, and 3D printed.
+3D models generated with a 3D scanner are often used by researchers, who can zoom-in on the 3D model of the item captured in 3D. The high level of details of the 3D scan can be very useful for research purposes, since almost invisible details can be revealed with this technology. Working on 3D models instead of original pieces also enables researchers to protect sensitive artifacts. With 3D printing, it is possible to replicate an entire object or specific parts. Researchers can then work on the 3D printed replica and manipulate it while preserving the original objects [10].
+Researchers worldwide can share 3D models obtained by 3D scanning and collaborate remotely. 3D scanners allow scientists to capture 3D models of artifacts. The 3D files obtained can then easily be shared via internet with the global scientific community [10].
+Having an exact copy of an historical item will allow the museum to give more access to his collection to the public. For example, allowing students to touch and manipulate 3D printed art pieces or artifacts is a more recreational way of teaching than just showing the object. A 3D printed replica, based on a 3D scan of the original object, can also be used and manipulated by archeologists or researchers, without fear of damaging the original piece [11].
+3D technologies open the doors to virtual visits of museums and learning more. With these visits, persons begin with understanding the cultural heritage in these museums. Then they will begin to value it. From there, they will learn to care for a culture and eventually enjoy it. With more enjoyment, they will want to learn and understand more [9-11].
+Iraq is too rich in ancient cultural heritage widespread in archives of the museums and the heritage institutes around the world. The great development in 3D technologies make the time now convenient to get 3D digital copies of our cultural heritage to create 3D printed replicas and exhibit it in our country. Now is the time to see and learn more about our cultural heritage. The Center of Preserving of the Cities Heritage and Identity (CPCHI) at International Energy and Environment Foundation (IEEF) started a roadmap in preserving our ancient history with 3D scanning, 3D virtual reality, and 3D printing technologies. As part of the project create high-quality 3D replicas of our cultural heritage, which are located in our museums and sites, and most of them are spread around the world, and then exhibit it in several venues throughout our country Iraq.
+Preliminary interesting results have obtained from this project. Having the exact copies of our historical artifacts and sites allowed the audience here to learn more about our heritage (Figure 1). Some examples covering different types of our cultural heritage like sculptures, monuments, manuscripts, archaeological sites, buildings, works of art, artifacts, and so on, have created and presented in the following figures (2- 22). However, this project needs the support of the museums and the heritage institutes worldwide that have our cultural heritage in providing their own 3D scanning archives of our cultural heritage, so we can replicate it here using 3D printing technology and generate a 3D virtual reality model.
+
+International Journal of Energy and Environment (IJEE), Volume 8, Issue 5, 2017, pp.441-456
+
+
+Figure 1. 3D printed replica of Sumerian Cuneiform during printed it in our 3D printer.
+
+445
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Figure 2. 3D printed and 3D virtual reality model of the Great Ziggurat of Ur. The structure was built by King Ur-Nammu during the Early Bronze Age (21st century BC), but had crumbled to ruins by the 6th century BC of the Neo-Babylonian period when it was restored by King Nabonidus. (City of Ur, in present-day Dhi Qar Province, Iraq).
+
+446
+
+International Journal of Energy and Environment (IJEE), Volume 8, Issue 5, 2017, pp.441-456
+
+
+
+Figure 3. Clay Babylonian cuneiform tablet from 350 BC. Astronomical procedure text for Jupiter; mathematical rules for the area of a trapezoid. (The British Museum 34757).
+
+Figure 4. Sumerian Cuneiform. This cuneiform tablet is one of Cornell University Babylonian Collection of the 10,000 cuneiform tablets from ancient Mesopotamia.
+
+Figure 5. Summary account of silver for the governor written in Sumerian Cuneiform on a clay tablet.
+From Shuruppak, Iraq, circa 2500 BC. (The British Museum).
+
+International Journal of Energy and Environment (IJEE), Volume 8, Issue 5, 2017, pp.441-456
+
+447
+
+
+
+Figure 6. Twenty-seven statues of Gudea, a ruler (ensi (Sumerian)) of the state of Lagash have been found in southern Mesopotamia. Gudea ruled between 2144 - 2124 BC and the statues demonstrate a very sophisticated level of craftsmanship for the time. (The Metropolitan Museum of Art).
+
+Figure 7. The cuneiform inscriptions on this basalt statue mention that this is the god Kidudu, the guardian of the walls of Ashur city. It was erected by King Shalmaneser III. Neo-Assyrian era, 835 BC. From Ashur, Mesopotamia, Iraq. (The British Museum).
+
+448
+
+International Journal of Energy and Environment (IJEE), Volume 8, Issue 5, 2017, pp.441-456
+
+
+
+Figure 8. Law code stele of Hammurabi, the most complete and perfect extant collection of Babylonian laws, developed during the reign of Hammurabi (1792-1750 BC) of the 1st dynasty of Babylon. (The Louvre Museum).
+
+Figure 9. The top of the Law code stele of Hammurabi is a high relief carving which depicts the king receiving authority from one of the Mesopotamian gods. (The Louvre Museum).
+
+International Journal of Energy and Environment (IJEE), Volume 8, Issue 5, 2017, pp.441-456
+
+449
+
+
+
+Figure 10. Assyrian relief sculpture, 900 BC. (Boston, Museum of Fine Arts).
+
+
+
+
+
+
+
+Figure 11. A Neo Assyrian relief, "Ashurnasirpal II Killing Lions", from the Palace of Ashurnasirpal II, Nimrud (Calah), Iraq 850 BC now at the British Museum.
+
+450
+
+International Journal of Energy and Environment (IJEE), Volume 8, Issue 5, 2017, pp.441-456
+
+
+
+
+Figure 12. Colossal Statue of a Lion - From Nimrud (ancient Kalhu), northern Iraq, Neo-Assyrian, about 883-859 BC. (The British Museum).
+
+
+Figure 13. Human-headed winged lion (lamassu), Neo-Assyrian, Mesopotamia, Nimrud (ancient Kalhu), about 865-860 B.C. (The British Museum).
+
+International Journal of Energy and Environment (IJEE), Volume 8, Issue 5, 2017, pp.441-456
+
+451
+
+
+
+Figure 14. A stele in situ at Nimrud. he Assyrian king Shalmaneser I (1274 BC-1245 BC) built up Kalhu (Nimrod) into a major city during the Middle Assyrian Empire (1365-1050 BC).
+
+
+Figure 15. The beauty goddess of al-Hadr (an ancient city in the Mosul, Iraq.) AD 2nd century.
+
+452
+
+International Journal of Energy and Environment (IJEE), Volume 8, Issue 5, 2017, pp.441-456
+
+
+
+Figure 16. The Great Mosque of Samarra is a ninth-century mosque located in Samarra, Iraq. The mosque was commissioned in 848 and completed in 851 AD. The Great Mosque of Samarra was, for a time, the largest mosque in the world; its minaret, the Malwiya Tower, is a spiraling cone 52 meters high and 33 meters wide with a spiral ramp.
+
+Figure 17. The Mosque of al-Nuri is a twelve-century mosque located in Mosul, Iraq. It is famous for its leaning minaret, which gave the city its nickname "the hunchback". The cylindrical minaret was built it stood 45 meters high, with seven bands of decorative brickwork in complex geometric patterns ascending in levels towards the top (1172 AD).
+
+International Journal of Energy and Environment (IJEE), Volume 8, Issue 5, 2017, pp.441-456
+
+453
+
+
+
+
+
+Figure 18. The Lion of Babylon (glazed bricks) from a portion of the Ishtar Gate (575 BC) which it reconstructed in the Pergamon Museum in Berlin, Germany.
+
+
+Figure 19. The remains of the original Ishtar Gate, lined with unglazed bulls, dragons and lions, 575 BC, Babylon, Iraq. Parts of the glaze brick gate, 120 dragons, bulls and lions are now in various museums around the world (14 museums!).
+
+454
+
+International Journal of Energy and Environment (IJEE), Volume 8, Issue 5, 2017, pp.441-456
+
+
+
+Figure 20. 3D virtual reality model of the Ishtar Gate. The Ishtar Gate was the eighth gate to the inner city of Babylon, Iraq. It was constructed in about 575 BC by order of King Nebuchadnezzar II on the north side of the city. It was excavated in the early 20th century and a reconstruction using
+original bricks is now shown in the Pergamon Museum, Berlin, Germany.
+
+International Journal of Energy and Environment (IJEE), Volume 8, Issue 5, 2017, pp.441-456
+
+455
+
+
+
+
+Figure 21. 3D virtual reality model of the Babylon city, Iraq.
+
+
+Figure 22. 3D virtual reality model of the Hanging Gardens of Babylon. It was one of the Seven Wonders of the Ancient World. They were built in the ancient city-state of Babylon, near present-day Al Hillah, Babil province, in Iraq. It's was built during the reign of Nebuchadnezzar II about 600 BC. The Hanging Gardens were not the only World Wonder in Babylon; the city walls and obelisk attributed to Queen Semiramis were also featured in ancient lists of Wonders.
+
+456
+
+International Journal of Energy and Environment (IJEE), Volume 8, Issue 5, 2017, pp.441-456
+
+
+
+4. Conclusions
+Recently, great development in 3D technologies facilitates digital preservation of cultural heritage. Iraq is too rich in ancient cultural heritage but unfortunately much of the hundreds of thousands of artifacts remain in archives of the museums around the world. Now is the time to get 3D digital copies of these historical artifacts to create 3D printed replicas of our cultural heritage and exhibit it in our country. Now is the time to see and learn more about our cultural heritage. As part of the project of the Center of Preserving of the Cities Heritage and Identity (CPCHI) at International Energy and Environment Foundation (IEEF), create 3D replicas of our cultural heritage, which are located in our museums and sites, and most of them are spread around the world, and then exhibit it in several venues throughout our country Iraq.
+However, this project needs the support of the museums and the heritage institutes worldwide that have our cultural heritage in providing their own 3D scanning archives of our cultural heritage, so we can replicate it here using 3D printing technology and generate a 3D virtual reality model. Now more than ever we need to support this project by these museums and heritage institutes.
+
+Acknowledgements
+This work is part of a heritage preservation project conducted at the Center of Preserving of the Cities Heritage and Identity (CPCHI) in the International Energy and Environment Foundation (IEEF), Najaf, Iraq. [http://www.cpchi.ieefoundation.org/].
+
+References
+[1] ICOMOS, International Cultural Tourism Charter. Principles and Guidelines for Managing Tourism at Places of Cultural and Heritage Significance. ICOMOS International Cultural Tourism Committee. 2002.
+[2] Culture in Development. http://www.cultureindevelopment.nl, (accessed 3.June.2017).
+[3] Simon Thurley, Into the future. Our strategy for 2005-2010. In: Conservation Bulletin [English Heritage], 2005 (49).
+[4] James W.P. Campbell, Will Pryce. Brick: A World History. Thames & Hudson, ISBN: 0500341958, London, 2003.
+[5] Teia, L. Pythagoras triples explained via central squares. Australian Senior Mathematical Journal 2015, Vol. 29, No. 1, pp. 7-15.
+[6] Eleanor Robson. Mathematics in Ancient Iraq. A Social History. Princeton University Press, Princeton and Oxford. ISBN: 9780691091822, 2008.
+[7] Mathieu Ossendrijver. Babylonian Mathematical Astronomy: Procedure Texts. Springer-Verlag New York. ISBN: 9781489988508, 2012.
+[8] Mathieu Ossendrijver. Ancient Babylonian astronomers calculated Jupiter's position from the area under a time-velocity graph. Science 2016, Vol. 351, Issue 6272, pp. 482-484.
+[9] Marinos Ioannides, Ewald Quak. 3D Research Challenges in Cultural Heritage. A Roadmap in Digital Heritage Preservation. Springer-Verlag Berlin Heidelberg, ISBN: 9783662446294, 2014.
+[10] Marinos Ioannides, Dieter Fellner, Andreas Georgopoulos, Diofantos G. Hadjimitsis. Digital Heritage. Proceedings of the third International Conference, EuroMed 2010, Lemessos, Cyprus, Nov. 8-13, 2010.
+[11] Radu Comes, Zsolt Buna, Ionu? Badiu. Creation and preservation of digital cultural heritage. Journal of Ancient History and Archeology 2014. No.1.2, pp.50-56.
+
+

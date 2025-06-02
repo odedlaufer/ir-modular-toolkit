@@ -1,0 +1,253 @@
+Telematics and Informatics 34 (2017) 1465-1476
+
+
+
+
+
+
+
+
+
+
+3D printing as a means of learning and communication: The 3Ducation project revisited
+Alekos Pantazis, Christina Priavolou ?
+Department of Innovation and Governance at Tallinn University of Technology, P2P Lab, Tallinn University of Technology, Akadeemia tee 3, 12618 Tallinn, Estonia
+
+
+
+a r t i c l e  i n f o 
+
+
+Article history:
+Received 8 May 2017
+Received in revised form 7 June 2017 Accepted 9 June 2017
+Available online 17 June 2017
+
+
+Keywords:
+3D printing Open-source Collaboration
+Non-formal education Constructionism Participatory action research
+
+a b s t r a c t 
+
+This research project explores to what extent the utilization of open-source 3D printers and 3D design software could serve as means of learning and communication. The principles of non-formal education aligned with the concept of constructionism are used to create an experimental educational scenario focused on geocultural tourism for persons with visual impairments. This paper documents our experience and presents our findings from a 25-day long project, which took place in Zagori, northwestern Greece. 11 high school stu- dents from Portugal designed and manufactured natural and cultural heritage artifacts car- rying messages in the Braille language. The objects were then handed to people with visual impairments with a twofold aim. First, to enable the communication among persons with and without visual impairments; and, second, to empower students to participate in train- ing projects through open educational procedures. We conclude that open educational practices can boost students' active engagement in educational processes. Finally, 3D print- ing encourages a meaningful communication among people with and without visual impairments via the tangible exploration of geocultural components.
+(c) 2017 Elsevier Ltd. All rights reserved.
+
+
+
+
+1. Introduction
+
+   The development of learning theories and practices globally justify their characterization as objects of extensive research. Social and collective processes within teaching procedures are currently targeted to alienate the hierarchical constraints of knowledge production (Kemmis and McTaggart, 2005). Student-centered approaches, including the constructionist learning theory and open, non-formal educational practices, are used as means to facilitate student's active involvement in learning (Blikstein, 2013). Moreover, the integration of 3D printing technology in teaching inaugurates new ways of personal expres- sion, fostering students' creativity and experimentation (Huang and Lin, 2016).
+   This paper focuses on the implementation of an educational scenario of non-formal education aligned with the concept of constructionism. It builds upon a critical making research project, which took place in two Greek high schools (Kostakis et al., 2015). The main goal of this paper was to explore how 3D printing can electrify various literacies and creative capacities of students.
+   In the context of our project held in Zagori, northwestern Greece, 11 Portuguese students manufactured 3D printed bridge and canyon artifacts of the local region handed to persons with visual impairments. This work attempts to explore to what extent open-source technologies and 3D printing could serve as a means of learning and communication among persons
+
+
+? Corresponding author.
+E-mail address: cpriav@ttu.ee (C. Priavolou).
+
+http://dx.doi.org/10.1016/j.tele.2017.06.010
+0736-5853/(c) 2017 Elsevier Ltd. All rights reserved.
+
+
+with and without visual impairments. The educational scenario was then presented to Greek educators with the aim to dis- cuss our findings and trigger awareness of the application of open educational practices in teaching.
+   As far as the structure of this article is concerned, a short review of the corresponding theoretical background is pre- sented. The methodological part follows with a description of our methodology and research questions. Then, we narrate and discuss our findings from both students' and educators' perspective. Finally, we summarize our conclusions and culmi- nate with suggestions for future research.
+
+2. Theoretical background
+
+   In the framework of developmental psychology, Rousseau's invention of childhood provided a breakthrough in the research field of education (Boone, 2017). ?henceforward, contemporary educational practices have been treated with skep- ticism, while the need for democratic education has been recognized (Soomro et al., 2010). Bearing in mind the fact that our networked world impinge on the way that societies are organized, educated and developed, alternative ways of transforming the educational landscape have been explored (Kemmis and McTaggart, 2005).
+   Towards this goal, international communities are moving towards non-formal education settings. The concept dates back several decades and differs from formal and informal learning. Formal learning focuses on hierarchical, teacher-centered approaches and promotes standardized, academic knowledge production (Ngaka et al., 2012). On the other hand, informal education refers to incidental accumulation of experience or skills deriving from daily life and interaction with the environ- ment (Dib, 1988). Non-formal educational practices, located somewhere in the middle of the two above-mentioned concepts, are open, innovative and adaptable to the changing conditions and individual needs.
+   Aiming to drift apart from schooling as a prevailing way of learning, non-formal education attempts to make knowl- edge accessible to those who are not enrolled in schools (Yasunaga, 2014). The main purpose of non-formal practices is not certification but the acquisition of knowledge and skills through participation, observation and communication (Souto-Otero et al., 2013). The content of a non-formal educational procedure is basically practical, while its delivery modes remain flexibly structured. Non-formal educational programs are usually small-scale, short-term and entail specific purposes.
+   Despite the non-negligible potential of non-formal education, concerns about its effectiveness have been raised. The short duration of non-formal programs in combination with their preclusion of broader national education may create the impres- sion that, unlike formal, non-formal education is insufficient (Yasunaga, 2014). However, having realized the importance of gaining knowledge outside institutions, the conjunction of the different educational types matters rather than their counter- positioning (Rogers, 2004, p. 234). Thus, non-formal education could be viewed as complementary, supplementary and/or alternative to formal education, which enhances social cohesion and individual capabilities (UNESCO Institute for Statistics, 2012).
+   In an effort to increase the possibilities for effective learning through experience, non-formal educational settings are cor- related with the concept of constructionism. The development of the constructionist learning theory by Seymour Papert (1980, 1993) was an important movement towards the active involvement of students in education. In the vein of many prominent scholars in the educational philosophy (for example Maria Montessori, Lev Vygotsky, Paulo Freire or John Dewey), Jean Piaget developed the constructivist learning theory, which defines learning as ''building knowledge structures''. Con- structionism extends the idea of constructivism by constructing and publicly share objects via conscious and felicitous actions (Papert and Harel, 1991, p.1).
+   Instead of making deposits of information into their minds, students interact with the environment and gain knowledge rooted in their experience (Ackermann, 2001). Students build objects rather than consume knowledge, being involved in hands-on explorations which boost their experience and inventiveness (Papert, 1993; Ackermann, 2001). An indirect impar- tation of knowledge occurs combined with collaborative and social activities that accompany the educational procedure. Considering the tight relationship between education and social values, a collective learning process could lead to a culture of sharing and open collaboration (Temple and Moran, 2011, p.195; MacDonald, 2012).
+   Beyond traditional educational approaches, where students could not see themselves as makers, constructionism pro- vides the appropriate context for collaboration, communication and creative learning. Students engage vigorously in the dis- covery of solutions especially in meaningful problems, which enhance the educational outcomes (Cavallo, 2000). Within such an environment, teachers act as eager facilitators who consult students and race against the school bell with the aim to spur learners' self-motivation.
+   To achieve the full potential of constructionism the importance of students' participation emerge. Attracting students' interest plays a vital role in the rise of positive outcomes, taking into account students' inner incentives for learning beyond competition (Wadsworth, 1998). In an attempt to satisfy students' need for communication and collaboration, discussions around the utilization of technology in teaching arose.
+   In the framework of constructionism, Papert, as an enthusiastic proponent of technology, pioneered the penetration of digital tools in learning institutions (Blikstein, 2013). Since the 1980s, Papert spread the powerful ideas of the Logo program- ming language and made robotics accessible to children. Information and Communication Technologies (ICT) were acknowl- edged as tools able to construct personal experience, enable human interaction and manufacture powerful artifacts within self-driven educational settings (Schelly et al., 2015).
+
+
+   In the contemporary era of ubiquity of digital fabrication technologies, the implementation of relatively low-cost 3D printers into training courses has become a focus of research (Nemorin and Selwyn, 2016). A new way of individual expres- sion which fosters students' creativity and experimentation surfaced (Huang and Lin, 2016). Objects can be designed through a computer-aided design software or even a scan of existing objects, using open-source digital tools and additive manufac- turing technologies (Kostakis et al., 2015; Rayna et al., 2015).
+   Utilizing 3D printing in education posits students' ability to view things from various angles so as to perceive 3D mod- eling techniques. A systematic learning context to educate learners so as to become competent to create their own models is required (Huang and Lin, 2016). Through their participation, students acquire skills, increase their self-esteem and apply their knowledge to further improve the results. However, the risk of the ''keychain syndrome" due to easy endeavors handled by students has been highlighted (Blikstein, 2013). To reap the benefits of using technology for educational reasons, students should be impelled to undertake complex projects, which help them enhance their creativity.
+   Delving into the ethics of the open-source/commons-oriented concept (Bauwens, 2005; Benkler, 2006) the association between open-source infrastructures and the commons-oriented concept is appreciable. Technologies with free and open- source hardware (e.g. Arduino micro-controller, 3D printers) or software (e.g. Moodle, free encyclopedia Wikipedia) can be easily examined and modified, catalyzing the openness of the educational process (Kostakis et al., 2015). Peer learning towards a shared purpose within educational institutions can be interrelated with societal development and co-creation of value. Therefore, students have the opportunity to acknowledge and further develop their inner positive motives and need for cooperation.
+
+3. Research objectives and methods
+
+   First, this paper attempts to investigate the communicational potential of 3D printing among persons with and without visual impairments. People with visual impairments could experience geocultural tourism of the Zagori region via the explo- ration of 3D printed objects. Second, this paper aims to enable students to grasp the idea of 3D design and printing through open educational practices as part of a living experience (Papert, 1993; Dewey, 1997; Conole and Ehlers, 2010). To this end, we extend our educational scenario by engaging educators willing to test, criticize and implement similar methods in their teaching.
+   From the abovementioned objectives, sub-questions regarding the reform of contemporary educational environments emerge. Through alternative scenarios, the possibility of handling current problems observed in schools arises, including the lack of students' participation and critical thinking skills. Furthermore, educators could become more aware of the importance of collaboration and communication as meaningful values within an educational process. Thus, education could be approached from different perspectives with a view of ensuring the continued comprehensive development of learners. According to Verschuren and Doorewaard (2005), our research framework is concretized through the following flowchart (Fig. 1). Similar to the work carried out by Kostakis et al. (2015), our project is a case study which involves high-school stu- dents. However, while in their case the students were allowed to manufacture 3D objects of their own choice, there was a definitive goal presented to the students in our project. The communicational potential of 3D printing among persons with and without visual impairments was investigated. Namely, 3D printed artifacts of natural and cultural heritage elements that compose the local identity of the Zagori region were manufactured by the students with the aim to, first, boost students' engagement in the educational procedure and, second, empower people with visual impairments to explore geocultural
+tourism via their interaction with the students.
+   Participatory Action Research (PAR) was utilized in our training scenario to facilitate students' active involvement in edu- cation through collaborative practices. This method was developed as a research endeavor focused on organizational conver- sion, co-learning and participation (Greenwood et al., 1993). It aims to emancipate people from the constraints of current
+
+
+
+Fig. 1. Schematic representation of the research framework. The vertical arrows stand for the ''confrontation'' of particular issues, from which a conclusion (the horizontal ones) can be drawn.
+
+
+hierarchies of knowledge production and disrupt inequitable social relations through mutual involvement and collaboration of the participants (Kemmis and McTaggart, 2005).
+   Transitioning from the linear model of conventional research into PAR, an iterative reflective cycle is created (Fig. 2). Action is taken, reviewed and results in new action throughout the learning process with the aim to improve the learning level. Students' knowledge is constructed via reflexive approaches, while the adaptability and flexibility of the educational reality is maintained (Salto-Youth, 2012). Despite its open nature, the learning process is unfolded with constant focus on the project's goals.
+   Designing a process which promotes imagination is regarded as the greatest challenge for participatory action researchers (Wadsworth, 1998). The latter assume a largely facilitating role and may turn to external sources for technical assistance. Bearing in mind that the lack of students' engagement limits the effectiveness of an educational practice, discussions about the mutual interaction of researchers and participants towards knowledge production have arisen. Within such a framework, PAR promotes collaborative partnerships and bonding relationships between teachers and students (Kim, 2016).
+   Echoing Dewey (1859-1952), students' participation in project-based courses is essential condition for their learning. Via learning-by-doing processes, students enhance their active experimentation and participation in an experiential way (Kolb and Kolb, 2005). Identifying the way of learning, students follow a sequence of stages in accordance with Kolb's learning the- ory, depicted below (Fig. 3). They experience an activity, consciously reflect back on their experience, try to conceptualize what they observed through a theory or a model and test their model/theory for an upcoming experience. Thus, learners grasp an experience and consciously transform it to learning through reflection, which spans theoretical conceptualization and practical experience (Kohonen, 2012).
+
+
+
+
+Fig. 2. Stages of PAR cycles (Adapted from Coghlan and Brannick, 2001, p. 19).
+
+
+
+
+Fig. 3. The Kolb learning cycle (Adapted from Moobs, 2003).
+
+
+4. Ecotourism, education and 3D printing: a case study
+
+4.1. Educational scenario and approach
+
+   The project took place in Zagori, a mountainous area in north-western Greece. In the context of a European Programme for education, training, youth and sport, 11 technical high-school students from Alcochete, a small municipality in Portugal, were received by the EcoMuseum Zagori. The latter is a social cooperative enterprise oriented towards the protection of the local natural and cultural heritage. Students participated in educational ecotourism activities and acquainted themselves with 3D printing technology under the coordination of the P2P Lab (http://www.p2plab.gr/en/), an independent media lab interested in free and open-source technologies and peer-to-peer practices. The educational project lasted 25 days and included the 3D printing of cultural heritage elements which were handed to persons with visual impairments so as to mobilize them towards ecotourism.
+   The first five days of the educational program involved discussions about the general framework of the procedure, the program flow, the desired objectives and students' expectations of the project. The latter were written by the students and posted on a wall, facilitating the conceptualization of the context and the final evaluation of the project. The function- ality of experiential education and the orchestral role of the teacher in the educational process was explained (Papert, 1980). Moreover, the importance of non-formal education and the existence of activities promoting interaction and enthousiasm levels in teaching was highlighted.
+An introduction to the following interrelated basic pillars of the project ensued:
+
+• open hardware, which entails step-by-step explanatory manuals for the manufacturing of products,
+• creative commons licenses, which enable the free distribution of creativity and knowledge,
+• 3D printing, including 3D design programs, major materials used and 3D printed products,
+• collaboration, as a crucial factor in educational projects.
+
+   Through this procedure, various discussions were triggered, which unveiled students' perception of the abovementioned concepts. Audiovisual and lecture-based exemplary topics took place by frequently switching from theory to practice. For example, students grasped the concept of open sharing knowledge systems by exploring Wikipedia, while they compre- hended the idea of distributed production better by printing products. Furthermore, the power of collaboration was show- cased by organizing a workshop in which different uses of a spoon were enumerated; at first each student individually, then merging the personal ideas into three-member groups and finally merging all together into the entire class, featuring the power of collective intelligence.
+   Regarding the allocation of the project's subtasks, there was an intent to form two working groups (involving five to six persons), both of which would handle the same tasks throughout the project. However, due to the high number of tasks and the openness of the educational procedure, smaller working teams were created. Each subteam included two to three per- sons and was planned to accomplish a part of the subtasks. The spontaneous segmentation of subgroups mainly by the stu- dents depended on their interests, skills and friendships and was indicative of the facilitating role of the educator.
+   During the whole project, students were free to undertake new tasks and work on various ideas via task rotations. To bet- ter coordinate the project, common cloud folders and a chatting group were created. At the beginning of each day a presen- tation of the advancements and new tasks of each team was taking place. Thus, required collaborations between the subteams could be planned and coordinated.
+   Another noteworthy element was the development of a blog (http://touchtosee.blogspot.gr/), where students could describe the educational project and share their experience. A team in charge of the blog was composed, which worked inde- pendently and turned to other subteams when necessary. For instance, the blog team announced the need for logo proposals, a task that was finally outsourced to students from other teams. The blog team also undertook the educational procedure with the aim to decide the blog name by calling their fellow students for brainstorming. Decisions were made through discussions, group collaboration and collective voting since conversation plays a vital role in learning (Papert, 1993). Considering the main goal of the project, the blog name ''Touch to See" was born, as meaning that 3D printed objects could guide visitors with decreased vision and visualize the reality for them. Through the blog creation, students put the idea of sharing into practice by enabling the future iteration and improvement of the project.
+   Having investigated the requirements of the chosen 3D design program, students realized the necessity of making specific photo shootings. Therefore, an excursion for photo shooting local cultural and natural heritage elements was arranged. Particularly helpful for the visualization of the objects was a sketch of a local bridge made by two students (Fig. 4). During the editing stage of the pictures taken, students had to handle problems due to physical obstacles and shadows, which cor- responded to holes and dark spots in the 3D model. In an attempt to deal with flaws of the pictures, students tinkered with the contrast and took some new pictures.
+   Having investigated appropriate software and attended tutorial videos for embossing images, students ended up to use ''lithophanes" and printed the depicted image of a canyon (Fig. 5). Echoing Papert (1980), duration of technology use is a key factor for learners to become intellectually and emotionally involved. Having been introduced to 3D printers and design soft- ware programs, students had 25 days available to experiment and tinker with the technology and their solutions.
+
+
+
+
+Fig. 4. Sketch of the bridge made by the students.
+
+
+
+Fig. 5. A palpable lithophane of a local canyon printed by the students.
+
+   In the context of their common project, a 3D digital model of a local traditional stone bridge was manufactured by means of ''123D Catch" program. In the meanwhile, another subteam offered to make a second design of the bridge through ''Photoshop", so as to support the accomplishment of their task in case of the first model's failure. The sketches of the bridge were used for the second model to create a ground model with the landscape of Zagori, on which the first model, including the bridge, was placed. It should be also emphasized that we encountered difficulties in the creation of the 3D models via open-source programs due to their complex operation and their lack of usability. Thus, the proprietary program ''123D Catch" was used, hampering the accurate implementation of our initial plan towards a completely open educational procedure.
+   During the project, learners were allowed to explore the research procedures by performing their own efforts, as it is believed that they learn better being in charge of their own learning processes (Freire, 2000; Papert, 1993). Students worked on appropriate adjustments and corrections of their 3D outputs through trial-and-error and turned to the teacher when needed. Thus, the facilitating role of the teacher was multi-faceted: to suggest cooperative activities among students, analyze their concerns, understandings and misconceptions, direct them towards their common goals and enhance further learning experiences.
+   Another crucial part of the educational process was the exploration of the blind or partially-sighted world. Role-playing games were organized to enable students to comprehend the reality faced by people with visual impairments (Fig. 6). Inter- net search and communication with the association of blind people of Ioannina city supplemented their deeper empathy of vision difficulties. In coordination with the aforementioned association, a visit of two persons with visual impairments was arranged in the midst of the project. The purpose of the meeting was twofold: first, students could break their possible prej- udices about blindness and become aware of the reality faced by people having visual impairments through their interaction and, second, students could get first-hand preliminary feedback for their artifacts.
+   At the time the visitors arrived, the first pilot models had been printed and the stone bridge was at the 3D modeling stage. Persons with visual impairments inspired students and gave vital feedback with innovative ideas for practical modifications of the objects. Namely, the existence of a human or animal figure which could contribute to the scale perception of the depicted objects, the addition of felt so as to simulate the different materials and the existence of an orientation symbol were proposed. Most of the indicated modifications for the artifacts were applied by the students, such as the inclusion of a pig (part of the regional fauna) in the bridge model, demonstrating the scale of the bridge.
+
+
+
+
+Fig. 6. Exploration of the blind or partially-sighted world by the students.
+
+
+Fig. 7. Final artifact of the bridge.
+
+   Students' acquaintance with the Braille system was important for their communication with persons having visual impairments via the implementation of messages on the artifacts. A subteam was composed to translate and print texts to the Braille language. During the research, the subteam realized that the Braille language is not universal and started searching for web translators from English to Braille and from Greek to Braille, since the objects would be handed to Greek persons with visual impairments. Further improvements of the texts were achieved by considering several corrections pro- posed by the visitors.
+   Students came up with creative ideas, which derived from their dedication to the project and their interaction with per- sons having visual impairments. For instance, the existence of a natural stone material on the bridge model or the embod- iment of water into the 3D printed bridge (possibly in a small bottle hidden inside the base of the bridge) which would give the sense of the water element, were nominated. Students developed a highly empathic perception of the way that persons with visual impairments perceive the environment. In their effort to substitute parts of the visual senses, students realized the importance of sensations and incorporated their understanding into the final artifacts in a creative and practical way (Fig. 7).
+   In the context of the experiential learning cycle, reflection was a significant tool to enable conscious learning at all stages of the educational process. Individual self-evaluations were made throughout the process by all students with the aim to recapitulate their previous tasks, check the overall schedule and plan their future steps. Lesson evaluations were taking place both at the end of each day and week, while ideas could be written on the ''wall of ideas" anytime. A written idea, suggesting that each student could choose an object, print it and keep it as a memento, was found appealing by the majority. During the final evaluation of the project, students checked their initial expectations, recorded new ones that had emerged and valued the degree to which they had been satisfied.
+
+4.2. Assessment of the educational process
+
+   Both primary and secondary research were utilized to complete our qualitative research methodology. Our involvement into the development and the implementation of the educational process was complemented by questionnaires handed to
+
+
+both students and educators. The reason why we also deploy objective criteria, such as questionnaires from insiders (students) and outsiders (Greek educators), is to avoid prejudiced conclusions stemming from our engagement in the pro- cedure. Next we try to compare our personal experience with the results of the questionnaires.
+   Students' participation and commitment to the project was expressed as they frequently continued their work beyond the course timetable. Their dedication to the project was also evident through their focus, their high-level cooperation and their creative ideas during the entire educational process. Furthermore, a remarkable incident occurred when the instructor and the substitute instructor had to be absent for two days during the second week. The professor kept contact with the students through the group chat created for the project's coordination trying to organize a creative day. The prompt students' response including a picture of them working and greeting (Fig. 8) unveiled their strong self-motivation.
+   We acknowledged three basic motivational elements which may had led to the empowerment of learners' engagement in our educational project: the technological, the anthropogenic and the educational factor. Delving into the aforementioned components, 3D printing technologies embody the modularity, creativity and adaptability that education requires. The anthropogenic aspect entails the consideration of the familiarity with the local community together with our intrinsic ten- dency to empathize. The innovative educational practices of the project encompass alternations among different types of teaching (including formal, informal and non-formal learning techniques) which can trigger pluralistic types of learners.
+   Six months after the end of this project, we prepared anonymous online questionnaires of four closed-ended questions, which we then forwarded to the Portuguese students and analyzed for content. The reason why we sent the questionnaires after a span of six months is to test the conscious recollection of students' experience of the project. The questions concerned the significance of open-source technologies, their potential and the individual weight of the aforementioned motivational elements (see Appendix).
+   We received eight out of 11 students' answers, all of which converged towards the catalytic role of open-source technolo- gies (versus proprietary ones) in the teaching process. Students also agreed that they learned more through open-source technology, while one student answered that the use of open-source or closed-source technologies makes no difference in the obtained knowledge. All students except one used open-source technology at least once after the project's end. Among
+
+
+Fig. 8. Students' engagement in the project during the absence of the professors.
+
+
+the aforesaid motivational factors, the majority of students (six out of eight) replied that the 3D printing experience springs first to their mind. One student answered that he vividly recalls the meeting with the persons having visual impairments, while another mostly remembers the educational activities.
+   The effectiveness of the educational scenario was also evaluated by Greek educators of varying disciplines with the aim to communicate and scale our educational approach, so as more teachers could benefit in the future. A workshop was held in Athens, Greece, on the 25th of January 2017, in the context of an innovative program to transform education called Big Bang Academy. At a first stage, the ''Ecotourism, education and 3D printing" project was presented to 38 educators, who subse- quently had to create, present and reflect their own educational scenario. Based on the three basic motivational elements, teachers proposed creative ideas, such as a 3D printed model of a museum monument visited by the students.
+   After the completion of the workshop, each teacher was asked to complete a post-workshop online survey with five closed-ended questions. The first two questions pertained to the educators' previous experience and future plans for using open-source technologies. Half of them had already used open-source technologies in their teaching, while a greater portion was eager to use them in the future. In more detail, 57 percent of the teachers were confident enough to employ such tech- nologies, 29 percent supported that they will use them, while the rest (14 percent) were uncertain about whether they will connect such technologies with their curriculum.
+   Although a significant portion (72 percent) of the educators who hadn't used open-source technologies before the work- shop were impelled to do it in the future, there were educators who claimed that they won't use them. Possible reasons for their reluctance to use technological objects may pertain to their current unclear definition and newly-emerged concept. In addition, considering the contemporary socio-economic crisis in Greece, educational systems probably face difficulties in affording technological equipment, even an open-source, low-cost 3D printer.
+   Regarding the compatibility of the educational procedure with open-source and closed-source technologies, half of the teachers claimed that education is equally compatible with both types of technology. 43 percent positively rated the com- patibility of open-source technology with education, while 7 percent assumed that proprietary technologies are more com- patible with the educational process. Moreover, 86 percent deem open-source technologies as more suitable for the empowerment of students' critical thinking than the closed-source ones, while the rest (14 percent) view both types of tech- nology as equivalent. The majority of the responses to the latter question accords with the related literature references, which reckon that open-source technologies advance users' critical thinking (Czerkawski, 2010, p. 215; Pellas, 2015).
+   Finally, the question regarding the students' motivational factors was also posed to the educators to enable the compar- ison between students' and educators' views. According to the educators, the employment of non-formal education in the teaching process serves more as stimulation for students to participate in the learning process (82 percent) than the utiliza- tion of technological means or the anthropogenic factor (9 percent). In comparison with students' responses to the question- naires, Greek teachers valued the educational element of non-formal learning as the most important factor for enhancing students' motivation, while students strongly endorsed the technological factor.
+
+5. Conclusions
+
+   The potential of new forms of learning was explored through a case study analyzed in this paper. Towards this goal, we used Kolb's experiential learning cycle and PAR approaches. In an effort to drift away from the notion that schools monop- olize knowledge, we investigated alternative ways of fostering meaningful communication and collaboration through open educational practices. Rapid social, economic and political developments require transformative shifts in the educational structure of the contemporary interconnected world (Morgan, 2013). Aiming at the global accessibility of knowledge and the enhanced effectiveness of students' educational attainment, the use of open-source technologies in educational pro- grams has been proposed.
+   Our 25-day long educational experiment shed light on the potential of open-source technologies as tools for creating and disseminating knowledge and communication. Building upon previous work towards the same direction (Kostakis et al., 2015), our educational scenario served a twofold aim: first, it confirmed the great potential of 3D printing as a motivational learning tool and, second, it added the aspect of 3D printing as a means for meaningful communication among people with and without visual impairments.
+   ?ased on the concepts of constructionism in a non-formal educational context, we developed our training model. Stu- dents engaged in hands-on explorations and manufactured models of natural and cultural heritage elements of the Zagori region. Via collaborative procedures, they familiarized themselves with project-based problem solving. Among others, they learned how to create three-dimensional models of natural objects, use a 3D printer and create a blog.
+   The created artifacts were handed to a group of people with visual impairments so as to spur communication with stu- dents, empower the educational process and improve the final result. The ultimate goal of the objects was to help persons with visual impairments to experience geocultural tourism. Among the three explored motivational factors for students' par- ticipation (technological, anthropogenic and educational), the majority of students claimed that the technological element intrigued them the most. On the other hand, Greek teachers considered the educational component as the most important. The application of open-source technologies towards flexible and meaningful educational settings is challenging. In the context of contemporary schools, the required time to organize similar educational programs is usually hard to find. The willingness to deal with a considerable amount of uncertainty related to the use of such technologies has also to be
+
+
+considered. Moreover, the familiarization of both teachers and students with open-source technologies is required as well as their keeping up with the technological advances.
+   Through internet-based information mechanism, experimentation and discussions, we attempted to transform the afore- mentioned obstacles of open-source technologies into tools for reaping additional benefits of the educational procedure. Of course, wider questions around the implementation of technologies in education, the educational potential of open-source technologies and the contribution of technology to contemporary school problems should be investigated. We hope to pro- vide food for thought and guidance contributing to the development of proper teaching models geared towards learners' inclinations and needs, so as the education of the future could be prudently constructed.
+
+Acknowledgements
+
+   We owe our gratitude to the high-school students of Alcochete, Portugal, and the association of people with visual impair- ments of Ioannina city, Greece. We would also like to thank EcoMuseum Zagori, the trainees of the Big Bang Academy, Alexandros Giannakidis, Katerina Sarantidou and Kostantinos Spatiotis. The main financial support for the research came from the Estonian Ministry of Education and Research (grant number: B52). Additional funding was received from the Euro- pean Student Exchange Program Erasmus+.
+
+Appendix
+
+Descriptive table of students' answers
+1. Do you think that the use of open-source technologies, instead of closed-source ones, made your work:Easier100%More difficult0%Neither easier nor more difficult0%2. Do you think that the use of open-source technologies, instead of closed-source ones, made you acquire:The same level of knowledge12,5%More knowledge87,5%Less knowledge0%3. Which is the first thing you recall about the educational program?Non-formal educational elements12,5%The interaction with people having visual impairment12,5%3D printing75%4. Have you ever used open-source technologies in any way after the educational program?No14,29%Yes85,71%
+
+
+Descriptive table of educators' answers1. Do you think that the educational process is more compatible with:Both open-source and closed-source technologies50%Open-source technologies42,86%Closed-source technologies7,14%2. Which type of technologies do you think that enhances more students' critical thinking skills?Both types equally14,29%Open-source technologies85,71%Closed-source technologies0%3. How possible is it for you to use open-source technologies in a future lesson?Very28,57%Enough57,14%Little14,29%4. Had you ever used open-source technologies during your teaching before you participated in the Big Bang education workshop?
+No	50%
+Yes	50%
+5. Which of the following elements do you believe that motivates students in an educational program? Choose a number from 1 (most important) to 3 (least important).
+1	2	3
+
+
+The anthropogenic factor9,09%35,71%38,46%The technological factor9,09%50%38,46%The educational (non-formal) factor81,82%14,29%23,08%
+References
+
+Ackermann, ?., 2001. Piaget's Constructivism, Papert's Constructionism: What's the difference? Available at: <http://citeseerx.ist.psu.edu/ viewdoc/summary> (accessed 21 April 2017).
+Bauwens, M., 2005. The political economy of peer production. Ctheory J. Available at: <http://www.ctheory.net/articles.aspx?id=499> (accessed 21 April 2017).
+Benkler, Y., 2006. The Wealth of Networks: How Social Production Transforms Markets and Freedom. Yale University Press, New Haven/London.
+Blikstein, P., 2013. Digital Fabrication and ''Making" in Education: The Democratization of Invention. In: J. Walter-Herrmann & C. Büching (Eds.), FabLabs: Of machines, makers and inventors, Bielefeld, pp. 1-21. Available at: <https://tltl.stanford.edu/publications/papers-or-book-chapters> (accessed 21 April 2017).
+Boone, T., 2017. Jean-Jacques Rousseau, Representing Childhood. Available at: <http://www.representingchildhood.pitt.edu/rousseau.html> (accessed 21 April 2017).
+Cavallo, D., 2000. Emergent design and learning environments: building on indigenous knowledge. IBM Syst. J. 39 (3-4), 768-781. Available at: <~cavallo" xlink:type="simple" id="ir035">http://web.media.mit.edu/~cavallo> (accessed 21 April 2017).
+Coghlan, D., Brannick, T., 2001. Doing Action Research in Your Own Organisation. Sage Publications, London.
+Conole, G.C., Ehlers, U.D., 2010. Open Educational Practices: Unleashing the power of OER. In UNESCO Workshop on OER in Namibia. Available at: <https:// oerknowledgecloud.org/sites/oerknowledgecloud.org> (accessed 21 April 2017).
+Czerkawski, B.Ö., 2010. Free and Open Source Software for E-Learning: Issues. IGI Global, Successes and Challenges. http://dx.doi.org/10.4018/978-1-61520- 917-0.
+Dewey, J., 1997. Experience and Education. Free Press, New York.
+Dib, C.Z., 1988. Formal, non-formal and informal education: Concepts/Applicability Cooperative networks in physics education, 173, pp. 300-315. Available at: http://techne-dib.com.br/downloads/6.pdf (accessed 21 April 2017).
+Freire, P., 2000. Pedagogy of Freedom: Ethics, Democracy, and Civic Courage. Rowman & Littlefield, Lanham, MD.
+Greenwood, D.J., Foote Whyte, W., Harkavy, I., 1993. Participatory action research as a process and as a goal. Human Relat. 46 (2), 175-192. http://dx.doi. org/10.1177/001872679304600203.
+Huang, T., Lin, C., 2016. From 3D modeling to 3D printing: development of a differentiated spatial ability teaching model. J. Telematics Inf. 34 (2), 604-613.
+Available at: <http://www.sciencedirect.com/science/article> (accessed 21 April 2017).
+Kemmis, S., McTaggart, R., 2005. Participatory action research: Communicative action and the public sphere. In: Denzin, N.K./Lincoln, Y.S. (Eds. 2005), The SAGE handbook of qualitative research, Thousand Oaks, pp. 559-603. Available at: <http://citeseerx.ist.psu.edu/viewdoc/summary> (accessed 21 April 2017).
+Kim, J., 2016. Youth involvement in participatory action research (PAR): challenges and barriers. Critical Social Work 17 (1), 38-53. Available at: <http:// www1.uwindsor.ca/criticalsocialwork/youth_involvement> (accessed 21 April 2017).
+Kohonen, V., 2012. Learning to Learn Through Reflection: An Experiential Learning Perspective. University of Tampere.
+Kolb, D.A., Kolb, A. Y., 2005. The Kolb Learning Style Inventory: Technical specifications (Eds. 3.1). Experience Based Learning Systems. Inc. Case Western Reserve University. Available at: <http://learningfromexperience.com/media> (accessed 21 April 2017).
+Kostakis, V., Niaros, V., Giotitsas, C., 2015. Open source 3D printing as a means of learning: an educational experiment in two high schools in Greece. J. Telematics Inf. 32 (1), 118-128. http://dx.doi.org/10.1016/j.tele.2014.05.001. Available at: <http://www.sciencedirect.com/science/article> (accessed 21 April 2017).
+MacDonald, C., 2012. Understanding participatory action research: a qualitative research methodology option. Can. J. Action Res. 13 (2), 34-50. Available at:
+<http://journals.nipissingu.ca/index.php/cjar/article/view/37> (accessed 21 April 2017).
+Moobs, R., 2003. Learning Theories: David Kolb. University of Leicester. Available at: <https://www.le.ac.uk/users/rjm1/etutor/resources/learningtheories/ kolb.html> (accessed 21 April 2017).
+Morgan, J., 2013. Universities challenged: The impact of digital technology on teaching and learning. An Educational Innovation Position Paper, Universitas
+21. Available at: <http://www.universitas21.com/article/educational/details/223> (accessed 21 April 2017).
+Nemorin, S., Selwyn, N., 2016. Making the best of it? Exploring the realities of 3D printing in school. Research Papers in Education. pp. 1-18. Available at:
+<http://www.tandfonline.com/doi/abs> (accessed 21 April 2017).
+Ngaka, W., Openjuru, G., Mazur, R., 2012. Exploring formal and non-formal education practices for integrated and diverse learning environments in Uganda. Int. J. Divers. Organizations Communities Nations 11 (6), 109-121. Available at: <http://www.soc.iastate.edu/staff/mazur> (accessed 21 April 2017).
+Papert, S., 1980. Mindstorms. Children, Computers and Powerful Ideas. Basic books, New York. Available at: courses.arch.ntua.gr/fsr/106015 (accessed 21 April 2017).
+Papert, S., 1993. The children's machine: rethinking school in the age of the computer. Basic Books, New York. Available at: <https://creative-computing. appspot.com/assets/lib> (accessed 21 April 2017).
+Papert, S., Harel, I., 1991. Situating Constructionism. Ablex Publishing, Norwood, NJ. Available at: <~btun/papert/sitcons.pdf" xlink:type="simple" id="ir105">http://pirun.ku.ac.th/~btun/papert/sitcons.pdf> (accessed 21 April 2017).
+Pellas, N., 2015. Harnessing and Evaluating Open Sim for the Implementation of an Inquiry-Based Collaborative Learning (Ib[C]L) Script in Computer Science. Preliminary Findings from a Case Study in Higher Education. In: Information Resources Management Association, Open Source Technology: Concepts, Methodologies, Tools, and Applications. IGI Publishing.
+Rayna, T., Striukova, L., Darlington, J., 2015. Co-creation and user innovation: the role of online 3D printing platforms. J. Eng. Technol. Manage. 37 (1), 90-
+102. Available at: <http://www.sciencedirect.com/science/article/pii> (accessed 21 April 2017).
+Rogers, A., 2004. Non-Formal Education: Flexible Schooling or Participatory Education? Kluwer Academic Publishers. http://dx.doi.org/10.1007/0-387- 28693-4. Available at: <http://www.springer.com/cn/book/9780387246369> (accessed 21 April 2017).
+Salto-Youth (EuroMed Resource Centre Support and Advanced Learning and Training Opportunities within the Youth In Action Programme), 2012. Tools for Learning in Non Formal Education. France. Available at: <https://www.salto-youth.net/downloads> (accessed 21 April 2017).
+Schelly, C., Anzalone, G., Wijnen, B., Pearce, J.M., 2015. Open-source 3D printing technologies for education: bringing additive manufacturing to the classroom. J. Visual Lang. Comput. 28, 226-237. Available at: http://www.sciencedirect.com/science/article/pii (accessed 21 April 2017).
+Soomro, A.Q., Qaisrani, M.N., Rawat, K.J., Mughal, S.H., 2010. Teaching physics through learning cycle model: an experimental study. J. Educ. Res. 13 (2), 5-
+18. Available at: <http://www.iub.edu.pk/jer/JOURNAL/JER_Vol10_No2.pdf> (accessed 21 April 2017).
+Souto-Otero, M., Ulicna, D., Schaepkens, L., Bognar, V., 2013. Study on the impact of Non-Formal Education in youth organisations on young people's employability. European Youth Forum, Brussels. Available at: <http://euroscoutinfo.com/wp-content/uploads> (accessed 21 April 2017).
+Temple, M., Moran, R., 2011. Doing Research With Refugees: Issues and Guidelines. Policy Press, Bristol.
+UNESCO Institute for Statistics, 2012. International Standard Classification of Education 2011, UNESCO Institute for Statistics, Montreal Available at: http:// www.uis.unesco.org/Education/Documents. accessed 21 April 2017.
+
+
+Verschuren, P., Doorewaard, H., 2005. Designing a research project. Lemma, Utrecht.
+Wadsworth, Y., 1998. What is Participatory Action Research?. Action research international. Paper 2. Available at: <http://www.aral.com.au/ari/p- ywadsworth98.html> (accessed 21 April 2017).
+Yasunaga, M., 2014. Non-formal education as a means to meet learning needs of out-of-school children and adolescents. UNESCO Institute of Statistics /
+UNICEF, Montreal. Available at: <http://allinschool.org/wp-content/uploads> (accessed 21 April 2017).
+
+
+
+
+
+

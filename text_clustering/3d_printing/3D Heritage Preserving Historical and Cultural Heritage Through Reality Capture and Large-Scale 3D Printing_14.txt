@@ -1,0 +1,160 @@
+Enhancing cultural heritage exhibits in Museum Education: 3D Printing Technology
+Video mapping and 3D printed models merged into immersive audiovisual scenography (FSJ-V3D Printing+MM Installation)
+
+
+Francesca Fatta
+Università degli Studi Mediterranea di Reggio Calabria,
+Department dArTe, Italy
+ffatta@unirc.it
+
+Franz Fischnaller
+Accademia Albertina di Belle Arti di Torino, Italia franz.fischnaller@albertina.academy
+
+
+
+
+Fig. 1.	Fort Saint Jean 3D Printed Models
+
+
+   Abstract-This paper discusses the FSJ-3D printing+mixed media installation, combining 3D printed models, video mapping, immersive audiovisual scenography and digital heritage storytelling. The installation is an integral part of the permanent media exhibit entitled Virtual Journey through the History of Fort Saint Jean (VJ-FSJ Project), opened in the summer of 2018 at the Musée des civilisations de L'Europe et de la Méditerranée (MuCEM) in Marseilles, as part of the planned activities of the Center of Interpretation of the history of the FSJ in France.
+
+   Keywords -3D Printing Technology, 3D scans and print for exhibitions, Media exhibit for historical heritage education in museum, Digital heritage storytelling, Augmented and mixed reality, Immersive audiovisual scenography 3D Video mapping, Cultural Heritage, historical monuments, innovative cross- disciplinary design practice in museums for heritage exhibitions.
+
+I. INTRODUCTION
+Research Framework
+In recent decades,	scientific	innovation and technological innovation have rapidly progressed; science and technology, interlinked more than ever, are increasingly delivering a broad array of new and compelling digital tools and systems, empowering creative minds, and stimulating our imaginations. In turn, the possibilities offered by the widespread diffusion and accessibility of digital tools and technologies are progressively empowering cultural heritage research, documentation and study as well as the creation of high quality projects, experiences and works, enhancing the dissemination and	creation of cultural content and making		it	more	accessible	to the	global
+
+designers of 3D printers over the last 30 years [1], 3D printing is one of the hottest digital trends, and is being used to create objects for entertainment, art, work, education, medical needs and more. We are slowly coming to grips with the potential that 3D printeing can bring across multiple industries, from manufacturing, to education, space, and even weaponry [2]. 3D Printing is in a period of rapid technological growth and has the potential to enhance experiences in cultural heritage. We expect it will not only become vital for reconstruction of objects, but also for research, documentation, preservation and education, and it has the potential to serve these purposes in an accessible and all-inclusive way [3].
+
+Related Works
+In the last few years 3D printing has been intensively used in cultural heritage for preservation, restoration and dissemination purposes [4]. Many European and North American Museums have purchased 3D printers and are actively recreating missing pieces of their relics [5]. Scan the World is the largest archive of 3D-printable objects of cultural significance from across the globe. Each object, originating from 3D scan data provided by their community, is optimised for 3D printing and free to download on MyMiniFactory. Working alongside museums, such as The Victoria and Albert [6] and private collectors [7] the initiative serves as a platform for democratizing the art object. The Metropolitan Museum of Art and the British Museum have started using their 3D printers to create museum souvenirs that are available in the museum shops [8]. Others, like the National Museum of Military History and Varna Historical Museum, have
+
+community.	In	this	rich	melting pot of innovation, 3D gone further and sell online 3D digital models of their artifacts,
+
+Printing has much to contribute to the cultural heritage field.
+There is a rapidly growing community in the cultural heritage
+
+created using Artec 3D scanners, in 3D print-friendly file formats, which anyone can 3D print at home [9]. In recent years,
+
+domain using 3D printing technologies, techniques and tools.the application of 3D technologies to Cultural Heritage has
+
+Apart from the industrial and commercial usage by engineers and
+
+978-1-7281-0292-4/18/$31.00 (c)2018 IEEE
+
+provided successful results, with impact
+
+on preservation, valorisation and heritage transmission. Now, the emergence of 3D printers open new horizons for the heritage sector [10].
+
+Context and Motivations
+In this vein, this paper presents a case study based on the conception and the production process of FSJ-V3D Printing+MM Installation, an experimental cross disciplinary installation, combining technology, digital media and tools intersected with cultural narrative (i.e. Digital heritage storytelling with 3D printed models intersected with video mapping merged into an immersive audiovisual scenography), designed within the context of a new media heritage exhibit entitled Virtual journey through the history of Fort Saint Jean (VJ-FSJ) project.
+
+This paper presents an overview of the concept, the design, the production process and challenges encountered in successfully creating the installation to valorize the Fort Saint Jean, a prominent historical and architectural site in Marseille, France.
+
+The installation is one of the outcomes of the Cross- disciplinary framework research entitled NEW GENERATION INTERACTION  IN  CULTURAL  HERITAGE,  Interactive
+Immersive Exhibitions developed by Franz Fischnaller [11], as artist and researcher in residence at the Institut d'études avancées - Exploratoire Méditerranéen de l'interdisciplinarité of Aix-Marseille University (IMéRA) [12], in partnership with the Musée des Civilisations de L'Europe et de la Méditerranée (MuCEM) [13] and the Laboratoires du modèle et simulations pour l'architecture et le patrimoine (MAP Laboratoires) [14]. Project outcomes were the result of a collaborative effort and support of institutions and experts from the fields of history, archaeology, architecture, design, social science, engineering, technology, storytelling, communications and management.
+
+Research Context - Motivation - Goals
+In the past two decades, museums have seen rapid changes in terms of the application of information technology, which has been used to represent their collections in new ways. Museums provide a public service and communicate through collections associated with information applications which create new visions of museum issues for the visitor [15]. NGI- CH research focuses on the intersection of Art, humanities and social sciences (history, archaeology and cultural studies) combined with leading technologies and advanced new digital media tools with the aim of empowering engaging and creative design solutions for the fruition of content and cultural heritage experience [16]. A major motivation behind the research is to envision experimental approaches for exhibit design solutions, based on tangible and intangible cultural heritage data that can provide context and strengthen the possibilities for enhancing the creation of high quality digital heritage experience [17]. Digital Heritage works that can strengthen the European capability for the creation of new forms of digital entertainment and engagement based on cultural heritage, and that can promote the use of new technologies such as new media and new modalities of access making cultural heritage more accessible to the global community [18]. Research focus is given to the use of new forms of integrated mixed media and technology for bridging audiences to their heritage, in ways that inspire, stimulate and
+
+educate new generation audiences and the general public (Fischnaller et al. 2018) channeling new forms of creativity and adaptability that can contribute to open new paths for exploration transcending the expanded use of technology as tools for traditional reconstruction of the past inside the museum, often being viewed as conservators of the past.
+
+The research responded to the specific challenges how technology and digital media can be effectively used to support the museums practice cultural, urban, creative and learning interfces and to the growing need to create digital heritage work with richer interpretations of the past for enhancing the audience's knowledge and stimulate the users' curiosity to go beyond the "picture", (cultural assets, artifacts, heritage buildings, etc.) and to explore the story in/behind and around it; improving the communicability and the fruition of cultural contents for a new understanding of the past while attracting a wider audience and public engagement [19].
+
+
+Fig. 2.   Musée des civilisations de L'Europe et de la Méditerranée
+Photo: MuCEM.
+II. PROJECT CONCEPT, EXHIBIT SPACE AND HISTORICAL
+
+Patrimony Context
+FSJ-V3D Printing+MM Installation is integral part of the Virtual journey through the history of Fort Saint Jean (VJ-FSJ project), a new media permanent exhibition based on five Historical periods (49 BC, 1423, 1660, 1943, today) of the Fort Saint-Jean (FSJ) and Marseilles. Initially the opening of the exhibition is expected for the end of summer 2018 in the FSJ Galerie des Officier at the FSJ at the Musée des civilisations de L'Europe et de la Méditerranée (MuCEM), Marseilles. VJ-FSJ Project was conceived as a twelve phase development. Phases one to eight, delivered prior to this paper has been completed by Franz Fischnaller in collaboration with MuCEM in-and out house cross disciplinary teams. Phases 10 to 12 (i.e. Final content production, content and system integration of exhibit components on site, final exhibit set up, project closure and exhibit opening) currently under development directed by the MuCEM.
+
+VJ -FSJ Exhibition Concept
+The exhibition offers to the visitors an audio visual multilayered immersion through key historical moments that shaped the history of Marseilles. It combines digital narrative and storytelling in physical and virtual architecture, bridging physical augmented and virtual architecture with digital content and mixed media interfaces, embedded in a historic building. The narrative and storytelling content inspired on the selected historical periods are presented in a holistic manner in the exhibit space and throughout the different rooms equipped with platforms, technical systems and devices among which,
+
+video mapping, augmented reality effects and optical illusions and within real surfaces and virtual projections.
+
+
+Exhibit Space: Virtual Journey through the History of FSJ The Exhibit space of VJ-FSJ Lower Officers Gallery is located in the central part of the FSJ, constructed at the time of Vauban. The Seigneur de Vauban and later Marquis de Vauban (1 May 1633 - 30 March 1707), commonly referred to as
+Vauban (French: [vob??]), was a French military engineer who rose in the service to the king and was commissioned as a Marshal of France [20]. Gallérie des Officiers is a linear structure composed of a gallery articulated by six identical rooms.  Room  O.01  to  O.06  and  a  tunnel.FSJ-V3D
+Printing+MM Installations was design to be displayed in ROOMS O.01 and O.03 in the Exhibition Space.
+
+Fig. 3.  Division of rooms in Officier Gallery - Photo: MuCEM.
+
+Historical Patrimony and architectonic Heritage Context The FSJ is a military complex and fundamental part of the history of Marseille. It was built by Louis who XIV decided to strengthen the city's defenses [21].
+A complete restoration of this historical monument was concluded in 2013 and since then FSJ is linked by two thin bridges to the historical district Le Panier, and to the Musée des civilisations de L'Europe et de la Méditerranée (MuCEM). Currently FSJ together the building named J4, designed by architects Rudy Ricciotti and Rolland Carta [22] are one of the three sites that constitute the MuCEM.
+
+Fig. 4.  Fort Saint Jean and Gallérie des Officiers.Photo: MuCEM.
+
+III. PROJECT DESCRIPTION
+
+A. FSJ-V3D Printing+MM Installation: Technology, Software Usage and Development Phases
+
+The project is articulated by two large 3D printed models: A and B, made with mixed 3D printing systems and with integrated interior lighting.
+Model A: The model A is the architectural reconstruction of the FSJ in a scale of 1:100 according to an ideal revival of the seventeenth century installed in ROOM O.03 of the exhibit. Model B: definition of the territorial structure aimed at illustrating the relationship between the history of the FSJ and the context and the urban area installed in ROOM O.01.
+
+
+
+Fig. 5.  Model A illuminated.Photo: MuCEM.
+
+B. Model A: Development and Execution Definition of the scores
+The complex articulation of the model A is spread over an area of about four square meters (43 ft²) and concerns the great attack on the ground of the ramparts and the walls with the architectural parts that over the centuries have stratified on the large esplanade of the FSJ (210 x 190 cm, height 30/54 cm) (6.8x6.2; 0.9x1.7 ft). The Reggio Calabria team designed the construction of the model according to a division into four pieces to facilitate its execution and transport.
+The model A-FSJ was built with mixed techniques, partly in polyurethane (structural part HD 65 Kg/mc), partly in plaster (architectural parts with Project 660 Pro 3D System printer). In addition, some parts have been programmed to illuminate the hollow part, according to Fischnaller's concept.
+The assembly was carried out in two phases: the first involved the assembly of the four structural parts in polyurethane while the architectural parts, made separately, were subsequently collated. Two different methodologies were compared: milling (subtractive method of matter) and printing (additive method). Once the individual parts have been optimized, corrected and implemented, a manual treatment has been carried out for the final touch-up treatment with primer and acrylic paint, in order to uniform the color and grain of the polyurethane surfaces (more porous) and the powder of plaster (more compact).
+At the end of these treatments, for the completion of model A, there remained the installation of the lighting project of five parts of the fort, realized according to a high brightness LED system, for programming the sequences and for adjusting the timing in sync with the video projection of the exhibit.
+
+Fig. 6. Proces development of the 3D printing, Photo:UNIRC-dArTe
+
+C. Model B: Development and Execution - Summary
+The territorial model where the FSJ insists is developed on a slightly smaller surface than the preceding model (200 x 158 cm, h 11 cm) (6.5x5.1 ft, h.4.21 inch). This was made entirely of polyurethane (HD 65Kg/mc) with surface treatment suitable for image projection with video mapping. Given the quality of the form, it was considered a two-part model cut and the realization and optimization times were considerably lower than the previous one.
+D. Installation in exhibit space
+Finally, the models were positioned and contextualized in the physical space dedicated to Room O.01 and Room O.03 of the Gallérie des Officiers respecting the demands expressed by the design and upon the requirements of the rooms hosting the models and the exhibition.
+
+
+
+Fig. 7. Processing the required steps on B model. Photo: UNIRC-dArTe.
+
+Fig. 8.  Model A in Room O.03 (LX) - Model B in Room O.01 (RX)
+
+E. Production Team
+The team responsible for the realization of Model A and Model B was articulated by the staff (i.e. architects, engineers, experts in digital modeling) of the Università degli Studi Mediterranea di Reggio Calabria, Department dArTe, Italy and of external personnel specialized in the use of machines for mechanical prototyping. www.roboticom.it, Machined Science, SculptRob.
+
+CONCLUSIONS AND LESSONS LEARNED
+
+The entire work was successfully concluded, however, it is to underline that on view on the nature of the project and the design, which focus in innovative intersection and combination between technology, digital storytelling and 3D printed models intersected with video mapping merged into an immersive audiovisual scenography, made the project development and implementation very challenging .In addition, the steps taken from the digital model to the analog model were very demanding in terms of production, given the different systems and printing materials. The solids acquired according to the subtractive process have presented mechanical characteristics different from those printed with additive layers (tolerances, degrees of resistance, etc.) for this reason the intervention of manual correction was fundamental.
+
+Fig. 9. The Production Team Università degli Studi Mediterranea with the FSJ 3D printed model. Photo: UNIRC-dArTe.
+
+Its key to take in consideration that although the tech panorama is appealing and offers great media tools of expression, it is filled of "traps"! for the practitioner, the use and application of digital tools in cultural heritage demand, thus the expertise of professionals who specialize in heritage, visualization and technology among others, this is when the cross-disciplinary team and experts enters into play.Further, technology and science are not motionless, it evolves restlessly over time and a constant attention to this is a priority. Further, when using technology and digital technologies in cultural heritage valorization, the ongoing innovation and changes should be dealt as part of the strategy
+
+and methodology applied to all the components of cross- disciplinary teams.Moreover, from one side, those who are researching and working in the field of cultural heritage shall be prepared to fully understand the relevance of the social, cultural, creative and innovative implications, and from the other, the need to know the major principles and the frameworks that sustain these technologies in order of exploiting these to the full lead to richer interpretations of the past in order to respond to specific challenges and demand when working in the field.
+ACKNOWLEDGMENT
+The authors wish to thank different institutions and people involved in the development of the research case and study presented in this paper, such us:IméRA - Institut d'études avancées, Exploratoire Méditerranéen de l'Interdisciplinarité of Aix-Marseille University, Marseilles, France in partnership with MuCEM and MAP Laboratoires, Modèles Et Simulations Pour L'architecture Et Le Patrimoine Centre National De La Recherche Scientifique / Ministère De La Culture.
+REFERENCES
+[1] https://3dsupplyguys.com/blogs/3d-printing-education/why-is-3d-printing- important
+[2] https://www.hongkiat.com/blog/ways-3d-printing-change-world/
+[3] 3D Printing for Cultural Heritage: Preservation, Accessibility, Research and Education
+Moritz Neumüller1, Andreas Reichinger2, Florian Rist3, and Christian Kern3 1 Artecontacto Kunstvermittlung,Vienna, Austria,VRVis Forschungs-GmbH, Vienna, Austria Institute for Art and Design, Vienna University of Technology, Vienna, Austria. https://www.materialise.com/en/blog/5-trends- 3d-printing-for-2018
+[4] Scopigno, R.; Cignoni, P.; Pietroni, N.; Callieri, M.; Dellepiane, M. (November 2015). "Digital Fabrication Techniques for Cultural Heritage: A Survey". Computer Graphics Forum: n/a. doi:10.1111/cgf.12781.
+[5] "Museum uses 3D printing to take fragile maquette by Thomas Hart Benton on tour through the States". Archived from the original on 2015-11-17
+[6] 3D Imaging in Cultural Heritage, Becky Knott Sculpture, Metalwork, Ceramics & Glass, December 7, 2017 https://www.vam.ac.uk/blog/news/3d-imaging-in-cultural-heritage
+[7] "Inside private art collections with Scan the World" (https://3dprintingindustry.com/news/inside-private-art-collections-scan- world-106451/). 2017-02-23.
+[8] "British Museum releases 3D printer scans of artefacts" (https://www.independent.co.uk/life-style/gadgets-and-tec
+h/british-museum-releases-scans-of-artefacts-to-let-you-3d-print-your-own- museum-at-home-9837654.html). 2014-11-04.
+[9] Threeding Uses Artec 3D Scanning Technology to Catalog 3D Models for Bulgaria's National Museum of MilitaryHistory" http://3dprint.com/45699/threeding-artec-museum/). 3dprint.com. 2015-02-20.
+[10] 3D printing applied to Cultural Heritage.http://www.digitalmeetsculture.net/article/3d-printing-applied-to- cultural-heritage/?upm_export=print
+[11] https://imera.univ-amu.fr/en/resident/franz-fischnaller
+[12] https://imera.univ-amu.fr/
+[13] http://www.mucem.org/
+[14] http://www.map.cnrs.fr/?p=3984
+[15] References 1. Fahy, A. 'New Technologies for Museum Communication' in E. Hooper-Greenhill (ed.), Museums Media, Message, Routledge Publisher, London, 82(1995).
+[16] https://imera.univ-amu.fr/sites/imera.univ
+[17] https://imera.univ-amu.fr/sites/imera.univ-amu.fr/files/agenda/files/ colloquefranz_fischnaller_mucem_imera_20_mai_2015_0.pdf
+[18] http's: //imera. Univ-emu. Fr/Fr/resident/Franz-fischnaller
+[19] http://rfiea.fr/sites/default/files/newsletters/rfiea_annuaire_2008- 2015_web.pdf
+[20] https://en.wikipedia.org/wiki/S%C3%A9bastien_Le_Prestre_de_Vauban
+[21] https://en.wikipedia.org/wiki/History_of_Marseille
+[22] Are the Mucem and the Fort Saint-Jean the same thing? http://www.mucem.org/en/are-mucem-and-fort-saint-jean-same-thing
+[20] Museums as places for intercultural dialogue: selected practices from Europe Edited by Simona Bodo, Kirsten Gibbs, Margherita Sani https://www.ne- mo.org/fileadmin/Dateien/public/service/Handbook_MAPforID_EN.pdf
+
+

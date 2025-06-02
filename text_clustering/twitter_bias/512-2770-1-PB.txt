@@ -1,0 +1,456 @@
+International Journal of Communication and Society ISSN ISSN 2684-9267
+Vol. 4, No. 2, December 2022, pp. 204-213 204
+Prediction of Indonesian presidential candidates in 2024 using
+sentiment analysis and text search on Twitter
+Tawakkal Baharuddin a,1,*, Zuly Qodir a,2, Hasse Jubba a,3, Achmad Nurmandi a,4
+a Political Islam-Political Science, Universitas Muhammadiyah Yogyakarta, JL. Brawijaya, Kasihan, Bantul, Yogyakarta 55183, Indonesia
+1 tawakkal.b.pasca18@mail.umy.ac.id *; 2 zuliqodir@umy.ac.id; 3 hasse@umy.ac.id; 4 nurmandi_achmad@umy.ac.id
+* corresponding author
+ARTICLE INFO ABSTRACT
+This study aims to show whether Twitter analysis can predict and
+Article history forecast candidates in the Indonesian presidential election in 2024. This
+Received 2021-11-24 study was conducted long before the election began. To reduce the gap
+Revised 2021-12-11 and utopian attitude in analyzing, two forms of analysis were used at
+Accepted 2022-01-12 once, namely sentiment analysis and text searches on Twitter data. This
+study uses a quantitative approach with descriptive content analysis.
+The data was obtained from Twitter social media, with Twitter Search
+Keywords focusing on official accounts and topics surrounding the 2024
+Presidential election presidential election. The search and data collection first adjusted to the
+Election prediction trend of poll results spread in online news. The trend resulting from the
+Social media poll is used to adjust the names of candidates to be searched for on
+Election poll Twitter search. The analysis tool used also utilizes the Nvivo 12 Plus
+Indonesia analysis software. This study succeeded in mapping out three potential
+candidates in the 2024 election, namely Anies Baswedan, Ganjar
+Pranowo, and Prabowo Subianto. The mapping of potential candidates
+also has correspondence with the results of opinion polls in newspapers.
+From these findings, the information and data on Twitter help make
+predictions and an alternative to using the poll method. The drawback of
+this study lies in the limited use of time, so it is recommended that
+further research be carried out to collect and analyze similar data
+regularly until the election period. This may indicate that Twitter can
+predict earlier or better than polls.
+This is an open access article under the CC–BY-SA license.
+1. Introduction
+Indonesia's presidential election is planned to be held again in 2024. Currently, there are many
+names of candidates who are being rumored and discussed to be running in the election. Based on
+the Poltracking Survey Institute with the poll method based on the three escalators, namely the
+regional head, general chairman of the party, and cabinet members. The Poltracking survey agency
+in October 2021 released the names of potential candidates such as Ganjar Pranowo, Prabowo
+Subianto, Anies Baswedan, Ridwan Kamil, Khofifah Indar Parawansa, Sandiaga Salahuddin Uno,
+Puan Maharani, Agus Harimurti Yudhoyono, Airlangga Hartarto, Gatot Nurmantyo, Andika
+Perkasa, Mahfud MD, Erick Thorir, and Muhaimin Iskandar. The survey results from the simulation
+of 15 names placed Ganjar Pranowo as a presidential candidate for 2024 with a percentage of
+22.9%, the second Prabowo 20.0%, Anies Baswedan 13.5%, Ridwan Kamil 4.1%, Agus Harimurti
+Yudhoyono 3.3%, Sandiaga Uno 2.8%, Khofifah Indar Parawansa 2.5%, Puan Maharani 1.9%,
+Gatot Nurmantyo 1.2%, Andika Perkasa 1.2%, Airlangga Hartarto 1.0%, Erick Thohir 0.9%,
+Mahfud MD 0.8%, Muhaimin Iskandar 0.3%, and Zulkifli Hasan 0.2% [1].
+10.31763/ijcs.v4i2.512 http://pubs2.ascee.org/index.php/IJCS IJCS@ascee.orgISSN 2684-9267 International Journal of Communication and Society 205
+Vol. 4, No. 2, December 2022, pp. 204-213
+The presidential election still has plenty of time left, but discussions about potential candidates
+are being discussed more and more frequently. This is discussed in the public sphere and Internet-
+based digital spaces such as social media and online news. The topic of the presidential election by
+observing potential candidates on several online news platforms also transformed into social media,
+and this was widely spread and sparked discussions among social media users. Some of the names
+of candidates who are rumored to be running as candidates also play an active role in social media,
+so this can also influence the public on online social networks to comment on the criteria for
+representing candidates in 2024. Debates on social media often trigger the emergence of predictive
+narratives about candidates. in the potential next election [2].
+There have been many studies analyzing social media with elections. However, very few studies
+analyze the topic of election predictions using sentiment analysis and text search simultaneously,
+especially in observing the case of elections in Indonesia in the next 2024. Nevertheless, several
+related study results are considered quite relevant to support this study. First, social media is often
+associated with political events, including general elections [3], [4]. Second, election predictions can
+be made by conducting field surveys, opinion polls, and the social media approach is relevant to the
+current digitalization situation [5], [6]. Third, the recent election predictions use the sentiment
+analysis approach on social media as an essential reference in mapping the results of the analysis [7],
+[8]. Based on previous research, it is known that election predictions still often use conventional
+methods through polls, so it is considered necessary to present new alternatives that are more
+relevant to the digital activities of the community related to future political issues. This study tries to
+maximize two approaches: sentiment analysis and text search on Twitter.
+The purpose of this study attempts to fill the gaps in previous research and a basis for reference
+in future research on election prediction studies using social media. Some of the research questions
+in this study can be described. (1) How sentiment analysis and text searches on social media can
+map potential candidates in the current 2024 presidential election in Indonesia? (2) Who is the
+candidate who is predicted to be decisive in the 2024 presidential election in Indonesia? (3) Whether
+the prediction results using social media analysis can be an alternative to the poll method? Based on
+these three questions, it is hoped that a search and analysis can be carried out on the political
+situation of the upcoming presidential election and seeing opportunities from other predictive
+methods outside of conventional opinion polls. This research is essential considering that very few
+studies use the election prediction method using sentiment analysis and text search in studying
+election cases in Indonesia. Based on previous research trends, it is also known that the topic of
+predicting elections is still relevant and becomes essential to help map the political situation,
+especially the initial preparation before the election, which is considered to help voter preferences in
+studying political issues and as an essential study for political participants in Indonesia.
+2. Theorical Framework
+2.1. Election Predictions and Forecast
+Conventionally, predicting elections can be done using the poll method. Polling by-poll is always
+at least slightly wrong on election day, but certain election characteristics can make it more difficult
+or easier to predict [9]. In addition to the poll method, we can also use a more modern method by
+observing discussions and information on internet-based online social networks. There is an
+exponential growth in the number of internet users who use social media, especially Twitter, to share
+their views on various topics of common interest, including political issues. The interest of social
+media users in the political discourse also affects the results and a large amount of data in these
+online social networks. This big data is then considered to produce predictions and opportunities for
+political parties and politicians in an election [10]. The analytical method for predicting can be done
+with a volumetric approach, sentiment, and social networks to predict essential things from online
+social media platforms. It also relies heavily on the discussion by all social media users who share
+the same discussion interest. In general, many researchers use a sentiment analysis approach that
+maximizes understanding of public opinion, which will later be used to explore the general public's
+views. In this case, it will refer to a prediction or forecasting of election results [11].
+The prediction results also have significant consequences for political campaigns and support for
+government agencies. Prediction results in some instances affect the prediction results of the general
+public. In the sense that the prediction results spread in the media will have an impact on the public's
+Tawakkal Baharuddin et.al (Prediction of Indonesian presidential candidates in 2024 ...)206 International Journal of Communicaton and Society ISSN 2684-9267
+Vol. 4, No. 2, December 2022, pp. 204-213
+decision to support the prediction results [12]. Thus, election predictions can also be politicized to
+influence the public's response favoring a particular candidate. Nevertheless, election results can be
+challenging to predict. The most recent example is the 2016 United States election, in which Hillary
+Clinton lost the five states she had predicted in advance. The difficulty of predicting election results
+is influenced by the diffusion of information and the socio-political dynamics that occur near the
+election [13]. This confirms that the prediction results may deviate from the actual results so that
+predictions are also very dependent on developing political dynamics, especially the diffusion of
+information approaching election day.
+Prediction results can also be traced through an approach by collecting poll data. The more
+resources that are pooled, the more likely it is to be predictable as more information becomes
+available in the upcoming elections [14]. Approaches to utilizing social media are increasingly in
+demand, and the platform that is often used is Twitter. A characteristic of the social media approach
+is a sudden spike in political discussion, thus facilitating analysis with an unlimited amount of
+information. Moreover, the method used to combine the volume of information, sentiment, and
+social network information simultaneously is considered more effective in producing a
+recommendation based on the predicted results [15]. The analytical method approach using social
+media has attracted the attention of many global researchers. However, this approach also has a
+weakness in data bias, so a critique of the results and a review of the reported experimental
+prediction results are needed [16].
+2.2. Sentiment Analysis and Text Search Query on Social Media
+Sentiment analysis is the process of extracting human thoughts and perceptions from
+unstructured texts [17]. Sentiment analysis is also known as opinion mining which aims to extract
+people's opinions, attitudes, and emotions from social networks. Conventional sentiment analysis
+concentrates mainly on textual content. However, multimedia sentiment analysis has started to
+receive attention since visual content such as images and videos has become a new medium for self-
+expression on social networks [18]. Sentiment Analysis can be defined as the task of detecting,
+extracting, and classifying opinions about something. This involves developing ways of collecting
+and examining comments and opinions on issues posted on social media. This requires extraction
+efforts for in-depth analysis [19]. Sentiment analysis results are generally categorized as negative
+sentiment and positive sentiment [20].
+Social media users' sentiments or opinions are influenced by current and inclusive information or
+issues [21]. The more important and exciting the information will impact the response of social
+media users to get involved in the discourse. The high interest of social media users in a discourse
+tends to affect the volume of discussion on social media, making it possible to conduct sentiment
+analysis. Of the various social media platforms, Twitter is considered quite popular, used by
+researchers in analyzing sentiment related to political and election issues, including predicting
+election results in several countries such as Indonesia [22]. In recent years, there has been increasing
+attention in the literature about the possibility of analyzing social media useful for polls ahead of
+elections. Some scholars claim that by doing so, we can also produce approximate results. Relying
+on sentiment analysis also serves to monitor elections as has been done in various countries such as
+the United States and Italy [23]. The use of the text search feature is used to save time when
+analyzing data [24].
+2.3. Political Situation and Discussion on Social Media
+In contrast to the anonymous environment of some Internet forums, social media is closely
+related to relationships and activities of daily life. Social media allows users to feel social bonds and
+influences attitudes and relationships between users in social networks. The relationship between the
+use of social media also has implications for relationships that discuss political issues. Social media
+is slowly shaping the awareness of opinions, interests, and activities of solid social ties. As such, the
+use of social media is likely to influence everyday conversations about political issues in online and
+offline contexts, including home, work, social gatherings with friends, community gatherings, and
+on social networking sites [25]. The resulting trend in the use of social media is related to political
+self-efficacy and situational political engagement [26].
+Interaction on social media has a strong influence on the tendency to participate in politics.
+Social media plays a significant role in replacing traditional media, facilitating political engagement,
+strengthening strategic collaboration, and the potential to influence government decisions regarding
+Tawakkal Baharuddin et.al (Prediction of Indonesian presidential candidates in 2024 ...)ISSN 2684-9267 International Journal of Communication and Society 207
+Vol. 4, No. 2, December 2022, pp. 204-213
+politics [27]. Social media is currently widely used to influence socio-political situations, such as in
+the case of general elections, political campaigns, political movements, and protests [28], [29], [30].
+Thus the political situation and discussions are relevant on social media. This is due to the affordable
+online communication model on social media, which can be accessed anywhere and anytime. Social
+media also provides a means for the flow of ideas or opinions and serves to play an increasingly
+complex role in transformation in people's lives [31].
+3. Method
+This study uses a quantitative approach with descriptive content analysis. This approach
+describes the details of a text or message related to current discussions and information on the
+Twitter social network regarding the 2024 presidential election. The research subjects are Twitter
+social media users. The object of the research is seen from the involvement of Twitter social
+media users in the discourse of the 2024 presidential election in Indonesia. Data obtained from
+social media Twitter with Twitter Search focused on official accounts. The search and data
+collection first adjusted to the trend of poll results spread in online news. This study takes a
+sample of poll results from the Poltracking Survey Institute. This institution was chosen because it
+has conducted regular polls in Indonesia, especially early polls ahead of the 2024 election. The
+trends generated from polls by the Poltracking Survey Institute are used to adjust the names of
+candidates to be searched on the Twitter search and analyzed using sentiment analysis Twitter.
+This helps researchers to avoid bias in classifying data sources.
+Table 1. Adjustment of Analyzed Data Sources
+Poll (Poltracking) Twitter search (Official account) Tweets captured
+Ganjar Pranowo (22,9%) @ganjarpranowo 3066 Tweets captured
+Prabowo Subianto (20,0%) @prabowo 1200 Tweets captured
+Anies Baswedan (13,5%) @aniesbaswedan 2975 Tweets captured
+Ridwan Kamil (4,1%) @ridwankamil 2490 Tweets captured
+Agus Harimurti Yudhoyono (3,3%) @AgusYudhoyono 990 Tweets captured
+Sandiaga Uno (2,8%) @sandiuno 1641 Tweets captured
+Khofifah Indar Parawansa (2,5%) @KhofifahIP 2443 Tweets captured
+Puan Maharani (1,9%) @puanmaharani_ri 302 Tweets captured
+Total 8 Candidate Accounts 15107 Tweets
+Table 1 shows the results of adjusting the data sources analyzed in this study based on the
+results of Captured on 11/21/2021. The candidates who will be analyzed only take the highest poll
+results including Ganjar Pranowo with a percentage of 22.9%, the two Prabowo Subianto 20.0%,
+Anies Baswedan 13.5%, Ridwan Kamil 4.1%, Agus Harimurti Yudhoyono 3, 3%, Sandiaga Uno
+2.8%, Khofifah Indar Parawansa 2.5%, Puan Maharani 1.9%. These candidates were used as the
+subject of a Twitter search to identify the candidate's official account.
+Fig. 1. Data analysis process.
+Tawakkal Baharuddin et.al (Prediction of Indonesian presidential candidates in 2024 ...)208 International Journal of Communicaton and Society ISSN 2684-9267
+Vol. 4, No. 2, December 2022, pp. 204-213
+Figure 1 is the stage of data retrieval carried out using Ncapture. Data is taken based on Twitter
+Search on the candidate's official account. The collected data is then transferred to the Nvivo 12 Plus
+analysis tool. Nvivo 12 plus software as an analysis tool that can display data in text and images
+through the data coding process. The analysis feature used is sentiment analysis. The sentiment
+analysis results are then continued by linking the topic in the 2024 presidential election by using a
+text search query approach. This feature is used to map the number of references that often appear
+on Twitter. The way it works is simple, namely by retrieving Twitter data based on Tweets about the
+2024 presidential election on Twitter. The data obtained was then coded based on a text search
+related to the names of the candidates above. The trend in the coding results on the data is then
+visualized and followed by an in-depth analysis to answer research questions.
+4. Results and Discussion
+4.1. Candidate Mapping Based on Twitter Sentiment Identification and Text Search
+The results of this study found several data trends that can be analyzed further to answer research
+questions about social media sentiment analysis associated with opportunities in mapping potential
+and strong candidates in the current 2024 presidential election in Indonesia and identify whether the
+prediction results can be an alternative. In addition to using conventional polling methods.
+Table 2. Results of Twitter Sentiment Identification in General
+Official Account Very negative Moderately negative Moderately Very positive
+positive
+@ganjarpranowo 17,0% 14,9% 10,4% 7,0%
+@prabowo 7,5% 5,1% 2,9% 2,3%
+@aniesbaswedan 22,6% 19,4% 50,3% 44,2%
+@ridwankamil 15,1% 28,6% 10,4% 16,3%
+@AgusYudhoyono 13,2% 12,6% 6,8% 9,3%
+@sandiuno 13,2% 1,1% 9,7% 18,6%
+@KhofifahIP 7,5% 15,4% 7,5% 2,3%
+@puanmaharani_ri 3,8% 2,9% 1,9% 0,0%
+Table 2 shows some of the sentiment results on the candidates' Twitter. The results of the
+identification of these sentiments are very diverse and less specific about the presidential election.
+This is due to the collection of vast amounts of data. The data extracted in this analysis uses 15107
+Tweets. This number affects this study to produce clear criteria for the 2024 presidential election.
+This study explores other factors, namely the distance between the analysis and the implementation
+of the election in 2024, which also affects the data collected. However, this study attempts to
+continue the analysis by adjusting the sentiment results above by coding the data with the text search
+feature.
+@KhofifahIP 0,60%
+tn @AgusYudhoyono 0,80%
+u
+o c @sandiuno 2,50%
+c
+a
+la @ridwankamil 3,00%
+ic
+iffo @puanmaharani_ri 5,10%
+r
+e @prabowo 10,30%
+ttiw
+T @ganjarpranowo 23,60%
+@aniesbaswedan 54,00%
+References
+Fig. 2. Results of sentiment identification related to the 2024 presidential election with a text search.
+Tawakkal Baharuddin et.al (Prediction of Indonesian presidential candidates in 2024 ...)ISSN 2684-9267 International Journal of Communication and Society 209
+Vol. 4, No. 2, December 2022, pp. 204-213
+Figure 2 finds a classification that allows the mapping of potential candidates. In the text search
+results, a clear significance was found between one candidate and another. The data shows that
+Anies Baswedan has the dominant number of references in Twitter discussions. Anies Baswedan
+with 54.00%, followed by other candidates namely Ganjar Pranowo 23.60%, Prabowo Subianto
+10.30%, Puan Maharani 5.10%, Ridwan Kamil 3.00%, Sandiaga Uno 2.50%, Agus Harimurti
+Yudhoyono 0.80%, and Khofifah Indar Parawansa 0.60%. From this data, it is known that there are
+only three candidates who are considered to have strong ties to the 2024 presidential election. The
+candidates are Anies Baswedan, Ganjar Pranowo, and Prabowo Subianto. The trends in these three
+names also have similarities to the predictions results through polls by the Poltracking Survey
+Institute.
+Based on the data above, it is known that the analytical method using sentiment analysis has
+limitations in the process of adjusting discussions about the 2024 presidential election. This affects
+the significance of mapping public discussions on Twitter social media to topics around the
+presidential election, whereas it is found to be significant when the analysis is continued with a text
+search approach. Strong on topics surrounding the 2024 presidential election. Analysis with text
+search allows researchers to find and parse the data sources collected by matching candidates'
+official accounts in public discussions. This makes it easier for this study to find direct specifications
+on discussions about the 2024 presidential election in Indonesia.
+4.2. Prediction of Potential and Strong Candidates Based On Twitter Analysis of the 2024
+Election
+This study traces candidates who are considered potential to run as candidates in the 2024
+presidential election in Indonesia. From the data coding process, several candidates were found that
+were considered potential and as alternative candidates.
+Fig. 3. Comparison of poll results with Twitter analytics.
+Figure 3 shows that the Twitter data analysis does not change the names of the three candidates
+considered potential in the poll results. Ganjar Pranowo, Prabowo Subianto, and Anies Baswedan
+are still strong candidates at this time to run as presidential candidates in 2024 based on Twitter
+analysis and opinion polls. The results of this Twitter analysis only found candidate propositions that
+were significantly different from the results of the previous poll. Of the three candidates, Anies
+Baswedan has a significant percentage jump in poll results. From the polling approach sequentially
+occupied by Ganjar Pranowo (22.90%), Prabowo Subianto (20.00%), and Anies Baswedan
+(13.50%). From the Twitter analysis approach that relies on sentiment analysis and text searches, the
+Tawakkal Baharuddin et.al (Prediction of Indonesian presidential candidates in 2024 ...)210 International Journal of Communicaton and Society ISSN 2684-9267
+Vol. 4, No. 2, December 2022, pp. 204-213
+strong candidates are Anies Baswedan (54.00%), Ganjar Pranowo (23.60%), and Prabowo Subianto
+(10.30%). The other candidates are considered as alternative candidates in the 2024 election.
+From the trend of the data above, it is known that there are only three potential and strong
+candidates currently for issues surrounding the 2024 presidential election in Indonesia, namely
+Anies Baswedan, Ganjar Pranowo, and Prabowo Subianto. The three names are in accordance with
+the current Twitter poll and analysis results, although the significance of the three has different
+percentages based on the analytical approach carried out through the poll method with sentiment
+analysis and text search on Twitter. Even so, the analytical approach to predicting the upcoming
+election both utilizes public opinion, but the Twitter approach is considered one of the proper
+methods to predict the next election because Twitter social media has a huge amount of data based
+on public opinion with machine learning to find emotions in tweets and predict sentiment score [32],
+[33]. Based on the interest of previous studies on Twitter analysis in predicting and estimating, it can
+be seen that the method based on sentiment analysis provides the most accurate predictions [34].
+4.3. Opportunities for Sentiment Analysis and Text Search on Twitter as Election Prediction
+Methods
+Other approaches used in predicting election results often take advantage of several approaches
+in the historical approach, which uses the results of previous elections, and the campaign approach,
+which is used to estimate the share of votes at the end of the campaign. In addition, another
+approach is also known, namely the poll. [35], [36]. This study does not intend to belittle the
+predictive approaches above, and this study tries to provide another offer to adjust the development
+trend of technology and information, especially in Indonesia. This study tries to use a different
+approach: Twitter social media by conducting sentiment analysis and text search. These two
+approaches are used to map the names of potential candidates in the upcoming presidential election
+in Indonesia.
+The prediction system utilizes Twitter's data source by using two approaches at once, namely
+sentiment analysis and text search, which is considered to contribute to mapping the names of
+potential candidates in the upcoming presidential election because this approach follows real-time
+discussions on online social media networks such as Twitter. This approach is used to achieve a
+higher prediction rate and is more relevant to the political situation leading up to the election. It
+depends on the ability of researchers to design the prediction methods and frameworks sought,
+especially when using social media as a data source. This highlights the ability to map and narrow
+the range of discussions on Twitter to be analyzed and be used as a data source to support predictive
+results.
+This study shows some differences in the predictive power of social media data using the poll
+method. Some aspects support why social media analysis with a sentiment analysis approach and
+text search can contribute to mapping predictive results in the future. First, social media stores vast
+amounts of data. Second, the data on social media is a reflection of the socio-political situation.
+Third, social media is a discussion space for all groups so that public attitudes and responses can be
+easily observed. Apart from that, the analysis of social media used in predicting the election also
+needs to pay attention to the distance or period of the analysis with the schedule for holding the
+election. This helps other researchers reduce gaps in data sources that are relevant or irrelevant in the
+analysis process. It also encourages researchers to avoid utopian thinking.
+This study was conducted three years before the election period began in 2024. The concern of
+this study lies in the long period, but it can be minimized by using two approaches at once, namely
+sentiment analysis and text search on Twitter social media. These two approaches have a bond that
+can support the analysis and presentation of more relevant data to the topic around the 2024 election.
+Thus, analysis using a social media approach is considered another alternative to the polling
+approach in predicting or forecasting candidates who are considered potential candidates. As the
+official candidate in the upcoming 2024 presidential election. This study mapped out three potential
+candidates, namely Anies Baswedan, Ganjar Pranowo, and Prabowo Subianto.
+In addition to the success of the sentiment analysis approach and text search on Twitter in
+making predictions by presenting the results of potential mapping candidates in the upcoming
+elections, this research also finds other challenges that need to be considered, namely the problem of
+research bias and ambiguity. Twitter has a significant data source with a vast amount of data in the
+Tawakkal Baharuddin et.al (Prediction of Indonesian presidential candidates in 2024 ...)ISSN 2684-9267 International Journal of Communication and Society 211
+Vol. 4, No. 2, December 2022, pp. 204-213
+results of online discussions, which sometimes still find ambiguity, making it difficult for
+researchers to obtain information [37]. This tendency can be overcome by classifying the text
+according to the sentiment conveyed in the Twitter discussion. This study proposes to characterize
+positive and negative reviews by first reviewing the research object's determination. Research
+objects relevant to the issues surrounding the 2024 presidential election were determined earlier by a
+Twitter search. Twitter search classification helps limit ambiguity in the information obtained to be
+more relevant to get more relevant prediction results.
+5. Conclusion
+This study intends to show whether and how Twitter analysis can predict candidates in the
+Indonesian presidential election in 2024. Regardless of the election year, which is three years from
+now, this study approaches by maximizing two forms of analysis, namely sentiment analysis and
+text search. Using these two forms of analysis helps this study reduce gaps in the data sources
+analyzed to become more relevant to topics around elections. Both forms of analysis also reduce
+researchers in presenting utopian data. This study succeeded in mapping out three potential
+candidates in the 2024 election, namely Anies Baswedan, Ganjar Pranowo, and Prabowo Subianto.
+The mapping of potential candidates also corresponds with the results of opinion polls in
+newspapers. From these findings, the information and data on Twitter help make predictions and an
+alternative to using the poll method. The findings of this study also provide a new framework for
+predicting election results by utilizing Twitter data sources with an approach following current
+technological developments, namely sentiment analysis and text search on Twitter. This approach is
+considered more flexible because it takes data from discussions in real-time on online social
+networks such as Twitter. Without ruling out other forms of approach, this study is quite helpful in
+mapping prediction results for the better. The drawback of this study lies in the limited use of time,
+so it is recommended that further research be carried out to collect and analyze similar data regularly
+until the election period. This may indicate that Twitter can predict earlier or better than polls.
+References
+[1] R. N. Chaterine and D. Meiliana, “Presidential Candidate Electability Survey 2024, Ganjar is in First
+Place, Followed by Prabowo and Anies Baswedan,” kompas.com, 10-Oct-2021. https://bit.ly/3mDBia3
+[2] J. Visser, B. Konat, R. Duthie, M. Koszowy, K. Budzynska, and C. Reed, “Argumentation in the 2016
+US presidential elections: annotated corpora of television debates and social media reaction,” Lang.
+Resour. Eval., vol. 54, no. 1, pp. 123–154, 2020.
+[3] C. B. Williams, “Introduction: Social media, political marketing and the 2016 U.S. election,” J. Polit.
+Mark., vol. 16, no. 3–4, pp. 207–211, 2017.
+[4] D. H. Kim, S. M. Jones-Jang, and K. Kenski, “Why Do People Share Political Information on Social
+Media?,” Digit. Journal., vol. 9, no. 8, pp. 1123–1140, 2021.
+[5] D. J. S. Oliveira, P. H. de S. Bermejo, and P. A. dos Santos, “Can social media reveal the preferences of
+voters? A comparison between sentiment analysis and traditional opinion polls,” J. Inf. Technol. Polit.,
+vol. 14, no. 1, pp. 34–45, 2017.
+[6] M. Huberty, “Can we vote with our tweet? On the perennial difficulty of election forecasting with social
+media,” Int. J. Forecast., vol. 31, no. 3, pp. 992–1007, 2015.
+[7] H. Schoen, D. Gayo-Avello, P. Takis Metaxas, E. Mustafaraj, M. Strohmaier, and P. Gloor, “The power
+of prediction with social media,” Internet Res., vol. 23, no. 5, pp. 528–543, 2013.
+[8] B. Bansal and S. Srivastava, “On predicting elections with hybrid topic based sentiment analysis of
+tweets,” Procedia Comput. Sci., vol. 135, pp. 346–353, 2018.
+[9] J. Sohlberg and A. Branham, “Just a Difficult Election to Poll ? How Context Affects Polling
+Accuracy,” Surv. Methods Insights from F., pp. 1–17, 2020.
+[10] P. Singh, Y. K. Dwivedi, K. S. Kahlon, A. Pathania, and R. S. Sawhney, “Can twitter analytics predict
+election outcome? An insight from 2017 Punjab assembly elections,” Gov. Inf. Q., vol. 37, no. 2, p.
+101444, 2020.
+Tawakkal Baharuddin et.al (Prediction of Indonesian presidential candidates in 2024 ...)212 International Journal of Communicaton and Society ISSN 2684-9267
+Vol. 4, No. 2, December 2022, pp. 204-213
+[11] P. Chauhan, N. Sharma, and G. Sikka, “The emergence of social media data and sentiment analysis in
+election prediction,” J. Ambient Intell. Humaniz. Comput., vol. 12, no. 2, pp. 2601–2627, 2021.
+[12] K. Searles, G. Smith, and M. Sui, “Partisan media, electoral predictions, and wishful thinking,” Public
+Opin. Q., vol. 82, pp. 888–910, 2018.
+[13] M. Galesic, W. Bruine De Bruin, M. Dumas, A. Kapteyn, J. E. Darling, and E. Meijer, “Asking about
+social circles improves election predictions,” Nat. Hum. Behav., vol. 2, no. 3, pp. 187–193, 2018.
+[14] R. Kennedy, S. Wojcik, and D. Lazer, “Prediction Internationally,” 2017.
+[15] K. Jaidka, S. Ahmed, M. Skoric, and M. Hilbert, “Predicting elections from social media: a three-
+country, three-method comparative study,” Asian J. Commun., vol. 29, no. 3, pp. 252–273, 2019.
+[16] D. Rousidis, P. Koukaras, and C. Tjortjis, “Social media prediction: a literature review,” Multimed.
+Tools Appl., vol. 79, no. 9–10, pp. 6279–6311, 2020.
+[17] F. Hemmatian and M. K. Sohrabi, “A survey on classification techniques for opinion mining and
+sentiment analysis,” Artif. Intell. Rev., vol. 52, no. 3, pp. 1495–1545, 2019.
+[18] Z. Li, Y. Fan, B. Jiang, T. Lei, and W. Liu, “A survey on sentiment analysis and opinion mining for
+social multimedia,” Multimed. Tools Appl., vol. 78, no. 6, pp. 6939–6967, 2019.
+[19] B. Saberi and S. Saad, “Sentiment analysis or opinion mining: A review,” Int. J. Adv. Sci. Eng. Inf.
+Technol., vol. 7, no. 5, pp. 1660–1666, 2017.
+[20] C. Dhaoui, C. M. Webster, and L. P. Tan, “Social media sentiment analysis: lexicon versus machine
+learning,” J. Consum. Mark., vol. 34, no. 6, pp. 480–488, 2017.
+[21] L. Yue, W. Chen, X. Li, W. Zuo, and M. Yin, “A survey of sentiment analysis in social media,” Knowl.
+Inf. Syst., vol. 60, no. 2, pp. 617–663, 2019.
+[22] W. Budiharto and M. Meiliana, “Prediction and analysis of Indonesia Presidential election from Twitter
+using sentiment analysis,” J. Big Data, vol. 5, no. 1, pp. 1–10, 2018.
+[23] A. Ceron, L. Curini, and S. M. Iacus, “Using Sentiment Analysis to Monitor Electoral Campaigns:
+Method Matters—Evidence From the United States and Italy,” Soc. Sci. Comput. Rev., vol. 33, no. 1,
+pp. 3–20, 2015.
+[24] J. Blaney, K. Filer, and J. Lyon, “Assessing high impact practices using NVivo: An automated approach
+to analyzing student reflections for program improvement,” Res. Pract. Assess., vol. 9, pp. 97–100,
+2014.
+[25] K. N. Hampton, I. Shin, and W. Lu, “Social media and political discussion: when online presence
+silences offline conversation,” Inf. Commun. Soc., vol. 20, no. 7, pp. 1090–1107, 2017.
+[26] M. J. Kushin and M. Yamamoto, “Did social media really matter? college students’ use of online media
+and political decision making in the 2008 election,” Mass Commun. Soc., vol. 13, no. 5, pp. 608–630,
+2010.
+[27] A. Getachew and T. Beshah, “The Role of Social Media in Citizen’s Political Participation,” in IFIP
+Advances in Information and Communication Technology, 2019, vol. 558, pp. 487–496.
+[28] D. Kreiss, R. G. Lawrence, and S. C. McGregor, “In Their Own Words: Political Practitioner Accounts
+of Candidates, Audiences, Affordances, Genres, and Timing in Strategic Social Media Use,” Polit.
+Commun., vol. 35, no. 1, pp. 8–31, 2018.
+[29] F. Marozzo and A. Bessi, “Analyzing polarization of social media users and news sites during political
+campaigns,” Soc. Netw. Anal. Min., vol. 8, no. 1, 2018.
+[30] F. Suwana, “What motivates digital activism? The case of the Save KPK movement in Indonesia,” Inf.
+Commun. Soc., vol. 23, no. 9, pp. 1295–1310, 2020.
+[31] P. Sobkowicz, M. Kaschesky, and G. Bouchard, “Opinion mining in social media: Modeling,
+simulating, and forecasting political opinions in the web,” Gov. Inf. Q., vol. 29, no. 4, pp. 470–479,
+2012.
+Tawakkal Baharuddin et.al (Prediction of Indonesian presidential candidates in 2024 ...)ISSN 2684-9267 International Journal of Communication and Society 213
+Vol. 4, No. 2, December 2022, pp. 204-213
+[32] P. Salunkhe and S. Deshmukh, “Twitter Based Election Prediction and Analysis IRJET Journal Twitter
+Based Election Prediction and Analysis,” Int. Res. J. Eng. Technol., vol. 4, no. 10, pp. 539–544, 2017.
+[33] R. Martins, P. Henriques, and P. Novais, “Predicting an election ’ s outcome using sentiment analysis
+Dataset creation,” in In World Conference on Information Systems and Technologies, 2020, pp. 134–
+143.
+[34] M. M. Skoric, J. Liu, and K. Jaidka, “Electoral and public opinion forecasts with social media data: A
+meta-analysis,” Information, vol. 11, no. 4, pp. 1–16, 2020.
+[35] É. Bélanger and S. Soroka, “Campaigns and the prediction of election outcomes: Can historical and
+campaign-period prediction models be combined?,” Elect. Stud., vol. 31, no. 4, pp. 702–714, 2012.
+[36] R. S. Erikson and C. Wlezien, “Markets vs. polls as election predictors: An historical assessment,”
+Elect. Stud., vol. 31, no. 3, pp. 532–539, 2012.
+[37] A. Valdivia, M. V. Luzón, E. Cambria, and F. Herrera, “Consensus vote models for detecting and
+filtering neutrality in sentiment analysis,” Inf. Fusion, vol. 44, pp. 126–135, 2018.
+Tawakkal Baharuddin et.al (Prediction of Indonesian presidential candidates in 2024 ...)

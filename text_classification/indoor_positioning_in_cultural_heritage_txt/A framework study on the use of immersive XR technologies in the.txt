@@ -1,0 +1,1540 @@
+Journal of Cultural Heritage 62 (2023) 268–284  
+Contents  lists available  at ScienceDirect  
+Journal  of Cultural  Heritage  
+journal  homepage:  www.elsevier.com/locate/culher  
+Review  
+A framework  study  on the use of immersive  XR technologies  in the 
+cultural  heritage  domain  
+Chiara  Innocente  ∗, Luca Ulrich  , Sandro  Moos  , Enrico  Vezzetti  
+Department  of Management,  Production  and Design, Politecnico  di Torino, C.so Duca degli Abruzzi, 24, Torino 10129, Italy 
+a r t i c l e i n f o 
+Article history: 
+Received  2 November  2022 
+Accepted  3 June 2023 
+Available  online 15 June 2023 
+Keywords:  
+Mixed reality (MR) 
+Augmented  reality (AR) 
+Virtual reality (VR) 
+Cultural heritage 
+Digital heritage 
+Head-mounted  display (HMD) a b s t r a c t 
+Most cultural  promotion  and dissemination  are nowadays  performed  through  the digitization  of heritage  
+sites and museums,  a necessary  requirement  to meet the new needs of the public. Augmented  Reality 
+(AR), Mixed Reality (MR), and Virtual Reality (VR) have the potential  to improve  the experience  quality 
+and educational  effect of these sites by stimulating  users’ senses in a more natural and vivid way. In this 
+respect,  head-mounted  display (HMD) devices allow visitors to enhance  the experience  of cultural  sites 
+by digitizing  information  and integrating  additional  virtual cues about cultural  artifacts,  resulting  in a 
+more immersive  experience  that engages  the visitor both physically  and emotionally.  
+This study contributes  to the development  and incorporation  of AR, MR, and VR applications  in the 
+cultural  heritage  domain  by providing  an overview  of relevant  studies utilizing  fully immersive  systems,  
+such as headsets  and CAVE systems,  emphasizing  the advantages  that they bring when compared  to 
+handheld  devices.  We propose  a framework  study to identify  the key features  of headset-based  Extended  
+Reality (XR) technologies  used in the cultural  heritage  domain  that boost immersion,  sense of presence,  
+and agency. Furthermore,  we highlight  core characteristics  that favor the adoption  of these systems  over 
+more traditional  solutions  (e.g., handheld  devices),  as well as unsolved  issues that must be addressed  to 
+improve  the guests’ experience  and the appreciation  of the cultural  heritage.  
+An extensive  search of Google Scholar,  Scopus, IEEE Xplore, ACM Digital Library, and Wiley Online 
+Library databases  was conducted,  including  papers published  from January  2018 to September  2022. 
+To improve  review reporting,  the Preferred  Reporting  Items for Systematic  Reviews  and Meta-Analyses  
+(PRISMA)  guidelines  were used. Sixty-ﬁve  papers met the inclusion  criteria and were classiﬁed  depending  
+on the study’s purpose:  education,  entertainment,  edutainment,  touristic  guidance  systems,  accessibility,  
+visitor proﬁling,  and management.  
+Immersive  cultural  heritage  systems  allow visitors to feel completely  immersed  and present in the 
+virtual environment,  providing  a stimulating  and educational  cultural  experience  that can improve  the 
+quality and learning  purposes  of cultural  visits. Nonetheless,  the analyzed  studies revealed  some limita- 
+tions that must be faced to give a further impulse  to the adoption  of these technologies  in the cultural  
+heritage  domain.  
+©2 0 2 3 The Authors.  Published  by Elsevier  Masson  SAS on behalf of Consiglio  Nazionale  delle Ricerche  
+(CNR). 
+This is an open access article under the CC BY license ( http://creativecommons.org/licenses/by/4.0/  ) 
+1. Introduction  
+Recently,  a growing  number  of studies  have highlighted  the 
+advantages  of using immersive  reality technologies  and Human-  
+Computer  Interaction  (HCI) methods  for knowledge  dissemination  
+in the cultural  heritage  domain  [1] . Although  there is still a need 
+to investigate  the limitations  of such technologies,  such as the lack 
+of real-time  and consistent  tracking  and registration  techniques  [2] , 
+∗Corresponding  author. 
+E-mail addresses:  chiara.innocente@polito.it  (C. Innocente),  luca.ulrich@polito.it  
+(L. Ulrich), sandro.moos@polito.it  (S. Moos), enrico.vezzetti@polito.it  (E. Vezzetti)  . or the need to naturalize  user interaction  in such applications  [3] , 
+Extended  Reality  (XR) technologies  are on the rise in the ﬁeld of 
+virtual heritage  and are now widely adopted  in museums,  heritage  
+sites, and archaeological  sites around  the world. Indeed,  the digiti- 
+zation of cultural  sites and museums  plays a signiﬁcant  role in the 
+promotion  and dissemination  of culture,  and it is now required  to 
+meet new public needs [4] . 
+Augmented  Reality  (AR), Mixed Reality  (MR), and Virtual  Reality  
+(VR) can enhance  the visitor’s  experience  by increasing  sensations  
+[5] , emotions  [6] , cognition  [7] , and skills [8] when compared  to 
+https://doi.org/10.1016/j.culher.2023.06.001  
+1296-2074/© 2023 The Authors. Published by Elsevier Masson SAS on behalf of Consiglio Nazionale delle Ricerche (CNR). This is an open access article u nder the CC BY  
+license ( http://creativecommons.org/licenses/by/4.0/  ) 
+C. Innocente,  L. Ulrich, S. Moos et al. Journal of Cultural Heritage 62 (2023) 268–284 
+the real world. Virtual  information  is integrated  into the real en- 
+vironment  by means of smart devices  such as handheld  devices,  
+head-mounted  displays  (HMDs),  and space displays  [9] , although  
+mobile  devices  such as handheld  devices  and HMDs are preferred  
+for cultural  applications  [10] . 
+Cultural  heritage  applications  based on mobile  XR devices  en- 
+able visitors  to deepen  their knowledge  and enhance  their expe- 
+rience of cultural  sites by being able to digitize  information  and 
+merge virtual information  about cultural  artifacts,  like texts, ani- 
+mations,  models,  and audio in the real world. From the individual  
+user’s perspective,  these technologies  when used in cultural  sites 
+really have the potential  to improve  experience  quality  and edu- 
+cational  effect, stimulating  their senses more naturally  and vividly 
+[11] . 
+The use of MR, AR, and VR through  handheld  devices  does not 
+realize its full potential.  The use of smartphones  and tablets allows 
+visitors  to instantly  access a wealth  of information,  reach points 
+of interest  (POIs), or obtain further  information  and suggestions  
+on speciﬁc  attractions  but requires  a momentary  interruption  of 
+the visiting  experience  to access the handheld  device [12] . On the 
+other hand, using HMDs such information  can be provided  directly  
+in the user’s ﬁeld of view, ensuring  a seamless  and uninterrupted  
+experience.  
+Recently,  a signiﬁcant  number  of low-cost  immersive  reality 
+headsets  have appeared  on the market  with improved  graphics  
+capabilities,  location  sensors,  and rendering.  Therefore,  immersive  
+reality headsets  and HCI methods  are being used in the ﬁeld of 
+cultural  heritage  to enhance  education,  exploration,  and exhibi-  
+tions. These advances  could move traditional  museums  and cul- 
+tural venues  towards  the installation  of immersive  reality technolo-  
+gies, changing  visitors’  expectations  and the future design of cul- 
+tural experiences.  
+The remainder  of this paper is structured  as follows:  
+Section  2 illustrates  the main objectives  of this paper, Section  3 de- 
+scribes  the methods  for selecting  and organizing  scientiﬁc  papers 
+relevant  to the review’s  purpose.  Section  4 provides  an overview  of 
+the included  studies.  Section  5 addresses  a broad range of beneﬁts  
+and current  challenges  in the world of XR headset-based  applica-  
+tions for cultural  heritage,  and Section  6 draws conclusions.  
+2. Research  aim 
+For the above-mentioned  reasons,  in this review,  we focus on 
+applications  in the cultural  heritage  domain  using immersive  XR 
+systems  such as headsets  and Cave Automatic  Virtual  Environment  
+(CAVE)  systems,  in which the immersivity,  sense of presence,  and 
+agency  reach their highest  expression  [13] . As a result, our aim is 
+to answer  the following  research  questions:  
+RQ1: Which kind of applications  involving  XR headsets  and CAVE 
+systems  are currently  employed  in the cultural  heritage  do- 
+main? 
+RQ2: What advantages  and limitations  characterize  immersive  XR 
+headsets  compared  to more traditional  handheld  technolo-  
+gies when involved  in cultural  heritage  applications?  
+RQ3: Which task-speciﬁc  design,  development,  and usability  is- 
+sues arise from XR headset-based  cultural  heritage  applica-  
+tions? 
+Therefore,  a framework  study is proposed  to identify  the key 
+features  of headset-based  AR/MR/VR  technologies,  and the rela- 
+tionship  between  these technological  aspects  and the visitor’s  ex- 
+perience,  determining  whether  there are core attributes  that favor 
+the adoption  of these systems  over traditional  solutions,  and un- 
+solved issues that need to be addressed  to give a further  impulse  
+to the inclusion  of these technologies  in the cultural  heritage  do- 
+main. 3. Material  and methods  
+3.1. Literature  search 
+The goal of this analysis  was to determine  which categories  
+of cultural  heritage  applications  already  use XR headsets,  as well 
+as what advantages  and issues were found in this area. The pur- 
+pose of the data collection  procedure  was to garner a collection  of 
+works with the potential  to address  the research  questions  under 
+consideration.  
+The following  electronic  databases  were thoroughly  searched  to 
+retrieve  the published  research  articles:  Google  Scholar,  Scopus,  
+IEEE Xplore,  ACM Digital Library,  and Wiley Online Library.  The 
+online digital libraries  search has been performed  by two review-  
+ers in September  2022. To focus on the most recent advances  in 
+this ﬁeld, the search is limited  by publication  year: only English-  
+language  articles  published  between  January  2018 and September  
+2022, inclusive,  were taken into account  for our research.  
+The following  keywords  were employed  when searching  for ar- 
+ticles: Cultural  Heritage;  Culture;  Museum;  Museums;  Digital cul- 
+ture; Digital Museum;  Virtual  Museum;  Augmented  Reality;  Vir- 
+tual Reality;  Mixed Reality;  Extended  Reality;  Immersive  technolo-  
+gies; Headset;  Head-Mounted-Display;  Smart glass. All the research  
+terms were individually  or collectively  examined.  Terms with simi- 
+lar concepts  were aggregated  with “OR” to  collect a comprehensive  
+list of articles,  while “AND” was  used to relate technological  solu- 
+tions and the domain  of interest.  
+3.2. Selection  process  
+The current  complies  with the Preferred  Reporting  Items on 
+Systematic  Reviews  and Meta-analysis  (PRISMA)  standards.  Search-  
+ing for pertinent  documents  in the databases,  chosen  on the basis 
+of their relevance  to our work, we took into account  speciﬁc  inclu- 
+sion and exclusion  criteria.  The inclusion  criteria  are provided  in 
+the following  list: 
+• Papers have been published  between  January  2018 and Septem-  
+ber 2022 inclusive;  
+• Papers are published  in the English  language;  
+• CAVE systems  or XR headsets  are used in applications  for the 
+cultural  heritage  domain;  
+• Studies  have been indexed  by Scopus.  
+The exclusion  criteria  are highlighted  in the second  list below:  
+• Review  articles,  theses,  web pages, or oral presentations;  
+• Non-English  papers;  
+• Applications  for cultural  heritage  domain  not employing  XR 
+technology;  
+• XR-based  applications  for cultural  heritage  domain  employ-  
+ing non-immersive  2D handheld  devices,  such as smartphones,  
+tablets,  or desktops;  
+• Articles  without  available  full text. 
+After duplication  removal,  titles and abstracts  were used as a 
+ﬁrst step in the eligibility  screening  process  for articles,  followed  
+by a full-text  analysis.  The studies  were then divided  into sub- 
+groups  based on the topic matter to which they were applied.  
+Fig. 1 schematizes  the selection  procedure.  
+3.3. Quality  assessment  
+After paper selection,  a quality  assessment  process  has been 
+conducted  on the selected  works to determine  their consistency.  
+Different  factors were considered  in order to assess quality,  re- 
+ferring to criteria  selected  by Kitchenham  et al. [14] and adapted  
+for the evaluation  of studies  for review purposes.  Two academics  
+269
+C. Innocente,  L. Ulrich, S. Moos et al. Journal of Cultural Heritage 62 (2023) 268–284 
+Fig. 1. Flowchart  featuring  the paper screening  process. The ﬂowchart  is prepared  in accordance  with the PRISMA template.  
+worked  separately  on the evaluation  grading  each paper on a 
+scale of 1 to 3 (low, moderate,  and high). A third researcher  re- 
+peated the procedure  only when the results differed,  indepen-  
+dently deciding  which score to assign. The cumulative  weight  of 
+evidence  (woe) [15] has been calculated  for every publication  by 
+assigning  scores to each of the following  questions,  with a scale 
+ranging  from 5 to 15, where 5 corresponds  to low, and 15 to 
+high: 
+1. Are the design and structure  of the research  appropriate?  
+2. Is the research  methodology  transparently  reported?  
+3. Are the ﬁndings  consistent  with data and analysis?  
+4. Is the interpretation  of results adequately  supported  by data? 
+5. Is the research  design allowing  us to ﬁnd relevant  information  
+to answer  the research  questions?  
+Fig. 2 shows the histogram  of the frequency  distribution  of woe. 
+As seen in the diagram,  the majority  of the selected  papers re- 
+ceived high scores, and the average  position  was found to be 10.70. 
+It was expected  to be high, as we considered  studies  that were Fig. 2. Quality assessment.  Frequency  distribution  histogram  of woe assigned  to 
+each paper. 
+published  in Scopus-indexed  peer-reviewed  scientiﬁc  journals  and 
+conferences.  
+270 
+C. Innocente,  L. Ulrich, S. Moos et al. Journal of Cultural Heritage 62 (2023) 268–284 
+Fig. 3. Diagrams  resume statistical  analysis performed  on results obtained  from paper selections.  (a) shows the occurrences  of the analyzed  studies grouped by aim. (b) 
+highlights  the involved XR technologies  and (c) the adopted devices. (d) displays the locations  where the solutions  were intended  to be employed.  
+4. Results  
+This review considered  sixty-ﬁve  studies  to be signiﬁcant,  and 
+the collected  data were analyzed  in Microsoft  Excel. Table 1 
+describes  the qualitative  characteristics  of the included  studies,  
+speciﬁcally  the author,  the year of publication,  the XR technol-  
+ogy involved,  the main purpose  and the type of study, the type 
+of headset,  smart glass or HMD used as a visualization  tool, the 
+location  where the developed  products  are intended  to be used. 
+The diagrams  in Fig. 3 summarize  the results from Table 1 . 
+According  to the main purpose  of the developed  application,  
+the vast majority  of the case studies  concern  applications  in- 
+tended  for education  ( n = 13 ) and entertainment  ( n = 13 ) purposes  
+( Fig. 3 (a)). This is understandable  given the educational  nature of 
+cultural  venues  as well as the growing  desire to provide  visitors  
+with a complete  experience  in which the educational  process  of 
+learning  is accompanied  by playfulness  and enjoyment  of the cul- 
+tural experience.  This idea is expressed  by the neologism  ‘Edutain-  
+ment’, which emphasizes  the importance  of incorporating  stimu- 
+lating and entertaining  activities  into the learning  process  and has 
+been considered  as a stand-alone  category  ( n = 11 ). A large num- 
+ber of studies  also concern  applications  to promote  cultural  site ac- 
+cessibility  ( n = 13 ) in terms of architectural  barriers  removal,  mak- 
+ing accessible  places that are unreachable  to most (such as un- 
+derwater  archaeological  sites), or reconstructing  cultural  sites that 
+have been lost or destroyed.  Many studies  have also explored  the 
+possibility  of using HMDs for the development  of tour guide sys- 
+tems to aid or replace  human  museum  guides ( n = 11 ). Only fewer 
+studies  were found to deal with visitor proﬁling  ( n = 2 ) and her- 
+itage site management  ( n = 2 ). 
+As the graph in Fig. 3 (b) shows, nearly 75% of the studies  exam- 
+ined deal with VR applications  ( n = 46 ), while only slightly  more 
+than 25% deal with AR/MR  applications  ( n = 6 , n = 13 ). As a result, 
+the type of headset  used reﬂects  this division:  as seen in Fig. 3 (c) 
+the Oculus VR headset,  in its various  models,  is the most com- monly used in cultural  heritage  applications  ( n = 23 ). HoloLens,  
+both 1 and 2, is the second  most popular  HMD ( n = 15 ). This is 
+explained  by the fact that the best-selling  visors are Oculus and 
+HoloLens,  whose technical  characteristics  make them particularly  
+suitable  for these purposes.  Only three studies  used a stereoscope,  
+and only one study reported  the use of a CAVE system  for cultural  
+heritage  applications.  
+The majority  of the environments  for which the applications  are 
+intended  are indoor environments  ( n = 58 ), particularly  museums  
+( n = 28 ) ( Fig. 3 (d)). In fact, museums  have used these technolo-  
+gies to enhance  their customers’  visiting  experiences  by offering  
+personalized  visits with digital content  created  speciﬁcally  for the 
+historical  and cultural  context  of their resources.  Only a small per- 
+centage  of applications,  such as old city center exploration  ( n = 2 ), 
+and archaeological  site excavations  discovery  ( n = 5 ), are intended  
+for outdoor  use. These applications  are more diﬃcult  to develop  
+because  the visitor’s  experience  is strongly  related  to the outdoor  
+environmental  conditions,  such as the delimitation  of the area re- 
+served for the virtual experience  and the management  of obstacles.  
+Based on this division,  the studies  were grouped  as fol- 
+lows: studies  intended  for education  purposes  ( Section  4.1 ), stud- 
+ies intended  for entertainment  purposes  ( Section  4.2 ), studies  
+intended  for both education  and entertainment  (edutainment)  
+purposes  ( Section  4.3 ), touristic  guidance  system  applications  
+( Section  4.4 ), applications  intended  to enhance  accessibility  to her- 
+itage sites ( Section  4.5 ), implementation  of visitor proﬁling  studies  
+( Section  4.6 ) and studies  that present  heritage  site management  
+implications  ( Section  4.7 ). 
+4.1. Education  
+Involving  the public in cultural  tasks is of utmost  importance  
+for museum  institutions.  An effective  tool that allows them to 
+achieve  this goal while reaching  out to the public eﬃciently  con- 
+sists of immersive  XR technologies.  HMDs allow to display  the en- 
+271 
+C. Innocente,  L. Ulrich, S. Moos et al. Journal of Cultural Heritage 62 (2023) 268–284 
+Table 1 
+Analyzed  studies presenting  XR headset-based  solutions  in the cultural heritage domain. 
+Authors Publication  
+year XR 
+Technology  Purpose Type of study Location Visualization  tool 
+Aiello et al. [16] 2019 VR Edutainment  Application  Museum  Oculus Rift 
+Anastasovitis  et al. [17] 2018 VR Edutainment  Application  Museum  Oculus Rift 
+Argyriou  et al. [18] 2020 VR Guidance  Design & 
+Development  Historical  centre Oculus Rift  
+Balbi et al. [19] 2021 VR Accessibility  Design & 
+Development  Not speciﬁed  Oculus Rift 
+Banﬁ et al. [20] 2021 VR Education  Application  Heritage  site Oculus Rift 
+Baradaran  et al. [21] 2022 VR Edutainment  Evaluation  Museum  HTC Vive 
+Barbera et al. [22] 2022 VR Accessibility  Application  Heritage  site Stereoscope  + CAVE 
+system + Oculus Quest 
+2 
+Barreau et al. [23] 2020 VR Education  Application  Archaeological  site HTC Vive 
+Bekele et al. [24] 2019 MR Entertainment  Design & 
+Development  Not speciﬁed  HoloLens  1 
+Bekele et al. [25] 2021 MR Entertainment  Design & 
+Development  Heritage  site HoloLens  
+Bolognesi  et al. [26] 2020 VR Edutainment  Design & 
+Development  Museum  Oculus Rift S 
+Bozzelli et al. [27] 2019 VR Edutainment  Application  Museum  HTC Vive 
+Bruno et al. [28] 2018 VR Accessibility  Application  Heritage  site HTC Vive 
+Cai et al. [29] 2018 VR Education  Evaluation  Heritage  site HTC Vive 
+Choromaáski  et al. [30] 2019 VR Education  Application  Museum  Oculus Rift 
+Comes et al. [31] 2020 VR Education  Application  Archaeological  site HTC Vive 
+Comes et al. [32] 2022 VR + AR Education  Design & 
+Development  Archaeological  site Oculus Meta Quest + 
+HoloLens  2 
+De Paolis et al. [33] 2022 VR Accessibility  Application  Heritage  site Oculus Quest 2 
+Debailleux  et al. [34] 2018 VR Guidance  Application  Historical  centre Oculus Rift  
+Debandi et al. [35] 2018 MR Guidance  Application  Heritage  site HoloLens  
+Drossis et al. [36] 2018 VR Education  Application  Heritage  site Oculus Rift 
+Duer et al. [37] 2020 VR Accessibility  Application  Museum  Not speciﬁed  
+Egea-Vivancos  et al. [38] 2020 VR Edutainment  Evaluation  Not speciﬁed  Oculus Rift + HTC Vive 
+Errichiello  et al. [39] 2018 VR Proﬁlation  Application  Heritage  site Samsung  Oculus Gear 
+VR 
+Falconer  et al. [40] 2020 VR Entertainment  Application  Heritage  site Oculus Rift 
+Galdieri et al. [41] 2019 VR Entertainment  Evaluation  Not speciﬁed  Not speciﬁed  
+Geronikolakis  et al. [42] 2020 MR Edutainment  Design & 
+Development  Heritage  site Not speciﬁed  
+Hajirasouli  et al. [43] 2021 VR Accessibility  Evaluation  Heritage  site Oculus 
+Häkkilä et  al. [44] 2019 VR Accessibility  Application  Museum  Oculus Rift 
+Hammady  et al. [45] 2020 MR Edutainment  Design & 
+Development  Museum  HoloLens  
+Hammady  et al. [46] 2020 MR Guidance  Application  Museum  HoloLens  
+Hammady  et al. [47] 2019 MR Guidance  Design & 
+Development  Museum  HoloLens  
+Hammady  et al. [48] 2021 MR Guidance  Evaluation  Museum  HoloLens  
+Horäkovä et  al. [49] 2019 VR Entertainment  Application  Museum  HTC Vive 
+Kaghat et al. [50] 2020 AR Guidance  Application  Museum  Not speciﬁed  
+Kersten et al. [51] 2018 VR Guidance  Application  Museum  HTC Vive 
+Krzywinska  et al. [52] 2020 MR Edutainment  Design & 
+Development  Museum  HoloLens  
+Kusajima  et al. [53] 2018 VR Entertainment  Application  Museum  Not speciﬁed  
+Litvak et al. [54] 2020 AR Guidance  Application  Museum  Everysight  Raptor 
+cycling 
+Loaiza et al. [55] 2020 VR Education  Application  Museum  HTC Vive 
+Masciotta  et al. [56] 2019 MR Management  Design & 
+Development  Not speciﬁed  HoloLens  
+McCarthy  et al. [57] 2019 VR Accessibility  Application  Heritage  site Not speciﬁed  
+Obeidy et al. [58] 2018 AR Guidance  Application  Heritage  site Google Glass 
+Parker et al. [59] 2019 VR Entertainment  Evaluation  Museum  Not speciﬁed  
+Pehlivanides  et al. [60] 2020 VR Accessibility  Application  Heritage  site Oculus Rift S 
+Pérez et al. [61] 2020 VR Accessibility  Application  Heritage  site Lenovo headset 
+Petrelli et al. [62] 2019 VR Entertainment  Evaluation  Heritage  site Stereoscope  
+Puig et al. [3] 2020 VR Education  Evaluation  Museum  HTC Vive 
+Ragusa et al. [63] 2019 AR Proﬁlation  Design & 
+Development  Heritage  site HoloLens  
+Schoﬁeld  et al. [64] 2018 VR Education  Application  Museum  Stereoscope  
+Secci 
+et al. [65] 2019 VR Accessibility  Application  Heritage  site Oculus Rift 
+Selmanovi  ´c et al. [66] 2020 VR Edutainment  Evaluation  Heritage  site Not speciﬁed  
+Settembrini  et al. [67] 2018 VR Education  Application  Heritage  site Oculus DK2  
+Sylaiou et al. [68] 2019 VR Guidance  Evaluation  Museum  Oculus Rift 
+Tennent et al. [69] 2020 VR Entertainment  Application  Museum  HTC Vive 
+Teruggi et al. [70] 2022 MR Management  Application  Heritage  site HoloLens  2 
+( continued  on next page ) 
+272 
+C. Innocente,  L. Ulrich, S. Moos et al. Journal of Cultural Heritage 62 (2023) 268–284 
+Table 1 ( continued  ) 
+Authors Publication  
+year XR 
+Technology  Purpose Type of study Location Visualization  tool 
+tom Dieck et al. [71] 2019 VR Entertainment  Evaluation  Museum  Samsung  Oculus Gear 
+VR 
+Trichopoulos  et al. [72] 2022 AR Accessibility  Application  Museum  HoloLens  2 
+Trindade  et al. [73] 2018 VR Edutainment  Evaluation  Heritage  site HTC Vive 
+Trindade  et al. [74] 2022 VR Edutainment  Evaluation  Heritage  site HTC Vive 
+Trizio et al. [75] 2019 VR Accessibility  Design & 
+Development  Heritage  site Oculus Rift 
+Vlizos et al. [76] 2021 MR Education  Application  Archaeological  site HoloLens  2 
+Yoo et al. [77] 2019 VR Entertainment  Application  Museum  Oculus 
+Zerman et al. [78] 2020 MR Education  Evaluation  Museum  HoloLens  
+Zhang et al. [79] 2021 VR Edutainment  Application  Heritage  site Oculus 
+vironment  in which an artwork  was made or the space in which 
+it is typically  shown,  so that the visitors  may have a stronger  con- 
+nection  to the artwork  itself as a result of having a deeper  under- 
+standing  of the meaning  and context  of the piece. This can enhance  
+the learning  process,  providing  useful and engaging  information  to 
+the visitor while observing  each work. 
+Among  the contributions  describing  the creation  of immersive  
+educational  material,  the visualization  of 3D data and virtual mod- 
+els using a headset  is extremely  important  in sharing  and learn- 
+ing about the history  of a place. The integration  of XR in 3D re- 
+construction  is a very powerful  learning  tool. The digitization  of 
+an existing  monument  [20,30]  , or the reconstruction  of a poorly 
+preserved  structure  [31] , as well as the possibility  of interaction  
+with virtual spaces and objects  contributes  to the promotion  of 
+cultural  heritage  and improves  knowledge  of these sites by provok-  
+ing critical  feedback  and increased  awareness.  However,  the devel- 
+opment  of these applications  is often hampered  by misinterpre-  
+tations  and archaeological  misunderstandings,  which need to be 
+addressed  carefully  [23] . Furthermore,  full-quality  data and mea- 
+surements  cannot be used directly  for visualization  due to the ac- 
+tual limitations  of game engines  and hardware  processing  power, 
+introducing  the need for additional  data preparation  processes  to 
+achieve  a good compromise  between  easy-to-visualize  low polygon  
+3D models  and optimal  reconstruction  accuracy.  
+XR technology  can assist cultural  heritage  institutions  and mu- 
+seums in preserving  and presenting  their collection  in novel and 
+original  ways. With XR, visitors  can interact  with historical  arti- 
+facts, explore  virtual environments,  and engage  with cultural  con- 
+tent in ways that were previously  impossible.  For instance,  it of- 
+fers the possibility  to manipulate  artifacts  up close, eliminating  
+the physical  distance  between  the exposed  objects  and the visi- 
+tor. Some examples  are the works of Drossis  et al. [36] and Set- 
+tembrini  et al. [67] , whose virtual environments  allow people to 
+interact  with virtual reproductions  of cultural  artifacts  and histor- 
+ical objects,  and obtain information  through  gestural  interactions  
+and eye and head movements.  Leap Motion  was employed  in both 
+cases to track and animate  virtual hands, even though  tracking  in- 
+stabilities  still occur due to occlusions  between  ﬁngers or palms. 
+The public can hardly develop  a complete  understanding  of so- 
+ciety only by artifacts  or archaeological  remains.  Thus, providing  
+the context  can result of upmost  importance  not only to improve  
+the visitors’  experience  in terms of attractiveness  but also to en- 
+hance the comprehension  of the works’ intrinsic  meaning.  To this 
+aim, Puig et al. [3] simulated  the Neolithic  settlement  of La Draga 
+using a VR headset.  The experience  includes  a series of interac-  
+tive and non-interactive  activities,  such as observing  ancient  arti- 
+facts, experimenting  with the technique  of stone carving,  watching  
+videos about the population,  customs,  and agricultural  activities,  
+and a game to make participants  aware of the learning  about Ne- 
+olithic society  during the exhibition.  
+Cai et al. [29] also used a VR headset  to virtually  simulate  the 
+daily life of the Ningbonese  population  in a 3D reconstruction  of characteristic  dwellings.  Their study showed  how VR reconstruc-  
+tions of cultural  heritage  can trigger memories  and a sense of 
+familiarity  in individuals  who are familiar  with the objects  and 
+scenes.  A similar  educational  approach  was also adopted  by Vlizos 
+et al. [76] , in which Microsoft  HoloLens  has been used to simulate  
+an archaeological  excavation  of a trench layer by layer, providing,  
+for each step of the process,  the information  needed  to understand  
+its dynamics.  
+Another  advantageous  feature  of these new technologies  con- 
+sists in the opportunity  of creating  novel virtual exhibitions  by 
+gathering  in the same place artworks  located  in different  museum  
+spaces [55] , or temporarily  not on public display  due to restoration  
+interventions  [32] ( Fig. 4 ). 
+When used in an educational  setting,  XR technologies  allow to 
+speed up the learning  process  by using a novel method  of knowl-  
+edge transmission  that allows the learning  experience  to be tai- 
+lored to a more modern  audience.  Future research  should focus 
+on the management  of complex  information,  such as intangible  re- 
+sources.  For these elements  of interest,  the contribution  provided  
+by XR technologies  could be even more impactful,  since it is diﬃ- 
+cult to convey  with other traditional  approaches,  resulting  in a less 
+signiﬁcant  experience.  
+4.2. Entertainment  
+XR technologies  are an opportunity  for museums  because  they 
+provide  the possibility  to offer many different  and immersive  ex- 
+periences  using the same headset  that is adaptable  to different  en- 
+vironments.  The use of headsets  in cultural  contexts  gives visitors  
+the opportunity  to obtain fully interactive  and engaging  interpre-  
+tations  of stories,  works of art, and archaeological  sites. 
+Bekele et al. [25] proposed  a cloud-based  HoloLens  MR applica-  
+tion that uses multi-user  collaborative  interaction  to enhance  the 
+engaging  aspect of the learning  process.  The type of interaction  is 
+map-based,  in which a walkable  MR Map is used as an interactive  
+interface  to manipulate  3D models  of artifacts  in the virtual en- 
+vironment  [24] . The authors  mentioned  some technical  challenges  
+regarding  the computational  resources  required  for MR applica-  
+tion development  with the HoloLens  devices;  these include  the use 
+of constantly  updating  development  frameworks,  such as MRTK, 
+which causes incompatibility  issues between  devices  and applica-  
+tions versions,  or the use of additional  cloud-based  storage  to pre- 
+vent the degradation  of device performance  due to the loading  of 
+all content  at runtime.  
+Falconer  et al. [40] developed  a VR simulation  of the Neolithic  
+Avebury  Stone Circle and Henge complex  how it may have looked 
+in 2300 BC. The multi-user  experience  was fully immersive,  as vis- 
+itors received  visual and auditory  cues via 3D headsets  and haptic 
+devices.  Two adult avatars  of a Neolithic  man and woman  accom-  
+panied  visitors  as they explored  the virtual space. The engagement  
+aspect was enhanced  by the possibility  of seeing other participants  
+273 
+C. Innocente,  L. Ulrich, S. Moos et al. Journal of Cultural Heritage 62 (2023) 268–284 
+Fig. 4. Illustration  of a VR application  with education  purpose.  Snapshots  of the VR applications  while the user is interacting  with 3D scanned and 3D reconstructed  artifacts.  
+Picture taken from Comes et al. [32] . 
+simultaneously  present  in the simulation  and communicating  with 
+them through  speech  or text. 
+Horäkovä et  al. [49] reproduced  in VR the entire Computer  
+Graphics,  one of the ﬁrst computer  art exhibitions,  staged in 
+Czechoslovakia  in 1968, modeling  the movement  from the visitor’s  
+perspective,  allowing  a virtual tour of the exhibition  and the pos- 
+sibility of observing  the art objects  up close or from distance.  In 
+a very similar  way, Tennent  et al. [69] replicated  the ﬁrst photo- 
+graphic  exhibition  in the world in a room-scaled  application  based 
+on VR, Tresholds.  Room-scaled  VR allows visitors  to physically  walk 
+in the virtual environment:  in particular,  the real world matches  
+the virtual environment  along the transverse  direction,  while the 
+longitudinal  direction  of the virtual environment  is much greater  
+so that only a portion  of the virtual environment  is physically  
+walkable.  The shapes of the objects  in the virtual room exactly  
+match the real ones, so by juxtaposing  the virtual objects  against  
+the real ones, it is also possible  to provide  tactile feedback  to the 
+visitor. Nevertheless,  matching  real and virtual objects  should be 
+done as accurately  as possible,  yet the alignment  between  phys- 
+ical and digital resources  is inevitably  susceptible  to human  er- 
+ror, as human  calibration  is required  even in automated  systems.  
+Careful  design of spaces,  both physical  and digital,  is necessary  to 
+properly  delineate  their boundaries  and characteristics.  Yoo et al. 
+[77] wanted  to reproduce  the same artwork  in VR, in different  
+and unexpected  environments  for an art museum,  and measure  
+the user’s reaction  to the different  settings.  Each environment  has 
+its own mood and feeling,  and this was a perfect  collateral  ele- 
+ment for an art museum  since art should arouse emotions.  Instead,  
+Kusajima  et al. [53] proposed  that audiences  use their bodies to 
+reproduce,  through  VR, ‘Yose-e’  works, a type of Japanese  ukiyo-e  
+paintings  that creates  the illusion  of a single large person  or object 
+composed  of many people or objects  assembled  together.  However,  
+the dimension  of the space provided  for conducting  the experience  
+placed some limitations  on the space available  for necessary  hard- 
+ware equipment,  thus limiting  the experience  to a single user at a 
+time. 
+Digital environments  are employed  to engage  visitors  actively  
+and emotionally,  offering  the public the opportunity  to integrate  
+the knowledge  and experiences  offered  by the cultural  venue with 
+their own. The use of XR technologies  can be a tool to encourage  
+interaction  between  users during the cultural  experience  and stim- 
+ulate the sharing  of the experience  itself. Given the diversity  of the 
+target audience,  XR applications  should be designed  with appro- 
+priate levels of diﬃculty;  this way, people from different  cultural  
+backgrounds  can carry out the experience  in an engaging  environ-  
+ment even in the absence  of explicit  instructions.  
+4.3. Edutainment  
+Edutainment  is a form of educational  entertainment,  i.e., aimed 
+at promoting  learning  in a playful  and entertaining  context.  The introduction  of XR technologies  in cultural  frameworks  has fos- 
+tered the development  of this concept,  and in this type of ap- 
+plication,  it has expressed  its maximum  communicative  potential,  
+bringing  a traditionally  distant  category  of users closer to cultural  
+environments.  In this context,  Aiello et al. [16] developed  a com- 
+plete workﬂow  involving  3D modeling,  attractive  storytelling,  and 
+experiencing  VR through  an Oculus Rift device.  Storytelling  is core 
+in an edutainment  application  since attractiveness  directly  impacts  
+the user’s engagement  and, consequently,  the user’s learning  abil- 
+ity. The developed  prototype,  Timeless  Museum,  uses VR to cre- 
+ate an emotional  learning  experience  in which masterpieces  from 
+all times, although  belonging  to different  cultural  institutions,  are 
+brought  together  in the same place ( Fig. 5 ). 
+The idea of edutainment  is the foundation  of serious  games,  
+which are games aiming  to educate  while also entertaining.  There 
+are numerous  examples  of VR-based  serious  games in the liter- 
+ature. Anastasiovitis  et al. [17] proposed  three serious  games for 
+Oculus as part of the Digiart  European  Union-funded  project:  the 
+Scladina  cave in Belgium  is the subject  of the ﬁrst case study; the 
+second  case study replicates  a digital anthropological  museum;  the 
+Palace of Aigai in Greece  serves as the third case study’s  pub- 
+lic interface.  Bolognesi  et al. [26] developed  a serious  game to 
+promote  the Milanese  museum  Studio Museo Achille Castiglioni  
+and introduce  the public to the works and genius of the mas- 
+ter Castiglioni.  Bozzelli  et al. [27] proposed,  in the context  of the 
+ArkaeVision  project,  ArkaeVision  Archeo,  an HMD VR-based  expe- 
+rience that integrates  the 3D reconstruction  of the archaeological  
+site of the temple  of Hera in Paestum;  the actual practicability  of 
+this system  in terms of guides and operators,  however,  needs to 
+be further  investigated,  since the demo considered  in this study 
+was considered  too short by the participants  and there were some 
+issues related  to motion  and locomotion  sickness.  Egea-Vivancos  
+et al. [38] developed  a cooperative  historical  video game for learn- 
+ing about the culture  and archaeological  contents  of Roman  the- 
+atres. Zhang et al. [79] created  a VR game for promoting  the art 
+and culture  of Dunhuang  grotto murals.  Selmanovi  ´c et al. [66] re- 
+leased an educational  experience  and quiz sessions  on intangible  
+bridge diving traditions  that, if correctly  answered,  gave access to 
+a virtual bridge diving at Stari Most (Mostar  Bosnia).  Also, MR- 
+based serious  games have been released:  Krzywinska  et al. [52] de- 
+veloped  a co-designed  social escape room experience  to simu- 
+late a World War II telegraph  exercise  using Microsoft  HoloLens,  
+while Geronikolakis  et al. [42] simulated  the entire construction  of 
+Knossos  and restoration  of Sponza,  creating  an MR-based  serious  
+game to learn about the buildings  from within the archaeological  
+site. 
+Since the learning  ability depends  on users’ collaborative  partic- 
+ipation  in the learning  process,  the interactive  features  of XR appli- 
+cations  would be able to facilitate  active learning  increasing  users’ 
+attention.  Nonetheless,  clear guidelines  need to be developed  on 
+which features  of an XR environment  a designer  should focus on to 
+274 
+C. Innocente,  L. Ulrich, S. Moos et al. Journal of Cultural Heritage 62 (2023) 268–284 
+Fig. 5. Example  of VR application  with edutainment  purpose.  Snapshot  of a scene of the VR application  presenting  a “dystopian  dimension”.  Figure is taken from Aiello et al. 
+[16] . 
+increase  user engagement  and improve  the learning  process  during 
+the experience.  
+4.4. Touristic  guidance  systems  
+In recent years, XR technologies  have been gaining  ground  in 
+the ﬁeld of cultural  heritage  as replacement  or assistance  systems  
+for the role of human  guides within museums  and archaeological  
+sites. Their ability to provide  additional  audio-visual  information  to 
+visitors  makes them extremely  suitable  for this role, allowing  cus- 
+tomers  to tour independently,  without  any temporal  and/or spatial 
+constraints,  boosting  the time people spent in museums  and mak- 
+ing the overall experience  more engaging.  
+In this context,  Debandi  et al. [35] developed  a smart guide for 
+outdoor  environments  that relies on an application  for HoloLens.  
+Through  a client-server  application,  HoloLens  sends a continuous  
+stream  of images  of what the visitor is looking  at. A remote  visual 
+search engine processes  the received  images  by comparing  them 
+with a database  and sends a feedback  signal if the observed  ob- 
+ject is recognized.  In this way, the visitor is provided  with differ- 
+ent augmented  virtual content  (such as 3D reproductions,  images,  
+and videos,  textual  content,  etc.) depending  on what is observed.  
+Nevertheless,  images  recognition  and tracking  with Vuforia  were 
+discovered  to be unreliable  since both recognition  and tracking  can 
+be hampered  by any change  in light or movement  of each object 
+or user compared  to the images  uploaded  to the database.  
+A similar  approach  for outdoor  guidance  systems  was also used 
+by Litvak et al. [54] . Places and object recognition,  in this case, 
+were realized  by employing  a localization  and orientation  system  
+in which the coordinates  of POIs are recorded.  In the proximity  of 
+a POI (5–6 m), the system  announces  its name and then provides  
+all the available  information  to the visitor. A further  application  
+of an outdoor  tourist guidance  system  is TouristicAR,  described  in 
+the work of Obeidy  et al. [58] , which allows visitors  to explore  
+Malaysia’s  UNESCO  cultural  heritage  by wearing  a Google  Glass 
+equipped  with an internet  connection,  in which Google  Places API 
+can work ( Fig. 6 ). 
+A different  system,  Sound Augmented  Reality  Interface  for vis- 
+iting Museum  (SARIM),  was proposed  by Kaghat  et al. [50] . The 
+AR-based  audio system  is adaptive  and provides  cues, comments,  
+and background  sound in the form of binaural  audio, depending  on 
+the position  and behavior  of the visitor inside the museum  (focus, 
+stop, movement),  and proximity  to artifacts.  In this way, each vis- 
+itor’s path within the museum  is unique,  and the visit experience  
+is customized  based on each behavior.  Similarly,  Debailleux  et al. 
+[34] organized  a VR tour speciﬁcally  for children  with Oculus Rift 
+in the main square of the city of Mons (Belgium)  to explore  the buildings  around  the square.  The VR tour is guided  by audio de- 
+scriptions,  activated  when the user is in the vicinity  of a particular  
+building.  The evaluation  results indicate  that although  children  also 
+acquire  most tourist information  through  audio descriptions,  in the 
+learning  phase visual knowledge  of buildings  and their architecture  
+is more signiﬁcant  than historical  details.  
+Kersten  et al. [51] proposed  a virtual reconstruction  of the 
+wooden  model of the Temple  of Solomon,  which can be found in 
+the Hamburg  Museum.  The virtual 3D model was uploaded  into a 
+game engine to develop  a VR application  for the HTC Vive headset,  
+in which the model could be scaled to the size of its real wooden  
+counterpart,  or the actual size of the building  so that it could be 
+visited virtually.  The application  offered  the opportunity  to orga- 
+nize guided  virtual tours thanks to the multi-user  functionality,  
+whereby  several  users could communicate  with each other during 
+the virtual tour using a microphone.  
+The MuseumEye  application  developed  by Hammady  et al. 
+[46] introduces  the virtual avatar of Pharaoh  Tutankhamun  during 
+a guided  tour of the Egyptian  museum  in Cairo for approximately  
+30–40 min. The virtual guide accompanies  the visitor, equipped  
+with HoloLens,  along a tour of the Tutankhamun  chamber  and 
+stopped  at the predetermined  stations.  A holographic  user inter- 
+face, speciﬁcally  designed  for the narrow  ﬁeld of view of HoloLens,  
+allows the guest to engage  with the virtual replicas  of items in the 
+museum  and observe  them up close [47] . The potential  role of the 
+application  was evaluated  in Hammady  et al. [48] and proved  that 
+the MR-based  guidance  system  can stimulate  the visitor to use it 
+in the future. On the other hand, those evaluations  also revealed  
+inherent  issues related  to the use of HoloLens  in overcrowded  
+environments.  Speciﬁcally,  the complexity  of congested  corridors,  
+rooms, and visiting  paths is diﬃcult  for HoloLens  to handle  with- 
+out interrupting  the application  workﬂow.  
+Argyriou  et al. [18] also employed  two virtual actors to develop  
+a virtual tour in the historical  city center of the Greek city of 
+Rethymno  ( Fig. 7 ). One was in charge of narration,  providing  in- 
+formation  about the initial scene, and the other was used to direct 
+the visitor to a particular  POI, providing  historical  information,  and 
+motivating  the user to continue  the tour. The types of avatars  as 
+tour guides in a museum  were evaluated  by Sylaiou  et al. [68] in 
+a work in which three different  human  avatars  (a museum  curator,  
+a security  guard, and a museum  visitor)  narrated  the same story 
+about an artifact  with different  accents  and characteristics  depend-  
+ing on the character.  The evaluation  showed  that the emotions  pro- 
+voked in visitors  by the narratives  of the different  avatars  are dif- 
+ferent; it is essential  that museum  curators  appropriately  design 
+the type of virtual guides they want to employ,  depending  on the 
+emotions  they want to arouse in their visitors.  
+275 
+C. Innocente,  L. Ulrich, S. Moos et al. Journal of Cultural Heritage 62 (2023) 268–284 
+Fig. 6. Example  of XR application  with touristic guidance  purpose.  Snapshot  of the UI implementation  of the TouristicAR  app. Figure taken from Obeidy et al. [58] . 
+Fig. 7. Example  of CH application  with touristic guidance  purpose.  Rethymno  360 ◦
+immersive  video virtual tour scenes and design elements.  Figure taken from Ar- 
+gyriou et al. [18] . 
+The provisioning  of objective  and reliable  information  is an es- 
+sential need for the use of XR systems  to supplement  or replace  
+human  guides.  Extra caution  must be taken when planning  cul- 
+tural itineraries  and deﬁning  factual historical  reconstructions  in 
+order to prevent  misinterpretation  of information,  which can re- 
+sult in misinformation  and have impacts  both on visitor learning  
+and on the credibility  of the cultural  institution.  
+4.5. Accessibility  
+The term “accessibility” is  used in the literature  to indicate  the 
+ability to make a cultural  heritage  content  or service  available  to 
+the public without  distinction,  including  people with disabilities,  
+who require  special  assistive  technologies.  However,  it is also used 
+to indicate  the possibility  of easy access to a place, dependent  on 
+factors such as the morphology  of the territory,  the care and clean- 
+ing of the surrounding  environment,  and the conservation  status 
+and preservation  policies  of heritage  sites. 
+Regarding  applications  aimed at improving  the accessibility  of 
+cultural  heritage  content  to users with disabilities,  an example  is 
+given by Balbi et al. [19] . The design process  of a VR scenario  for the fruition  of cultural  content  also involved  users with motor dis- 
+abilities,  in order to identify  all the basic requirements  for this type 
+of application,  regarding  different  types of disabilities.  In this way, 
+a VR solution  for cultural  heritage  was developed  according  to the 
+principle  of User-Centered  Design (UCD), considering  the expecta-  
+tions and needs of users with disabilities  from the beginning  of the 
+design process,  and not only in the last stages of testing.  Another  
+example  concerns  the development  of a VR application  for a vir- 
+tual visit to the archaeological  site of Cancho  Roano, one of the 
+most important  monuments  of protohistoric  Spain [61] . The vir- 
+tual tour allows wheelchair  users to be able to virtually  visit the 
+monument,  with the advantage  of avoiding  architectural  barriers  
+that often slow down or prevent  access. Speciﬁcally,  visitors  have 
+to wear a VR headset  integrated  with a motion  simulator  with a 
+haptic interface.  This allowed  wheelchair  users to be able to ex- 
+perience  real sensations,  such as the roughness  of the ground  and 
+the inclination  of surfaces  under their wheelchair,  enhancing  the 
+perceived  realism  of the experience.  
+Trichopoulos  et al. [72] presented  the Cultural  Heritage  Aug- 
+mented  and Tangible  Storytelling  (CHATS)  project,  an AR-based  
+digital storytelling  system  without  the use of images,  in order to 
+improve  the experience  of visually  impaired  visitors  in the heritage  
+site. CHATS involves  the use of a tangible  interface  of a work of art 
+(e.g., a 3D printed  representation  of the characters  in a painting).  
+The physical  manipulation  of the interface  can activate,  depending  
+on the user’s visual angle with respect  to the physical  artifact,  dig- 
+ital storytelling  composed  of binaural  audio and augmented  con- 
+tent provided  to the user through  a smart glass. In doing so, they 
+exploit  HMD capabilities  to offer a fun and educational  way to 
+browse  cultural  content.  
+The VirtualDiver  project  proposed  by Pehlivanides  et al. [60] is 
+one of the examples  where AR and VR have been used to create 
+an immersive  platform  to allow visitors  to discover  the underwa-  
+ter heritage  in the Greek sea and so increase  tourism  in this area. 
+A particular  case study was realized  for the world-famous  island of 
+Santorini  ( Fig. 8 (a)). The VR experience  allows the visitor to explore  
+the island from virtual reconstructions  of the real environments  by 
+simulating  a ﬂight from above ( Fig. 8 (b)), a walk through  the city 
+center of Oia along a pre-determined  route ( Fig. 8 (c)), or an un- 
+derwater  diving session  in the volcanic  crater where the island is 
+located,  surrounded  by the characteristic  ﬂora and fauna ( Fig. 8 (d)). 
+A VR application  developed  as part of the iMARECULTURE  project  
+is an example  of the use of HMDs to bring the intrinsically  inac- 
+276 
+C. Innocente,  L. Ulrich, S. Moos et al. Journal of Cultural Heritage 62 (2023) 268–284 
+Fig. 8. Example  of VR application  to enhance heritage site accessibility.  Pictures taken from Pehlivanides  et al. [60] . 
+cessible  underwater  cultural  heritage  into the digital reach of the 
+general  public [28] . People enrolled  in marine  and archaeology  will 
+learn the fundamentals  of “site formation,” “surveying,” and  “exca- 
+vation” through  the three components  of a serious  game developed  
+for HTC Vive. The search and discovery  component  assessed  two 
+maritime  archaeology  techniques  for ﬁnding  artifacts  [80] , the sec- 
+ond one focuses  on documenting  an underwater  site by using a VR 
+camera  to take images  that will later be used for photogrammetric  
+analysis  [81] , while the third one emulates  the process  of excava-  
+tion of the wreck by taking sand out of the seabed  [82] . 
+The inaccessibility  of underwater  habitats  is frequently  caused  
+by both the environment  itself and, in some circumstances,  restric-  
+tions deriving  from the preservation  and protection  of underwater  
+cultural  treasures.  A case is the shipwreck  of the Mercury,  which 
+sank in 1822 during the Battle of Grado. After the discovery,  ex- 
+cavations  were stopped  due to economic  reasons  and protection  
+and conservation  of the archaeological  site, so that now the entire 
+location  of the shipwreck  is completely  unreachable  because  it is 
+submerged  by sand and the seabed.  The VR experience  proposed  
+by Secci et al. [65] allows the visitor to simulate  a realistic  immer-  
+sion in the shipwreck  site using an Oculus Rift VR headset,  start- 
+ing from the water surface  to full immersion  on the seabed,  being 
+able to visualize  the wreckage  thanks to photogrammetric  recon- 
+structions  as found in the archaeological  excavations.  Another  ex- 
+ample is the work of McCarthy  et al. [57] who replicated  a diving 
+experience  for non-divers  to discover  Iceland’s  oldest shipwreck,  
+the Melckmeyt,  which sank in 1659. The 2.5-D VR experience  in- 
+cludes a 360-degree  panoramic  animated  video viewable  through  
+a Samsung  Gear VR headset,  in which the relief of the wreck is re- 
+placed with a speculative  reproduction  of the ship as it could have 
+seemed  immediately  after the sinking,  allowing  visitors  to truly 
+perceive  the shipwreck  as part of a large, now disappeared  ship. 
+A similar  approach  has been used in the valorization  policies  
+of isolated,  particularly  vulnerable  archaeological  sites and heritage  
+places, which are considered  to be at risk due to the conditions  in 
+which they are preserved  or the dangerousness  of their surround-  
+ings [22,33,37,43,44,75]  . 
+VR headsets  made it possible  to create frameworks  in which 
+virtual reconstructions  of damaged  heritage  sites could be dis- 
+played,  and the environment  and atmosphere  simulated  as accu- 
+rately as possible,  without  affecting  the realism  of the entire expe- rience [44] . The high degree of immersivity  that these tools pro- 
+vide makes it possible  to involve  a larger number  of people and 
+create a high degree of participation  even for archaeological  sites 
+in which interest  has been lost, or which cannot be restored,  pro- 
+viding the continuation  of tourism  in complete  safety [22] . How- 
+ever, the quality  of the user interface,  or rather the simplicity  of 
+handling  the controllers,  as well as easy management  of the navi- 
+gation system  of the virtual world are all factors that must be con- 
+sidered  while developing  these apps. In order to reach an audi- 
+ence as wider as possible,  these systems  should be simple to use 
+for all users with little or no acquaintance  with these technolo-  
+gies, such as children  or the elderly,  even though  it is generally  ac- 
+knowledged  that younger  adults are more interested  in using them 
+[44] . 
+4.6. Visitor proﬁling  
+AR and VR HMD-based  applications  have become  popular  in 
+museums  and cultural  sites also as visitor proﬁling  tools. These de- 
+vices can provide  useful insights  into the perceptions  of guests of a 
+cultural  site and can collect important  data with the aim of proﬁl- 
+ing tourists.  This would allow cultural  sites to provide  their visitors  
+with diversiﬁed  and customized  content,  suggest  a preferred  visit 
+route, and increase  the enjoyment  of cultural  content,  enhancing  
+the overall experience.  
+Ragusa  et al. [63] developed  a system  based on a HoloLens  ap- 
+plication  that can assist a tourist during a visit. The HMD pro- 
+vides the visitor with additional  cultural  content  through  holo- 
+grams, and, in addition,  is capable  of keeping  track of important  
+data, such as the user’s location  within the museum,  the arti- 
+facts that have already  been viewed,  and the time spent in front 
+of each work. The study of the data collected  from each visitor 
+can provide  important  information  on visitors’  behavior  and prefer- 
+ences, assess which locations  are preferred  by users, and organize  
+more appropriate  guidance  paths. A further  function  might involve  
+tracking  which cultural  artifacts  are mostly observed  by tourists,  
+providing  additional  insights  into visitors’  preferences.  Errichiello  
+et al. [39] analyzed  data collected  from 287 interviews  to assess 
+the level of attraction  of the “San Teodoro  Experience” project  and 
+its VR-based  experience  prior to its inauguration  and opening.  A 
+cluster analysis  was performed  in order to proﬁle the visitors  and 
+277 
+C. Innocente,  L. Ulrich, S. Moos et al. Journal of Cultural Heritage 62 (2023) 268–284 
+Fig. 9. Example  of MR application  for cultural heritage sites management.  The pictures refer to a project regarding  Bologna porticoes  taken from Teruggi et al. [70] . 
+to verify whether  socio-demographic  differences  and emotional  re- 
+sponses  modiﬁed  the perception  of the VR experience  as a whole. 
+The three clusters  of visitors  obtained  showed  differences  in the 
+perception  of VR, with a more positive  emotional  response  for the 
+VR-enthusiasts  cluster.  
+These ﬁndings  demonstrate  how it is possible  to provide  visi- 
+tors with cultural  experiences  tailored  to their features  and pref- 
+erences,  and enhance  their emotional  reactions  through  VR tools. 
+Nevertheless,  the main drawback  of these studies  is the poor com- 
+position  and small size of the samples  used to collect data and per- 
+form statistical  analysis.  Indeed,  these studies  must be expanded  to 
+include  additional  museums  and heritage  sites in order to cross- 
+validate  the ﬁndings  to enable more extensive  generalizations.  
+4.7. Cultural  heritage  site management  
+Preservation,  monitoring,  and preventive  maintenance  of cul- 
+tural and historical  heritage  require  a complicated  decision-making  
+process  and the personal  involvement  of owners  and curators.  Of 
+paramount  importance  is the process  of constantly  updating  the 
+documentation  of cultural  heritage  so that it is easily accessible  
+and consultable  by everyone.  
+The HeritageCare  project,  described  in the study by Masciotta  
+et al. [56] , presents  a MR-based  methodology  for the creation  of a 
+protocol  for the inspection  of cultural  heritage  and the digitization  
+of documentation  and its related  information.  Using a HoloLens,  
+inspectors  have access to the virtual model of a heritage  site, re- 
+trieve the corresponding  technical  information  such as data from 
+previous  inspections,  or update  it with new measurements.  In ad- 
+dition, the protocol  integrates  common  documentation  and classi- 
+ﬁcation  criteria  for condition  and risk analysis  to provide  an objec- 
+tive evaluation  of the current  state of cultural  heritage  conserva-  
+tion. Teruggi  et al. [70] presented  three case studies  (the Temple  
+of Neptune  in Paestum,  the Milan Cathedral,  and Bologna’s  porti- 
+coes) for the application  of a framework  for the management  of 
+large 3D point cloud data ( Fig. 9 ). The use of an HMD device al- 
+lows the high-resolution  visualization  of these data in full, or by 
+segmenting  entire building  blocks or individual  architectural  ele- 
+ments, and then inspecting  them in close detail. This application  
+has implications  both in the ﬁeld of tourist guides,  e.g., by posi- 
+tioning  information  hotspots  in crucial locations  and in the context  
+of maintenance  interventions.  
+Clear and consistent  documentation  and monitoring  procedures  
+provide  the basis for the protection  of cultural  heritage.  Indeed,  
+major problems  with classiﬁcation,  integration,  administration,  and 
+access may arise as a result of the signiﬁcant  quantity  of hetero-  
+geneous  information  and data collected  for each item. These tech- 
+nologies  can therefore  have a huge impact  on the categorisation,  
+analysis,  and traceability  of the high volume  of data from different  
+inspection  and diagnostic  approaches.  These aspects  will be dis- 
+cussed in the next Section.  5. Discussion  
+The concept  of “cultural  heritage  site” has  evolved  signiﬁcantly  
+over time. Whereas  previously  cultural  sites represented  static 
+warehouses  to acquire,  preserve,  conserve,  and study artifacts,  
+their mission  has now changed.  People today consider  cultural  
+sites as active learning  environments,  where the importance  of ob- 
+jects is questioned  in favor of the importance  of information  [83] . 
+The entire cultural  experience  is now designed  in a user-centric  
+manner:  every aspect of the offered  experience  and activities  must 
+contribute  to the visitor’s  satisfaction  and the advancement  of the 
+visitor’s  knowledge.  
+The use of digital technologies  like AR, MR, and VR offers new 
+forms of learning,  makes knowledge  and works accessible,  and al- 
+lows the visitor to personalize  the visit; the development  of XR se- 
+rious games engages  new audiences,  traditionally  far from cultural  
+environments,  thanks to the type of interaction  and the familiar-  
+ity of the storytelling,  facilitating  their learning  in an edutainment  
+key using the “learning  by doing” paradigm.  On the management  
+side, the use of these technologies  allows for better analysis,  pro- 
+ﬁling, and management  of the general  public. The direct conse- 
+quence  of these considerations  is the creation  of more attractive  
+visitor routes based on guests’  preferences.  
+All these concepts  reach their maximum  expression  in the use 
+of immersive  devices,  such as AR HMDs, VR headsets,  and CAVE 
+systems.  These immersive  technologies  allow a controlled  explo- 
+ration of the environment  and the presentation  of information  
+with greater  depth and breadth.  This method  of presenting  cultural  
+content  encourages  psychological  immersion  and a sense of pres- 
+ence, both of which increase  engagement  and make visitors  more 
+prone to knowledge  awareness.  
+Results  from Table 1 were statistically  analyzed  to respond  to 
+RQ1, and the results are shown in Fig. 3 . Furthermore,  our ﬁrst re- 
+search question  was answered  above and discussed  in Section  4 . 
+Section  5.1 speciﬁcally  focuses  on the advantages  of XR headset-  
+based versus handheld  XR-based  applications  in order to answer  
+RQ2, while Sections  5.2 and 5.3 answer  RQ3, discussing  the issues 
+encountered  by authors  in the employment  of such technologies  in 
+the cultural  heritage  domain  both from the designer  and the user 
+perspective.  
+5.1. Advantages  and limitations  over handheld  devices  
+Handheld  devices  dominate  the broad landscape  of XR-based  
+applications  for the cultural  heritage  domain  [84] . This is not sur- 
+prising  given that cultural  heritage  XR applications  are mainly  
+based on the “Bring Your Own Device” (BYOD)  concept  [84,85]  , 
+which is the policy that allows people to use their personal  de- 
+vices during the cultural  experience.  Indeed,  visitors  interact  with 
+their own devices  more intuitively  and familiarly,  and some de- 
+vices may already  be optimized  to increase  accessibility  for peo- 
+ple with special  needs [54] . Therefore,  the aim of many cultural  
+278 
+C. Innocente,  L. Ulrich, S. Moos et al. Journal of Cultural Heritage 62 (2023) 268–284 
+sites is to develop  solutions  with high-quality  cultural  content  in 
+which visitors  use their own devices,  whose portability  is suitable  
+for visiting  cultural  sites, for instance  using their camera  to point 
+in a direction  while interacting  with the touch screen [85] . This 
+is unquestionably  advantageous,  as, by implementing  this policy, 
+cultural  institutions  avoid providing  for a variety  of tasks such as 
+renting  or purchasing  equipment,  dedicating  storage  space for it, 
+keeping  the equipment  charged  and in proper condition,  updating  
+content  and software,  and training  and paying staff to  assist visi- 
+tors during experiences  and ensure security  [84] . 
+However,  handheld  devices  are now regarded  as too common  
+and are not considered  an attraction  for visitors  as they now rep- 
+resent the everyday  rather than the exceptional.  While handheld  
+devices,  such as smartphones  and tablets are more accessible  and 
+less expensive,  they can distract  visitors  from the exhibition  to the 
+point of completely  disconnecting  them from the visit [54] . It can 
+be tiring to hold a smartphone  during a visit, and the nature of the 
+interaction,  which is conﬁned  within the boundaries  of the screen,  
+increases  the distance  between  the visitor and the exhibition,  re- 
+sulting  in less immersiveness  [27,54,62,78]  . Furthermore,  the accu- 
+racy with which they track objects  and artifacts  is not high [11] . 
+Museum  curators  and cultural  site managers  exploit  the ap- 
+pealing  potential  of interactive  XR installations  and technological  
+devices  to attract new users, intrigued  by the new multimedia  
+medium.  The use of HMDs could be a valuable  solution,  offering  
+museum  visitors  a more natural  and intuitive  means of interaction  
+without  the need to carry a device,  as well as an uninterrupted  ex- 
+perience  with no need to switch attention  between  the screen and 
+the exhibition  [86] . Recent research  has compared  the impressions  
+produced  by handheld  devices  to those produced  by more immer-  
+sive devices,  such as headsets  and CAVE systems.  When compared  
+to a handheld  device,  headsets  provide  a more immersive  and ap- 
+pealing  experience  to the user. The combined  effect of storytelling  
+and the real surroundings  captivated  visitors’  interest  and commit-  
+ment to further  explore  that environment,  resulting  in an educa- 
+tional and valuable  tourism  experience  [27] . 
+In terms of emotion,  the use of headsets  allows users to feel 
+completely  immersed  in the virtual scenario  and emotionally  in- 
+volved in the story. It is common  for evaluations  of XR applica-  
+tions for cultural  heritage  that use headsets  to report that almost 
+all users felt an increased  sense of presence.  The virtual scenes’  
+colors, sounds,  and styles aid in recreating  the global atmosphere  
+and transporting  them to another  world. Also, some authors  ﬁnd 
+out that users who wear HMDs dedicate  more time to the explo- 
+ration of their surroundings  and in the interaction  with the objects  
+they see [46] . 
+The ability of many HMDs to perform  eye tracking  and head 
+tracking  can provide  important  data on the orientation  and posi- 
+tion of the head and gaze, and thus conﬁrm  the user’s direction  of 
+interest  [47] . This facilitates  the development  and design of more 
+engaging  and personalized  visitor experiences  and paths, based on 
+what each visitor ﬁnds most attractive  and interesting.  
+5.2. Task-speciﬁc  design and development  issues 
+Although  immersive  technology  based on headsets  and HMDs 
+shows considerable  potential  when applied  to cultural  heritage  ap- 
+plications,  some researchers  have indicated  some important  limita- 
+tions. This Section  focuses  on design and development  perspective.  
+It is well known  that any cultural  heritage  revitalization  project  
+should integrate  the reconstruction  of historical  traces and archae-  
+ological  remains  of the cultural  site of interest.  The virtual recon- 
+struction  and data digitization  should preserve  the authenticity  of 
+the original  site or artifact  in order to obtain a true and cred- 
+ible model. While artifacts  and archaeological  remains  can pro- 
+vide valuable  insights  into past societies,  they alone cannot pro- vide a complete  understanding  of the individuals,  social, economic,  
+and political  contexts  that inﬂuenced  their realization.  A multi- 
+disciplinary  approach  integrating  humanistic,  scientiﬁc,  and tech- 
+nical knowledge  is core to develop  a solution  capable  to provide  
+a comprehensive  understanding  of a society’s  history  and culture.  
+This highlights  the importance  of gathering  multiple  sources  of in- 
+formation,  including  historical  records,  ethnographic  accounts,  and 
+oral histories.  The undeniable  advantage  of dealing  with a plethora  
+of information  has a counterpart;  indeed,  the heterogeneity  of data 
+sources  makes it challenging  to face all the following  steps: image 
+acquisition,  view registration,  mesh integration  and texture  genera-  
+tion [87] . To address  these challenges,  it is essential  to have a clear 
+understanding  of the depth sensing  devices,  the data sources,  and 
+their limitations,  as well as the context  and purpose  of the applica-  
+tion. In this sense, involving  experts  from different  disciplines,  such 
+as archaeology,  history,  and computer  science,  becomes  mandatory  
+to ensure the accuracy  and authenticity  of virtual models  and en- 
+hance the user experience.  
+The reconstruction  process  should aim to recreate  the site or 
+artifact  as accurately  as possible,  while still being mindful  of the 
+limitations  of available  data and the need to make informed  as- 
+sumptions.  For those developing  immersive  applications  dedicated  
+to cultural  heritage,  these issues could be even more challeng-  
+ing, since the reconstruction  accuracy  determines  the realism  of 
+the experience  and, consequently,  its attractiveness  and usefulness.  
+Producing  high-quality  visualizations  to impart complex  histori-  
+cal knowledge  during a cultural  heritage  visit is highly demand-  
+ing to such a point that it is often inevitable  to ﬁnd a trade-off
+between  the reconstruction  quality  and eﬃcient  computation  [88] . 
+Data availability  is a required  feature  to make virtual objects,  en- 
+vironments,  or scenarios  from the past presented  in VR as realis- 
+tic as possible.  When available,  the artworks  can be 3D scanned  
+or there could be the need of totally or partially  reconstruct  them 
+thanks to the variety  of tools and processes  for 3D data collecting  
+[87] . The type and the size of the artwork  and the goal of its dig- 
+italization  determine  the best piece of equipment  to use in order 
+to obtain the integration  of the original  data into a single mesh 
+avoiding  information  loss, unwanted  gaps, or artifacts  [62] . More- 
+over, the aesthetic  impact  of 3D models  is enhanced  by exact color 
+data, which may also contain  crucial information  that should be 
+retained,  making  texture  management  a key task [23] . 
+There are numerous  methods  and workﬂows  proposed  in the 
+literature  regarding  the reconstruction  of artifacts,  buildings,  and 
+archaeological  remains  for their revitalization  and enhancement  
+[16,23,32,43,65]  . However,  in most projects,  optimal  and detailed  
+models  reconstruction  still struggles  with computing  power and 
+limitations  of game engines  and headsets:  the need to obtain de- 
+tailed meshes  produces  large polygonal  datasets,  which are diﬃcult  
+to handle  for real-time  visualization,  actually  limiting  the complex-  
+ity and details of the designed  virtual environments  [30,34,57,61]  . 
+Most of the reviewed  research  requires  laborious  procedures  
+for tracking  and spatial registration  between  artifacts  and the XR 
+system.  Registration  allows computer-generated  objects,  such as 
+replicas  of 3D models  and overlaid  information,  to be superim-  
+posed and placed in a predeﬁned  position  with respect  to the real 
+world. Therefore,  especially  when talking  of MR and AR applica-  
+tions, matching  information  from the physical  world with informa-  
+tion from the immersive  environment  is one of the major prob- 
+lems to be addressed  [89] . In fact, since the user interacts  with 
+the merged  visualization  as the ﬁnal product,  researchers  should 
+be able to create systems  in which actual and augmented  objects  
+are virtually  indistinguishable  from both a geometrical  and a pho- 
+tometric  perspective  [90] . Moreover,  information  obtained  from the 
+external  surroundings  should assist the user to explore  even more 
+deeply the XR environment  [3] . Similarly,  virtual environment  in- 
+formation  could assist users in learning  about related  tourist ob- 
+279 
+C. Innocente,  L. Ulrich, S. Moos et al. Journal of Cultural Heritage 62 (2023) 268–284 
+jects or situations.  In connection  with this, feedback  on the visi- 
+tor’s actions  must be provided,  as the absence  of feedback  from 
+the application  may cause uncertainty  and a lower proclivity  to 
+continue  using it. Shading  and lighting,  management  of reﬂections,  
+occlusions,  and sizing virtual objects  are all issues related  to in- 
+correct  registration  and positioning  of augmented  objects  in the 
+virtual setting,  especially  when the employed  algorithms  deal only 
+with color information,  instead  of also considering  the depth data. 
+Following  registration,  tracking  techniques  enable the projected  
+virtual item to hold onto its proper position  while gradually  re- 
+sponding  to human  or 3D space movements.  Researchers  employed  
+a variety  of tracking  methods  depending  on the kind of solutions  
+they were developing.  When it comes to VR applications,  most 
+researchers  used an inside-out  tracking  technique  that makes di- 
+rect use of the camera  and sensors  in the headset  being used 
+[16,21,22,24–26,33,49]  . By observing  the entire environment,  the 
+position  of the headset  and controllers  relative  to the real world 
+can be accurately  determined  through  the camera.  This allows the 
+user to physically  navigate  the virtual world and even wander  
+around  the room if there is suﬃcient  space (room-scale  experi-  
+ences),  interacting  directly  with virtual objects  to further  increase  
+the sense of immersion  in the VR environment.  
+The problem  worsens,  though,  when it comes to MR and AR ap- 
+plications.  In these applications,  knowing  the spatiotemporal  links 
+between  the real and virtual worlds is therefore  crucial for en- 
+abling the proper integration  of virtual models  with real-world  
+objects  [2] . In order to achieve  a proper alignment  between  the 
+actual world and the virtual information,  a fast and precise  esti- 
+mation  of the visualization  location  with respect  to real objects  
+must be achieved  [91] . Today, many tracking-based  systems  have 
+been developed  and are commercially  available,  including  ther- 
+mal imaging,  GPS, ultrasound,  magnetic  sensors,  optical sensors,  
+and motion  sensors  [92] . For these purposes,  researchers  choose  
+to rely on more robust external  tracking  systems  [50,52]  , equip- 
+ping the HMD devices  with other sensors  or motion  capture  sys- 
+tems such as Leap Motion  or Microsoft  Kinect.  However,  this fre- 
+quently  results in a restriction  of the space available  for the ex- 
+perience,  because  it becomes  challenging  to install large-scale  sys- 
+tems and, also, allow multiple  users to play simultaneously  [53] . 
+Another  choice has been to use computer  vision technologies  such 
+as the Vuforia  Engine Library  [32,35,72]  ; this approach  allows the 
+creation  of MR experiences  that interact  with both the objects  and 
+the environment.  However,  tracking  instability  issues still persist,  
+as image recognition  can vary among  tests as environmental  condi- 
+tions change  [35] . To provide  robustness  even within widely vary- 
+ing environments  both markerless  and marker-based,  XR tracking  
+must take into account  the brightness  of the environment  as well 
+as the angle at which the camera  is facing the marker,  image, or 
+object [24,35,36]  . 
+To retrieve  data from the server, many XR headset-based  appli- 
+cations  require  an Internet  connection,  which is not always avail- 
+able in all cultural  heritage  areas and sites. Other studies  highlight  
+the disadvantages  of headsets  in terms of battery  life [69] and de- 
+vice cost [46] . Furthermore,  not all heritage  sites and museums  
+have large enough  spaces to accommodate  the XR experience.  This 
+represents  a limitation,  necessitating  the use of stratagems  such 
+as exploring  the virtual space only with controllers  or creating  re- 
+stricted  play spaces [21,53] . 
+5.3. User-related  issues 
+One of the greatest  challenges  identiﬁed  in the ﬁeld of cultural  
+heritage  is user involvement.  Several  usability  studies  investigating  
+the individual  experiences  of visitors  who encountered  XR solu- 
+tions in exhibitions,  museums,  and heritage  sites were carried  out 
+with a focus on how the users interacted  with the headset  and the environment  prepared  for the XR experience.  The characteristics  
+that researchers  have mostly focused  on concern  user experience  
+usefulness  in the context  of interest,  ease of use of controllers  and 
+interfaces,  and perceived  enjoyment.  Overall,  the papers reported  
+positive  opinions  of visitors  toward  the conducted  XR experience,  
+acknowledging  the educational  usefulness  and immersive  aspect of 
+using headsets  during the visit [18,23,40]  . In addition,  a predispo-  
+sition to use these technologies  regardless  of the age of the visitors  
+and their previous  experience  with XR technologies  was reported,  
+as well as requests  to perform  the experience  again or in a differ- 
+ent or extended  version  [39,44]  . These outcomes  highlight  that the 
+use of HMDs ﬁnds fertile ground  in the ﬁeld of cultural  heritage,  
+as it manifests  itself as a useful tool for educating,  communicating  
+a message,  and bringing  people closer to culture  and art appre- 
+ciation.  Researchers  found that visitors  perceived  a greater  sense 
+of presence  and immersion  in visits that involved  the use of XR 
+technologies  and that they further  increased  if the visual stimu- 
+lus was accompanied  by additional  sensory  stimuli,  such as tactile 
+and auditory  stimuli  [69] . The usage of tangible  interfaces,  where 
+physical  and virtual representations  are perceptually  coupled,  has 
+the potential  to return the tactile feedback  to the user naturally,  
+reﬂecting  the effects of manipulation  on the virtual level, and con- 
+sequently  increasing  the realism  of interaction.  A deeper  under- 
+standing  of the information  on the exhibit  can also be facilitated  
+by visitors  physically  interacting  with museum  artifacts.  However,  
+developers  must guarantee  that the pace at which information  is 
+given in a particular  moment  is not overloaded  and keeps the vis- 
+itor focused  on the experience.  
+An aspect to be considered  with regard to the sense of pres- 
+ence is the realism  of the reconstruction,  both from the cultural-  
+historical  point of view and from that one of high ﬁdelity  in the 
+reproduction  of artifacts.  In fact, the wealth  of details in the simu- 
+lations is much appreciated  by the audience  and contributes  to the 
+overall sense of immersion  within the experience,  conﬁrming  that 
+high ﬁdelity  in the reproduction  of places and artifacts  is a fun- 
+damental  requirement,  especially  when considering  artifacts  and 
+details with which the user has to interact  in a direct way and 
+therefore  should be visualized  closely  [33] . 
+Another  factor to consider  is familiarity  with the device.  Cul- 
+tural venues  provide  many users with the opportunity  to try out 
+new technology  devices  such as headsets  and smart glasses  for 
+the ﬁrst time. This may result in the lengthening  of the expected  
+time span for the experience,  and longer waiting  times for visitors  
+[3] . Furthermore,  there is still a strong commitment  to the con- 
+ventional  notion of a museum,  which comprises  exposition  rooms 
+intended  as works of art containers,  in the modern  socio-cultural  
+framework  [16] . Even if generally  accepted  by the public, research  
+on these applications  demonstrates  that highly educated  people 
+have a superior  understanding  of how to use new technologies  to 
+promote  culture  [16] , since they are more aware of the XR poten- 
+tial and, as a result, more prepared  to reject the conventions  es- 
+tablished  by traditional  museums  and adopt novel strategies  for 
+presenting  the information.  In this sense, the application  layout 
+can inﬂuence  the perception  of the user experience.  Indeed,  an 
+unintuitive  layout can negatively  affect the user’s concentration  
+and worsen  the virtual environment  exploration.  In order to satisfy 
+users with little to no expertise  and who may come from a variety  
+of backgrounds,  researchers  must assure a high level of usability  of 
+their applications.  This requirement  is made much more relevant  
+when considering  that usually  no prior training  in the use of XR 
+technologies  is offered,  in contrast  to other ﬁelds like healthcare,  
+industry,  and military  training.  
+A further  issue with headset-based  applications  is that they are 
+typically  single-user  experiences  [59] . Again, this can result in long 
+waits and force visitors  to queue to try out the experience  espe- 
+cially during peak times [53] . It may be beneﬁcial  to design wait- 
+280 
+C. Innocente,  L. Ulrich, S. Moos et al. Journal of Cultural Heritage 62 (2023) 268–284 
+ing areas in which visitors  are partially  stimulated  while queuing  
+and partially  prepared  for the experience  ahead of them, with a 
+brief training  on how to use the application  [69] . 
+Finally,  the employment  of XR technology  in the ﬁeld of cultural  
+heritage  raises privacy  issues for users. The advantage  of context-  
+aware systems  or content  personalization  is that they present  the 
+user with more pertinent  content.  The chance  that these data may 
+be lost or exploited  increases  as the system  asks for more personal  
+information  about the user. For this reason,  adequate  security  mea- 
+sures must be adopted  to preserve  the user’s privacy,  for instance  
+following  the indications  provided  by the General  Data Protection  
+Regulation  (GDPR).  
+6. Conclusions  
+There has been increasing  interest  in the use of immersive  real- 
+ity technologies  in the ﬁeld of cultural  heritage.  This research  con- 
+tributes  to the development  and inclusion  of AR, MR, and VR ap- 
+plications  by providing  an overview  and analysis  of relevant  stud- 
+ies using fully immersive  systems,  such as headsets  and CAVE sys- 
+tems, for solutions  in the cultural  heritage  domain.  Speciﬁcally,  a 
+lot of authors  assessed  the use of HMDs, headsets,  and CAVE sys- 
+tems, emphasizing  the advantages  that they bring to the cultural  
+heritage  domain  applications  when compared  to handheld  devices,  
+such as smartphones,  tablets,  and 2D monitors.  
+The effective  use of these immersive  systems  in the cultural  
+heritage  ﬁeld requires  the development  of customized  technologies  
+and product  strategies  that allows visitors  to feel fully immersed  
+and present  in the virtual environment,  allowing  for an engaging  
+and educational  cultural  experience  that can enhance  the quality  
+and learning  purposes  of cultural  visits. 
+By resolving  issues through  ongoing  technological  development,  
+such as performance  and computing  power enhancement,  design 
+and interface  implementation,  battery  life extension,  and security  
+improvements,  more reliable  and effective  use will be feasible  in 
+the future. 
+Funding  
+This research  did not receive  any speciﬁc  grant from funding  
+agencies  in the public, commercial,  or not-for-proﬁt  sectors.  
+References  
+[1] V. Okanovic,  I. Ivkovic-Kihic,  D. Boskovic,  B. Mijatovic,  I. Prazina, E. Skaljo, 
+S. Rizvic, Interaction  in extended  reality applications  for cultural heritage,  
+Appl. Sci. 12 (3) (2022) 1241 . 
+[2] C. Innocente,  L. Ulrich, S. Moos, E. Vezzetti,  Augmented  reality: mapping  meth- 
+ods and tools for enhancing  the human role in healthcare  HMI, Appl. Sci. 12 
+(9) (2022) 4295 . 
+[3] A. Puig, I. Rodríguez,  J.L. Arcos, A. Juan, Rodríguez-Aguilar,  S. Cebrián, A. Bog- 
+danovych,  N. Morera, A. Palomo, R. Piqué, Lessons learned from supplementing  
+archaeological  museum  exhibitions  with virtual reality, Virtual Real. 24 (2019) 
+343–358  . 
+[4] Y. Zhou, J. Chen, M. Wang, A meta-analytic  review on incorporating  virtual and 
+augmented  reality in museum  learning,  Educ. Res. Rev. 36 (2022) 100454 . 
+[5] N. Dozio, F. Marcolin,  G. Scurati, F. Nonis, L. Ulrich, E. Vezzetti,  F. Ferrise, De- 
+velopment  of an affective database  made of interactive  virtual environments,  
+Sci. Rep. 11 (2021) 12 . 
+[6] F. Marcolin,  G.W. Scurati, L. Ulrich, F. Nonis, E. Vezzetti,  N. Dozio, F. Ferrise, 
+Affective  virtual reality: how to design artiﬁcial experiences  impacting  human 
+emotions,  IEEE Comput. Graph. Appl. 41 (6) (2021) 171–178 . 
+[7] C. Innocente,  P. Piazzolla,  L. Ulrich, S. Moos, S. Tornincasa,  E. Vezzetti,  Mixed 
+reality-based  support for total hip arthroplasty  assessment,  in: S. Gerbino, 
+A. Lanzotti,  M. Martorelli,  R.M. Buil, C. Rizzi, L. Roucoules  (Eds.), Advances  on 
+Mechanics,  Design Engineering  and Manufacturing  IV, Springer International  
+Publishing,  Cham, 2023, pp. 159–169 . 
+[8] C. Piramide,  L. Ulrich, P. Piazzolla,  E. Vezzetti,  Toward supporting  maxillo-facial  
+surgical guides positioning  with mixed reality—A  preliminary  study, Appl. Sci. 
+12 (16) (2022) 8154 . 
+[9] J. Carmigniani,  B. Furht, M. Anisetti, P. Ceravolo,  E. Damiani,  M. Ivkovic, Aug- 
+mented reality technologies,  systems and applications,  Multimed.  Tools Appl. 
+51 (2010) 341–377 . [10] X. Gao, H. An, W. Chen, Z. Pan, A survey on mobile augmented  reality visual- 
+ization, J. Computer-Aided  Des. Comput. Graph. 30 (1) (2018) 1–8 . 01 
+[11] C. Wang, Y. Zhu, A survey of museum  applied research based on mobile aug- 
+mented reality, Comput. Intell. Neurosci.  2022 (2022) 1–22 . 08 
+[12] D.-I.D. Han, M.C.T. Dieck, T. Jung, Augmented  reality smart glasses (ARSG) vis- 
+itor adoption  in cultural tourism, Leis. Stud. 38 (5) (2019) 618–633 . 
+[13] C. Teeng, C.K. Lim, A. Raﬁ, K. Tan, M. Mokhtar,  Comprehensive  systematic  re- 
+view on virtual reality for cultural heritage practices:  coherent  taxonomy  and 
+motivations,  Multimed.  Syst. 28 (2022) 711–726 . 06 
+[14] B.A. Kitchenham,  D. Budgen, P. Brereton,  Evidence-Based  Software  Engineering  
+and Systematic  Reviews,  CRC Press, 2015 . 4 
+[15] D.L. Weed, Weight of evidence:  a review of concept and methods,  Risk Anal. 
+25 (6) (2005) 1545–1557  . 
+[16] D. Aiello, S. Fai, C. Santagati,  Virtual museums  as a means for promotion  
+and enhancement  of cultural heritage,  in: ISPRS - International  Archives of 
+the Photogrammetry,  Remote Sensing and Spatial Information  Sciences,  vol. 
+XLII-2/W15,  2019, pp. 33–40 . 08 
+[17] E. Anastasovitis,  D. Ververidis,  S. Nikolopoulos,  I. Kompatsiaris,  Digiart: build- 
+ing new 3D cultural heritage worlds, in: 2017 3DTV Conference:  The True 
+Vision - Capture, Transmission  and Display of 3D Video (3DTV-CON),  2017, 
+pp. 1–4 . 
+[18] L. Argyriou,  D. Economou,  V. Bouki, Design methodology  for 360 ◦immersive  
+video applications:  the case study of a cultural heritage virtual tour, Pers. 
+Ubiquitous  Comput. 24 (2020) 843–859  . 12 
+[19] B. Balbi, A. Marasco,  Co-designing  cultural heritage experiences  for all with 
+virtual reality: a scenario-based  design approach,  Umanistica  Digit. (11) (2021) 
+71–98 . 1 
+[20] F. Banﬁ, C.M. Bolognesi,  Virtual reality for cultural heritage:  new levels of com- 
+puter-generated  simulation  of a unesco world heritage site, in: C. Bolognesi,  
+D. Villa (Eds.), From Building Information  Modelling  to Mixed Reality, Springer 
+International  Publishing,  Cham, 2021, pp. 47–64 . 
+[21] F.B. Rahimi, J. Boyd, J. Eiserman,  R. Levy, B. Kim, Museum  beyond physical 
+walls: an exploration  of virtual reality-enhanced  experience  in an exhibition–
+like space, Virtual Real. 26 (4) (2022) 1471–1488  . 03 
+[22] R. Barbera, F. Condorelli,  G.D. Gregorio,  G.D. Piazza, M. Farella, G.L. Bosco, 
+A. Megvinov,  D. Pirrone, D. Schicchi,  A. Zora, A case study for the design and 
+implementation  of immersive  experiences  in support of sicilian cultural her- 
+itage, in: P.L. Mazzeo, E. Frontoni,  S. Sclaroff, C. Distante (Eds.), Image Analy- 
+sis and Processing.  ICIAP 2022 Workshops,  Springer International  Publishing,  
+Cham, 2022, pp. 174–185 . 
+[23] J.-B. Barreau, E. Esnault, J. Foucher, M. Six, C.L. Faou, 3D modelling  of a 15th 
+century city gate of Rennes: portes mordelaises,  Virtual Archaeol.  Rev. 11 (22) 
+(2020) 41–55 . 1 
+[24] M.K. Bekele, Walkable  mixed reality map as interaction  interface  for virtual 
+heritage,  Digit. Appl. Archaeol.  Cult. Herit. 15 (2019) e00127 . 
+[25] M.K. Bekele, Clouds-based  collaborative  and multi-modal  mixed reality for vir- 
+tual heritage,  Heritage 4 (3) (2021) 1447–1459  . 
+[26] C. Bolognesi,  D. Aiello, Learning  through serious games: a digital design mu- 
+seum for education,  ISPRS - Int. Arch. Photogramm.,  Remote Sens. Spat. Inf. Sci. 
+XLIII-B5-2020  (2020) 83–90 . 08 
+[27] G. Bozzelli, A. Raia, S. Ricciardi,  M. De Nino, N. Barile, M. Perrella, .M. Tramon-  
+tano, A. Pagano, A. Palombini,  An integrated  VR/AR framework  for user-centric  
+interactive  experience  of cultural heritage:  the ArkaeVision  project, Digit. Appl. 
+Archaeol.  Cult. Herit. 15 (2019) e00124 . 
+[28] F. Bruno, A. Lagudi, G. Ritacco, P. Agraﬁotis,  D. Skarlatos,  J. ˇCejka, P. Kou ˇril, 
+F. Liarokapis,  O. Philpin-Briscoe,  C. Poullis, S. Mudur, B. Simon, Development  
+and integration  of digital technologies  addressed  to raise awareness  and ac- 
+cess to European  underwater  cultural heritage.  An overview  of the H2020 I–
+mareculture  project, in: OCEANS 2017 - Aberdeen,  2017, pp. 1–10 . 
+[29] S. Cai, E. Ch’ng, Y. Li, A comparison  of the capacities  of VR and 360-degree  
+video for coordinating  memory in the experience  of cultural heritage,  in: 2018 
+3rd Digital Heritage International  Congress  (DigitalHERITAGE)  Held Jointly with 
+2018 24th International  Conference  on Virtual Systems & Multimedia  (VSMM 
+2018), 2018, pp. 1–4 . 
+[30] K. Choroma  ´nski, J. Łobodecki,  K. Puchała, W. Ostrowski,  Development  of vir- 
+tual reality application  for cultural heritage visualization  from multi-source  3D 
+data, ISPRS - Int. Arch. Photogramm.,  Remote Sens. Spat. Inf. Sci. XLII-2/W9  
+(2019) 261–267  . 01 
+[31] R. Comes, C. Neam ¸t u, Z. Buna, S. Bodi, D. Popescu,  V. Tompa, R. Ghinea, L. 
+Mateescu-Suciu,  Enhancing  accessibility  to cultural heritage through digital 
+content and virtual reality: a case study of the Sarmizegetusa  Regia UNESCO 
+site, J. Anc. Hist. Archaeol.,  7 (2020) 124-139.  09 
+[32] R. Comes, C.G.D. Neam ¸t u, C. Grec, Z.L. Buna, C. G ˘azdac, L. Mateescu-Suciu,  Digi- 
+tal reconstruction  of fragmented  cultural heritage assets: the case study of the 
+Dacian embossed  disk from Piatra Ro ¸s ie, Appl. Sci. 12 (16) (2022) 8131 . 
+[33] L.T. De Paolis, S. Chiarello,  C. Gatto, S. Liaci, V. De Luca, Virtual reality for the 
+enhancement  of cultural tangible and intangible  heritage:  the case study of 
+the castle of Corsano,  Digit. Appl. Archaeol.  Cult. Herit. 27 (2022) e00238 . 
+[34] L. Debailleux,  H. Geoffrey,  N. Duroisin,  Exploring  cultural heritage using virtual 
+reality, Lect. Notes Comput. Sci. 10605 (2018) 289–303  . 02 
+[35] F. Debandi,  R. Iacoviello,  A. Messina,  M. Montagnuolo,  F. Manuri, A. Sanna, 
+D. Zappia, Enhancing  cultural tourism by a mixed reality application  for out- 
+door navigation  and information  browsing  using immersive  devices, IOP Conf. 
+Ser.: Mater. Sci. Eng. 364 (2018) 012048 . 6 
+[36] G. Drossis, C. Birliraki, C. Stephanidis,  Interaction  with immersive  cultural her- 
+itage environments  using virtual reality technologies,  in: HCI International  
+281
+C. Innocente,  L. Ulrich, S. Moos et al. Journal of Cultural Heritage 62 (2023) 268–284 
+2018 –P o s t e r s ’  Extended  Abstracts,  Springer International  Publishing,  Cham, 
+2018, pp. 177–183 . 
+[37] Z. Duer, T. Ogle, D. Hicks, S. Fralin, T. Tucker, R. Yu, Making the invisible visi- 
+ble: illuminating  the hidden histories  of the world War I tunnels at Vauquois  
+through a hybridized  virtual reality exhibition,  IEEE Comput. Graph. Appl. 40 
+(4) (2020) 39–50 . 7 
+[38] A. Egea-Vivancos,  L. Arias-Ferrer,  Principles  for the design of a history and her- 
+itage game based on the evaluation  of immersive  virtual reality video games, 
+E-Learn. Digit. Media 18 (4) (2021) 383–402  . 
+[39] L. Errichiello,  R. Micera, M. Atzeni, G.D. Chiappa,  Exploring  the implications  of 
+wearable  virtual reality technology  for museum  visitors’ experience:  a cluster 
+analysis, Int. J. Tourism Res. 21 (2019) 590–605  . 05 
+[40] L. Falconer,  D. Burden, R. Cleal, R. Hoyte, P. Phelps, N. Slawson,  N. Snashall,  
+K. Welham,  Virtual Avebury:  exploring  sense of place in a virtual archaeology  
+simulation,  Virtual Archaeol.  Rev. 11 (23) (2020) 50–62 . 7 
+[41] R. Galdieri, M. Carrozzino,  Natural interaction  in virtual reality for cultural 
+heritage,  in: M. Dugulean  ˘a, M. Carrozzino,  M. Gams, I. Tanea (Eds.), VR Tech- 
+nologies in Cultural Heritage,  Springer International  Publishing,  Cham, 2019, 
+pp. 122–131 . 
+[42] E. Geronikolakis,  P. Zikas, S. Kateros, N. Lydatakis,  S. Georgiou,  M. Kentros, 
+G. Papagiannakis,  A True AR Authoring  Tool for Interactive  Virtual Museums,  
+Springer International  Publishing,  Cham, 2020, pp. 225–242  . 
+[43] A. Hajirasouli,  S. Banihashemi,  A. Kumarasuriyar,  S. Talebi, A. Tabadkani,  Virtual 
+reality-based  digitisation  for endangered  heritage sites: theoretical  framework  
+and application,  J. Cult. Herit. 49 (2021) 140–151 . 
+[44] J. Häkkilä, P. Hannula,  E. Luiro, E. Launne, S. Mustonen,  T. Westerlund,  A. Col- 
+ley, Visiting a virtual graveyard:  designing  virtual reality cultural heritage ex- 
+periences,  in: Proceedings  of the 18th International  Conference  on Mobile and 
+Ubiquitous  Multimedia,  MUM ’19, New York, NY, USA, Association  for Comput-  
+ing Machinery,  2019 . 
+[45] R. Hammady,  M. Ma, C. Strathearn,  Ambient  information  visualisation  and vis- 
+itors technology  acceptance  of mixed reality in museums,  J. Comput. Cult. 
+Herit. 13 (2) (2020) 1–22 . 6 
+[46] R. Hammady,  M. Ma, C. Strathearn,  M. Mohamad,  Design and development  of 
+a spatial mixed reality touring guide to the egyptian  museum,  Multimed.  Tools 
+Appl. 79 (2020) 3465–3494  . 02 
+[47] R. Hammady,  M. Ma, Designing  Spatial UI as a Solution of the Narrow FOV 
+of Microsoft  HoloLens:  Prototype  of Virtual Museum  Guide, Springer Interna- 
+tional Publishing,  Cham, 2019, pp. 217–231 . 
+[48] R. Hammady,  M. Ma, Z. Alkalha, C. Strathearn,  A framework  for constructing  
+and evaluating  the role of mr as a holographic  virtual guide in museums,  Vir- 
+tual Real. 12 (2021) 895–918 . 
+[49] J. Horáková,  J. Mucha, Computer  graphic re-visited:  the virtual reconstruction  
+of one of the ﬁrst computer  art exhibitions  computer  graphic re-visited:  the 
+virtual reconstruction  of one of the ﬁrst computer  art exhibitions,  Proc. IEEE 
+107 (2019) 616–629  . 03 
+[50] F.Z. Kaghat, A. Azough, M. Fakhour,  M. Meknassi,  A new audio augmented  re- 
+ality interaction  and adaptation  model for museum  visits, Comput. Electr. Eng. 
+84 (2020) 106606 . 
+[51] T. Kersten, F. Tschirschwitz,  M. Lindstaedt,  S. Deggim, The historic wooden 
+model of Solomon’s  temple: 3Drecording,  modelling  and immersive  virtual re- 
+ality visualisation,  J. Cult. Herit. Manag. Sustain. Dev. 8 (2018) 448–464  . 09 
+[52] T. Krzywinska,  T. Phillips, A. Parker, M.J. Scott, From immersion’s  bleeding  edge 
+to the augmented  telegrapher:  a method for creating mixed reality games for 
+museum  and heritage contexts,  J. Comput. Cult. Herit. 13 (4) (2020) 1–20 . 12 
+[53] S. Kusajima,  T. Takahashi,  Y. Sumi, Virtual participation  in ukiyo-e apprecia-  
+tion using body motion, in: Proceedings  of the 9th Augmented  Human Inter- 
+national Conference,  AH ’18, New York, NY, USA, Association  for Computing  
+Machinery,  2018 . 
+[54] E. Litvak, T. Kuﬂik, Enhancing  cultural heritage outdoor experience  with aug- 
+mented-reality  smart glasses, Pers. Ubiquitous  Comput. 24 (2020) 873–886  . 12 
+[55] D. Alejandro,  L. Carvajal, M.M. Morita, G.M. Bilmes, V. museums,  Captured  re- 
+ality and 3D modeling,  J. Cult. Herit. 45 (2020) 234–239  . 
+[56] M.G. Masciotta,  M.J. Morais, L.F. Ramos, D.V. Oliveira, L.J. Sánchez-Aparicio,  
+D. González-Aguilera,  A digital-based  integrated  methodology  for the preven- 
+tive conservation  of cultural heritage:  the experience  of heritagecare  project, 
+Int. J. Archit. Herit. 15 (6) (2021) 844–863  . 
+[57] J. McCarthy,  K. Martin, Virtual reality for maritime  archaeology  in 2.5D: a vir- 
+tual dive on a ﬂute wreck of 1659 in Iceland, in: 2019 23rd International  Con- 
+ference in Information  Visualization  - Part II, 2019, pp. 104–109 . 
+[58] W.K. Obeidy, H. Arshad, J.Y. Huang, TouristicAR:  a smart glass augmented  re- 
+ality application  for UNESCO world heritage sites in Malaysia,  J. Telecommun.,  
+Electron.  Comput. Eng. (JTEC) 10 (3–2) (2018) 101–108 . 9 
+[59] E. Parker, M. Saker, Art museums  and the incorporation  of virtual reality: ex- 
+amining the impact of VR on spatial and social norms, Convergence  26 (5–6) 
+(2020) 1159–1173  . 
+[60] G. Pehlivanides,  K. Monastiridis,  A. Tourtas, E. Karyati, G. Ioannidis,  K. Bejelou, 
+V. Antoniou,  P. Nomikou,  The virtualdiver  project. Making Greece’s underwater  
+cultural heritage accessible  to the public, Appl. Sci. 10 (22) (2020) 8172 . 
+[61] E. Pérez, P. Merchán,  M.J. Merchán,  S. Salamanca,  Virtual reality to foster social 
+integration  by allowing  wheelchair  users to tour complex archaeological  sites 
+realistically,  Remote Sens. 12 (3) (2020) 419 . 
+[62] D. Petrelli, Making virtual reconstructions  part of the visit: an exploratory  
+study, Digit. Appl. Archaeol.  Cult. Herit. 15 (2019) e00123 . 
+[63] F. Ragusa, A. Furnari, S. Battiato, G. Signorello,  G.M. Farinella,  Egocentric  visi- 
+tors localization  in cultural sites, J. Comput. Cult. Herit. 12 (2) (2019) . 4 [64] G. Schoﬁeld,  G. Beale, N. Beale, M. Fell, D. Hadley, J. Hook, D. Murphy, 
+J. Richards,  L. Thresh, Viking VR: designing  a virtual reality experience  for a 
+museum,  in: Proceedings  of the 2018 Designing  Interactive  Systems Confer- 
+ence, DIS ’18, Association  for Computing  Machinery,  New York, NY, USA, 2018, 
+pp. 805–815  . 
+[65] M. Secci, C. Beltrame,  S. Manﬁo, F. Guerra, Virtual reality in maritime  archae- 
+ology legacy data for a virtual diving on the shipwreck  of the Mercurio  (1812), 
+J. Cult. Herit. 40 (2019) 169–176 . Multidisciplinary  study of the Sarno Baths in 
+Pompeii 
+[66] E. Selmanovi  ´c, S. Rizvic, C. Harvey, D. Boskovic,  V. Hulusic, M. Chahin, S. Sljivo, 
+Improving  accessibility  to intangible  cultural heritage preservation  using vir- 
+tual reality, J. Comput. Cult. Herit. 13 (2) (2020) 1–19 . 5 
+[67] F. Settembrini,  M.G. Angelini,  D. Costantino,  Virtual museum,  the exploration  
+of cultural heritage with virtual reality techniques,  in: L.T. De Paolis, P. Bour- 
+dot (Eds.), Augmented  Reality, Virtual Reality, and Computer  Graphics,  Springer 
+International  Publishing,  Cham, 2018, pp. 392–400  . 
+[68] S. Sylaiou, V. Kasapakis,  E. Dzardanova,  D. Gavalas, Assessment  of virtual 
+guides’ credibility  in virtual museum  environments,  in: L.T. De Paolis, P. Bour- 
+dot (Eds.), Augmented  Reality, Virtual Reality, and Computer  Graphics,  Springer 
+International  Publishing,  Cham, 2019, pp. 230–238  . 
+[69] P. Tennent,  S. Martindale,  S. Benford, D. Darzentas,  P. Brundell,  M. Collishaw,  
+Thresholds:  embedding  virtual reality in the museum,  J. Comput. Cult. Herit. 
+13 (2) (2020) 1–35 . 5 
+[70] S. Teruggi, E. Grilli, F. Fassi, F. Remondino,  3D surveying,  semantic  enrichment  
+and virtual access of large cultural heritage,  ISPRS Ann. Photogramm.,  Remote 
+Sens. Spat. Inf. Sci. VIII-M-1-2021  (2021) 155–162 . 
+[71] M.C.t. Dieck, T. Jung, E. Michopoulou,  Experiencing  Virtual Reality in Heritage 
+Attractions:  Perceptions  of Elderly Users, Springer International  Publishing,  
+Cham, 2019, pp. 89–98 . 
+[72] G. Trichopoulos,  J. Aliprantis,  M. Konstantakis,  K. Michalakis,  G. Caridakis,  Tan- 
+gible and personalized  DS application  approach  in cultural heritage:  the chats 
+project, Computers  11 (2) (2022) 19 . 
+[73] Y. Trindade,  F. Rebelo, P. Noriega, Tourism and virtual reality: user experi- 
+ence evaluation  of a virtual environment  prototype,  in: A. Marcus, W. Wang 
+(Eds.), Design, User Experience,  and Usability:  Users, Contexts  and Case Stud- 
+ies, Springer International  Publishing,  Cham, 2018, pp. 730–742  . 
+[74] Y. Trindade,  F. Rebelo, P. Noriega, Dissemination  of São Tomé and  principe cul- 
+ture through virtual reality: comparative  UX study between  potential  tourists 
+from Portugal and Santomean  inhabitants,  in: Design, User Experience,  and Us- 
+ability: Design for Emotion,  Well-Being  and Health, Learning,  and Culture: 11th 
+International  Conference,  DUXU 2022, Held as Part of the 24th HCI Interna- 
+tional Conference,  HCII 2022, Virtual Event, June 26–July 1, 2022, Proceedings,  
+Part II, Springer-Verlag,  Berlin, Heidelberg,  2022, pp. 466–476  . 
+[75] I. Trizio, S. Brusaporci,  A. Luigini, A. Ruggieri,  A. Basso, P. Maiezza,  A. Tata, 
+A. Giannangeli,  Experiencing  the inaccessible.  a framework  for virtual inter- 
+pretation  and visualization  of remote, risky or restricted  access heritage places, 
+in: ISPRS - International  Archives of the Photogrammetry,  Remote Sensing and 
+Spatial Information  Sciences,  vol. XLII-2/W15,  2019, pp. 1171–1178  . 08 
+[76] S. Vlizos, J.-A. Sharamyeva,  K. Kotsopoulos,  Interdisciplinary  design of an ed- 
+ucational  applications  development  platform  in a 3D environment  focused on 
+cultural heritage tourism, in: M. Shehade,  T. Stylianou-Lambert  (Eds.), Emerg- 
+ing Technologies  and the Digital Transformation  of Museums  and Heritage 
+Sites, Springer International  Publishing,  Cham, 2021, pp. 79–96 . 
+[77] K. Yoo, N. Gold, Emotion evoking art exhibition  in VR, 25th ACM Symposium  
+on Virtual Reality Software  and Technology,  VRST ’19, Association  for Comput-  
+ing Machinery,  New York, NY, USA, 2019 . 
+[78] E. Zerman, N. O’Dwyer,  G.W. Young, A. Smolic, A case study on the use of vol- 
+umetric video in augmented  reality for cultural heritage,  in: Proceedings  of 
+the 11th Nordic Conference  on Human-Computer  Interaction:  Shaping Expe- 
+riences, Shaping Society, Association  for Computing  Machinery,  NordiCHI  ’20, 
+New York, NY, USA, 2020 . 
+[79] J. Zhang, G. Zou, G. Zhang, “Meet the deer king”: “splash-ink” interaction  in 
+the innovative  VR game based on Dunhuang  art and culture, SIGGRAPH  Asia 
+2021 XR, Association  for Computing  Machinery,  SA ’21 XR, New York, NY, USA, 
+2021 . 
+[80] F. Liarokapis,  I. Vidová, S. Rizvi ´c, S. Demesticha,  D. Skarlatos,  Underwater  
+search and discovery:  from serious games to virtual reality, in: C. Stephanidis,  
+J.Y.C. Chen, G. Fragomeni  (Eds.), HCI International  2020 – Late Breaking  Papers: 
+Virtual and Augmented  Reality, Springer International  Publishing,  Cham, 2020, 
+pp. 178–197 . 
+[81] M. Doležal, M. Vlachos, M. Secci, S. Demesticha,  D. Skarlatos,  F. Liarokapis,  
+Understanding  underwater  photogrammetry  for maritime  archaeology  through 
+immersive  virtual reality, in: The International  Archives of the Photogramme-  
+try, Remote Sensing and Spatial Information  Sciences,  vol. XLII-2/W10,  2019, 
+pp. 85–91 . 
+[82] P. Kou ˇril, F. Liarokapis,  Simulation  of underwater  excavation  using dredging  
+procedures,  IEEE Comput. Graph. Appl. 38 (2) (2018) 103–111 . 
+[83] W. Schweibenz,  The virtual museum:  an overview  of its origins, concepts,  and 
+terminology,  Museum  Rev. 4 (2019) 1–29 . 08 
+[84] V. Komianos,  Immersive  applications  in museums:  an analysis of the use of 
+XR technologies  and the provided  functionality  based on systematic  literature  
+review, JOIV: Int. J. Inform. Vis. 6 (1) (2022) 60–73 . 
+[85] D. Kosmopoulos,  G. Styliaras,  A survey on developing  personalized  content ser- 
+vices in museums,  Pervasive  Mob. Comput. 47 (2018) 54–77 . 
+[86] E. Pratisto, N. Thompson,  V. Potdar, Immersive  technologies  for tourism:  a sys- 
+tematic review, Inf. Technol. Tourism 24 (2022) 1–39 . 06 
+282
+C. Innocente,  L. Ulrich, S. Moos et al. Journal of Cultural Heritage 62 (2023) 268–284 
+[87] L. Gomes, O. Regina Pereira Bellon, L. Silva, 3D reconstruction  methods  for dig- 
+ital preservation  of cultural heritage:  a survey, Pattern Recognit.  Lett. 50 (2014) 
+3–14 . Depth Image Analysis 
+[88] Y. Jung, Y. Wu, H. Jung, J. Kim, Model Reconstruction  of Real-World  3D Ob- 
+jects: An Application  with Microsoft  HoloLens,  Springer International  Publish- 
+ing, Cham, 2021, pp. 89–104 . 
+[89] C. Wang, Y. Zhu, A survey of museum  applied research based on mobile aug- 
+mented reality, Comput. Intell. Neurosci.  2022 (2022) 2926241  . 8 [90] S. Bhakar, D.P. Bhatt, V. Dhaka, Y. Sarma, A review on classiﬁcations  of tracking 
+systems in augmented  reality, J. Phys.: Conf. Ser. 2161 (2022) 012077 . 01 
+[91] A. Sadeghi-Niaraki,  S.-M. Choi, A survey of marker-less  tracking and registra- 
+tion techniques  for health & environmental  applications  to augmented  reality 
+and ubiquitous  geospatial  information  systems, Sensors 20 (10) (2020) 2997 . 
+[92] S. Elder, A. Vakaloudis,  Towards uniformity  for smart glasses devices: an as- 
+sessment  of function as the driver for standardisation,  in: 2015 IEEE Interna- 
+tional Symposium  on Technology  and Society (ISTAS), 2015, pp. 1–7 . 
+283 

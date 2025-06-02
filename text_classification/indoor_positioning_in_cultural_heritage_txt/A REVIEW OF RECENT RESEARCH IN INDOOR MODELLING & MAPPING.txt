@@ -1,0 +1,682 @@
+A REVIEW OF RECENT RESEARCH IN INDOOR MODELLING & MAPPING   
+ 
+ 
+M. Gunduz a, U. Isikdag b*, M. Basaranera  
+ 
+a Yildiz Technical University , Dept. of. Geomatic  Engineering , Istanbul Turkey – memogedo@gmail.com; mbasaran@yildiz.edu.tr  
+b Mimar Sinan Fine Arts Un iversity, Dept. of Informatics, Istanbul Turkey – uisikdag@gmail.com  
+ 
+Commission  IV, WG  IV/7  
+ 
+ 
+ 
+KEY WORDS: Indoor, Mapping, Modelling,  Navigation,  IFC, CityGML, IndoorGML   
+ 
+ 
+ABSTRACT:  
+ 
+Indoor modeling and mapping  has been an active area of research in last 20 years in order to tackle the problems related to 
+positioning and tracking of people and objects indoors, and provides many opportunities for several domains ranging from 
+emergency response to logistics in mic ro urban spaces. The outputs of recent research in the field have been presented in several 
+scientific publications and events primarily related to spatial information science and technology.  This paper summarizes th e outputs 
+of last 10 years of research on indoor modeling and mapping within a proper classification which covers 7 areas, i.e. Information 
+Acquisition by Sensors, Model Definition , Model Integration , Indoor Positioning and LBS , Routing & Navigation Methods, 
+Augmented  and Virtual Reality Applic ations, and Ethical Issues.  Finally, the paper outlines the current and future  research directions 
+and concluding remarks.  
+ 
+ 
+                                                                 
+*  Corresponding author  
+ 1. INTRODUCTION  
+Our complex world requires developing much smarter scenarios 
+for our living environments. Along with the availability  of 
+spatial information almost ubiquitously in the current societies, 
+spatial applications have been expanding into indoor spaces. 3D 
+spatial information about indoor environments has increasingly 
+been demanded  in various  applications such as risk and disaster 
+management, human trajectory identification , and facility 
+management. The scientific and technological progress in 3D 
+spatial data acquisition as well as 3D city and building 
+modeling has been evolv ing into more sophisticated hardware, 
+software , stand ards, techniques and uses specific to  indoor 
+modeling and mapping.  Sensors provide a key role for 
+acquisition of indoor information, hard sensors such as laser 
+scanners, RGB -D cameras, and gyro  sensors/accelerometers are 
+today main subjects of research in the field, while there are 
+opportunities that are provided by machine learning (i.e. self -
+learning devices that can be used as soft -sensors). Indoor Data 
+Models such as IFC, CityGML and IndoorGML appear as the 
+main focus of current research in the field. T he studies in the 
+area concentrate on enhancing these models and tailoring these 
+models to fit the needs of different application domains. 
+Another  area that the paper is focusing on is Integration,  i.e. a 
+topic which includes studies on fusion of informati on coming 
+from multiple sources and the area also covers efforts on 
+integration of information residing in multiple data models. 
+Another area of research in the field is i ndoor positioning which 
+refers to the task of inferring the location of a mobile devi ce 
+inside  a building. Although m any techniques for positioning are 
+available , a limited number of algorithms and methods can infer 
+indoor location information from measurements.  For indoor 
+location -based services (LBS), both sufficiently accurate 
+positioni ng as well as quality and information -rich indoor maps 
+are required (Werner, 2014) Proposing new and better approaches for indoor navigation and routing is  also an active 
+field of research. In this field some s tudies focus on 
+optimization of routing where there are dynamically changing 
+conditions and multi -targets. Outputs  of indoor modelling and 
+navigation research facilitate the everyday operations of several 
+domains including sales in retail stores, fire response scenarios, 
+building maintenance activitie s. Virtual and augmented reality 
+applications increase human’s perception of real world and 
+carry remarkable potential for indoor environments . Ethical 
+issues also are important  elements of research as these are 
+concerned with  privacy of people .  
+ 
+2. METHODOL OGY  
+The aim of the research was to review of literature in the field of 
+Indoor Modelling  and Mapping,  and outlining the main 
+research directions in this field. The study started with the 
+review of literature focused on papers presented in ISPRS 
+3DGeoInfo C onference in last ten years and also covered the 
+papers of Indoor 3D Workshop which has been organized in 
+Cape Town in 2013. The researchers have come across 51 
+papers directly related to Indoor Modeling and Navigation 
+among the papers that were investigat ed during the review. The 
+findings of the review are then classified into 7 categories as A. 
+Information Acquisition by Sensors, B. Model Definition,  C. 
+Model Integration,  D. Indoor Positioning and LBS,  E. Routing 
+& Navigation Methods,  F. Augmented and Vir tual Reality 
+Applications, and  G. Ethical Issues . The following section 
+elaborates on these categories.  
+ 
+ 
+The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Volume XLI-B4, 2016 
+XXIII ISPRS Congress, 12–19 July 2016, Prague, Czech Republic
+This contribution has been peer-reviewed.  
+doi:10.5194/isprsarchives-XLI-B4-289-2016 
+ 
+289
+ 
+3. RESEARCH FIELDS IN I NDOOR MODELING  
+3.1 Information Acquisition by Sensors  
+Sensors can be used to acquire information in order to build up 
+the indoor model s (i.e. such as laser scanners) and they also aid 
+in locating people and objects within the indoor environment. 
+Terrestrial laser scanners can be used for creating point clouds  
+to represent indoor environment . In fact, this process is time  
+consuming and re quires detailed planning. The research has 
+also demonstrated the use of Laser Scanners for localization. In 
+fact, p revious research indicates that only one mobile laser 
+scanner is not sufficient  for precise localization. Using two 
+mobile laser scanners  is required  for achievin g good 
+localization results ( Kaijaluoto  et al., 2015).  Point clouds can 
+help in generation of the building  models  at different level of 
+details (Achille and Fassi, 2006) . Sometimes it  may be hard to 
+find 3D CAD models of buildings. Eve n it is possible to find 
+the related CAD model, due to lack of the coordinate 
+information they can be difficult  to use. Besides, indoor objects’ 
+place may change or new objects may be added in time  in the 
+buildings . So, it could be helpful to scan, model t he buildings 
+with 3D terrestrial laser scanner  with some intervals . However , 
+it is time consuming to create  3D models and as the approach is 
+not fully automated, and as it requires an experienced operator  
+(Dongzhen et al., 2009).  Fusion  of sensor informati on is also 
+found useful in information structuring. For example, Wang and 
+Sohn ( 2010)  used Airbone laser scanning (ALS) for outdoor 
+information acquisition  and terrestrial laser scanning (TLS) is 
+used for indoor  information acquisition .  Architectural plan s 
+were then  integrated with TLS data using point matching 
+method. Finally, outdoor model and indoor model structured 
+and semantically integrated simultaneously  in the study . 
+Acquired data from sensors can be beneficial in generation of 
+semantically rich di gital building models (Meouche  et al.,  2013)  
+and models such as BIM . Yoon et al . (2015) utilized p oint 
+clouds generated by laser scanners  to create 3D geometries 
+which would form the basis for a BIM. Stereo Vision Systems 
+can also be used to acquire inform ation about indoors. For 
+instance, researchers have reported a p ortable system for 
+seamless outdoor -indoor modeling which ha s four cameras and 
+can be moved/operated by one person.  In this system, fo ur 
+cameras gather stereo images and as a result  3D models can be 
+automatically generated  with high efficiency. (Shao et al., 
+2015) . Sensors  that acquire indoor information can also be used 
+in aiding navigation for instance RGB -D cameras (Kanai  et al. , 
+2015)  and commercial ones such as Microsoft Kinect were used 
+for aiding indoor navigation. (Pagliari et al., 2015) .  It is also 
+possible to generate point clouds from video recordings. Teo 
+(2015)  aimed to generate point cloud s from video data. The 
+phases of the process were  camera calibration, video conversion 
+and al ignment, orientation modeling, dense matching and 
+evaluation. Huge computational time, low image quality caused 
+by video compression and motion blur were the weak  sides of 
+this method.   
+ 
+3.2 Model Definition  
+Building up data models for representing indoors is an 
+important area of research in indoor modeling. Development 
+and implementation of new data types and data structures is one 
+of the key areas of model definition research.  For example, 
+Gold et al . (2006) implemented a Quad -Edge structure used for 
+generati ng building exteriors. Boguslawski  and Gold (2009) 
+used Augmented Quad Edge (AQE) which is an irregular 
+decomposition 3D data model. AQE is suitable to create primal and dual spaces simultaneously. Boguslawski and Gold (20 10) 
+stated that b uilding model s can be constructed using Euler 
+operators.  In their implementation  states/ attributes of node, 
+edge, face or volume can be changed if needed . Multi -layered 
+indoor models is an important research topic in the field. As 
+indicated by Becker et al . (2009) in a mul ti-layered indoor 
+model t opographic and sensor space can be represented in 
+different layers.  While topographic space represents building’s 
+3D model; stories, rooms, corridors and their relationships, 
+sensor space represents Wi -Fi, RFID  sensors  and so on . 
+International standards such as CityGML also provide indoor 
+representations. CityGML Indoor Application Domain 
+Extension  (ADE)  is an indoor spatial model (XML schema) 
+based on CityGML. The ADE includes indoor space features 
+and indoor facility features for  indoor facility management (Kim 
+et al.,  2014) . Shape grammars can also be used to define indoor 
+models. For instance, Becker et al. (2013) proposed a  full 
+automatic approach to generate 3D building interior models 
+from partly erroneous or incomplete obser vation data.  
+ 
+3.3 Model Integration  
+The topic of model integration covers integration of information 
+acquired from sensors and also fusion of information coming 
+from different models. As an example of the former method 
+Wohlfeil  et al. (2013) utilized multi -scale sensor systems and 
+semi-global matching for reconstruction of cultural heritage 
+sites. Nakagawa et al . (2015) proposed a methodology for 
+generation of 3D topologies from indoor mobile LIDAR data. 
+Fusion of information was viewed as a key method in ins tance 
+(object) population in indoor models. For example , Isikdag and 
+Zlatanova  (2009) offer a formal framework for seamless 
+integration between IFC and CityGML. Most of the model 
+integration studies are focused  on unidirectional information 
+transfer , where  information from  IFC model is transferred  into 
+the CityGML model. The work of  El-Mekawy  et al.  (2011) 
+proposed  a bidirectional data model integration for IFC and 
+CityGML.  In another effort by Laat and vanBerlo (2011) 
+implemented  a CityGML extension namely  GeoBIM for 
+extending CityGML with more detailed (semantic) information 
+about the inner structure of buildings.  Studies focusing on 
+seamless i ntegration of outdoor and indoor models and 
+applications have also gained momentum  recently . In this 
+context, stan dards have a prominent role and some missing 
+elements in relevant standards such as IFC and CityGML for 
+indoor applications, particularly indoor navigation, are now 
+being addressed by IndoorGML (IndoorGML Web, 2016). The 
+more challenging issue is the devel opment of standards for 
+indoor location detection/computation technologies. This may 
+continue to be a brake on the development of seamless 
+indoor/outdoor location applications (UN -GGIM, 2015). Recent  
+studies such as Kim and Lee (2015), Jung and Lee (2015) 
+proposed methods for generation of IndoorGML objects. 
+Internet of Things (IoT) is a new research field that focuses on 
+enabling interaction between online “Things” . Isikdag (2014) 
+stated that integration of information from “Things” with indoor 
+information  models will provide unique opportunities for 
+indoor localization and navigation.  Indoor navigation models 
+can be enriched by information coming from multiple resources. 
+Information transfer from BIM into indoor navigation models is 
+the mainstream approach  in the field. Hijazi et al. (2010) built 
+up indoor utility networks based on information derived from 
+IFC BIMs. Geiger et al. (2014) proposed a method of 
+generalization to represent BIM information in CityGML. 
+Further efforts in this direction can contrib ute to the population 
+of indoor model entities. In fact, as BIMs contain much detailed  
+The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Volume XLI-B4, 2016 
+XXIII ISPRS Congress, 12–19 July 2016, Prague, Czech Republic
+This contribution has been peer-reviewed.  
+doi:10.5194/isprsarchives-XLI-B4-289-2016 
+ 
+290
+ 
+semantic and geometric information , information simplification 
+is also required in this transformation.  (Tang  et al. , 2015)  
+ 
+3.4 Indoor Positioning and LBS  
+There are many w ays for indoor positioning like WiFi, RFID, 
+Visible Light Connection and indoor GPS. Krishnamurthy 
+(2015) gives a systematic classification of indoor positioning 
+technologies (RF -based and non -RF-based) and methods 
+(Figure 1). Under t he RF-based technologi es, it is common to 
+employ Wi -Fi as the technology of choice, although Bluetooth, 
+RFID, and cell phone technologies (cellular) are also possible 
+choices.  Among non -RF-based technologies, acoustic 
+technologies that use either ultrasound or sound for localiz ation 
+have received attention. Dead reckoning and signage are the 
+obvious choices for localization in indoor areas without a 
+positioning infrastructure. Some combination of the approaches 
+is also feasible . The common methodologies are those based on 
+proxim ity to a known device, those that use the time of arrival 
+(TOA) of a signal, those that use TOA and direction of arrival 
+(DOA), and finally those that employ location fingerprinting.  In 
+terms of positioning, indoor areas have some disadvantages in 
+comparis on to outdoor environments. Weak signal penetration 
+and multipath signal propagation make it difficult to determine 
+the time or direction of arrival of signals.  Besides, positional 
+accuracy requirement is higher, usually at meter level or better. 
+Furthermo re, buildings are in most cases multi -storey and 
+positioning method and localization schemes can not work 
+accurately if they do not recognize this information.   
+ 
+ 
+Figure 1. Positioning technologies and methods for indoor areas 
+(Adapted from Krishnamurthy , 2015).  
+ 
+Integrated positioning system (IPS) used for more accurate 
+inertial navigation. IPS hardware has a pair of stereo camera to 
+acquire stereo images. (Grießbach  et al. , 2013) . Fuse and 
+Matsumoto  (2015) proposed an information fusion 
+methodology comb ining information coming from images, 
+GPS, gyro, accelerometers and magnetic field sensors for 
+localization.  Lai et al. , (2015)  used low cost and readily 
+available sensors calibrated and used for estimate step length 
+and strength. Pedestrian navigation is possible by multi -sensor 
+(accelerometer and gyroscope) fusion and fuzzy logic 
+estimation. Ogawa et al . (2015) proposed an Indoor Messaging 
+System (IMES) which is GPS like positioning system and Open 
+Location Services (OpenLS) standard selected.  Werner (201 4) 
+gives a schematic representation of building blocks of i ndoor 
+location -based services ( LBSs)  (Figure 2). Indoor LBSs require 
+precise geometric and semantic representation  of buildings in 
+addition to sufficiently accurate indoor positioning. It is easy t o 
+find geographic data sets and maps for outdoor environments 
+but difficult to say the same for indoor spaces, which require  3D 
+(or 2.5) maps to allow routing and navigation between floors 
+(Karimi, 2015).  
+ 
+ 
+ 
+Figure 2. Building blocks of indoor location -based services 
+(Adapted from Werner, 2014).  
+ 
+ 
+3.5 Routing & Navigation Methods  
+Methods for facilitating routing and navigation in buildings is 
+another valuable topic of indoor modeling research. As outlined 
+by Karas  et al . (2006) derivation of n etwork models is a 
+necessity  to calculate the optimal route s for indoor navigation. 
+Indoor  navigation calculations mainly rely on shortest path 
+algorithm , for instance Xiong et al . (2015) proposed a  method 
+that uses A* algorithm to create 3D indoor paths. In fact,  
+shortest  path is not always the optimal one. For example, in a 
+fire emergency situation, shortest path can be generated via 
+blocking the paths where fire is ongoing but that is not enough 
+to decide that path is secure enough. More parameters should be 
+used to gene rate optimal route via risk analysis  (Vanclooster  et 
+al., 2013) . As mentioned by Atila et al . (2012) m ost of the 
+indoor routing systems are based on 2D or 2,5D models.  There 
+are many algorithms for outdoor path routing, but indoor 
+routing algorithms are n ot so diverse. Dijk stra’s shortest path 
+algorithm is being used at most of the researches. Cognitive 
+indoor route algorithms are important and needed as much as 
+outdoor routing, especially in three -dimensional systems. At the 
+work  of Vanclooster  et al. (20 13), Grum’s least risk path 
+algorithm for outdoor space is implemented to indoor routing. 
+Using landmarks and salient images while explaining routes to 
+other people is a common human behavior but indoor 
+navigation systems don’t have such semantics for this  purpose. 
+The research  of Arendholz  and Becker  (2015) identified 
+potential landmarks, signs and images and then classified them 
+by the requirements. Finally, a thematic framework for 
+navigation in existing building models like CityGML, IFC or 
+KML is genera ted. People use a sign system to find their routes 
+in Netherlands. Makri et al . (2015) proposed an  indoor 
+navigation system is similar with this sign system. A method 
+used for generating graph model automatically. Floor signs 
+created with this graph model.  Most of the routing systems are 
+not interactive; users can’t change, modify or customize the 
+network model. Khan et al . (2014) combined Multi -layered 
+Space Event Model (MLSEM) and IndoorGML structures and 
+proposed a context aware route planning cloud -based system.  
+Work of Goetz and Zipf (2011)  focuse d on navigation in more 
+complex situations like considering obstacles at interior space, 
+districted areas or vertical building parts. One way paths such as 
+escalators or passport control points were  also consi dered  in 
+their research . Weighted indoor routing graph  which can 
+generate different routes for disabled or elderly people  was 
+proposed for user adaptive routing . In order to facilitate 
+seamless navigation indoors/outdoors , topological models 
+representing connected indoor/outdoor spaces  is required  
+The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Volume XLI-B4, 2016 
+XXIII ISPRS Congress, 12–19 July 2016, Prague, Czech Republic
+This contribution has been peer-reviewed.  
+doi:10.5194/isprsarchives-XLI-B4-289-2016 
+ 
+291
+ 
+(Slings by and Raper, 2008). Evacuation management is one of 
+the primary domains which makes use of indoor routing and 
+navigation methods.  For instance, Atila et al . (2014) proposed a  
+solution (data and network gen eration, visualization and 
+evacuation model) for fire evacuation scenarios. In a disaster 
+scenario, routing for shortest exit path in order to evacuation 
+may not enough. People may rush to common doors and 
+confluence may happen. Research of Choi  and Lee  (2009) 
+aimed to calculate temporal changes during evacuation with 
+proposed agent -based model .  
+ 
+3.6 Augmented and Virtual Reality Applications  
+There are currently no standards or best practices of how to 
+display indoor navigation information. Several attempts us e 
+two-dimensional floor plans or three -dimensional building 
+models and plot the current position, plus the routing 
+information. There seems to be no formal investigation, if these 
+representations are understood by the users and help the users in 
+their navi gational tasks  (Krisp et al., 2015 ). As new way of 
+communicating indoor spatial information , Augmented and 
+Virtual Reality (AR&VR) applications are used to assist user’s 
+wayfinding activities indoors. With the advent of new AR&VR 
+technologies such as Googl e GlassTM, Microsoft HoloLensTM, 
+Occulus RiftTM and Samsung GearTM, various methodologies 
+for utilizing these technologies will also be proposed and 
+implemented by t he researchers  in coming years . For instance, a 
+way-finding assistance system  developed  recently , provide s an 
+augmented reality based solution for pedestrians. The system  
+generates coarse 3D model of destination feature from images 
+and displays it at screen on the real -time video if the angle of 
+the camera is right. Generated 3D model’s size and  view angle 
+changes based on the distance and digital compass, gyroscope 
+data acqui red from the mobile device ( Yokoi  et al. , 2015) . 
+Another implementation example is provided by Lee and Tsai 
+(2015) where 3D building model from panoramic  images  were 
+derived  semi-automatically  to assist AR based navigation.  
+ 
+3.7 Ethical Issues  
+The issues related to personal privacy and traceability have 
+always been a major topic of indoor modeling and navigation 
+related research. Verbree et al . (2013) discusses this issue in 
+their paper “To Localise or to Be Localised with WiFi in The 
+Hubei Museum?”. Indoor positioning systems enable to track 
+the position of people, and this help companies to send 
+commercial messages depending on the location of them. In 
+fact, as o ne could conside r an unrelated content as spam , the 
+person  may feel uncomfortable  when he /she received such a 
+message.  In order to  prevent that perception, location based 
+push message system was offered  by Nakagawa  (2013) . A 
+virtual geofence system created  for this purpos e with movement 
+tracking. If  the subject person stops/waits on a pre -determined 
+location , the system considers that the subject is showing 
+attention to that location and a push message content related to 
+that location will then be sent  to the user .  
+ 
+4. CONCL USION  
+Spatial data collection, representation, processing, analysis and 
+visualization methods for indoor modeling and mapping are still 
+under development although significant progress has recently 
+been made from scientific and technological perspective.  
+Conferences such as  ISPRS 3DGeoInfo and Indoor 3D forms 
+nice academic forums for discussion of research related to 
+indoor modelling and mapping. This paper has presented a systematic summary of the research outputs belonging to last 
+ten year s. Precise positi oning techniques, sensor network 
+systems, IoT, integrated indoor and outdoor data representation 
+models and standards, more sophisticated LBS applications and 
+advanced visualization techniques will be key research topics in 
+indoor modeling and mapping  research in coming years . 
+REFERENCES  
+Achille, C., Fassi, F., 2006. 3D multi -scale modelling of the 
+interior of the Real Villa of Monza (ITALY). Innov. 3D Geo 
+Inf. Syst.  195–205.  
+ 
+Arendholz, K., Becker, T., Arendholz, K., Becker, Á.T., Becker, 
+T., 2015. Requir ements on Building Models Enabling the 
+Guidance in a Navigation Scenario Using Cognitive Concepts. 
+Lect. Notes Geoinf. Cartogr.  157–173.  
+ 
+Atila, U., Karas, I.R., Rahman, A.A., Atila, U., Karas, I.R., 
+Rahman, A.A., 2013. A 3D -GIS Implementation for Realizi ng 
+3D Network Analysis and Routing Simulation for Evacuation 
+Purpose. Lect. Notes Geoinf. Cartogr.  249–260.  
+ 
+Atila, U., Karas, I.R., Turan, M.K., Rahman, A.A., 2014. 
+Automatic Generation of 3D Networks in CityGML and Design 
+of an Intelligent Individual Ev acuation Model for Building 
+Fires  Within the Scope of 3D GIS.  Innovations in 3D Geo -
+Information Sciences.  Springer International Publishing, pp. 
+123–142.  
+ 
+Becker, S., Peter, M., Fritsch, D., Philipp, D., Baier, P., Dibak, 
+C., 2013. Combined Grammar for th e Modeling of Building 
+Interiors. ISPRS Ann. Photogramm. Remote Sens. Spat. Inf.  Sci. 
+II-4/W1, 1 –6.  
+ 
+Becker, T., Nagel, C., Kolbe, T.H., 2009. A Multilayered 
+Space -Event Model fo r Navigation in Indoor Spaces. 3D Geo -
+Information Sciences . Springer Berlin H eidelberg, Berlin, 
+Heidelberg, pp. 61 –77.  
+ 
+Boguslawski, P., Gold, C., 2009. Construction Operators for 
+Modelling 3D Objects and  Dual Navigation Structures.  3D 
+Geo-Information Sciences . Springer Berlin Heidelberg, Berlin, 
+Heidelberg, pp. 47 –59.  
+ 
+Boguslaws ki, P., Gold, C., 2011. Rapid modelling of complex 
+building interiors. Adv. 3D Geo -Information Sci ., pp. 43-56.  
+ 
+Choi, J., Lee, J., 2009. 3D Geo -Network for Agent -based 
+Building Evacuation Simulation . 3D Geo -Information Sciences . 
+Springer Berlin Heidelber g, Berlin, Heidelberg, pp. 283 –299.  
+ 
+Dongzhen, J., Khoon, T.Y., Zheng, Z., Qi, Z., 2009. Indoor 3D 
+Modeling and Visualization with a 3D Terrestrial Laser 
+Scanner . 3D Geo -Information Sciences . Springer Berlin 
+Heidelberg, Berlin, Heidelberg, pp. 247 –255.  
+ 
+El Meouche, R., Rezoug, M., Hijazi, I., Maes, D., 2013. 
+Automatic Reconstruction of 3D Building Models from 
+Terrestrial Laser Scanner Data. ISPRS Ann. Photogramm. 
+Remote Sens. Spat. Inf. Sci.  II-4/W1, 7 –12.  
+ 
+El-Mekawy, M., Östman, A., Shahzad, K., 2011. T owards 
+Interoperating CityGML and IFC Building Models: A Unified 
+Model Based Approach. Adv. 3D Geo -Information Sci . 
+XXXVIII, 73 –93.  
+The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Volume XLI-B4, 2016 
+XXIII ISPRS Congress, 12–19 July 2016, Prague, Czech Republic
+This contribution has been peer-reviewed.  
+doi:10.5194/isprsarchives-XLI-B4-289-2016 
+ 
+292
+ 
+ 
+Fuse, T., Matsumoto, K., 2015. Self -Localization Method By 
+Integrating Sensors. ISPRS - Int. Arch. Photogramm. Remote 
+Sens. Spat. Inf. Sci . XL-4/W5, 87 –92.  
+ 
+Geiger, A., Benner, J., Haefele, K.H., 2015. Generalization of 
+3D IFC Building Models . 3D Geoinformation Science. Springer 
+International Publishing , pp. 19 –36.  
+ 
+Goetz, M., Zipf, A., 2011. Formal definition of a user -adaptive 
+and length -optimal routing graph for complex indoor 
+environments. Geo-spatial Inf. Sci . 14, 119 –128.  
+ 
+Gold, C., Tse, R., Ledoux, H., 2006. Building Reconstruction 
+— Outside and In . Innovations in 3D Geo Information Systems . 
+Springer Berlin Heidelber g, Berlin, Heidelberg, pp. 355 –369.  
+ 
+Grießbach, D., Baumbach, D., B örner, A., Zuev, S., 2013. 
+Accuracy evaluation of stereo vision aided inertial navigation 
+for indoor environments. Int. Arch. Photogramm. Remote Sens. 
+Spat. Inf. Sci.  - ISPRS Arch. 40, 13 –17.  
+ 
+Hijazi, I., Ehlers, M., Zlata nova, S., Becker, T., Berlo, L. Van, 
+2011. Initial Investigations for Modeling Interior Utilities 
+Within 3D Geo Context : Transforming Ifc - Interior Utility To 
+Citygml / Utilitynetworkade . Advances in 3D Geo -Information 
+Sciences , 95-113.  
+ 
+IndoorGML [WWW D ocument], 2016. URL 
+http://www.opengeospatial.org/standards/indoorgml  
+ 
+Isikdag, U., 2014. A RESTful Service for Linking Sensors and 
+Cellular Spaces. Innov. 3D Geo -Information Sci . 93–105.  
+ 
+Isikdag, U., Zlatanova, S., 2009. Towards Defining a 
+Framework for  Automatic Generation of Buildings in CityGML 
+Using  Building Information Models.  3D Geo -Information 
+Sciences . Springer Berlin Heidelberg, Berlin, Heidelberg, pp. 
+79–96.  
+ 
+Jung, H., Lee, J., 2015. Indoor Subspacing To Implement 
+Indoorgml for Indoor Navigati on. ISPRS - Int. Arch. 
+Photogramm. Remote Sens. Spat. Inf. Sci . XL-2/W4, 25 –27.  
+ 
+Kaijaluoto, R., Hyyppä, A., 2015. Precise Indoor Localization 
+for Mobile Laser Scanner. ISPRS - Int. Arch. Photogramm. 
+Remote Sens. Spat. Inf. Sci.  XL-4/W5, 1 –6.  
+ 
+Kanai, S.,  Hatakeyama, R., Date, H., 2015. Improvement of 3D 
+Monte Carlo Localization Using a Depth Camera and 
+Terrestrial Laser Scanner. ISPRS - Int. Arch. Photogramm. 
+Remote Sens. Spat. Inf. Sci.  XL-4/W5, 61 –66.  
+ 
+Karas, I.R., Batuk, F., Akay, A.E., Baz, I., 2006.  Automatically 
+Extracting 3D Models and Network Analysis for Indoors . 
+Innovations in 3D Geo Information Systems . Springer Berlin 
+Heidelberg, Berlin, Heidelberg, pp. 395 –404.  
+ 
+Karimi, H.A., 2015. Indoor Wayfinding and Navigation . CRC 
+Press, Inc. Boca Raton , FL, USA.  
+ 
+Khan, A., Yao, Z., Kolbe, T., 2015. Context Aware Indoor 
+Route Planning Using Semantic 3D Building Models with 
+Cloud Computing . 3D Geoinformation Science . Springer 
+International Publishing, pp. 175 –192.  
+ Kim, M., Lee, J., 2015. Developing  a Me thod t o Generate 
+Indoorgml Data From the Omni -Directional Image. ISPRS - Int. 
+Arch. Photogramm. Remote Sens. Spat. Inf. Sci . XL -2/W4, 17 –
+19.  
+ 
+Kim, Y., Kang, H., Lee, J., 2014. Developing CityGML Indoor 
+ADE to Manage Indoor Facilities . Innovations in 3D Ge o-
+Information Sciences . Springer International Publishing, pp. 
+243–265.  
+ 
+Krishnamurthy, P., 2015. Technologies for Positioning in 
+Indoor Areas . Indoor Wayfinding and Navigation . CRC Press, 
+Inc., FL, USA, pp. 35 –51. 
+ 
+Krisp J. M., Jahnke M., Lyu H. and Fack ler F., 2013. 
+Visualization and Communication of Indoor Routing . Progress 
+in Location -Based Services  2014. Springer International 
+Publishing, pp. 33 – 44.  
+ 
+Laat, R. De, Berlo, L. Van, 2011. Integration of BIM and GIS: 
+The development of the CityGML GeoBIM  extension. Adv. 3D 
+Geo-Information Sci.  211–225.  
+ 
+Lai, Y.C., Chang, C.C., Tsai, C.M., Lin, S.Y., Huang, S.C., 
+2015. Development of a Pedestrian Indoor Navigation System 
+Based on Multi -Sensor Fusion and Fuzzy Logic Estimation 
+Algorithms . ISPRS - Int. Arch . Photogramm. Remote Sens. 
+Spat. Inf. Sci . XL-4/W5, 81 –86.  
+ 
+Lee, I. -C., Tsai, F., 2015. Applications of Panoramic Images: 
+From 720° Panorama To Interior 3D Models of Augmented 
+Reality. ISPRS - Int. Arch. Photogramm. Remote Sens. Spat. 
+Inf. Sci.  XL-4/W5, 1 89–192.  
+ 
+Makri, A., Zlatanova, S., Verbree, E., Delaunay, C., 2015. an 
+Approach for Indoor Wayfinding Replicating Main Principles 
+of an Outdoor Navigation System for Cyclists . ISPRS - Int. 
+Arch. Photogramm. Remote Sens. Spat. Inf. Sci . XL, 21 –22.  
+ 
+Nakaga wa, M., 2013. Improvement in the geofencing service 
+interface using indoor positioning systems and mobile sensors. 
+Int. Arch. Photogramm. Remote Sens. Spat. Inf. Sci. - ISPRS  
+Arch. 40, 27 –30.  
+ 
+Nakagawa, M., Yamamoto, T., Tanaka, S., Shiozaki, M., 
+Ohhashi,  T., 2015. Topological 3d Modeling Using Indoor 
+Mobile Lidar Data . Int. Arch. Photogramm. Remote Sens. Spat. 
+Inf. Sci. - ISPRS , 13–18.  
+ 
+Norris, J., Ordnance Survey, 2015. Future Trends in geospatial 
+information management: the five to ten year vision, Sec ond ed.  
+Ogawa, K., Verbree, E., Zlatanova, S., Kohtake, N., Ohkami, 
+Y., 2011. Toward seamless indoor -outdoor applications: 
+Developing stakeholder -oriented location -based services. Geo-
+spatial Inf. Sci.  14, 109 –118.  
+ 
+Pagliari, D., Cazzaniga, N.E., Pinto, L ., 2015. Use of Assisted 
+Photogrammetry for Indoor and Outdoor Navigation Purposes. 
+ISPRS - Int. Arch. Photogramm. Remote Sens. Spat. Inf. Sci . 
+XL-4/W5, 113 –118.  
+ 
+Shao, Z., Li, C., Zhong, S., Liu, B., Jiang, H., Wen, X., 2015. 
+3D Reconstruction of Cultura l Tourism Attractions From 
+Indoor To Outdoor Based on Portable Four -Camera Stereo 
+Vision System. ISPRS - Int. Arch. Photogramm. Remote Sens. 
+Spat. Inf. Sci.  XL-4/W5, 193 –197.  
+The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Volume XLI-B4, 2016 
+XXIII ISPRS Congress, 12–19 July 2016, Prague, Czech Republic
+This contribution has been peer-reviewed.  
+doi:10.5194/isprsarchives-XLI-B4-289-2016 
+ 
+293
+ 
+ 
+Slingsby, A., Raper, J., 2008. Navigable Space in 3D City 
+Models for Pedestrian s Brief Review of 3D city modelling 
+approaches . Advances in 3D Geoinformation Systems . 49–64.  
+ 
+Tang, S.J., Zhu, Q., Wang, W.W., Zhang, Y.T., 2015. 
+Automatic Topology Derivation From Ifc Building Model for 
+in-Door Intelligent Navigation. ISPRS - Int. Arch.  Photogramm. 
+Remote Sens. Spat. Inf. Sci. XL-4/W5, 7 –11.  
+ 
+Teo, T., 2015. Video -Based Point Cloud Generation Using 
+Multiple Action Cameras. ISPRS - Int. Arch. Photogramm. 
+Remote Sens. Spat. Inf. Sci.  XL-4/W5, 55 –60.  
+ 
+Vanclooster,  a., Viaene, P., Van de W eghe, N., Fack, V., De 
+Maeyer, P., 2013. Analyzing the applicability of the least risk 
+path algorithm in indoor space. ISPRS Ann. Photogramm. 
+Remote Sens. Spat. Inf. Sci.  II-4/W1, 19 –26.  
+ 
+Vanclooster,  a., Viaene, P., Van de Weghe, N., Fack, V., De 
+Maeyer , P., 2013. Analyzing the applicability of the least risk 
+path algorithm in indoor space. ISPRS Ann. Photogramm. 
+Remote Sens. Spat. Inf. Sci.  II-4/W1, 19 –26.  
+ 
+Verbree, E., Zlatanova, S., Van Winden, K., Van Der Laan, E., 
+Makri, A., Taizhou, L., Haojun, A. , 2013. To localise or to be 
+localised with WiFi in the Hubei museum? Int. Arch. 
+Photogramm. Remote Sens. Spat. Inf. Sci. - ISPRS  Arch. 40, 
+31–35.  
+ 
+Wang, L., Sohn, G., 2011. An Integrated Framework for 
+Reconstructing Full 3D Building Models. Lect. Notes G eoinf. 
+Cartogr. XXXVIII, 261-274.  
+ 
+Werner, M., 2014. Indoor Location -Based Services . Springer 
+International Publishing, Cham.  
+ 
+Wohlfeil, J., Strackenbrock, B., Kossyk, I., 2013. Automated 
+high resolution 3d reconstruction of cultural heritage using 
+multi -scale sensor systems and semi -global matching. Int. Arch. 
+Photogramm. Remote Sens. Spat. Inf. Sci. - ISPRS  Arch. 40, 
+37–43.  
+ 
+Xiong, Q., Zhu, Q., Zlatanova, S., Du, Z., Zhang, Y., Zeng, L., 
+2015. Multi -Level Indoor Path Planning Method. ISPRS - Int. 
+Arch.  Photogramm. Remote Sens. Spat. Inf. Sci.  XL-4/W5, 19 –
+23.  
+ 
+Yokoi, K., Yabuki, N., Fukuda, T., Michikawa, T., Motamedi, 
+A., 2015. Way -Finding Assistance System for Underground 
+Facilities Using Augmented Reality. ISPRS - Int. Arch. 
+Photogramm. Remote Sens. Spat. Inf. Sci. XL-4/W5, 37 –41.  
+ 
+Yoon, S., Jung, J., Heo, J., 2015. Practical Implementation of 
+Semi -Automated As -Built Bim Creation for Complex Indoor 
+Environments. ISPRS - Int. Arch. Photogramm. Remote Sens. 
+Spat. Inf. Sci.  XL-4/W5, 143 –146.  
+The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Volume XLI-B4, 2016 
+XXIII ISPRS Congress, 12–19 July 2016, Prague, Czech Republic
+This contribution has been peer-reviewed.  
+doi:10.5194/isprsarchives-XLI-B4-289-2016 
+ 
+294

@@ -1,0 +1,1006 @@
+International Journal of Applied Earth Observations and Geoinformation 116 (2023) 103156
+Available online 21 December 2022
+1569-8432/© 2022 The Authors. Published by Elsevier B.V. This is an open access article under the CC BY-NC-ND license ( http://creativecommons.org/licenses/by-
+nc-nd/4.0/ ).3D LiDAR and multi-technology collaboration for preservation of built 
+heritage in China: A review 
+Yuan Lia,e, Long Zhaoa,e, Yiping Chenb,*, Na Zhanga,e, Hongchao Fanc, Zhenxin Zhangd 
+aSchool of Architecture and Civil Engineering, Xiamen University, Xiamen, China 
+bSchool of Geospatial Engineering and Science, Sun Yat-sen University, Zhuhai, China 
+cFaculty of Engineering, Norwegian University of Science and Technology, Trondheim, Norway 
+dSchool of Architecture Urban Planning Construction Engineering, Polytechnic University of Milan, Mantova, Italy 
+eXiamen Key Laboratory of Integrated Application of Intelligent Technology for Architectural Heritage Protection   
+ARTICLE INFO  
+Keywords: 
+Built heritage preservation 
+3D LiDAR 
+Multi-technology collaboration 
+Literature review 
+Research progress ABSTRACT  
+In recent years, the technical application of 3D LiDAR has gradually expanded to the field of built heritage. 3D 
+scanning, high-precision measurement, and reconstruction have enriched the methods of built heritage preser -
+vation and significantly improved the quality of heritage preservation in China. 3D LiDAR has broken through 
+the limitations of a single technology application and played a greater role in the field of heritage preservation on 
+different scales. Through the collaboration of multi-technology, such as 3D printing, digital mapping, internet of 
+things, machine learning, intelligent sensors, close-range photogrammetry, infrared detection, stress wave to-
+mography, material analysis, XR technology, reverse engineering, etc., 3D LiDAR shows its technological ad-
+vantages on exploring the remote real-time monitoring and digitization of the built heritage, geological and 
+environmental data collection, prediction of sedimentation, deformation monitoring, weather monitoring,system 
+life cycle health detection, digital reproduction of built heritage for developing scientific problems and engi-
+neering practices such as building contour recognition, information feature matching, structural reinforcement 
+and damaged component replacement. In addition, through the docking with GIS, HBIM, XR, and CIM, it pro-
+vides fine digital models and high-precision data benchmarks which contribute to the heritage visual repro -
+duction; and through the docking with 3Ds Max, SketchUp, and other modeling software, it has contributed to 
+the renewal design of the built heritage, space optimization, and the scientificity and rationality of the heritage 
+value evaluation. However, past technology applications also highlighted many problems such as limited 
+recorded information, a large amount of data, high difficulty in collaboration, non-standardized and fragmented 
+data, and difficulty in data mining and comprehensive utilization. There are still deficiencies in building a built 
+heritage data backplane, and the development of a dynamic, three-dimensional, intelligent and refined heritage 
+monitoring system, and further research is needed on these issues. This study reviews the previous academic 
+progress and application of 3D LiDAR in the reconstruction of built heritage and multi-technology collaboration 
+in the process of preservation, clarifies the current research hotspots and methods, the frontier issues of concern, 
+and also clarifies the specific problems and challenges in the future.   
+1.Introduction 
+Built heritage mainly covers three parts: architectural heritage, 
+urban heritage, and landscape heritage, which have both material and 
+social properties (Li, 2019 ). Built heritage constitutes the uniqueness 
+and identity of a place, it is a non-renewable resource and can be 
+vulnerable to change (Phillips, 2015; Organ, 2019; Tan, et al., 2020; 
+Azmi, et al., 2021 ). As the physical carrier of regional space history, it plays a significant role in the continuation of the urban context, local 
+characteristics, and collective memory (Wang et al., 2016; Vaz de 
+Freitas, et al, 2022 ). In recent years, built heritage has faced many 
+problems and challenges, such as deformation caused by environmental 
+degradation, erosion, and collapse caused by natural disasters, excessive 
+human intervention in the process of preservation and development, and 
+inappropriate replacement of materials and colors in the process of 
+restoration (Coombes, et al., 2021 ). A series of problems emerged, such 
+*Corresponding author. 
+E-mail address: chenyp79@mail.sysu.edu.cn (Y. Chen).  
+Contents lists available at ScienceDirect 
+International Journal of Applied Earth  
+Observations and Geoinformation 
+u{�~zkw! s{yo| kro>! ÐÐÐ1ow�o�t o~1m{y2w{mk�o 2ukr!
+https://doi.org/10.1016/j.jag.2022.103156 
+Received 1 July 2022; Received in revised form 30 October 2022; Accepted 12 December 2022   
+International Journal of Applied Earth Observation and Geoinformation 116 (2023) 103156
+2as the disappearance of real historical and cultural information and the 
+reduction of the historical value of heritage. In China, under the guid-
+ance of many principles such as authenticity, integrity, identifiability, 
+readability, and sustainability, the practice of built heritage preserva -
+tion is committed to the goal of maximum preservation and minimum 
+intervention, while new technologies development and application play 
+a key role in this process. 
+3D LiDAR has been an active research area in the photogrammetry, 
+computer vision, and computer graphics communities, and it is con-
+cerned with several fields of the urban environment, cultural heritage, 
+environmental monitoring, mapping, and modeling (Wang, 2013; Di 
+Stefano et al., 2021 ). As a new mapping technology, 3D LiDAR is widely 
+used in the field of built heritage preservation. It considers the advan -
+tages of high data acquisition efficiency and an accurate point cloud 
+model, presenting a fine hierarchical structure at the level of modeling 
+details of the built heritage (El-Hakim et al., 2004; Guo et al., 2020 ). At 
+present, this technology has been widely used in high-precision 3D 
+modeling of cultural heritage sites, digital mapping, heritage display, 
+building ontology preservation, repair, structure precision measure -
+ment, archiving, digital basic database construction, industrial reverse 
+engineering, virtual reality, and other fields. However, the preservation 
+of the built heritage has the characteristics of multidisciplinary, multi- 
+scale, complexity. A single type of application is difficult to meet the 
+heritage preservation integration, all-round, multi-level, and structured 
+requirements. 3D LiDAR-based technology collaborative methods 
+become more adapted to the different types, scales, and structures of 
+built heritage and important research direction. 3D LiDAR and multi- 
+technology cooperation refer to the practice of taking 3D LiDAR as the 
+main technology and combining 3S technology, 3D virtual reality, 3D 
+printing, big data, and other technical means to carry out cooperation in 
+the preservation process. The technology combination has flexibility 
+and extensibility in realizing digital preservation of built heritage, 
+display interaction, virtual restoration and reconstruction, authenticity, 
+integrity, suitability, sustainable heritage environment optimization, 
+and many other aspects. Based on the above discussion, it is necessary to 
+review the 3D LiDAR and multi-technology cooperation in the field of 
+built heritage preservation. 
+This literature review critically reviews the papers in Chinese from 
+the time span of 2012 to 2022, summarizing the academic research and 
+specific practice of 3D LiDAR and multi-technology collaboration in the 
+preservation of built heritage. The contribution of this literature review 
+is as follows: (1) this paper sheds the light on the current application of 
+3D LiDAR, including the problem-solving exploration, and the paradigm 
+of collaboration with other technologies, which helps to establish a 
+systematic understanding of the application of 3D LiDAR technology in 
+the field of built heritage preservation. (2) through the analysis of many 
+cases on built heritage preservation, this paper summarized the research 
+progress of 3D LiDAR in collaboration with multiple technologies and 
+presented the technical difficulties. (3) through the literature review, 
+this paper highlighted the technical and methodological limitations, 
+moreover, provided the future possibilities of technological application. 
+2.Data sources and study methods 
+To identify relevant studies, the authoritative citation databases 
+based on the CNKI (China National Knowledge Infrastructure) academic 
+platforms such as the Core journal directory of Peking University (PKU), 
+CSSCI database (Significant Journal of Humanities and Social Sciences 
+in Chinese), and CSCD database (Significant Journal of Science and 
+Technology in Chinese) were adopted. This literature review mainly 
+considers built heritage-related papers, focusing on the academic studies 
+and practices of the 3D LiDAR and multi-technology cooperation in the 
+field of built heritage preservation in China. The time is taken from 2012 
+to 2022, namely, take the recent 10 years as a periodic summing-up 
+work. The papers collected in the above-mentioned databases are of 
+high academic value and have good authority and reliability. The research data acquisition process is as follows: Firstly, based on the CNKI 
+academic platform, this study selects high-quality papers from the Core 
+journal directory of Peking University, CSSCI, and CSCD databases 
+based on the search item, the first search term is “laser scanning ”, 
+moreover, “heritage ”, “3D LiDAR ”, and “preservation ” were used as the 
+second search term. Secondly, according to the research topic of this 
+literature review, the retrieved Chinese literature was manually 
+screened and classified. Finally, 265 papers were selected as the basic 
+data for this review. 
+Based on clarifying the technical application background and current 
+situation, the study makes an overall literature review of the selected 
+Chinese papers. The specific research steps are as follows: First, use the 
+bibliometric method and the statistical functions of CNKI to analyze the 
+interannual distribution of bibliographic data. The distribution of aca-
+demic journals, the distribution of disciplines, the distribution of re-
+searchers and their institutions, research hotspots, research issues, and 
+research methods distribution are descriptive statistics, aiming to 
+comprehensively present and clarify the progress of existing research in 
+3D LiDAR combined with built heritage preservation in China; Second, 
+use the citation space method, the bibliometric visualization tool VOS-
+viewer is used to sort out the hotspots, technical methods, and analyze 
+the research density of Chinese papers; Third, conduct a comprehensive 
+review of the multidisciplinary application of 3D LiDAR, the hotspots 
+and methods of 3D LiDAR and multi-technology collaboration from 
+multi-scale; Finally, based on the summarization, analysis, and com-
+parison of the selected papers to give a discussion of the future challenge 
+and future technological application, and the reference is drawn for the 
+follow-up research. 
+3.Quantitative analysis of the statistical characteristics of the 
+selected papers 
+3.1. Interannual distribution of papers 
+From the annual distribution of documents after 2012, the literature 
+on 3D LiDAR and built heritage preservation collected by the Core 
+journal directory of Peking University, CSSCI, and CSCD began to in-
+crease (Fig. 1), and then basically showed a trend of small increase year 
+by year. After 2016 –2017, the literature began to increase significantly; 
+After 2017, it showed a trend of gradual decline, but the number of 
+literature remained around 33–41 papers, which to some extent in-
+dicates that academic attention on the combination of 3D LiDAR and 
+built heritage preservation has not decreased in recent years, and rele-
+vant research results have maintained a steady growth momentum. 
+Fig. 1.Number and trend of publications in the Core journal directory of 
+Peking University, CSSCI, and CSCD. Y. Li et al.                                                                                                                                                                                                                                        
+International Journal of Applied Earth Observation and Geoinformation 116 (2023) 103156
+33.2. Distribution of journals and disciplines 
+From the perspective of source publications (Table 1), the top 10 
+journals in the number of Chinese papers published mainly focus on the 
+five most representative disciplines of surveying and mapping, laser, 
+cultural preservation, remote sensing, and architecture to carry out 
+relevant research on built heritage preservation. Among the significant 
+journals, Bulletin of Surveying and Mapping and Laser Journal occupy the 
+first two places in terms of the number of published papers, focusing on 
+the practical application of built heritage preservation, and covering 
+more types of heritage at macro and meso scales. However, the paper 
+published in cultural preservation and architecture journals focuses on 
+the digital preservation of heritage sites at a mesoscale and microscale, 
+and the number of articles published is far behind that of surveying, 
+mapping, and laser journals. the advantages of this discipline need to be 
+further released in subsequent studies. overall, the papers published in 
+these journals cover the multi-disciplinary and multi-scale characteris -
+tics of built heritage preservation and are based on the discussion of 
+multiple data sources, multi-technology combinations, key technolo -
+gies, and technology applications, reflecting the trend of technological 
+collaboration and disciplinary integration of research. 
+4.Hotspots and methods of 3D LiDAR for built heritage 
+preservation 
+The preservation of built heritage possesses the traits of complexity, multi-scale, and multi-discipline. First of all, each field of study has 
+unique viewpoints and methods for tackling particular issues. In terms of 
+3D LiDAR and multi-technology collaboration, the differences in the 
+built heritage at macro, meso, and micro scales need to fill the needs of 
+heritage preservation at different sizes. Thirdly, the authenticity and 
+integrity of the preservation process, as well as the materiality and so-
+ciality of the architectural heritage, set extremely high standards and 
+demands for the use of 3D LiDAR. Due to the aforementioned traits, 3D 
+LiDAR and multi-technology collaboration have emerged as crucial tools 
+for resolving multi-disciplinary, multi-scale, and complicated problems. 
+The existing research shows a wealth of technology application and 
+investigation through its inter-annual variance in research hotspots and 
+methodologies, the tendency of technology selection, and emphasis on 
+application density. 
+5.Research hotspots of 3D LiDAR in the field of built heritage 
+preservation 
+In Chinese publications from 2012 to 2021, research hotspots for 3D 
+LiDAR in the field of built heritage preservation are displayed in Fig. 2 
+and Table 2. Digital mapping, point clouds, Lidar, monitoring of 
+deformation, geological hazards, repair and reconstruction, 3D 
+modeling, technological fusion, virtual reality, information display, etc. 
+are some of the hotspots for research. It is worth noting that on the 
+technical side, the combination of 3D LiDAR with a wider range of 
+disciplines and their technologies provides more problem-solving solu-
+tions for built heritage preservation; on the outcome side, the research 
+seeks a more multidimensional orientation based on heritage preserva -
+tion, including spatial optimization, database construction, innovation 
+in image processing techniques and human experience. The research 
+focus is shifting from single technology application to multi-discipline 
+and multi-technology integration, and the research content is not 
+merely recording the current situation. In addition to laser technology & 
+equipment research and built heritage research, interdisciplinary 
+research with archaeology and anthropology is also a new trend in 
+recent years (Wei et al., 2013). 
+The keywords extracted from the Chinese literature in Table 2 can be 
+summarised as (1) types of built heritage; (2) distribution of built her-
+itage; (3) conservation practices of built heritage; (4) technological in-
+novations and applications of built heritage, and (5) data processing of 
+built heritage, etc. These keywords, combined with 3D LiDAR, present 
+the current conservation practices and technological innovations of the 
+academic community at different scales and types of heritage sites and in 
+the framework of different combinations of technological tools in a 
+multi-technological collaboration. In addition, Table 2 shows that 3D 
+LiDAR and multi-technology collaboration have been applied to 
+different scales and types of built heritage, but there is variability in the 
+combination of technical tools, and in the process of preservation 
+practice, some scholars have also tried to seek breakthroughs in recon -
+struction, monitoring, digital representation and simulation, machine 
+identification, boundary extraction, and 3D printing. More notably, the 
+research focus of 3D LiDAR and multi-technology collaboration in Chi-
+nese publications are shifting from technology applications to big data, 
+artificial intelligence, cognition, and emotion. 
+5.1. 3D LiDAR methods used in built heritage preservation 
+The key technical approaches used in the Chinese study for the 
+period of 2012 to 2022 (Fig. 4) are 3D LiDAR, UAV, 3S technology, XR 
+technology, 3D printing technology, and artificial intelligence technol -
+ogy. Additionally, the technical collaboration in software mostly utilizes 
+the modeling and drawing programs Revit/BIM, 3Ds Max, CAD, and 
+Agisoft PhotoScan and involves algorithms, close-range photography, 
+tilt photogrammetry, virtual presentation, measurable real image, etc. In 
+terms of technological application, it has been discovered that the model 
+of 3D LiDAR and multi-technology collaboration is more adaptable in Table 1 
+Representative journals of the Core journal directory of Peking University, 
+CSSCI, And CSCD Databases concerning the keywords of “3D LiDAR” and 
+“heritage.”   
+Journal Number 
+of 
+Papers Proportion Publisher Indexed 
+database 
+1 Bulletin of 
+surveying and 
+mapping 46 23 % SinoMaps Press PKU/ 
+CSCD 
+2 Laser Journal 38 19 % Chongqing 
+Optical 
+Machinery 
+Research Institute PKU 
+3 Science of 
+Surveying and 
+Mapping 10 5 % Chinese Academy 
+of Surveying and 
+Mapping PKU/ 
+CSCD 
+4 Acta 
+Geodaetica et 
+Cartographica 
+Sinica 8 4 % Chinese Society 
+for Geodesy 
+Photogrammetry 
+and Cartography PKU/ 
+CSCD/EI 
+5 Engineering of 
+Surveying and 
+Mapping 7 3.5 % Heilongjiang 
+Institute of 
+Technology; 
+Chinese Society 
+for Geodesy 
+Photogrammetry 
+and Cartography CSCD 
+Expanded 
+6 Sciences of 
+Preservation 
+and 
+Archaeology 6 3 % Shanghai 
+Museum PKU 
+7 National 
+Remote 
+Sensing 
+Bulletin 6 3 % Aerospace 
+Information 
+Research 
+Institute, Chinese 
+Academy of 
+Sciences PKU/ 
+CSCD/EI 
+8 Dunhuang 
+Research 5 2.5 % Dunhuang 
+Academy PKU/ 
+CSSCI 
+9 Laser & 
+Infrared 4 2 % North China 
+Research Institute 
+of Electro-Optics PKU/ 
+CSCD 
+Expanded 
+10 Architectural 
+Journal 3 1.5 % Architectural 
+Society of China PKU/ 
+CSSCI  Y. Li et al.                                                                                                                                                                                                                                        
+International Journal of Applied Earth Observation and Geoinformation 116 (2023) 103156
+4solving professional difficulties and can provide more targeted research 
+plans; the model of 3D LiDAR and multi-technology collaboration is also 
+more adaptable in terms of data management. In terms of interdisci -
+plinary, complicated, and comprehensive research themes that can also 
+be coordinated through 3D LiDAR and multiple technologies, it can 
+better match with the data storage and management functions of BIM/ 
+HBIM and GIS/HGIS and play a supportive role in the research process. 
+The model provides an in-depth discussion for research, on the devel -
+opment path, the model of 3D LiDAR and multi-technology collabora -
+tion has started to be tightly integrated with the environmental behavior 
+science and psycho-behavioral science of built heritage sites. 
+In Chinese publications, there are relatively extensive studies on the 
+use of mobile communication systems, thermal imaging cameras, and 
+3D laser scanning in the preservation of constructed heritage, which is 
+frequently employed in preservation projects. Some academic confer -
+ences and forums on spatial information technology on cultural heritage 
+preservation in China have already displayed mature technology ap-
+plications; in addition, the English paper that combines MATLAB and 3D 
+laser scanning in the research on built heritage preservation is worthy of 
+further discussion. Additionally, more research needs to be done 
+regarding the degree of multidisciplinary integration. In general, the 
+technical application of Chinese papers displayed through the VOS 
+viewer knowledge graph has maintained a roughly synchronized state in 
+the past 10 years. 
+5.2. The technical application density of 3D LiDAR in the field of built 
+heritage preservation 
+In Chinese literature from 2012 to 2022, point cloud data, digitiza -
+tion, 3D modeling, 3D virtual reality, close-range photogrammetry, 3D 
+modeling, virtual visualization, 3D printing, and other technical appli -
+cations related to the preservation of built heritage are concentrated. The density of technology applications in the Chinese literature is 
+concentrated in laser applications, scanning, close-up photogrammetry, 
+and 3D modeling, while the rest of the technology applications are more 
+evenly distributed around 3D laser scanning. 
+Through the aforementioned technical methods and their annual 
+changes and technical application density (Fig. 5), it can be found that 
+the Chinese studies have the following characteristics in terms of tech-
+nical methods: First, from focusing on the ontology of architectural sites 
+and ontology-environment complexes (Wan et al., 2020 ) to the coordi -
+nated observation of air-land-space integration, the internet of things, 
+display interaction, perception and computing involving the preserva -
+tion of built heritage; Second, from a single technology application to a 
+comprehensive research of multi-technology integration, such as the 
+combination of 3D LiDAR and 3Ds Max, 3D printing technology, and XR 
+technology, applied to virtual scene construction, public archaeology, 
+virtual restoration and reconstruction (Geng et al., 2021 ); The combi -
+nation of laser scanning and 3S technology, HBIM and heritage big data 
+is applied to the construction of heritage data platform and the moni -
+toring and management of heritage sites; the combination of 3D LiDAR 
+and artificial intelligence technology is used to explore semantic seg-
+mentation, image matching, feature extraction, image processing, etc. 
+Overall, the Chinese paper focuses on 3D scanning systems, 3D 
+reconstruction, 3D modeling, information display, digital mapping, and 
+close-range photogrammetry; in terms of methods; the technical 
+collaboration of Chinese paper in software is mainly GIS, Revit/BIM, and 
+3D modeling software, and involves computer programming algorithms, 
+3D virtual scenes, close-up photography, oblique photogrammetry, 
+virtual display, measurable live images, etc. In the past 10 years of 
+Chinese papers, “high-precision modeling ”, “digital surveying and 
+mapping ”, “virtual simulation ”, “information display ” etc. are the 
+research hotspots in the field of built heritage preservation. The com-
+bination of “big data ”, “artificial intelligence ”, “machine learning ”, 
+Fig. 2.Research hotspots of publications in Chinese and their yearly variations.  Y. Li et al.                                                                                                                                                                                                                                        
+International Journal of Applied Earth Observation and Geoinformation 116 (2023) 103156
+5“deep learning ”, “mathematical model ” and “information system ” can 
+be seen as the current focuses in this field. 
+6.Application of 3D LiDAR and Multi-Technology collaborative 
+in the preservation of built heritage 
+6.1. Digital application on built heritage preservation with Multi-Scale, 
+Multi-Purpose, and Multi-Technology docking 
+After more than 20 years of development, 3D LiDAR hardware has 
+made great progress in stability, accuracy, and ease of operation, espe-
+cially in airborne, vehicle-mounted, and ground 3D LiDAR. Based on the 
+collected Chinese papers, this study selects representative papers to 
+present the application and current technological progress in order to 
+clarify the multi-purpose and multi-technology docking of 3D LiDAR at a 
+multi-scale. 
+On the macro scale, Hu Yaofeng, et al. (2016) carried out research 
+on key technologies for the census of immovable cultural heritage based 
+on 3S technology and studied the census standards for immovable cul-
+tural heritage, the “three lines ” of cultural relics, and mobile terminal 
+equipment. Basic analysis systematically discusses the application of 3S 
+new technologies in the census, such as 3D LiDAR technology, 
+measurable scene image technology, and mobile GIS, and verifies the 
+superiority of 3S technology in the census through a successful case; 
+Liang Shuang, et al. (2016) researched the key surveying and mapping 
+techniques for the Qin and Shu ancient road heritage; Wang Bing, et al. 
+(2017) combined 3D LiDAR and close-range photogrammetry to 
+construct an internal and external information database of the Great 
+Wall of Ming Dynasty, which improved data acquisition capabilities; 
+Huo Pengpeng, et al. (2020) used a variety of data sources in the 3D 
+reconstruction method of the Ming Great Wall in Beijing, used Con-
+textcapture Center software for data processing to construct Mesh 3D models, and used medium and long-range 3D laser scanners. The 
+elevation information of the Great Wall is determined from the point 
+cloud, and the Great Wall and its appendages are modeled in turn in 3Ds 
+Max software and exported in a common format to ensure its 
+universality. 
+On the mesoscale, Xie Jinpeng, et al. (2015) combined 3D LiDAR 
+technology with AutoCAD, 3D Max, and SketchUp to build a digital 3D 
+model for the preservation of Kaiping Diaolou, serving 3D image 
+reconstruction of the Diaolou building. Wang Chenyang, et al. (2016) 
+explored a fast and high-precision modeling method for built heritage by 
+combining 3D LiDAR, archival data, and SketchUp; The same method 
+was applied to the point cloud registration and in terms of modeling 
+methods, Cui Xiaolei, et al. (2021) used 3D LiDAR to 3D digitize ancient 
+buildings, including three major processes: image point cloud data 
+acquisition, point cloud data processing, and 3D model creation. Among 
+them, the building point cloud data is scanned and collected by the 
+Trimble TX5 3D laser scanner, and then the data is processed by the 
+Trimble Real Works software that is matched with it, and then the 
+ancient buildings are constructed in 3D through modeling software such 
+as 3Ds Max and SketchUp; In 2017, to find out the occurrence and 
+development of the disease of the Three Pagodas of Chongsheng Temple, 
+accurately assess the preservation status of cultural relics, and improve 
+the digital management level of cultural heritage, with the support of 
+Yunnan Provincial Bureau of Cultural Relics, Dali City Cultural Relics 
+Preservation and Management Institute cooperated with Shanghai 
+Jianwei Libao Engineering Technology Co., ltd. has launched the 
+Internet of Things remote real-time monitoring and digitization project 
+for the Three Pagodas of Chongsheng Temple. The preservation status 
+and risks faced by the Three Pagodas of the Holy Temple were moni -
+tored in real-time, a real-time early warning system for cultural relics 
+safety was established, and a cultural relic monitoring and digital 
+management platform was constructed. Yu Peiyong, et al. (2018) , 
+Fig. 3.Publications in Chinese that focus on the types and distribution of built heritage.  Y. Li et al.                                                                                                                                                                                                                                        
+International Journal of Applied Earth Observation and Geoinformation 116 (2023) 103156
+6relying on the restoration and preservation project of Zhu De’s former 
+residence, used close-range photogrammetry technology and 3D laser 
+technology to build a fine 3D model, digitally preserved the former 
+residence of the great man, and elaborated on the ancient architecture 
+based on 3D LiDAR technology. The refined digital modeling process 
+provides an example for further cultural heritage modeling research; 
+Similar to this method, Guo Jiangning, Chen Nianqing, Sun Hao, et al. 
+(2020) performed fusion modeling based on terrestrial 3D LiDAR tech-
+nology and aerial photography to reconstruct high-precision complete 
+3D models of ancient buildings. Wan Fei, et al. (2021) explored a fine 3D 
+model of the ancient post road in Nanyue Based on the VR scene con-
+struction, which provides new ideas for the digital preservation of his-
+torical buildings. 
+On the microscopic scale, Fang Wei, et al. (2015) corrected the 
+murals through the laser point cloud intensity during the digital pres-
+ervation of murals, which solved the problem of few feature points and 
+uneven distribution in intensity image extraction; Zhao Rong (2016), Lv 
+Wenxu, et al. (2016) of the Institute of Archaeology of the Dunhuang 
+Academy used 3D LiDAR to collect images of Buddhist shrines and 
+painted sculptures in Dunhuang Grottoes, serving the efficient and ac-
+curate requirements of archaeological mapping; He Yan, et al. (2016) 
+proposed the detection technology of ancient relief damaged area by 
+laser beam scanning, and proved its advantages in the clarity and error 
+control of scanned images; Hu Bengang, et al. (2016) used 3D laser point 
+cloud data through reverse engineering. Carry out 3D modeling of 
+physical cultural heritage, with the help of reverse engineering software 
+such as PolyWorks, Geomagic, etc., automatically identify the physical 
+cultural heritage features in 3D laser point cloud data, and automatically 
+fit regular geometric elements to build a refined 3D model. The model 
+has high accuracy and can be reaching the sub-millimeter level or above, 
+fully meeting the accuracy requirements of cultural relic restoration; 
+Wang Lele (2021) and Gao Yang (2021) explored the method of virtual 
+restoration of damaged areas of cultural relics based on high-precision 
+3D LiDAR models; the team of Dr. Professor Cao Yongkang of 
+Shanghai Jiaotong University combined laser scanning measurement, 
+infrared detection, stress wave tomography, Methods such as material 
+analysis are applied in the preservation process of ancient bridges in 
+Shanghai, and the monitoring of ancient bridges, disease detection, 
+structural reinforcement and replacement of damaged components are 
+realized through the application of various technologies. Similar prac-
+tices at the micro-scale are also used in high-precision real texture 3D 
+modeling of built heritage (Qi et al., 2021), 3D reconstruction of irreg-
+ular cultural relics (Xi et al., 2020), etc. 
+In addition to the above studies, Chinese scholars have also carried 
+out research at different scales based on 3D LiDAR and multi-technology 
+collaboration: 3D digital representation of Suzhou Tiger Hill Pagoda 
+(Zhang et al., 2012), Jingjiang Royal Mausoleum (Zhou et al., 2015), 
+Shichahai Lake Surrounding Mapping (Gao et al., 2021) and other 
+heritage sites preservation research. Among scholars in other countries, 
+Ortiz-Coder, et al. (2020) proposed a method for 3D reconstruction of 
+heritage scenes using video measurement-based equipment, which is 
+based on two cameras with different characteristics and adopts visual 
+simultaneous localization and the combination of cartography (SLAM) 
+and photogrammetry, VSLAM works with a series of filtering algorithms 
+for the best selection of images and guarantees that users will not lose Table 2 
+Research categories and hotspots in the Chinese publications.   
+Research Category Research Hotspots 
+1 Types of Built Heritage Spatial archaeology, Field Archaeology, Cultural 
+relics, Preservation of historical and cultural 
+cities, Historical and cultural blocks, Ancient 
+buildings, Classical private gardens, Industrial 
+heritage preservation, Large wooden structures, 
+Wooden components of ancient buildings, 
+Immovable cultural heritage, Indoor 
+environment, Building facades, Large-scale earth 
+sites, Carved furniture and handicrafts, Ancient 
+city walls, Ancient city wall bricks, Ancient 
+building sites, Ancient mausoleums, Large-scale 
+heritage site scenes, Ancient road ruins. 
+2 Distribution of Built 
+Heritage 
+(As is shown in Fig. 3) Ancient pagodas in the Guanzhong area, Ancient 
+stone arch bridges, The Shixia Great Wall, The 
+residence of the emperors of the Qing Dynasty 
+Imperial Palace, Ancient Buddhist halls, Kaiping 
+watchtowers, Painted pottery, Rock paintings, 
+Murals, Cave temples, Ancient plank roads, 
+Ancient Shu Road, The Jinci Temple, Historic site 
+of the Gutian meeting, Suzhou Suiyuan Garden, 
+Wanshou Temple Pagoda, Nanyue Ancient Post 
+Road, Big Wild Goose Pagoda, Song Dynasty 
+Ships, Hakka Tulou Buildings, Dougong bracket 
+system, Caves, Xieshan Ancient Buildings, 
+Reservoir Dams, Buddhist Statues, Zhengzhou 
+City God Temple, Pottery Figures, Baochu 
+Pagoda, Terracotta Warriors and Horses, Beijing 
+Ming Great Wall, Dome-shaped Buddhist niches, 
+Kongtang ruins, Binxian Buddha Temple, 
+Forbidden City, Paleolithic heritage site, Stone 
+tool analysis, Stone statues, Dong’s residence, 
+Mogao Grottoes, Dingdingmen site, Dunhuang 
+painted sculptures. 
+3 Practice of Built Heritage 
+Preservation Digital preservation of cultural relics, Digital 
+archaeology, Archaeological surveying and 
+mapping, Open-air images, Large-space 
+positioning, geographic distribution, Scanning, 
+Classification, Extraction, Preservation and repair 
+of ancient buildings, Reconstruction, 
+Development and evolution, Fire, Weathering 
+monitoring, Deformation monitoring, Geological 
+disasters (wind sand, earthquakes, landslide, 
+typhoon), Garden information model, 3D real 
+scene, Fine surveying and mapping, Remote 
+sensing archaeology, Information system 
+construction, Tilt monitoring, Health monitoring, 
+Optical measurement, Indoor full element model, 
+Local geometric features, Building topographic 
+map, Building façade (surveying and mapping, 
+extraction), Ontology map of cultural relics, 
+Landscape evaluation, Disaster-damaged 
+buildings, Lighting design, Disease detection, 
+Stability assessment, Defect measurement, Space 
+optimization (detail facade reconstruction, Old 
+city reconstruction, Old building reconstruction, 
+Antique buildings, Spatial relationship, Eco- 
+tourism, Land consolidation), Tourism poverty 
+alleviation, Safety evaluation, Difference 
+analysis. 
+4 Technological Innovation 
+and Application The 3D scanning system, 3D reconstruction, 3D 
+modeling, Information display, 3D model 
+making, Digital mapping, Close-range 
+photogrammetry, Intensity correction, Point 
+cloud stitching, Point cloud segmentation, 
+Registration, Feature extraction, Semantic 
+segmentation, Terrain mapping, Rapid 
+manufacturing, 3D printing, Emergency 
+mapping, Reverse modeling, Deep learning, 
+Virtual reality, Interactive display and 
+experience, Machine vision, Extreme learning, 
+Visual sensing, Recognition research, 
+Computational imaging, CT scanning, Artificial 
+neural network, Reality fusion, Intelligent mining  Table 2 (continued )  
+Research Category Research Hotspots 
+machine, Visual simulation, Boundary extraction, 
+Active vision, Passive vision. 
+5 Data Processing Technology fusion and integration, Data (mining, 
+division, stitching, fusion), Fusion modeling, 
+Database, Archaeological big data, UAV, Close- 
+range photogrammetry, Imagery, Remote 
+sensing, LiDAR, Augmented reality, Virtual 
+reality, GIS, BIM, 3Dmax, VR, Visualization.  Y. Li et al.                                                                                                                                                                                                                                        
+International Journal of Applied Earth Observation and Geoinformation 116 (2023) 103156
+7track during real-time data acquisition. Through case studies, evalua -
+tions, and comparisons, it was found that the method is 17 times faster 
+than laser scanners in capturing data, and the post-processing of the 
+system is fully automatic but takes more time than laser scanners in post- 
+processing. 
+However, current research and preservation techniques have also 
+brought to light a number of issues, including the dearth of recording 
+information, the difficulty of collaboration, the non-standardization and 
+fragmentation of data, the difficulty of data mining, and the difficulty of 
+comprehensive utilization. There are still deficiencies in dynamic, three- 
+dimensional, and refined aspects, which need to be further explored, 
+such as, continuing to deepen the use of convolutional neural networks 
+(CNN) for the image-based reconstruction of high-precision 3D heritage 
+buildings and the overall environment; strengthening the detailed 
+characteristics of built heritage and the refinement of structural recon -
+struction; technology development of dynamic scene reconstruction of 
+built heritage at different scales; innovative algorithms for the recon -
+struction and evaluation of built heritage at different scales. 
+6.2. Comprehensive application of built heritage preservation from 
+multiple Perspectives, Integration, and High-Precision docking 
+3D LiDAR technology and multi-technology collaboration continue 
+to produce breakthroughs in different research issues, on the one hand, 
+multi-view, high-precision, and point cloud annotation meet the re-
+quirements of surveying and mapping accuracy and information accu-
+racy for different types of built heritage. Technology enables researchers 
+to quickly and accurately capture and reconstruct the geometry and 
+color of built heritage; on the other hand, it has high comprehensive 
+efficiency and low cost, improves the efficiency of modeling and digital 
+storage, and breaks through the limitations of single technology appli -
+cations. The docking of HBIM, VR, and CIM provides fine digital models, high-precision data benchmarks, and basic materials, which are highly 
+targeted in the preservation of built heritage. 
+From the perspective of preservation, Zhang Xu, et al. (2013) used 
+3D LiDAR combined with CAD and 3D printing to explore the technical 
+methods of reverse engineering restoration of cultural relics. Hong Kong 
+scholar Siu Susanna Lai Kuen (2021) discussed the technical methods for 
+the restoration of built heritage damaged by natural disasters, to ensure 
+complete and faithful restoration. To solve the problem of digital pres-
+ervation of built heritage, Li Minzhen, et al. (2015) adopted 3D LiDAR to 
+reconstruct the historical buildings along the Huangpu River in 
+Shanghai in a refined manner, and the models are managed by com-
+ponents, to organize massive information and facilitate subsequent 
+statistics and use. In response to the monitoring and management of 
+built heritage, Zhou Wei, et al. (2012) used laser scanning technology to 
+monitor the deformation of large-scale ancient buildings in the Foxiang 
+Pavilion of the Summer Palace. 
+From an evaluation perspective, Yin Yongsheng, et al. (2020) 
+combined 3D LiDAR with deep learning to directly learn and extract the 
+built heritage features from image data through deep learning based on 
+constructing 3D virtual models and processing photo data; Multi- 
+technology types researched 3D digital modeling technology for main -
+taining infrastructure, especially the use of point cloud data, thinking 
+about the transformation from infrastructure resilience management to 
+structural maintenance, from 3D model to structural analysis, system 
+cost, and a series of challenging issues such as massive data processing, 
+the research has reference significance for the preservation practice of 
+the built heritage of the historical urban area in terms of technical co-
+ordination, flexible management, and structural maintenance. 
+From the perspective of heritage management, scholars and 
+practitioners of heritage preservation choose to use 3D digital surveying 
+and mapping technologies such as close-range photogrammetry, 3D 
+laser scanning, and multi-technology comprehensive surveying and 
+Fig. 4.Technical methods adopted in existing publications in Chinese and their annual changes.  Y. Li et al.                                                                                                                                                                                                                                        
+International Journal of Applied Earth Observation and Geoinformation 116 (2023) 103156
+8mapping in combination with 3D information management technologies 
+such as 3D geographic information system and information model to 
+serve the fine, digital and dynamic management of built heritage. Such 
+as Liang Huilin, et al. (2020) employed three-dimensional digital map-
+ping and information technology to collect, process, store, manage, 
+maintain, update and analyze data, serving the preservation, manage -
+ment and sustainable use of garden heritage in China; Zhang Zhi, et al. 
+(2021) discussed the construction of the information technology method 
+framework for the preservation and utilization of the Great Wall cultural 
+heritage, and advocated using the digital twin theory to design experi -
+mental research and comparative analysis to summarize the technical 
+methods for data collection of different types of Great Wall cultural 
+heritage, such as multi-source remote sensing technology (aerospace 
+remote sensing, unmanned aerial vehicle remote sensing, multi-source 
+ground detection), Internet of Things technology (dynamic collection, 
+real-time communication, two-way interaction), GIS (Web GIS/Cloud 
+GIS/Smart GIS), information simulation technology (GIM/LIM/BIM), 
+virtual reality technology (VR/AR/MR), covering macro, meso and 
+micro scales, 2D, 3D and 4D dimensions, and different components of 
+physical entities, serve as the basic technical support for the intelligent 
+preservation of the Great Wall cultural heritage, which is both a method 
+of built heritage preservation and a means of heritage information 
+management. 
+From the lens of heritage perception, Dr. Professor Li Yuan (2020, 
+2021, 2022) from Xiamen University and Xiamen Key Laboratory of 
+Integrated Application of Intelligent Technology for Architectural Her-
+itage Protection focuses on the value perception study of multi- 
+dimensional built heritage, including old urban quarters, historic 
+streets, historic urban landscapes, and historic buildings based on the 
+collaboration of 3D LiDAR, UAV tilts photography, BIM, machine 
+learning, virtual simulation, questionnaire, structural equation modeling (SEM), human performance experiments, and artificial intel-
+ligence algorithm. In his study, through the quantitative analysis of built 
+heritage combined with environmental psychology and human spatial 
+behavior characteristics, his research evaluated the preference, cogni -
+tion, and satisfaction of humans with the historical environmental in-
+formation of heritage sites, and the feasible optimization strategies were 
+proposed through a range of quantitative evaluation results. 
+Along with the aforementioned four facets, existing research based 
+on 3D LiDAR and multi-technology collaborative research on building 
+contour identification, building settlement prediction, deformation 
+monitoring, weathering monitoring, system life cycle health detection, 
+building classification, building erection, rapid surface extraction, 3D 
+dynamic image reconstruction, information feature matching research, 
+non-destructive analysis technology research, data management, and 
+visualization research, data acquisition, and structure storage optimi -
+zation and other technologies have expanded the comprehensive 
+application scope of built heritage preservation. Existing research and 
+applications provide the basis for the following three technological in-
+novations: (1) innovate the multi-modal image fusion 3D reconstruction 
+technology, and effectively guide the precise restoration of micro-scale 
+built heritage details or internal structures through visual information; 
+(2) reconstruct the multi-scale adaptive built heritage environment 
+based on robots and multi-modal fusion perception systems; (3) on 
+different scales, continue to carry out the technical connection between 
+rapid 3D reconstruction and real-time reconstruction based on the 
+combination of 3D LiDAR and digital twin technology. 
+Fig. 5.Technology application density of papers in Chinese.  Y. Li et al.                                                                                                                                                                                                                                        
+International Journal of Applied Earth Observation and Geoinformation 116 (2023) 103156
+97.The built heritage preservation based on 3D LiDAR and Multi- 
+Technology Collaboration: Future challenge and future 
+technological application 
+Innovative 3D digitization and geomatics approaches have emerged 
+over the past few decades as non-invasive technologies in the field of 
+cultural heritage, primarily to meet the demands of documentation, 
+management, and protection (Di Stefano et al., 2021 ). The 3D LiDAR 
+with its unique technical advantages plays an increasingly important 
+role in the practice of digital recording, assessment, intervention, 
+reparation, restoration, monitoring, optimization, improvement, etc. To 
+go further, the future challenge and future technological application on 
+built heritage preservation based on 3D LiDAR and multi-technology 
+collaboration focus on four parts: 
+(1) 3D LiDAR interfaces with digital recording and artificial intelli -
+gence in the field of built heritage preservation and integrates with 
+multiple sources of heterogeneous data, leading to the digitization and 
+virtualization of the whole element (Lu et al., 2021), real-time and 
+visualization of the full state, and provides visualized, analyzable, 
+computable, and three-dimensional work paths and specific technolo -
+gies that bridge the differences in the depth and mode of work re-
+quirements. For example, image recognition, feature extraction, 
+linguistic analysis, algorithms, simulation analysis (control data and 
+change of conditions, inversion of change processes), identification of 
+risk points at different scales (fire, flood, mountain seepage, weathering, 
+constructive damage, human damage, improper restoration) and sensi-
+tivity, vulnerability prediction (combining close-up photogrammetry, 
+hyperspectral imaging techniques, thermal imaging of walls, ultrasonic 
+techniques to map building painting and frescoes, telemetry of concrete 
+surface defects, structural material properties, and toughness, structural 
+damage, settlement, deformation, stains, and mould; combined with 
+GNSS and high-sensitivity remote sensing analysis to achieve large-scale 
+architectural heritage disaster information collection and collaborative 
+observation, to enhance the disaster prevention and response capability 
+of architectural heritage conservation), etc. Facing the needs of built 
+heritage preservation in three-dimensional health monitoring and 
+management, risk prediction, preservation planning, design and con-
+struction, operation optimization, interactive feedback from the heri-
+tage Internet of Things, comprehensive spatial analysis, and scientific 
+decision-making, serving the dynamic conservation of multi-scale 
+architectural heritage space and intelligent governance of heritage sites. 
+(2) based on the preservation of the physical space of the built her-
+itage, it turns to the perception calculation of the intangible level of the 
+built heritage. Through multi-technology collaboration, while preser -
+ving the built heritage, it explores the relationship among the built 
+heritage, its value, and people, so that information, systems, and models 
+can be interconnected with social behavior and spatial environment, 
+develop from one-way heritage information collection, analysis, and 
+release to multi-dimensional information interaction, strengthen 
+human-landscape interaction, and quantitatively express cognition, 
+emotion, memory, preference, attachment, etc., and serve for the long- 
+term goal of people-centered adaptive reuse and development, it will 
+feed back into the preservation of the physical space of architectural 
+heritage while improving the experience of local communities and 
+tourists. 
+(3) 3D laser scanning and multi-technology synergy will be more 
+useful in the direction of informatization, digitization, and wisdom of 
+architectural heritage conservation, with potential applications in inte-
+grating cultural and historical information of architectural heritage, 
+developing new tools to store and share all relevant metadata, building 
+an open and shared cultural heritage information model (CHIM), heri-
+tage big data platform, 3D visualization platform (3DGIS), regional 
+heritage management information platform, 5G AR remote visuali -
+zation expert system, and Heritage Intelligent System (HIS) for historical 
+heritage conservation. Through the construction of the platform, long- 
+period, multi-scale, multi-dimensional information collection, spatio- temporal data mining and analysis, monitoring and evaluation, and 
+management applications are realized to serve a high-quality, refined, 
+integrated, and collaborative paradigm of comprehensive architectural 
+heritage conservation practices. For example, by combining digital vir-
+tual restoration design and 3D printing technology, we can simulate 
+traditional craft forms to repair and restore the structural components, 
+skin texture, and key features of architectural heritage to achieve the 
+continuation of the authenticity and integrity of heritage. 
+(4) The interface between 3D laser scanning and intelligent media 
+technology is also a noteworthy development and trend. Combining 
+digital elevation models based on 3D laser scanning, model presentation 
+films with 5G, augmented reality (AR), virtual reality (VR), mixed re-
+ality (MR), big data mining and knowledge discovery to create immer -
+sive, intelligent and interactive experiences in the following ways: First, 
+it is applied to simulate different scenarios of economic, social and 
+environmental development, responding to different needs of architec -
+tural heritage conservation and all aspects of multi-situational simula -
+tion; second, it is applied to the use of digital museum displays (digital 
+reproduction) and cultural exhibitions under the perspective of experi -
+ence economy, for example, the overall effect formed by combining with 
+3D dome technology and NPC interaction to improve the interpretation 
+and display dissemination of built heritage; Third, bringing more 
+experiential autonomy and cultural production possibilities in the 
+context of cultural tourism integration, moving from information ser-
+vices to knowledge services, realising heritage education from a cultural 
+empowerment perspective, metaverse-based time travel, story maps and 
+digital product development, cultural IP development and trans -
+formation, etc. 
+8.Conclusion 
+This literature review focuses on the use of 3D LiDAR in the field of 
+built heritage preservation of various scenarios through a multidisci -
+plinary lens. It provides a thorough survey on 3D LiDAR and multi- 
+technology collaboration that contains the hotspots and methods, their 
+application, future challenge, and future technological application in 
+built heritage sites. 
+Reviewing the cases of 3D LiDAR and multi-technology collaboration 
+in the existing study, it can be found that the technology presents a 
+diversified trend in the application, and the combination with other 
+technology types can also provide effective feedback through the anal-
+ysis of specific problems. It is important to note that the practice of 
+integrating with digital twins, artificial intelligence, multi-source het-
+erogeneous data, and data platform construction is not included in the 
+existing research cases of 3D LiDAR and multi-technology collaboration, 
+and the practice of combining big data and machine learning is still in its 
+infancy. Few studies have also focused on how individual behavior and 
+perception experiences (whether virtual or real) relate to 3D LiDAR and 
+multi-technology collaboration, which emphasizes the limitations and 
+shortcomings of these two fields in the age of artificial intelligence, big 
+data, and the metaverse. 
+In the future, 3D LiDAR and multi-technology collaboration will be 
+more in-depth to guarantee a sustainable and promising preservation 
+outcome. Although the current practice of built heritage protection is 
+constantly based on 3D LiDAR to solve more problems of built heritage 
+preservation, there is no doubt that the comprehensive changes brought 
+about by the above new technologies will be an important thrust for the 
+further development of 3D LiDAR and multi-technology collaboration 
+over time. 
+Author Contributions : Conceptualization and methodology Y.L. and 
+L.Z.; bibliometric analysis, L.Z., N.Z., and Z.Z.; original draft prepara -
+tion, L.Z., Y.C., and N.Z.; review and editing, N.Z., Z.Z., H.F., and Y.C.; 
+funding acquisition, Y.L. All authors have read and agreed to the pub-
+lished version of the manuscript. 
+Conflicts of Interest: The authors declare no conflict of interest. Y. Li et al.                                                                                                                                                                                                                                        
+International Journal of Applied Earth Observation and Geoinformation 116 (2023) 103156
+10CRediT authorship contribution statement 
+Yuan Li: Conceptualization, Methodology, Writing – original draft, 
+Writing – review & editing, Funding acquisition. Long Zhao: Concep -
+tualization, Methodology, Writing – review & editing. Yiping Chen: 
+Methodology, Writing – review & editing. Na Zhang: Validation. 
+Hongchao Fan: . Zhenxin Zhang: Validation. 
+Declaration of Competing Interest 
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper. 
+Data availability 
+No data was used for the research described in the article. 
+Acknowledgments 
+This work was supported by the National Natural Science Foundation 
+of China (grants: 42171219, 41871380), Natural Science Foundation of 
+Fujian Province (grants: 2020J01011), and Fujian Key Laboratory of 
+Sensing and Computing for Smart Cities (grants: SCSCKF202103). 
+References 
+Azmi, N.F., Ali, A.S., Ahmad, F., 2021. Exploring the challenges in protecting the identity 
+of small historic towns in Malaysia. Open House International. 46 (1), 64–80. 
+Coombes, M.A., Viles, H.A., 2021. Integrating nature-based solutions and the 
+conservation of urban built heritage: Challenges, opportunities, and prospects. 
+Urban For. Urban Green. 63, 127192 . 
+Di Stefano, F., Chiappini, S., Gorreja, A., Balestra, M., Pierdicca, R., 2021. Mobile 3D scan 
+LiDAR: a literature review. Geomat. Nat. Haz. Risk 12 (1), 2387 –2429 . 
+El-Hakim, S.F., Beraldin, J.A., Picard, M., Godin, G., 2004. Detailed 3D reconstruction of 
+large-scale heritage sites with integrated techniques. IEEE Comput. Graph. Appl. 24 
+(3), 21–29. 
+Gao, Y., 2021. Research on repairing damaged areas of cultural relics based on 3D 
+LiDAR. Laser Journal. 42 (1), 187–191. 
+Geng, G.H., Feng, L., Li, K., Zhou, M.Q., Wang, X.F., 2021. A literature review on the 
+digitization and virtual restoration of cultural relics in the Mausoleum of Emperor 
+Qinshihuang. Journal of Northwest University (Natural Science Edition). 51 (5), 
+710–721. 
+Guo, J.N., Chen, N.Q., Sun, H., Xu, T.S., 2020. Research on the application of 3D laser 
+scanning in the protection of industrial heritage. Urban Geotechnical Investigation & 
+Surveying. 6, 88–91. 
+He, Y., Tan, H.J., 2016. Research on detection technology of damaged area of ancient 
+relief under laser beam scanning. Laser Journal. 37 (12), 18–20. 
+Hu, Y.F., Guo, L., Liao, J., 2016b. Research on key technologies of immovable cultural 
+heritage general survey based on 3S technology. Bulletin of Surveying and Mapping. 
+S2, 267–269. 
+Huo, P.P., Hou, Q.M., Zhou, Q., Li, B., Hou, M.L., 2020. Research on 3D reconstruction 
+based on multiple data sources, a case study of Ming Dynasty Great Wall in Beijing. 
+Bulletin of Surveying and Mapping S1, 262–267. 
+Li, G., 2019. Special topics in architectural heritage studies. Culture Heritage. 3, 50. 
+Liang, S., Li, H.Q., Nan, J.X., Li, J., Xu, J., 2016. Key technology research of surveying 
+and mapping used in the investigation of the heritage along the Ancient Qinshu 
+Roads. Geomatics & Spatial Information Technology. 39 (11), 94–96. 
+Liang, H.L., Zhang, Q.P., 2020. A review of three-dimensional surveying and information 
+management for garden cultrural heritages. Journal of Nanjing Forestry University 
+(Natural Science Edition). 44 (5), 9–16. 
+Organ, S., 2020. The opportunities and challenges of improving the condition and 
+sustainability of a historic building at an international tourist attraction in the UK. 
+International Journal of Building Pathology and Adaptation. 38 (2), 329–355. 
+Ortiz-Coder, P., S˘anchez-Ríos, A., 2020. An integrated solution for 3D heritage modeling 
+based on videogrammetry and V-SLAM technology. Remote Sens. (Basel) 12 (9), 
+1529 . 
+Phillips, H., 2015. The capacity to adapt to climate change at heritage sites – the 
+development of a conceptual framework. Environ Sci Policy 47, 118–125. 
+Qi, Y.L., Li, H.P., Wang, Y.G., 2021. Application of high-precision real texture 3D 
+modeling in Ming Dynasty stone tablet. Bulletin of Surveying and Mapping. 6, 
+98–102. 
+Siu, S.L.K., 2021. Application of 3d scanning technology in restoration of heritage site 
+damaged by natural disaster. the international archives of photogrammetry. Remote 
+Sensing and Spatial Information Sciences. 46, 685–691. 
+Tan, S.B., Ti, E.S., 2020. What is the value of built heritage conservation? Assessing 
+spillover effects of conserving historic sites in Singapore. Land Use Policy 91, 
+104393 . Vaz de Freitas, I., Sousa, C., Ramazanova, M., Albuquerque, H., 2022. Feeling a historic 
+city: Porto landscape through the eyes of residents and visitors. International Journal 
+of Tourism Cities. 8 (2), 529–545. 
+Wan, F., Liu, Z.X., Tan, M., 2021. Digital protection and VR scene construction of 
+historical buildings in South China Historical Trail. Bulletin of Surveying and 
+Mapping. 2, 108–111. 
+Wang, R.S., 2013. 3D building modeling using images and LiDAR: a review. Int. J. Image 
+Data Fusion 4 (4), 273–292. 
+Wang, L.L., 2021. Application of virtual restoration technology in the protection of stone 
+statues and cultural relics. Northern Cultural Relics. 4, 64–68. 
+Wang, C.Y., Hu, C.M., Wang, Y.M., 2016b. Modeling method of ancient ruins of laser 
+points cloud combined with archive data. Laser Journal. 37 (12), 73–76. 
+Wang, X.Y., Luo, L., 2020. From remote sensing archaeology to space archaeology, a new 
+task in the era of cultural heritage protection. Journal of Remote Sensing. 24 (7), 
+837–841. 
+Wang, J., Meng, B., Zhang, J.Q., Li, C., Zou, B.X., 2017b. Applications and prospect of 
+sensing technologies in cultural heritage research. Prog. Geogr. 36 (9), 1092 –1098 . 
+Wang, F., Peng, Y., Wang, H.C., Yin, F., 2016a. Old walls, modern city: research on urban 
+memory of disappearing ancient Beijing city walls. International Journal of Tourism 
+Cities. 2 (1), 29–44. 
+Wang, B., Tang, Y.Y., De Vita, M., 2017a. Research on data acquisition, analysis and 
+architectural heritage protection of the construction information of the Great Wall of 
+the Ming dynasty, taking the Shixia Great Wall in Yanqing, Beijing as an example. 
+China Cultural Heritage. 4, 92–98. 
+Wei, W., Qian, W., 2013. Review on the application of 3D laser scanning in conservation 
+and archaeology. Sciences of Conservation and Archaeology. 1, 96–107. 
+Xi, W.F., Li, L.S., Yang, Y., Li, G.Z., Li, C.M., 2020. Three-dimensional reconstruction of 
+irregular cultural relics based on point cloud data, taking Buddhist stone pilar as an 
+example. Bulletin of Surveying and Mapping. 12, 87–89. 
+Yin, Y.S., Antonio, J., 2020. Application of 3D laser scanning technology for image data 
+processing in the protection of ancient building sites through deep learning. Image 
+Vis. Comput. 102, 103969 . 
+Yu, P.Y., Liu, Z.H., 2018. Research on application of cultural heritage modeling based on 
+3D laser scanning. Bulletin of Surveying and Mapping. 8, 145–149. 
+Zhang, Z., Dang, A.R., Hou, M.L., Wu, D.F., Wang, Z.N., Zhang, Z.W., Xin, T.Q., 2021. 
+Information technology methodology of the protection and utilization of the Great 
+Wall Cultural Heritage System. National Remote Sensing Bulletin. 25 (12), 
+2339 –2350 . 
+Zhang, X., Li, Z.K., Yuan, M., Yang, W., 2012. Research and application of 3D digital 
+expression of the Suzhou Huqiu Tower. Bulletin of Surveying and Mapping. 12, 
+51–53. 
+Zhang, X., Li, Z.K., Luo, X.H., Zhu, W., 2013. Method of reverse engineering for relics 
+based on 3D laser scanning measurement. Science of Surveying and Mapping. 38 (6), 
+169–171. 
+Zhao, R., 2016. Research on the graphic solution method in unfolding drawings of Niches 
+based on 3D laser scanning. Dunhuang Research. 1, 26–32. 
+Zhou, W., Li, Q., Li, C., 2012. Deformation monitoring study on large-scale heritage 
+building using laser scanning technologies. Bulletin of Surveying and Mapping. 4, 
+52–54. 
+Zhou, G.K., Zhang, F., Zhang, S.M., Zeng, X.Z., 2015. Research on design and key 
+technology of 3D digital system of Jingjiang Vassal Mausoleums. Bulletin of 
+Surveying and Mapping. 8, 105–109. 
+Further reading 
+Costanzo, A., Pisciotta, A., Pannaccione Apa, M.I., Bongiovanni, S., Capizzi, P., 
+D’Alessandro, A., Martorana, R., 2021. Integrated use of unmanned aerial vehicle 
+photogrammetry and terrestrial laser scanning to support archaeological analysis, 
+The Acropolis of Selinunte case (Sicily, Italy). Archaeol. Prospect. 28 (2), 153–165. 
+Cui, X.L., Yang, X.B., Li, D.K., 2021. Research on the indoor and outdoor point cloud 
+registration and modeling methods of ancient buildings under the three-dimensional 
+field of vision, Taking Xianyang Bell Tower as an example. Scientific & Technical 
+Information of Gansu. 50 (3), 1–4. 
+Fang, W., Huang, X.F., Zhang, F., Li, D.R., 2015. Mural image rectification based on 
+correction of laser point cloud intensity. Acta Geodaetica et Cartographica Sinica. 44 
+(5), 541–547. 
+Greenop, K., Landorf, C., 2017. Grave-to-cradle, a paradigm shift for heritage 
+conservation and interpretation in the era of 3D LiDAR. Historic Environment. 29 
+(1), 44–55. 
+Honda, Y., Yamadam, S., Yoshida, A., Ohishi, T., Araya, M., Tamura, Y., 2016. New 
+manufacturing method of wind pressure model for complicated-shape architectural 
+heritage applying 3D scanning data and 3D printer. J. Wind. Eng. 41 (1), 24–27. 
+Hoon, Y.J., Hong, S., 2019. Three-dimensional digital documentation of cultural heritage 
+site based on the convergence of terrestrial laser scanning and unmanned aerial 
+vehicle photogrammetry. ISPRS Int. J. Geo Inf. 8 (2), 53. 
+Hu, B.G., Ying, G.W., Zhang, J.H., Wu, S., Zhang, F., 2016a. Application of 3D laser 
+scanning technology in the protection of material cultural heritage. Sci. Technol. 26 
+(18), 125–126. 
+Li, Y., Gao, X.H., Yang, L.C., Guo, J., 2020. Research on walking environment satisfaction 
+of residents based on Ordered Probit Model —a case study of Gulangyu. Chinese 
+Landscape Architecture. 36 (11), 90–94. 
+Li, Y., Huang, J.X., Wang, C., Chen, Y., 2021. Analysis of tourists ’ preference of Gulangyu 
+Organ Museum exhibition space using SP method. Journal of Huaqiao University 
+(Natural Science) 42 (4), 474–482. Y. Li et al.                                                                                                                                                                                                                                        
+International Journal of Applied Earth Observation and Geoinformation 116 (2023) 103156
+11Li, Y., Huang, J.X., Liang, J.Q., Zhang, Y., Chen, Y., 2022. Research on visual attraction 
+and influencing factors of perception of commercial street space in cultural heritage 
+site: take Gulangyu Longtou Road as an example. Journal of Human Settlements in 
+West China. 37 (2), 114–121. 
+Li, M.Z., Liu, C., Zhou, Y., 2015. Historical accurate 3D reconstruction and hierarchical 
+componentize management using terrestrial laser scanning. Remote Sensing 
+Information. 30 (6), 18–23. Lu, S.Z., Guo, Y.Q., 2021. Monitoring and precaution system of evolutionary sites based 
+on digital twin. Packaging Engineering. 42 (14), 47–55. 
+Lv, W.X., Duan, Q., 2016. Drawing the painted statues of Dunhuang Caves using 3D laser 
+scanning data and computer-aided drawing software. Dunhuang Research. 2, 55–59. 
+Xie, J.P., Chen, Y.B., Qian, Q.L., Han, F.Z., 2015. The application of 3D laser scanning 
+technology in Kaiping Watchtowers. Journal of Guangzhou University (Natural 
+Science Edition). 14 (1), 76–81. Y. Li et al.                                                                                                                                                                                                                                        

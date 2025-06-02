@@ -1,0 +1,715 @@
+Multilingual Twitter Corpus and Baselines for Evaluating Demographic Bias in
+Hate Speech Recognition
+XiaoleiHuang1∗,LinziXing2,FranckDernoncourt3,MichaelJ.Paul1
+1.UniversityofColoradoBoulder,2. UniversityofBritishColumbia 3. AdobeResearch
+1. {xiaolei.huang,mpaul}@colorado.edu,2. lzxing@cs.ubc.ca3. dernonco@adobe.com
+Abstract
+Existingresearchonfairnessevaluationofdocumentclassificationmodelsmainlyusessyntheticmonolingualdatawithoutgroundtruth
+for author demographic attributes. In this work, we assemble and publish a multilingual Twitter corpus for the task of hate speech
+detection with inferred four author demographic factors: age, country, gender and race/ethnicity. The corpus covers five languages:
+English,Italian,Polish,PortugueseandSpanish. Weevaluatetheinferreddemographiclabelswithacrowdsourcingplatform,Figure
+Eight. To examine factors that can cause biases, we take an empirical analysis of demographic predictability on the English corpus.
+Wemeasuretheperformanceoffourpopulardocumentclassifiersandevaluatethefairnessandbiasofthebaselineclassifiersonthe
+author-leveldemographicattributes.
+Keywords:demographicbias,fairness,multilingual,documentclassification,hatespeech
+1. Introduction ingerrorsthatimpactandbreaktheindependencebetween
+While document classification models should be objective demographicfactorsandthefairnessevaluationoftextclas-
+andindependentfromhumanbiasesindocuments,research sifiers. Second, existing research in the fairness evalua-
+have shown that the models can learn human biases and tion mainly focus on only English resources, such as age
+thereforebediscriminatorytowardsparticulardemographic biases in blog posts (Diaz et al., 2018), gender biases in
+groups(Dixonetal.,2018;Borkanetal.,2019;Sunetal., Wikipediacomments(Dixonetal.,2018)andracialbiases
+2019b). Thegoaloffairness-awaredocumentclassifiersis in hate speech detection (Davidson et al., 2019). Differ-
+totrainandbuildnon-discriminatorymodelstowardspeo- ent languages have shown different patterns of linguistic
+plenomatterwhattheirdemographicattributesare,suchas variationsacrossthedemographicattributes(Johannsenet
+genderandethnicity. Existingresearch(Dixonetal.,2018; al., 2015; Huang and Paul, 2019), methods (Zhao et al.,
+KiritchenkoandMohammad,2018;Parketal.,2018;Garg 2017; Park et al., 2018) to reduce and evaluate the demo-
+et al., 2019; Borkan et al., 2019) in evaluating fairness of graphicbiasinEnglishcorporamaynotapplytootherlan-
+documentclassifiersfocusonthegroupfairness(Choulde- guages.Forexample,Spanishhasgender-dependentnouns,
+chovaandRoth,2018),whichreferstoeverydemographic but this does not exist in English (Sun et al., 2019b); and
+group has equal probability of being assigned to the posi- PortuguesevariesacrossBrazilandPortugalinbothword
+tivepredicteddocumentcategory. usage and grammar (Maier and Gómez-Rodríguez, 2014).
+However,thelackoforiginalauthordemographicattributes The rich variations have not been explored under the fair-
+andmultilingualcorporabringchallengestowardsthefair- ness evaluation due to lack of multilingual corpora. Ad-
+ness evaluation of document classifiers. First, the datasets ditionally,whilewehavehatespeechdetectiondatasetsin
+commonly used to build and evaluate the fairness of doc- multiple languages (Waseem and Hovy, 2016; Sanguinetti
+ument classifiers obtain derived synthetic author demo- etal.,2018;Ptaszynskietal.,2019;Basileetal.,2019;For-
+graphicattributesinsteadoftheoriginalauthorinformation. tuna et al., 2019), there is still no integrated multilingual
+The common data sources either derive from Wikipedia corpora that contain author demographic attributes which
+toxic comments (Dixon et al., 2018; Park et al., 2018; canbeusedtomeasuregroupfairness. Thelackofauthor
+Garg et al., 2019) or synthetic document templates (Kir- demographicattributesandmultilingualdatasetslimitsre-
+itchenko and Mohammad, 2018; Park et al., 2018). The searchforevaluatingclassifierfairnessanddevelopingun-
+WikipediaTalkcorpus1(Wulczynetal.,2017)providesde- biasedclassifiers.
+mographicinformationofannotatorsinsteadoftheauthors,
+In this study, we combine previously published cor-
+Equity Evaluation Corpus2 (Kiritchenko and Mohammad,
+pora labeled for Twitter hate speech recognition in En-
+2018)arecreatedbysentencetemplatesandcombinations
+glish (Waseem and Hovy, 2016; Waseem, 2016; Founta
+of racial names and gender coreferences. While existing
+et al., 2018), Italian (Sanguinetti et al., 2018), Pol-
+work(Davidsonetal., 2019; Diazetal., 2018)infersuser
+ish (Ptaszynski et al., 2019), Portuguese (Fortuna et al.,
+demographic information (white/black, young/old) from
+2019), and Spanish (Basile et al., 2019), and publish
+the text, such inference is still likely to cause confound-
+this multilingual data augmented with author-level demo-
+graphic information for four attributes: race, gender, age
+Theworkwaspartiallydonewhenthefirstauthorworkedasan
+and country. The demographic factors are inferred from
+internatAdobeResearch.
+userprofiles, whichareindependentfromtextdocuments,
+1https://figshare.com/articles/Wikipedia_
+thetweets. Toourbestknowledge,thisisthefirstmultilin-
+Detox_Data/4054689
+2http://saifmohammad.com/WebPages/ gualhatespeechcorpusannotatedwithauthorattributes
+Biases-SA.html aimingforfairnessevaluation.Westartwithpresentingcol-
+0202
+raM
+3
+]LC.sc[
+2v16301.2002:viXralectionandinferencestepsofthedatasets.Next,wetakean probabilities. We map the racial outputs into four cate-
+exploratorystudyonthelanguagevariationsacrossdemo- gories: Asian, Black, Latino and White. We only keep
+graphicgroupsontheEnglishdataset. Wethenexperiment usersthatappeartobeatleast13yearsold,andwesavethe
+with four multiple classification models to establish base- firstresultfromtheAPIifmultiplefacesareidentified. We
+linelevelsofthiscorpus. Finally, weevaluatethefairness experiment and evaluate with binarization of race and age
+performanceofthosedocumentclassifiers. withroughlybalanceddistributions(whiteandnonwhite,≤
+medianvs.elderage)toconsiderasimplifiedsettingacross
+2. Data
+differentlanguages,sinceraceishardertoinferaccurately.
+We assemble the annotated datasets for hate speech clas- Country. The country-level language variations can
+sification. To narrow down the data sources, we limit our bring challenges that are worth to explore. We extract ge-
+datasetsourcestotheuniqueonlinesocialmediasite,Twit- olocationinformationfromuserswhoseprofilescontained
+ter. We have requested 16 published Twitter hate speech either numerical location coordinates or a well-formatted
+datasets, and finally obtained 7 of them in five languages. (matching a regular expression) location name. We fed
+By using the Twitter streaming API3, we collected the the extracted values to the Google Maps API (https:
+tweets annotated by hate speech labels and their corre- //maps.googleapis.com) to obtain structured loca-
+spondinguserprofilesinEnglish(WaseemandHovy,2016; tion information (city, state, country). We first count the
+Waseem,2016;Fountaetal.,2018),Italian(Sanguinettiet maincountrysourceandthenbinarizethecountrytoindi-
+al.,2018),Polish(Ptaszynskietal.,2019),Portuguese(For- cateifauserisinthemaincountryornot.Forexample,the
+tuna et al., 2019), and Spanish (Basile et al., 2019). We majorityofusersintheEnglisharefromtheUnitedStates
+binarize all tweets’ labels (indicating whether a tweet has (US), therefore, we can binarize the country attributes to
+indicationsofhatespeech),allowingtomergethedifferent indicateiftheusersareintheUSornot.
+labelsetsandreducethedatasparsity.
+Whetheratweetisconsideredhatespeechheavilydepends 2.2. CorpusSummary
+on who the speaker is; for example, whether a racial slur WeshowthecorpusstatisticsinTable1andsummarizethe
+isintendedashatespeechdependsinpartonthespeaker’s full demographic distributions in Table 2. The binary de-
+race (Waseem and Hovy, 2016). Therefore, hate speech mographicattributes(age,country,gender,race)canbring
+classifiersmaynotgeneralizewellacrossallgroupsofpeo- several benefits. First, we can create comparatively bal-
+ple,anddisparitiesinthedetectionoffensivespeechcould anced label distributions. We can observe that there are
+leadtobiasincontentmoderation(Shenetal.,2018). Our differencesintheraceandgenderamongItalianandPolish
+contributionistofurtherannotatethedatawithuserdemo- data,whileotherattributesacrosstheotherlanguagesshow
+graphic attributes inferred from their public profiles, thus comparably balanced demographic distributions. Second,
+creating a corpus suitable for evaluating author-level fair- wecanreduceerrorsinferredfromtheFace++oncoarsela-
+ness for this hate speech recognition task across multiple bels.Third,itismoreconvenientforustoanalyze,conduct
+languages. experiments and evaluate the group fairness of document
+classifiers.
+2.1. UserAttributeInference
+Weconsiderfouruserfactorsofage,race,genderandgeo- Language Users Docs Tokens HSRatio
+graphiclocation. Forlocation, weinferencetwogranular- English 64,067 83,077 20.066 .370
+ities,countryandUSregion,butonlyexperimentwiththe Italian 3,810 5,671 19.721 .195
+countryattribute. Whilethedemographicattributescanbe Polish 86 10,919 14.285 .089
+inferredthroughtweets(Volkovaetal., 2015; Davidsonet Portuguese 600 1,852 18.494 .205
+al., 2019), we intentionally exclude the contents from the Spanish 4,600 4,831 19.199 .397
+tweets if they infer these user attributes, in order to make
+theevaluationoffairnessmorereliableandindependent. If Table1:Statisticalsummaryofmultilingualcorporaacross
+usersweregroupedbasedonattributesinferredfromtheir English, Italian, Polish, Portuguese and Spanish. We
+text,thenanydifferencesintextclassificationacrossthose present number of users (Users), documents (Docs), and
+groupscouldberelatedtothesametext. Instead,weinfer average tokens per document (Tokens) in the corpus, plus
+attributesfrompublicuserprofileinformation(i.e.,descrip- the label distribution (HS Ratio, percent of documents la-
+tion,nameandphoto). beledpositiveforhatespeech).
+Age, Race, Gender. We infer these attributes from each Table1presentsdifferentpatternsofthecorpus. ThePol-
+user’s profile image by using Face++ (https://www. ish data has the smallest users. This is because the data
+faceplusplus.com/),acomputervisionAPIthatpro- focusesonthepeoplewhoownthemostpopularaccounts
+vides estimates of demographic characteristics. Empiri- in the Polish data (Ptaszynski et al., 2019), the other data
+calcomparisonsoffacialrecognitionAPIshavefoundthat collectedtweetsrandomly. Andthedatasetshowsamuch
+Face++ is the most accurate tool on Twitter data (Jung more sparse distribution of the hate speech label than the
+et al., 2018) and works comparatively better for darker otherlanguages.
+skins (Buolamwini and Gebru, 2018). For the gender, we Table2presentsdifferentpatternsoftheuserattributes.En-
+choosethebinarycategories(male/female)bythepredicted glish, Portuguese and Spanish users are younger than the
+ItalianandPolishusersinthecollecteddata.AndbothItal-
+3https://developer.twitter.com/ ian and Polish show more skewed demographic distribu-Language Age Country Gender Race
+Mean Median US non-US Female Male White non-White
+English
+32.041 29 .599 .401 .499 .501 .505 .495
+Mean Median Italy non-Italy Female Male White non-White
+Italian
+44.518 43 .778 .222 .307 .692 .981 .018
+Mean Median Poland non-Poland Female Male White non-White
+Polish
+39.245 38 .795 .205 .324 .676 .895 .105
+Mean Median Brazil non-Brazil Female Male White non-White
+Portuguese
+29.635 26 .437 .563 .569 .431 .508 .492
+Mean Median Spain non-Spain Female Male White non-White
+Spanish
+31.911 27 .339 .661 .463 .537 .549 .451
+Table 2: Statistical summary of user attributes in age, country, gender and race. For the age, we present both mean and
+medianvaluesincaseofoutliers. Fortheotherattributes,weshowbinarydistributions.
+tions in country, gender and race, while the other datasets torscanjointheevaluationtaskonlybypassingthegolden
+showmorebalanceddistributions. standard questions. We decide demographic attributes by
+majority votes and present evaluation results in Table 3.
+2.3. DemographicInferenceAccuracy OurfinalevaluationsshowthatoveralltheFace++achieves
+Image-based approaches will have inaccuracies, as a per- averaged accuracy scores of 82.8%, 88.4% and 94.4% for
+son’sdemographicattributescannotbeconclusivelydeter- age,raceandgenderrespectively.
+mined merely from their appearance. However, given the
+2.4. PrivacyConsiderations
+difficulty in obtaining ground truth values, we argue that
+To facilitate the study of classification fairness, we will
+automaticallyinferredattributescanstillbeinformativefor
+publiclydistributethisanonymizedcorpuswiththeinferred
+studyingclassifierfairness. Ifaclassifierperformssignifi-
+demographic attributes including both original and bina-
+cantlydifferentlyacrossdifferentgroupsofusers,thenthis
+rized versions. To preserve user privacy, we will not pub-
+showsthattheclassifierisbiasedalongcertaingroupings,
+licize the personal profile information, including user ids,
+even if those groupings are not perfectly aligned with the
+photos, geocoordinates as well as other user profile in-
+actualattributestheyarenamedafter. Thissubsectiontries
+formation, which were used to infer the demographic at-
+toquantifyhowreliablythesegroupingscorrespondtothe
+tributes. We will, however, provide inferred demographic
+demographicvariables.
+attributes in their original formats from the Face++ and
+Google Maps based on per request to allow wider re-
+Age Race Gender
+searchers and communities to replicate the methodology
+AnnotatorAgreement
+and probe more depth of fairness in document classifica-
+Face++ .80 .80 .98
+tion.
+Accuracy
+3. LanguageVariationsacross
+English .86 .90 .94
+Italian .82 .96 .98 DemographicGroups
+Polish .88 .96 .98 Demographicfactorscanimprovetheperformancesofdoc-
+Portuguese .82 .78 .92 umentclassifiers(Hovy,2015),anddemographicvariations
+Spanish .76 .82 .90 root in language, especially in social media data (Volkova
+Overall .828 .884 .944 et al., 2013; Hovy, 2015). For example, language styles
+arehighlycorrelatedwithauthors’demographicattributes,
+Table 3: Annotator agreement (percentage overlap) and
+such as age, race, gender and location (Coulmas, 2017;
+evaluationaccuracyforFace++.
+Preo¸tiuc-Pietro and Ungar, 2018). Research (Bolukbasi et
+Prior research found that Face++ achieves 93.0% and al., 2016; Zhao et al., 2017; Garg et al., 2018) find that
+92.0%accuracyongenderandethnicityevaluations(Jung biasesandstereotypesexistinwordembeddings,whichis
+etal.,2018). Wefurtherconductasmallevaluationonthe widelyusedindocumentclassificationtasks. Forexample,
+hatespeechcorpusbyasmallsampleofannotateduserpro- “receptionist” is closer to females while “programmer” is
+file photos providing a rough estimate of accuracy while closertomales, and“professor”isclosertoAsianAmeri-
+acknowledging that our annotations are not ground truth. canswhile“housekeeper”isclosertoHispanicAmericans.
+Weobtainedtheannotationsfromthecrowdsourcingweb- Thismotivatesustoexploreandtestifthelanguagevaria-
+site, Figure Eight (https://figure-eight.com/). tions hold in our particular dataset, how strong the effects
+Werandomlysampled50userswhoseattributescamefrom are.Weconducttheempiricalanalysisofdemographicpre-
+Face++ in each language. We anonymize the user pro- dictabilityontheEnglishdataset.
+filesandfeedtheinformationtothecrowdsourcingwebsite.
+3.1. AreDemographicFactorsPredictablein
+Threeannotatorsannotatedeachuserphotowiththebinary
+Documents?
+demographiccategories. Toselectqualifiedannotatorsand
+ensurequalityoftheevaluations, wesetup5goldenstan- Weexaminehowaccuratelythedocumentscanpredictau-
+dard annotation questions for each language. The annota- thordemographicattributesfromthreedifferentlevels:DemographicAttributes Top10FeaturesofDemographicAttributePrediction
+White nigga,fucking,ass,bro,damn,niggas,sir,moive,melon,bitches
+Race
+Other abuse,gg,feminism,wadhwa,feminists,uh,freebsd,feminist,ve,blocked
+Female rent,driving,tho,adorable,met,presented,yoga,stressed,awareness,me
+Gender
+Male idiot,the,players,match,idiots,sir,fucking,nigga,bro,trump
+Table4: Top10predictablefeaturesofraceandgenderintheEnglishdataset.
+1. Word-level. WeextractTF-IDF-weighted1-,2-grams
+features.
+2. POS-level. WeuseTweeboparser(Kongetal.,2014)
+totagandextractPOSfeatures. WecountthePOStag
+andthennormalizethecountsforeachdocument.
+3. Topic-level. We train a Latent Dirichlet Alloca-
+tion (Blei et al., 2003) model with 20 topics using
+Gensim (Rehurek and Sojka, 2010) with default pa-
+rameters. Then a document can be represented as a
+probabilisticdistributionoverthe20topics.
+Weshuffleandsplitdataintotraining(70%)andtest(30%)
+sets.Threelogisticclassifiersaretrainedbythethreelevels
+offeaturesseparately. Wemeasurethepredictionaccuracy
+andshowtheabsoluteimprovementsinFigure1.
+pos
+topic
+word
+age country gender race
+Demographic Factors
+serutaeF
+The Table 4 shows that when classifying hate speech
+tweets, the n-words and b-words are more significant cor-
+related with the white instead of the other racial groups.
+However, this shows an opposite view than the existing
+work(Davidsonetal.,2019),whichpresentsthetwotypes
+of words are more significantly correlated with the black.
+Thiscanhighlightthevaluesofourapproachthattoavoid
+confounding errors, we obtain author demographic infor-
+mationindependentlyfromtheusergenerateddocuments.
+4. Experiments
+Demographic variations root in documents, especially in
+social media data (Volkova et al., 2013; Hovy, 2015; Jo-
+hannsenetal.,2015). Suchvariationscouldfurtherimpact
+the performance and fairness of document classifiers. In
+thisstudy,weexperimentfourdifferentclassificationmod-
+elsincludinglogisticregression(LR),recurrentneuralnet-
+work(RNN)(Chungetal.,2014),convolutionalneuralnet-
+11.5 5.0 8.1 6.4 work(CNN)(Kim,2014)andGoogleBERT(Devlinetal.,
+2019). Wepresentthebaselineresultsofbothperformance
+andfairnessevaluationsacrossthemultilingualcorpus.
+13.7 11.9 9.4 9.6 4.1. DataPreprocessing
+To anonymize user information, we hash user and tweet
+ids and then replace hyperlinks, usernames, and hashtags
+16.1 16.7 11.7 11.7 with generic symbols (URL, USER, HASHTAG). Docu-
+mentsarelowercasedandtokenizedusingNLTK(Birdand
+Loper, 2004). The corpus is randomly split into training
+(70%), development (15%), and test (15%) sets. We train
+the models on the training set and find the optimal hyper-
+Figure 1: Predictability of demographic attributes from
+parametersonthedevelopmentsetbeforefinalevaluations
+the English data. We show the absolute percentage im-
+onthetestset. Werandomlyshufflethetrainingdataatthe
+provementsinaccuracyovermajority-classbaselines. The
+beginningofeachtrainingepoch.
+majority-classbaselinesofaccuracyare.500forthebinary
+predictions. The darker color indicates higher improve-
+4.2. BaselineModels
+mentsandviceversa.
+We implement and experiment four baseline classification
+The improved prediction accuracy scores over majority
+models. To compare fairly, we keep the feature size up to
+baselines suggest that language variations across demo-
+15K for each classifier across all five languages. We cal-
+graphicgroupsareencodedinthetextdocuments. There-
+culatetheweightforeachdocumentcategoryby N (King
+sults show that documents are the most predictable to the Nl
+andZeng, 2001), whereN isthenumberofdocumentsin
+age attribute. We can also observe that the word is the
+eachlanguageandN isthenumberofdocumentslabeled
+mostpredictablefeaturetodemographicfactors,whilethe l
+bythecategory. Particularly,fortrainingBERTmodel,we
+POS feature is least predictable towards the country fac-
+appendtwoadditionaltokens,“[CLS]”and“[SEP]”,atthe
+tor. These suggest there might be a connection between
+start and end of each document respectively. For the neu-
+language variations and demographic groups. This moti-
+ralmodels,wepadeachdocumentordroprestofwordsup
+vatesustofurtherexplorethelanguagevariationsbasedon
+to40tokens. Weuse“unknown”asareplacementforun-
+wordfeatures. Werankthewordfeaturesbymutualinfor-
+known tokens. We initialize CNN and RNN classifiers by
+mation classification (Pedregosa et al., 2011) and present
+pre-trainedwordembeddings(Mikolovetal.,2013;Godin
+thetop10unigramfeaturesinTable4. Thequalitativere-
+etal.,2015;Bojanowskietal.,2017;Deriuetal.,2017)and
+sults show the most predictable word features towards the
+trainthenetworksupto10epochs.
+demographic groups and suggest such variations may im-
+pact extracted feature representations and further training LR. We first extract TF-IDF-weighted features of uni-
+fairdocumentclassifiers. , bi-, and tri-grams on the corpora, using the most fre-Language Method Acc F1-w F1-m AUC Language Method Acc F1-w F1-m AUC
+LR .874 .874 .841 .920 LR .660 .679 .631 .725
+CNN .878 .877 .845 .927 CNN .687 .702 .651 .745
+English Italian
+RNN .898 .896 .867 .938 RNN .729 .731 .666 .763
+BERT .705 .635 .579 .581 BERT .697 .629 .468 .498
+Language Method Acc F1-w F1-m AUC Language Method Acc F1-w F1-m AUC
+LR .864 .846 .653 .804 LR .660 .598 .551 .648
+CNN .855 .851 .688 .813 CNN .681 .674 .653 .719
+Polish Portuguese
+RNN .857 .854 .696 .822 RNN .607 .586 .553 .633
+BERT .824 .782 .478 .474 BERT .613 .568 .525 .524
+Language Method Acc F1-w F1-m AUC
+LR .704 .707 .698 .761
+CNN .650 .654 .645 .710
+Spanish
+RNN .674 .674 .658 .720
+BERT .605 .573 .502 .505
+Table5: Overallperformanceevaluationofbaselineclassifiers. Weevaluateoverallperformancebyfourmetricsincluding
+accuracy(Acc),weightedF1score(F1-w),macroF1score(F1-m)andareaundertheROCcurve(AUC).Thehigherscore
+indicatesbetterperformance. Wehighlightmodelsachievethebestperformanceineachcolumn.
+quent15Kfeatureswiththeminimumfeaturefrequencyas their default, conduct fine-tuning steps with 4 epochs and
+2. Wethen traina LogisticRegression fromscikit- set batch size as 32 (Sun et al., 2019a). The classification
+learn (Pedregosa et al., 2011). We use “liblinear” as the modelloads“bert-base-uncased”pre-trainedBERTmodel
+solverfunctionandleavetheotherparametersasdefault. forEnglishand“bert-base-multilingual-uncased”multilin-
+gual BERT model (Gertner et al., 2019) for the other lan-
+CNN. WeimplementtheConvolutionalNeuralNetwork
+guages. The multilingual BERT model follows the same
+(CNN) classifier described in (Kim, 2014; Zimmerman et
+methodofBERTbyusingWikipediatextfromthetop104
+al.,2018)byKeras(Cholletandothers,2015). Wefirstap-
+languages. Due to the label imbalance shown in Table 1,
+ply100filterswiththreedifferentkernelsizes,3,4and5.
+we balance training instances by randomly oversampling
+Aftertheconvolutionoperations,wefeedtheconcatenated
+theminorityduringthetrainingprocess.
+features to a fully connected layer and output document
+representationswith100dimensions. Weapply“softplus” 4.3. EvaluationMetrics
+functionwithal2regularizationwith.03andadropoutrate
+Performance Evaluation. To measure overall perfor-
+with .3 in the dense layer. The model feeds the document
+mance, we evaluate models by four metrics: accuracy
+representationtofinalprediction. Wetrainthemodelwith
+(Acc), weighted F1 score (F1-w), macro F1 score (F1-
+batch size 64, set model optimizer as Adam (Kingma and
+m) and area under the ROC curve (AUC). The F1 score
+Ba, 2014) and calculate loss values by the cross entropy
+coherently combines both precision and recall by 2 ∗
+function. Wekeepallotherparametersettingsasdescribed precision∗recall. We report F1-m considering that the
+inthepaper(Kim,2014). precision+recall
+datasetsareimbalanced.
+RNN. We build a recurrent neural network (RNN) clas- Fairness Evaluation. To evaluate group fairness, we
+sifier by using bi-directional Gated Recurrent Unit (bi- measure the equality differences (ED) of true posi-
+GRU) (Chung et al., 2014; Park et al., 2018). We set the tive/negative and false positive/negative rates for each de-
+output dimension of GRU as 200 and apply a dropout on mographicfactor. EDisastandardmetrictoevaluatefair-
+the output with rate .2. We optimize the RNN with RM- ness and bias of document classifiers (Dixon et al., 2018;
+Sprop(TielemanandHinton, 2012)andusethesameloss Parketal.,2018;Gargetal.,2019).
+function and batch size as the CNN model. We leave the This metric sums the differences between the rates within
+other parameters as default in the Keras (Chollet and oth- specificusergroupsandtheoverallrates. Takingthefalse
+ers,2015). positiverate(FPR)asanexample,wecalculatetheequality
+differenceby:
+BERT BERTisatransformer-basedpre-trainedlanguage
+model which was well trained on multi-billion sentences (cid:88)
+FPED = |FPR −FPR|
+d
+publicly available on the web (Devlin et al., 2019), which
+d∈D
+caneffectivelygeneratetheprecisetextsemanticsanduse-
+ful signals. We implement a BERT-based classification , where D is a demographic factor (e.g., race) and d is a
+modelbyHuggingFace’sTransformers(Wolfetal.,2019). demographicgroup(e.g.,whiteornonwhite).
+The model encodes each document into a fixed size (768)
+5. Results
+ofrepresentationandfeedtoalinearpredictionlayer. The
+modelisoptimizedbyAdamWwithawarmupandlearning We have presented our evaluation results of performance
+rate as .1 and 2e−5 respectively. We leave parameters as and fairness in Table 5 and Table 6 respectively. Countryand race have very skewed distributions in the Italian and variations across demographic groups can lead to biased
+Polish corpora, therefore, we omit fairness evaluation on classifiers. Thisdatasetcanbeusedformeasuringfairness
+thetwofactors. of document classifiers along author-level attributes and
+exploringbiasfactorsacrossmultilingualsettingsandmul-
+Overall performance evaluation. Table 5 demonstrates
+tiple user factors. The proposed framework for inferring
+theperformancesofthebaselineclassifiersforhatespeech
+the author demographic attributes can be used to generate
+classification on the corpus we proposed. Results are
+more large-scale datasets or even applied to other social
+obtained from the five languages covered in our corpus
+media sites (e.g., Amazon and Yelp). While we encode
+respectively. Among the four baseline classifiers, LR,
+the demographic attributes into categories in this work,
+CNNandRNNconsistentlyperformwellonalllanguages.
+we will provide inferred probabilities of the demographic
+Moreover, neural-basedmodels(CNNandRNN)substan-
+attributes from Face++ to allow for broader research
+tiallyoutperformLRonfouroutoffivelanguages(except
+exploration. Our code, anonymized data and data state-
+Spanish). However,theresultsobtainedbyBERTarerela-
+ment (Bender and Friedman, 2018) will be publicly avail-
+tivelylowerthantheotherbaselines,andshowmoresignif-
+able at https://github.com/xiaoleihuang/
+icantgapintheEnglishdataset. Onepossibleexplanation
+Multilingual_Fairness_LREC.
+is BERT was pre-trained on Wikipedia documents, which
+aresignificantlydifferentfromtheTwittercorpusindocu-
+mentlength,wordusageandgrammars. Forexample,each 6.1. Limitations
+tweetisashortdocumentwith20tokens,buttheBERTis
+Whileourdatasetprovidesnewinformationonauthorde-
+trained on long documents up to 512 tokens. Existing re-
+mographic attributes, and our analysis suggest directions
+searchsuggeststhatfine-tuningonthemultilingualcorpus
+toward reducing bias, a number of limitations must be ac-
+canfurtherimproveperformanceofBERTmodels(Sunet
+knowledgedinordertoappropriatelyinterpretourfindings.
+al.,2019a).
+First, inferring user demographic attributes by profile in-
+Groupfairnessevaluation. Wehavemeasuredthegroup
+formation can be risky due to the accuracy of the infer-
+fairnessinTable6. Generally,theRNNclassifierachieves
+ence toolkit. In this work, we present multiple strategies
+better and more stable performance across major fairness
+toreducetheerrorsbringingbytheinferencetoolkits,such
+evaluationtasks. Bycomparingthedifferentbaselineclas-
+as human evaluation, manually screening and using exter-
+sifiers, we can find out that the LR usually show stronger
+nal public profile information (Instagram). However, we
+biases than the neural classification models among major-
+cannot guarantee perfect accuracy of the demographic at-
+ityofthetasks. WhiletheBERTclassifierperformscom-
+tributes, and, errors in the attributes may themselves be
+paratively lower accuracy and F1 scores, the classifier has
+“unfair” or unevenly distributed due to bias in the infer-
+lessbiasesonthemostofthedatasets. However,biasescan
+encetools(BuolamwiniandGebru,2018). Still,obtaining
+significantlyincreasesforthePortuguesedatasetwhenthe
+individual-level attributes is an important step toward un-
+BERTclassifierachievesbetterperformance. Weexamine
+derstandingclassifierfairness,andourresultsfoundbiases
+therelationshipbybuildinglinearmodelbetweentwodif-
+acrossthesegroupingsofusers,evenifsomeofthegroup-
+ferences: the performance differences between the RNN
+ingscontainederrors.
+and other classifiers, the SUM-ED differences between
+Second, because methods for inferring demographic at-
+RNN and other classifiers. We find that the classification
+tributes are not accurate enough to provide fine-grained
+performancedoesnothavesignificantly(p−value>.05)
+information, our attribute categories are still too coarse-
+correlationwithfairnessandbias. Thesignificantbiasesof
+grained(binaryagegroupsandgender, andonlyfourrace
+classifiersvariesacrosstasksandlanguages: theclassifiers
+categories). Using coarse-grained attributes would hide
+trainedonPolishandItalianarebiasedthemostbyAgeand
+the identities of specific demographic groups, including
+Gender, the classifiers trained on Spanish and Portuguese
+otherracialminoritiesandpeoplewithnon-binarygender.
+are most biased the most by Country, and the classifiers
+Broadening our analyses and evaluations to include more
+trained on English tweets are the most unbiased through-
+attributevaluesmayrequirebettermethodsofuserattribute
+outalltheattributes.Classifiersusuallyhaveveryhighbias
+inferenceordifferentsourcesofdata.
+scores on both gender and age in Italian and Polish data.
+Third, language variations across demographic groups
+Wefindthattheageandgenderbothhaveveryskeweddis-
+might introduce annotation biases. Existing research (Sap
+tributions in the Italian and Polish datasets. Overall, our
+et al., 2019) shows that annotators are more likely to an-
+baselines provide a promising start for evaluating future
+notate tweets containing African American English words
+newmethodsofreducingdemographicbiasesfordocument
+as hate speech. Additionally, the nationality and educa-
+classificationunderthemultilingualsetting.
+tional level might also impact on the quality of annota-
+tions (Founta et al., 2018). Similarly, different annotation
+6. Conclusion
+sourcesofourdataset(whichmergedtwodifferentcorpora)
+Inthispaper,weproposeanewmultilingualdatasetcover- mighthavevariationsinannotatingschema. Toreducean-
+ingfourauthordemographicannotations(age,gender,race notationbiasesduetothedifferentannotatingschema, we
+and country) for the hate speech detection task. We show mergetheannotationsintothetwomostcompatibledocu-
+the experimental results of several popular classification ment categories: normal and hate speech. Annotation bi-
+models in both overall and fairness performance evalua- asesmightstillexist,therefore,wewillreleaseouroriginal
+tions. Our empirical exploration indicates that language anonymizedmultilingualdatasetforresearchcommunities.Age Gender
+Language Method FNED FPED SUM-ED Language Method FNED FPED SUM-ED
+LR .059 .104 .163 LR .023 .056 .079
+CNN .052 .083 .135 CNN .018 .056 .074
+English English
+RNN .041 .118 .159 RNN .013 .055 .068
+BERT .004 .012 .016 BERT .007 .009 .016
+Language Method FNED FPED SUM-ED Language Method FNED FPED SUM-ED
+LR .076 .194 .270 LR .145 .020 .165
+CNN .003 .211 .214 CNN .064 .094 .158
+Italian Italian
+RNN .042 .185 .227 RNN .088 .075 .163
+BERT .029 .034 .063 BERT .041 .056 .097
+Language Method FNED FPED SUM-ED Language Method FNED FPED SUM-ED
+LR .256 .059 .315 LR .266 .045 .309
+CNN .389 .138 .527 CNN .411 .048 .459
+Polish Polish
+RNN .335 .089 .424 RNN .340 .034 .374
+BERT .027 .027 .054 BERT .042 .013 .055
+Language Method FNED FPED SUM-ED Language Method FNED FPED SUM-ED
+LR .061 .044 .105 LR .052 .007 .059
+CNN .033 .096 .129 CNN .018 .013 .031
+Portuguese Portuguese
+RNN .079 .045 .124 RNN .099 .083 .182
+BERT .090 .097 .187 BERT .055 .125 .180
+Language Method FNED FPED SUM-ED Language Method FNED FPED SUM-ED
+LR .089 .013 .102 LR .131 .061 .292
+CNN .117 .139 .256 CNN .032 .108 .140
+Spanish Spanish
+RNN .078 .083 .161 RNN .030 .039 .069
+BERT .052 .015 .067 BERT .021 .016 .037
+Country Race
+Language Method FNED FPED SUM-ED Language Method FNED FPED SUM-ED
+LR .026 .053 .079 LR .019 .056 .075
+CNN .027 .063 .090 CNN .007 .029 .036
+English English
+RNN .024 .061 .085 RNN .008 .063 .071
+BERT .006 .001 .007 BERT .003 .009 .012
+Language Method FNED FPED Language Method FNED FPED SUM-ED
+LR .093 .026 .119 LR .068 .005 .073
+CNN .110 .122 .232 CNN .056 .033 .089
+Portuguese Portuguese
+RNN .022 .004 .026 RNN .074 .054 .128
+BERT .073 .071 .144 BERT .045 .186 .231
+Language Method FNED FPED SUM-ED Language Method FNED FPED SUM-ED
+LR .152 .154 .306 LR .095 .030 .125
+CNN .089 .089 .178 CNN .072 .054 .126
+Spanish Spanish
+RNN .071 .113 .184 RNN .011 .004 .015
+BERT .017 .017 .034 BERT .046 .005 .051
+Table6: Fairnessevaluationofbaselineclassifiersacrossthefivelanguagesonthefourdemographicfactors. Wemeasure
+fairnessandbiasofdocumentclassifiersbyequalitydifferencesoffalsenegativerate(FNED),falsepositiverate(FPED)
+andsumofFNEDandFPED(SUM-ED).Thehigherscoreindicateslowerfairnessandhigherbiasandviceversa.7. Acknowledgement WWW ’17, pages 1045–1052, Republic and Canton
+of Geneva, Switzerland. International World Wide Web
+Theauthorsthanktheanonymousreviewsfortheirinsight-
+ConferencesSteeringCommittee.
+fulcommentsandsuggestions. Thisworkwassupportedin
+partbytheNationalScienceFoundationunderawardnum- Devlin, J., Chang, M.-W., Lee, K., and Toutanova, K.
+berIIS-1657338. Thisworkwasalsosupportedinpartby (2019). BERT: Pre-training of deep bidirectional trans-
+aresearchgiftfromAdobe. formers for language understanding. In NAACL, pages
+4171–4186,Minneapolis,Minnesota,June.ACL.
+8. BibliographicalReferences Diaz, M., Johnson, I., Lazar, A., Piper, A. M., and Ger-
+gle,D. (2018). Addressingage-relatedbiasinsentiment
+Basile, V., Bosco, C., Fersini, E., Nozza, D., Patti, V.,
+analysis. In Proceedings of the 2018 CHI Conference
+Rangel Pardo, F. M., Rosso, P., and Sanguinetti, M.
+onHumanFactorsinComputingSystems,pages412:1–
+(2019). SemEval-2019task5: Multilingualdetectionof
+412:14.
+hate speech against immigrants and women in twitter.
+Dixon, L., Li, J., Sorensen, J., Thain, N., and Vasserman,
+In Proceedings of the 13th International Workshop on
+L. (2018). Measuringandmitigatingunintendedbiasin
+Semantic Evaluation, pages 54–63, Minneapolis, Min-
+textclassification. InAIES,pages67–73.
+nesota,USA,June.ACL.
+Fortuna,P.,RochadaSilva,J.,Soler-Company,J.,Wanner,
+Bender, E. M. and Friedman, B. (2018). Data statements
+L., andNunes, S. (2019). Ahierarchically-labeledPor-
+fornaturallanguageprocessing: Towardmitigatingsys-
+tuguesehatespeechdataset. InProceedingsoftheThird
+tembiasandenablingbetterscience. Transactionsofthe
+WorkshoponAbusiveLanguageOnline,pages94–104.
+AssociationforComputationalLinguistics,6:587–604.
+Founta, A. M., Djouvas, C., Chatzakou, D., Leontiadis,
+Bird, S. and Loper, E. (2004). Nltk: the natural language
+I., Blackburn, J., Stringhini, G., Vakali, A., Sirivianos,
+toolkit. In Proceedings of the ACL 2004 on Interactive
+M., andKourtellis, N. (2018). Largescalecrowdsourc-
+posteranddemonstrationsessions,page31.
+ing and characterization of twitter abusive behavior. In
+Blei, D. M., Ng, A. Y., and Jordan, M. I. (2003). Latent
+ICWSM.
+dirichlet allocation. Journal of Machine Learning Re-
+search,3(Jan):993–1022. Garg, N., Schiebinger, L., Jurafsky, D., and Zou, J.
+(2018). Wordembeddingsquantify100yearsofgender
+Bojanowski, P., Grave, E., Joulin, A., and Mikolov, T.
+and ethnic stereotypes. National Academy of Sciences,
+(2017). Enriching word vectors with subword informa-
+115:E3635–E3644.
+tion. TransactionsoftheAssociationforComputational
+Linguistics,5:135–146. Garg, S., Perot, V., Limtiaco, N., Taly, A., Chi, E.H., and
+Bolukbasi,T.,Chang,K.-W.,Zou,J.Y.,Saligrama,V.,and Beutel,A. (2019). Counterfactualfairnessintextclassi-
+Kalai,A.T. (2016). Manistocomputerprogrammeras ficationthroughrobustness. InAIES.
+woman is to homemaker? debiasing word embeddings. Gertner,A.,Henderson,J.,Merkhofer,E.,Marsh,A.,Well-
+InNIPS,pages4349–4357. ner, B., and Zarrella, G. (2019). MITRE at SemEval-
+Borkan,D.,Dixon,L.,Sorensen,J.,Thain,N.,andVasser- 2019 task 5: Transfer learning for multilingual hate
+man, L. (2019). Nuanced metrics for measuring un- speech detection. In Proceedings of the 13th Interna-
+intended bias with real data for text classification. In tional Workshop on Semantic Evaluation, pages 453–
+WWW. 459,Minneapolis,Minnesota,USA,June.ACL.
+Buolamwini, J.andGebru, T. (2018). Gendershades: In- Godin, F., Vandersmissen, B., De Neve, W., and Van de
+tersectional accuracy disparities in commercial gender Walle,R. (2015). Multimedialab@ACLWNUTNER
+classification. In Conference on Fairness, Accountabil- shared task: Named entity recognition for twitter mi-
+ityandTransparency,pages77–91. cropostsusingdistributedwordrepresentations. InPro-
+Chollet,F.etal. (2015). Keras. https://keras.io. ceedingsoftheWorkshoponNoisyUser-generatedText,
+Chouldechova, A. and Roth, A. (2018). The fron- pages146–153,Beijing,China,July.ACL.
+tiers of fairness in machine learning. arXiv preprint Hovy, D. (2015). Demographic factors improve classifi-
+arXiv:1810.08810. cation performance. In Proceedings of the 53rd Annual
+Chung, J., Gulcehre, C., Cho, K., and Bengio, Y. (2014). Meeting of the Association for Computational Linguis-
+Empiricalevaluationofgatedrecurrentneuralnetworks tics,pages752–762.
+on sequence modeling. In NIPS 2014 Workshop on Huang, X. and Paul, M. J. (2019). Neural user factor
+DeepLearning. adaptation for text classification: Learning to general-
+Coulmas,F. (2017). Sociolinguistics:thestudyofspeakers ize across author demographics. In Proceedings of the
+choice;secondedition. CambridgeUniversityPress. Eighth Joint Conference on Lexical and Computational
+Davidson, T., Bhattacharya, D., and Weber, I. (2019). Semantics,pages46–56.
+Racial bias in hate speech and abusive language detec- Johannsen, A., Hovy, D., and Søgaard, A. (2015). Cross-
+tiondatasets. InProceedingsoftheThirdWorkshopon lingual syntactic variation over age and gender. In Pro-
+AbusiveLanguageOnline,pages25–35.ACL. ceedings of the Nineteenth Conference on Computa-
+Deriu, J., Lucchi, A., De Luca, V., Severyn, A., Müller, tionalNaturalLanguageLearning,pages103–112,Bei-
+S., Cieliebak, M., Hofmann, T., and Jaggi, M. (2017). jing,China,July.ACL.
+Leveraging large amounts of weakly supervised data Jung, S.-G., An, J., Kwak, H., Salminen, J., and Jansen,
+for multi-language sentiment classification. In WWW, B.J. (2018). Assessingtheaccuracyoffourpopularfacerecognition tools for inferring gender, age, and race. In (2019). The risk ofracial biasin hatespeechdetection.
+ICWSM. InProceedingsofthe57thAnnualMeetingoftheAsso-
+Kim, Y. (2014). Convolutional neural networks for sen- ciationforComputationalLinguistics,pages1668–1678,
+tenceclassification. InProceedingsofthe2014Confer- July.
+ence on Empirical Methods in Natural Language Pro- Shen, Q., Yoder, M., Jo, Y., andRose, C. (2018). Percep-
+cessing (EMNLP), pages 1746–1751, Doha, Qatar, Oc- tions of censorship and moderation bias in political de-
+tober.ACL. bateforums. InICWSM.
+King, G. and Zeng, L. (2001). Logistic regression in rare Sun, C., Qiu, X., Xu, Y., and Huang, X. (2019a). How
+eventsdata. Politicalanalysis,9(2):137–163. to fine-tune bert for text classification? arXiv preprint
+Kingma, D. P. and Ba, J. (2014). Adam: A arXiv:1905.05583.
+method for stochastic optimization. arXiv preprint Sun,T.,Gaut,A.,Tang,S.,Huang,Y.,ElSherief,M.,Zhao,
+arXiv:1412.6980. J., Mirza, D., Belding, E., Chang, K.-W., and Wang,
+W. Y. (2019b). Mitigating gender bias in natural lan-
+Kiritchenko, S. and Mohammad, S. (2018). Examining
+guage processing: Literature review. In Proceedings of
+gender and race bias in two hundred sentiment analysis
+the57thAnnualMeetingoftheAssociationforCompu-
+systems. InProceedingsoftheSeventhJointConference
+tationalLinguistics,pages1630–1640.
+onLexicalandComputationalSemantics,pages43–53.
+Tieleman,T.andHinton,G. (2012). Lecture6.5-rmsprop:
+Kong, L., Schneider, N., Swayamdipta, S., Bhatia, A.,
+Divide the gradient by a running average of its recent
+Dyer, C., and Smith, N. A. (2014). A dependency
+magnitude. COURSERA: Neural networks for machine
+parserfortweets. InProceedingsofthe2014Conference
+learning,4(2):26–31.
+on Empirical Methods in Natural Language Processing,
+Volkova,S.,Wilson,T.,andYarowsky,D. (2013). Explor-
+pages1001–1012.
+ing demographic language variations to improve multi-
+Maier,W.andGómez-Rodríguez,C. (2014). Languageva-
+lingual sentiment analysis in social media. In Proceed-
+rietyidentificationinSpanishtweets. InProceedingsof
+ings of the 2013 Conference on Empirical Methods in
+the EMNLP’2014 Workshop on Language Technology
+NaturalLanguageProcessing,pages1815–1827.
+for Closely Related Languages and Language Variants,
+Volkova,S.,Bachrach,Y.,Armstrong,M.,andSharma,V.
+pages25–35,Doha,Qatar,October.ACL.
+(2015). Inferring latent user properties from texts pub-
+Mikolov, T., Sutskever, I., Chen, K., Corrado, G. S., and
+lishedinsocialmedia. InAAAI.
+Dean, J. (2013). Distributed representations of words
+Waseem,Z.andHovy,D. (2016). Hatefulsymbolsorhate-
+and phrases and their compositionality. In NIPS, pages
+ful people? predictive features for hate speech detec-
+3111–3119.
+tion on twitter. In Proceedings of the NAACL student
+Park,J.H.,Shin,J.,andFung,P. (2018). Reducinggender
+researchworkshop,pages88–93.
+biasinabusivelanguagedetection. InProceedingsofthe
+Waseem,Z. (2016). Areyouaracistoramiseeingthings?
+2018ConferenceonEMNLP,pages2799–2804.
+annotator influence on hate speech detection on twitter.
+Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V.,
+In Proceedings of the first workshop on NLP and com-
+Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P.,
+putationalsocialscience,pages138–142.
+Weiss,R.,Dubourg,V.,etal. (2011). Scikit-learn: Ma-
+Wolf, T., Debut, L., Sanh, V., Chaumond, J., Delangue,
+chine learning in python. Journal of machine learning
+C., Moi, A., Cistac, P., Rault, T., Louf, R., Funtow-
+research,12(Oct):2825–2830.
+icz, M., andBrew, J. (2019). Huggingface’stransform-
+Preo¸tiuc-Pietro, D. and Ungar, L. (2018). User-level race
+ers: State-of-the-artnaturallanguageprocessing. ArXiv,
+andethnicitypredictorsfromtwittertext. InProceedings
+abs/1910.03771.
+of the 27th International Conference on Computational
+Wulczyn, E., Thain, N., and Dixon, L. (2017). Ex
+Linguistics,pages1534–1545.
+machina:Personalattacksseenatscale. InWWW,pages
+Ptaszynski, M., Pieciukiewicz, A., and Dybała, P. (2019).
+1391–1399.
+Results of the poleval 2019 shared task 6: First dataset
+Zhao, J., Wang, T., Yatskar, M., Ordonez, V., and Chang,
+andopensharedtaskforautomaticcyberbullyingdetec-
+K.-W. (2017). Men also like shopping: Reducing gen-
+tioninpolishtwitter. InProceedingsofthePolEval2019
+derbiasamplificationusingcorpus-levelconstraints. In
+Workshop,page89.
+Proceedingsofthe2017ConferenceonEmpiricalMeth-
+Rehurek,R.andSojka,P. (2010). Softwareframeworkfor
+odsinNaturalLanguageProcessing.
+topicmodellingwithlargecorpora. InInProceedingsof
+Zimmerman, S., Kruschwitz, U., andFox, C. (2018). Im-
+theLREC2010WorkshoponNewChallengesforNLP
+provinghatespeechdetectionwithdeeplearningensem-
+Frameworks.
+bles. In Proceedings of the Eleventh International Con-
+Sanguinetti, M., Poletto, F., Bosco, C., Patti, V., and ference on Language Resources and Evaluation (LREC
+Stranisci, M. (2018). An Italian twitter corpus of 2018).
+hate speech against immigrants. In Proceedings of
+the Eleventh International Conference on Language
+Resources and Evaluation (LREC 2018), Miyazaki,
+Japan,May.EuropeanLanguageResourcesAssociation
+(ELRA).
+Sap, M., Card, D., Gabriel, S., Choi, Y., andSmith, N.A.
